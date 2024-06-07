@@ -17,8 +17,6 @@ TTF_Font* NotoMath = NULL;
 character text[256];
 character FileTab[4];
 
-float RightTextMargin = 425.f;
-
 
 SDL_Texture* textTextures[256];
 vector2_int textTextureSizeVectors[256];
@@ -28,6 +26,7 @@ SDL_FRect fileTabBKG = { 15.f, 13.f, 90.f, 40.f };
 Uint8 FileBKG_R = 0xD6, FileBKG_G = 0xDC, FileBKG_B = 0xDE;
 
 SDL_FRect TextBKG = { 15.f, 56.f, 420.f, 560.f };
+float RightTextMargin = 425.f;
 
 #ifdef WINDOWS
 
@@ -278,7 +277,13 @@ int main(int argc, char *argv[]) {
 
 					// Border scaling
 					BorderSize = 10.f * common_scale;
+					// Text Background Scaling
+					TextBKG.x = 15.f * common_scale;
+					TextBKG.w = scr_floatwid - 60.f;
+					RightTextMargin = TextBKG.x + TextBKG.w - 10.f;
 
+					TextBKG.y = 56.f * common_scale;
+					TextBKG.h = scr_floathei - TextBKG.y - 24.f;
 					break;
 				case SDL_EVENT_WINDOW_RESIZED:
 					break;
@@ -436,96 +441,37 @@ int main(int argc, char *argv[]) {
 					SDL_SetCursor(ibeam);
 				}
 				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x22);
+				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
 				RD::FillFRectFromInputRect(TextBKG);
 				for (int i = 0; i <= 255; i++) {
 					if (text[i].letter_texture != NULL) {
 
-						text[i].x = 16.f + (32.f * static_cast<float>(i));
-
-						if (i > 0) {
-							if (text[i-1].w < 20.f) {
-								if (text[i - 1].w < 12.f) {
-									if (text[i - 1].w < 10.f) {
-										text[i].x -= 22.f;
-									}
-									else {
-										text[i].x -= 20.f;
-									}
-								}
-								else {
-									if (text[i - 1].w > 18.f) {
-										text[i].x -= 16.f;
-									}
-									else {
-										text[i].x -= 14.f;
-									}
-								}
-							}
-							else if (text[i - 1].w > 28.f) {
-								if (text[i - 1].w > 35.f) {
-									if (text[i - 1].w > 39.f) {
-										text[i].x += 20.f;
-									}
-									else {
-										text[i].x += 16.f;
-									}
-								}
-								else {
-									text[i].x += 8.f;
-								}
-							}
+						if (i == 0) {
+							text[i].x = TextBKG.x + 10.f;
+							text[i].y = TextBKG.y + 4.f;
+						}
+						else {
+							text[i].x = (text[i - 1].x + text[i - 1].w) + 2.5f;
+							text[i].y = text[i - 1].y;
 						}
 
-						text[i].y = 60.f;
-
-						if (i > 0) {
-							if (text[i].x < (text[i - 1].x + text[i - 1].w)) {
-								while (text[i].x < (text[i - 1].x + text[i - 1].w)) {
-									text[i].x++;
-								}
-							}
-						}
+						
 						if (text[i].x + text[i].w > RightTextMargin) {
 							while (text[i].x + text[i].w > RightTextMargin) {
-								text[i].x = text[i].x - (RightTextMargin-20.f);
-								text[i].y = text[i].y+50.f;
-							}
-							if (i > 0 && text[i - 1].w < 18.f) {
-								text[i].x += 16.f;
-							}
-							if (text[i].x < 15.f) {
-								text[i].x += 17.f;
+								text[i].x = text[i].x - (RightTextMargin - 20.f);
+								text[i].y = text[i].y + 50.f;
 							}
 						}
 						if (i > 0) {
-							for (int j = 0; j < 6; j++) {
-								if (text[i].x < (text[i - 1].x + text[i - 1].w) && text[i-1].y == text[i].y) {
-									while (text[i].x < (text[i - 1].x + text[i - 1].w)) {
-										text[i].x++;
-									}
-									if (text[i].x + text[i].w > RightTextMargin) {
-										while (text[i].x + text[i].w > RightTextMargin) {
-											text[i].x = text[i].x - (RightTextMargin - 20.f);
-											text[i].y = text[i].y + 50.f;
-										}
-										if (i > 0 && text[i - 1].w < 18.f) {
-											text[i].x += 16.f;
-										}
-										if (text[i].x < 15.f) {
-											text[i].x += 17.f;
-										}
-									}
-								}
-							}
-							if (text[i - 1].y > text[i].y) {
-								text[i - 1].y = text[i].y;
+							if (text[i - 1].y < text[i].y) {
+								text[i].x = (TextBKG.x + 10.f);
 							}
 						}
 						
 						text[i].drawCharacter();
 					}
 				}
-
+				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
 				SDL_RenderPresent(main_renderer);
 			}
 		}
