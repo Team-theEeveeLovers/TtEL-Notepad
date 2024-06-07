@@ -4,7 +4,14 @@
 #include "TextRenderer.h"
 #include "VectorTypes.h"
 #include "../globals.h"
+#include <SDL3_ttf/SDL_ttf.h>
+
+#include <string>
+using namespace std;
 extern SDL_Renderer* main_renderer;
+extern SDL_Texture* textTextures[256];
+extern vector2_int textTextureSizeVectors[256];
+extern vector2_int textTextureSourceVectors[256];
 /**
 * @file TtEL-SDL3_Notepad-DRAW.h
 * @brief A header file of the TtEL SDL3 GUI Notepad, containing drawing functions

@@ -6,6 +6,9 @@ extern int scr_hei;
 extern float scr_floatwid;
 extern float scr_floathei;
 extern SDL_Renderer* main_renderer;
+extern SDL_Texture* textTextures[256];
+extern vector2_int textTextureSizeVectors[256];
+extern vector2_int textTextureSourceVectors[256];
 #include "VectorTypes.h"
 #include "../globals.h"
 
