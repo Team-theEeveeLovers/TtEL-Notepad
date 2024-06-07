@@ -4,6 +4,7 @@ using namespace std;
 #include <SDL3_ttf/SDL_ttf.h>
 #include <SDL3_image/SDL_image.h>
 
+
 #ifndef ASSERT
 #include <assert.h>
 #define ASSERT(_EXPR)            assert(_EXPR)                              
@@ -18,6 +19,8 @@ namespace ME = mathext;
 namespace RD = RectDraw;
 
 #include "TtEL-SDL3_Notepad-LOGIC.h"
+
+#include "globals.h"
 
 extern SDL_Renderer* main_renderer;
 

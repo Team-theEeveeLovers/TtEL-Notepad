@@ -17,15 +17,35 @@ TTF_Font* NotoMath = NULL;
 character text[256];
 character FileTab[4];
 
+ void* textTextureHeader = reinterpret_cast<void*>(0x455474786574);
+ void* textTextureHeader2 = reinterpret_cast<void*>(0x534552555458);
+
+ const float RightTextMargin = 425.f;
+
+
 SDL_Texture* textTextures[256];
 vector2_int textTextureSizeVectors[256];
+vector2_int textTextureSourceVectors[256];
 
 SDL_FRect fileTabBKG = { 15.f, 13.f, 90.f, 40.f };
 Uint8 FileBKG_R = 0xD6, FileBKG_G = 0xDC, FileBKG_B = 0xDE;
 
 SDL_FRect TextBKG = { 15.f, 56.f, 420.f, 560.f };
 
+#ifdef WINDOWS
 
+HMODULE MainModuleHandle;
+HRSRC Close_SRC;
+
+
+
+
+
+
+
+
+
+#endif
 
 
 SDL_Surface* arrowCur = NULL;
@@ -47,13 +67,21 @@ bool init(void) {
 	}
 	else {
 		cout << "SDL3 initalized successfully." << endl;
-		main_window = SDL_CreateWindow("TtEL SDL3 GUI Notepad", init__scr_wid, init__scr_hei, SDL_WINDOW_RESIZABLE);
+		main_window = SDL_CreateWindow("TtEL SDL3 GUI Notepad", init__scr_wid, init__scr_hei, SDL_WINDOW_RESIZABLE | SDL_WINDOW_TRANSPARENT);
 		if (main_window == NULL) {
 			success = false;
 			cout << "SDL3 window creation failed. SDL_error: " << SDL_GetError() << endl;
 		}
 		else {
 			cout << "Window created." << endl;
+#ifdef WINDOWS
+			MainModuleHandle = GetModuleHandleA("TtEL-SDL3_Notepad.exe");
+			if (MainModuleHandle == NULL) {
+				success = false;
+				cout << "Could not get a module handle from Windows. " << endl;
+			}
+
+#endif
 			SDL_SetWindowMinimumSize(main_window, init__scr_wid, init__scr_hei);
 			main_renderer = SDL_CreateRenderer(main_window, NULL, SDL_RENDERER_PRESENTVSYNC);
 			if (main_renderer == NULL) {
@@ -98,39 +126,79 @@ bool loadAssets() {
 		return false;
 	}
 	else {
+		cout << endl << "Initalizing Special Characters" << endl;
+		for (int i = 0; i < 0xF; i++) {
+			int currentspecChar = 0x20 + i;
+			char specchar = static_cast<char>(currentspecChar);
+			string numberString(1, specchar); // The random conversion to string helps with corrupted text somehow
+			int width;
+			int height;
+
+			textTextures[currentspecChar] = loadTextureFromChar(NotoMath, specchar, { 0,0,0 }, &height, &width);
+			textTextureSizeVectors[currentspecChar] = vector2_int(width, height);
+			textTextureSourceVectors[currentspecChar] = vector2_int(0, 0);
+			cout << specchar;
+			char specCharTable[1] = { specchar };
+			text[i].loadChar(&specCharTable[0], textTextures[currentspecChar], textTextureSizeVectors[currentspecChar]);
+
+		}
 		cout << endl << "Initalizing Numbers" << endl;
 		for (int i = 0; i < 10; i++) {
 			int currentNumber = 0x30 + i;
 			char number = static_cast<char>(currentNumber);
+			string numberString(1, number); // The random conversion to string helps with corrupted text somehow
 			int width;
 			int height;
-			
+
 			textTextures[currentNumber] = loadTextureFromChar(NotoMath, number, {0,0,0}, &height, &width);
 			textTextureSizeVectors[currentNumber] = vector2_int(width, height);
+			textTextureSourceVectors[currentNumber] = vector2_int(0,0);
 			cout << number;
+			char numberTable[1] = { number };
+			text[i].loadChar(&numberTable[0], textTextures[currentNumber], textTextureSizeVectors[currentNumber]);
 			
 		}
 		cout << endl << "Initalizing Letters" << endl;
 		for (int i = 0; i < 26; i++) {
+			
 			int currentLetter = 0x41 + i;
 			char letter = static_cast<char>(currentLetter);
+			string letterString(1, letter); // The conversion to string helps with corrupted text
 			int width;
 			int height;
 
 			textTextures[currentLetter] = loadTextureFromChar(NotoMath, letter, { 0,0,0 }, &height, &width);
+			//textTextures[currentLetter] = loadTextureFromText(NotoMath, letterString, { 0,0,0 }, &height, &width);
+
 			textTextureSizeVectors[currentLetter] = vector2_int(width, height);
+			textTextureSourceVectors[currentLetter] = vector2_int(0, 0);
+
 			cout << letter;
+			char letterTable[1] = { letter };
+			text[i+9].loadChar(&letterTable[0], textTextures[currentLetter], textTextureSizeVectors[currentLetter]);
 		}
 		cout << endl;
 		for (int i = 0; i < 26; i++) {
 			int currentLetter = 0x61 + i;
 			char letter = static_cast<char>(currentLetter);
+			string letterString(1, letter); // The conversion to string helps with corrupted text
 			int width;
 			int height;
 
+
 			textTextures[currentLetter] = loadTextureFromChar(NotoMath, letter, { 0,0,0 }, &height, &width);
+			//textTextures[currentLetter] = loadTextureFromText(NotoMath, letterString, { 0,0,0 }, &height, &width); 
+			textTextureSourceVectors[currentLetter] = vector2_int(0, 0);
+			
+			//// if 'c'
+			//if (currentLetter == 0x63) {
+			//	// subtract 10 from width
+			//	width -= 5;
+			//}
 			textTextureSizeVectors[currentLetter] = vector2_int(width, height);
 			cout << letter;
+			char letterTable[1] = { letter };
+			text[i + 35].loadChar(&letterTable[0], textTextures[currentLetter], textTextureSizeVectors[currentLetter]);
 		}
 		cout << endl;
 		char FileTabText[4] = { 'f', 'i', 'l', 'e' };
@@ -169,7 +237,7 @@ bool loadAssets() {
 			return false;
 		}
 		else {
-			arrow = SDL_CreateColorCursor(ibeamCur, 16, 15);
+			arrow = SDL_CreateColorCursor(arrowCur, 0, 0);
 			ibeamCur = IMG_Load("assets/cur/i_beam.cur");
 			if (ibeamCur == NULL) {
 				cout << "Failed to load cursor. SDL_image error: " << IMG_GetError() << endl;
@@ -249,24 +317,103 @@ int main(int argc, char *argv[]) {
 				case SDL_EVENT_MOUSE_BUTTON_UP:
 					mouseClicked = false;
 					break;
+				case SDL_EVENT_KEY_DOWN:
+					const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+					bool capital = false;
+					if (currentKeyStates[SDL_SCANCODE_LSHIFT] || currentKeyStates[SDL_SCANCODE_RSHIFT]) {
+						capital = true;
+					}
+					switch (e.key.keysym.sym) {	
+					case SDLK_SPACE:
+						for (int i = 0; i <= 256; i++) {
+							if (text[i].letter_texture == NULL) {
+								text[i].letter_texture = textTextures[0x20];
+								char letter = ' ';
+								text[i] = loadCharFromChar(&letter);
+								break;
+							}
+						}
+						break;
+					case SDLK_BACKSPACE:
+						for (int i = 255; i >= 0; i--) {
+							if (text[i].letter_texture != NULL) {
+								text[i].letter_texture = NULL;
+								break;
+							}
+						}
+						break;
+					case SDLK_a:
+						for (int i = 0; i <= 256; i++) {
+							if (text[i].letter_texture == NULL) {
+								char letter;
+								if (capital) {
+									text[i].letter_texture = textTextures[0x41];
+									letter = 'A';
+								}
+								else {
+									text[i].letter_texture = textTextures[0x61];
+									letter = 'a';
+								}
+								text[i] = loadCharFromChar(&letter);
+								break;
+							}
+						}
+						break;
+					case SDLK_b:
+						for (int i = 0; i <= 256; i++) {
+							if (text[i].letter_texture == NULL) {
+								char letter;
+								if (capital) {
+									text[i].letter_texture = textTextures[0x42];
+									letter = 'B';
+								}
+								else {
+									text[i].letter_texture = textTextures[0x62];
+									letter = 'b';
+								}
+								text[i] = loadCharFromChar(&letter);
+								break;
+							}
+						}
+						break;
+					case SDLK_c:
+						for (int i = 0; i <= 256; i++) {
+							if (text[i].letter_texture == NULL) {
+								char letter;
+								if (capital) {
+									text[i].letter_texture = textTextures[0x43];
+									letter = 'C';
+								}
+								else {
+									text[i].letter_texture = textTextures[0x63];
+									letter = 'c';
+								}
+								text[i] = loadCharFromChar(&letter);
+								break;
+							}
+						}
+						break;
+					}
+					break;
 				}
+
 			}
 			if (!exiting) {
 				SDL_SetCursor(arrow);
-				SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, SDL_ALPHA_OPAQUE);
+				SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, 0x44);
 				SDL_RenderClear(main_renderer);
 
 				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
 
 				// loop through rectangles
-				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE);
+				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x44);
 
 				// we are subtracting the border size here from the screen size in the width value to prevent overdraw from right rect
 				RD::FillFRectFromInput(0.f, 0.f, scr_floatwid - BorderSize, BorderSize);
 				// we are subtracting the border size here from the screen size in the height value to prevent overdraw from bottom rect
 				RD::FillFRectFromInput(0.f, 0.f, BorderSize, scr_floathei - BorderSize);
 
-				SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE);
+				SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE-0x44);
 
 				RD::FillFRectFromInput(scr_floatwid - BorderSize, 0.f, BorderSize, scr_floathei); // Right Rect
 				RD::FillFRectFromInput(0.f, scr_floathei - BorderSize, scr_floatwid, BorderSize); // Bottom Rect
@@ -283,7 +430,7 @@ int main(int argc, char *argv[]) {
 						FileBKG_R--;
 					}
 					if (FileBKG_G > 0xAE) {
-						FileBKG_G--;
+						FileBKG_G -= 2;
 					}
 					if (FileBKG_B > 0xA4) {
 						FileBKG_B--;
@@ -294,14 +441,14 @@ int main(int argc, char *argv[]) {
 						FileBKG_R += 2;
 					}
 					if (FileBKG_G < 0xDC) {
-						FileBKG_G += 2;
+						FileBKG_G += 4;
 					}
 					if (FileBKG_B < 0xDE) {
 						FileBKG_B += 2;
 					}
 					//SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE);
 				}
-				SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE);
+				SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE-0x44);
 
 				RD::FillFRectFromInputRect(fileTabBKG);
 				FileTab[0].drawCharacter();
@@ -309,11 +456,112 @@ int main(int argc, char *argv[]) {
 				FileTab[2].drawCharacter();
 				FileTab[3].drawCharacter();
 
+
 				if (isFMouseInFRectangle(mouseX, mouseY, &TextBKG)) {
 					SDL_SetCursor(ibeam);
 				}
-				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE);
+				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x22);
 				RD::FillFRectFromInputRect(TextBKG);
+				for (int i = 0; i <= 255; i++) {
+					if (text[i].letter_texture != NULL) {
+						//if (i > 0) {
+						//	text[i].x = 16.f + 32.f + static_cast<float>(text[i-1].w + text[i - 1].x);
+						//}
+						//else {
+						//	text[i].x = 16.f + (32.f * static_cast<float>(i));
+						//}
+						/*if (i >= 1) {
+							text[i].x += static_cast<float>(text[i-1].w);
+						}*/
+
+						text[i].x = 16.f + (32.f * static_cast<float>(i));
+
+						if (i > 0) {
+							if (text[i-1].w < 20.f) {
+								if (text[i - 1].w < 12.f) {
+									if (text[i - 1].w < 10.f) {
+										text[i].x -= 22.f;
+									}
+									else {
+										text[i].x -= 20.f;
+									}
+								}
+								else {
+									if (text[i - 1].w > 18.f) {
+										text[i].x -= 16.f;
+									}
+									else {
+										text[i].x -= 14.f;
+									}
+								}
+							}
+							else if (text[i - 1].w > 28.f) {
+								if (text[i - 1].w > 35.f) {
+									if (text[i - 1].w > 39.f) {
+										text[i].x += 20.f;
+									}
+									else {
+										text[i].x += 16.f;
+									}
+								}
+								else {
+									text[i].x += 8.f;
+								}
+							}
+						}
+
+						text[i].y = 60.f;
+
+						if (i > 0) {
+							if (text[i].x < (text[i - 1].x + text[i - 1].w)) {
+								while (text[i].x < (text[i - 1].x + text[i - 1].w)) {
+									text[i].x++;
+								}
+							}
+						}
+						if (text[i].x + text[i].w > RightTextMargin) {
+							while (text[i].x + text[i].w > RightTextMargin) {
+								text[i].x = text[i].x - (RightTextMargin-20.f);
+								text[i].y = text[i].y+50.f;
+							}
+							if (i > 0 && text[i - 1].w < 18.f) {
+								text[i].x += 16.f;
+							}
+							if (text[i].x < 15.f) {
+								text[i].x += 17.f;
+							}
+						}
+						if (i > 0) {
+							for (int j = 0; j < 6; j++) {
+								if (text[i].x < (text[i - 1].x + text[i - 1].w) && text[i-1].y == text[i].y) {
+									while (text[i].x < (text[i - 1].x + text[i - 1].w)) {
+										text[i].x++;
+									}
+									if (text[i].x + text[i].w > RightTextMargin) {
+										while (text[i].x + text[i].w > RightTextMargin) {
+											text[i].x = text[i].x - (RightTextMargin - 20.f);
+											text[i].y = text[i].y + 50.f;
+										}
+										if (i > 0 && text[i - 1].w < 18.f) {
+											text[i].x += 16.f;
+										}
+										if (text[i].x < 15.f) {
+											text[i].x += 17.f;
+										}
+									}
+								}
+							}
+							if (text[i - 1].y > text[i].y) {
+								text[i - 1].y = text[i].y;
+							}
+						}
+						/*if (text[i + 1].y < text[i].y && text[i].x < 380.f && text[i + 1].x > 32.f) {
+							text[i].y = text[i + 1].y;
+						}*/
+						
+						text[i].drawCharacter();
+					}
+				}
 
 				SDL_RenderPresent(main_renderer);
 			}
