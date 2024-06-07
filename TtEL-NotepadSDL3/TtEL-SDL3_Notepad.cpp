@@ -17,7 +17,7 @@ TTF_Font* NotoMath = NULL;
 character text[256];
 character FileTab[4];
 
-const float RightTextMargin = 425.f;
+float RightTextMargin = 425.f;
 
 
 SDL_Texture* textTextures[256];
