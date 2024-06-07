@@ -148,8 +148,10 @@ bool loadAssets() {
 			int height;
 
 			textTextures[currentNumber] = loadTextureFromChar(NotoMath, number, {0,0,0}, &height, &width);
+
 			textTextureSizeVectors[currentNumber] = vector2_int(width, height);
 			textTextureSourceVectors[currentNumber] = vector2_int(0,0);
+
 			cout << number;
 			char numberTable[1] = { number };
 			text[i].loadChar(&numberTable[0], textTextures[currentNumber], textTextureSizeVectors[currentNumber]);
@@ -165,7 +167,6 @@ bool loadAssets() {
 			int height;
 
 			textTextures[currentLetter] = loadTextureFromChar(NotoMath, letter, { 0,0,0 }, &height, &width);
-			//textTextures[currentLetter] = loadTextureFromText(NotoMath, letterString, { 0,0,0 }, &height, &width);
 
 			textTextureSizeVectors[currentLetter] = vector2_int(width, height);
 			textTextureSourceVectors[currentLetter] = vector2_int(0, 0);
@@ -184,15 +185,10 @@ bool loadAssets() {
 
 
 			textTextures[currentLetter] = loadTextureFromChar(NotoMath, letter, { 0,0,0 }, &height, &width);
-			//textTextures[currentLetter] = loadTextureFromText(NotoMath, letterString, { 0,0,0 }, &height, &width); 
+
 			textTextureSourceVectors[currentLetter] = vector2_int(0, 0);
-			
-			//// if 'c'
-			//if (currentLetter == 0x63) {
-			//	// subtract 10 from width
-			//	width -= 5;
-			//}
 			textTextureSizeVectors[currentLetter] = vector2_int(width, height);
+
 			cout << letter;
 			char letterTable[1] = { letter };
 			text[i + 35].loadChar(&letterTable[0], textTextures[currentLetter], textTextureSizeVectors[currentLetter]);
@@ -406,7 +402,6 @@ int main(int argc, char *argv[]) {
 
 
 				if (isFMouseInFRectangle(mouseX, mouseY, &fileTabBKG)) {
-					//SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE);
 					if (FileBKG_R > 0xAC) {
 						FileBKG_R--;
 					}
@@ -427,7 +422,6 @@ int main(int argc, char *argv[]) {
 					if (FileBKG_B < 0xDE) {
 						FileBKG_B += 2;
 					}
-					//SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE);
 				}
 				SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE-0x44);
 
@@ -445,15 +439,6 @@ int main(int argc, char *argv[]) {
 				RD::FillFRectFromInputRect(TextBKG);
 				for (int i = 0; i <= 255; i++) {
 					if (text[i].letter_texture != NULL) {
-						//if (i > 0) {
-						//	text[i].x = 16.f + 32.f + static_cast<float>(text[i-1].w + text[i - 1].x);
-						//}
-						//else {
-						//	text[i].x = 16.f + (32.f * static_cast<float>(i));
-						//}
-						/*if (i >= 1) {
-							text[i].x += static_cast<float>(text[i-1].w);
-						}*/
 
 						text[i].x = 16.f + (32.f * static_cast<float>(i));
 
@@ -536,9 +521,6 @@ int main(int argc, char *argv[]) {
 								text[i - 1].y = text[i].y;
 							}
 						}
-						/*if (text[i + 1].y < text[i].y && text[i].x < 380.f && text[i + 1].x > 32.f) {
-							text[i].y = text[i + 1].y;
-						}*/
 						
 						text[i].drawCharacter();
 					}
