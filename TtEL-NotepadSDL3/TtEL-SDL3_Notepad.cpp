@@ -374,6 +374,23 @@ int main(int argc, char *argv[]) {
 							}
 						}
 						break;
+					case SDLK_d:
+						for (int i = 0; i <= 256; i++) {
+							if (text[i].letter_texture == NULL) {
+								char letter;
+								if (capital) {
+									text[i].letter_texture = textTextures[0x44];
+									letter = 'D';
+								}
+								else {
+									text[i].letter_texture = textTextures[0x64];
+									letter = 'd';
+								}
+								text[i] = loadCharFromChar(&letter);
+								break;
+							}
+						}
+						break;
 					}
 					break;
 				}
