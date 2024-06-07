@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include "TextRenderer.h"
 #include "VectorTypes.h"
+#include "../globals.h"
 extern SDL_Renderer* main_renderer;
 /**
 * @file TtEL-SDL3_Notepad-DRAW.h
@@ -56,10 +57,11 @@ SDL_FRect NOTEPAD_RECT::toSDL_FRect() const {
 * @param text - The text to render
 * @param textColor - The color to render the text with. It defaults to black.
 * @param height - Optional pointer to a variable to store the height of the texture.
+* @param width - Optional pointer to a variable to store the width of the texture.
 *
 * @return The loaded <SDL_Texture*>, or NULL upon error.
 */
-SDL_Texture* loadTextureFromText(TTF_Font* font, string text, SDL_Color textColor = { 0x0,0x0,0x0 }, int* height = NULL) {
+SDL_Texture* loadTextureFromText(TTF_Font* font, string text, SDL_Color textColor = { 0x0,0x0,0x0 }, int* height = NULL, int* width = NULL) {
     // declare temporary variable
     SDL_Texture* mTex = NULL;
 
@@ -74,6 +76,9 @@ SDL_Texture* loadTextureFromText(TTF_Font* font, string text, SDL_Color textColo
         mTex = SDL_CreateTextureFromSurface(main_renderer, textSurface); // Create a texture from the text surface
         if (height != NULL) {
             *height = textSurface->h;
+        }
+        if (width != NULL) {
+            *width = textSurface->w;
         }
         SDL_DestroySurface(textSurface);
         if (mTex == NULL) {
@@ -92,6 +97,7 @@ SDL_Texture* loadTextureFromText(TTF_Font* font, string text, SDL_Color textColo
 * @param text - The text to render
 * @param textColor - The color to render the text with. It defaults to black.
 * @param height - Optional pointer to a variable to store the height of the texture.
+* @param width - Optional pointer to a variable to store the width of the texture.
 *
 * @return The loaded <SDL_Texture*>, or NULL upon error.
 */
