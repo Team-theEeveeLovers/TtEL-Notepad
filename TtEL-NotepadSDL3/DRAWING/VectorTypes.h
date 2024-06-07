@@ -1,5 +1,6 @@
 #ifndef VECTOR_TYPES
 #define VECTOR_TYPES
+#include "../globals.h"
 typedef struct vector2_int {
 	int										x, y;
 	constexpr vector2_int()					: x(0), y(0) { }
