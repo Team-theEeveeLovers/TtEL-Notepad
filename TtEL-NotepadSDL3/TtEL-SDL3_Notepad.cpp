@@ -17,10 +17,7 @@ TTF_Font* NotoMath = NULL;
 character text[256];
 character FileTab[4];
 
- void* textTextureHeader = reinterpret_cast<void*>(0x455474786574);
- void* textTextureHeader2 = reinterpret_cast<void*>(0x534552555458);
-
- const float RightTextMargin = 425.f;
+const float RightTextMargin = 425.f;
 
 
 SDL_Texture* textTextures[256];
