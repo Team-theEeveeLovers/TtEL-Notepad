@@ -215,22 +215,6 @@ bool loadAssets() {
 		FileTab[3] = loadCharFromChar(&FileTabText[3]);
 		FileTab[3].x = 68.f;
 
-//		int tempHeight = 10;
-//		for (int i = 0; i < 10; i++) {
-//			Digits[i] = loadTextureFromText(NotoMath, to_string(i), { 0xFF,0xFF,0xFF }, &tempHeight);
-//			DigitsHeight[i] = static_cast<float>(tempHeight);
-//		}
-//		Backspace = loadTextureFromUnicodeCodepoint(NotoMath, (Uint16)0x2190, { 0xFF,0xFF,0xFF });
-//
-//		Operators[0] = loadTextureFromText(NotoMath, "+", { 0xFF,0xFF,0xFF }, &tempHeight);
-//		OperatorHeights[0] = static_cast<float>(tempHeight);
-//		Operators[1] = loadTextureFromText(NotoMath, "*", { 0xFF,0xFF,0xFF }, &tempHeight);
-//		OperatorHeights[1] = static_cast<float>(tempHeight);
-//		Operators[2] = loadTextureFromText(NotoMath, "-", { 0xFF,0xFF,0xFF }, &tempHeight);
-//		OperatorHeights[2] = static_cast<float>(tempHeight);
-//		Operators[3] = loadTextureFromText(NotoMath, "÷", { 0xFF,0xFF,0xFF }, &tempHeight);
-//		OperatorHeights[3] = static_cast<float>(tempHeight);
-//		tempHeight = NULL;
 		arrowCur = IMG_Load("assets/cur/arrow.cur");
 		if (arrowCur == NULL) {
 			cout << "Failed to load cursor. SDL_image error: " << IMG_GetError() << endl;
