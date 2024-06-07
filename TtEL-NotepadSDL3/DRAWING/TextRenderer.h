@@ -51,7 +51,7 @@ public:
 void character::drawCharacter() {
 	SDL_FRect currentDraw = { x,y,static_cast<float>(w),static_cast<float>(h)};
 	SDL_FRect currentSource = { static_cast<float>(sx), static_cast<float>(sy),static_cast<float>(w),static_cast<float>(h)};
-	SDL_RenderTexture(main_renderer, letter_texture, &currentSource, &currentDraw);
+	SDL_RenderTexture(main_renderer, textTextures[static_cast<int>(letter[0])], &currentSource, &currentDraw);
 #ifdef DRAW_DEBUG
 	SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xFF);
 	SDL_RenderRect(main_renderer, &currentDraw);
@@ -75,7 +75,7 @@ void character::freeCharacter() {
 
 void character::loadChar(char chrctr[1], SDL_Texture* textTexture, vector2_int size, vector2_int source) {
 	letter[0] = chrctr[0];
-	letter_texture = textTexture;
+	letter_texture = textTextures[static_cast<int>(letter[0])];
 	w = size.x;
 	h = size.y;
 	sx = source.x;
