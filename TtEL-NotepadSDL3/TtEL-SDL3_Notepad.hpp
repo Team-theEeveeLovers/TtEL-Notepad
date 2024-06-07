@@ -47,11 +47,12 @@ extern float scr_floathei;
 
 extern SDL_Texture* textTextures[256];
 extern vector2_int textTextureSizeVectors[256];
+extern vector2_int textTextureSourceVectors[256];
 
 character loadCharFromChar(char* chara) {
 	character tempChar;
 	int charaNum = static_cast<int>(*chara);
-	tempChar.loadChar(chara, textTextures[charaNum], textTextureSizeVectors[charaNum]);
+	tempChar.loadChar(chara, textTextures[charaNum], textTextureSizeVectors[charaNum], textTextureSourceVectors[charaNum]);
 	return tempChar;
 	tempChar.freeCharacter();
 }
