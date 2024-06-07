@@ -134,8 +134,8 @@ bool loadAssets() {
 			textTextureSizeVectors[currentspecChar] = vector2_int(width, height);
 			textTextureSourceVectors[currentspecChar] = vector2_int(0, 0);
 			cout << specchar;
-			char specCharTable[1] = { specchar };
-			text[i].loadChar(&specCharTable[0], textTextures[currentspecChar], textTextureSizeVectors[currentspecChar]);
+			//char specCharTable[1] = { specchar };
+			//text[i].loadChar(&specCharTable[0], textTextures[currentspecChar], textTextureSizeVectors[currentspecChar]);
 
 		}
 		cout << endl << "Initalizing Numbers" << endl;
@@ -172,7 +172,7 @@ bool loadAssets() {
 
 			cout << letter;
 			char letterTable[1] = { letter };
-			text[i+9].loadChar(&letterTable[0], textTextures[currentLetter], textTextureSizeVectors[currentLetter]);
+			text[i+10].loadChar(&letterTable[0], textTextures[currentLetter], textTextureSizeVectors[currentLetter]);
 		}
 		cout << endl;
 		for (int i = 0; i < 26; i++) {
@@ -182,7 +182,6 @@ bool loadAssets() {
 			int width;
 			int height;
 
-
 			textTextures[currentLetter] = loadTextureFromChar(NotoMath, letter, { 0,0,0 }, &height, &width);
 
 			textTextureSourceVectors[currentLetter] = vector2_int(0, 0);
@@ -190,7 +189,7 @@ bool loadAssets() {
 
 			cout << letter;
 			char letterTable[1] = { letter };
-			text[i + 35].loadChar(&letterTable[0], textTextures[currentLetter], textTextureSizeVectors[currentLetter]);
+			text[i + 36].loadChar(&letterTable[0], textTextures[currentLetter], textTextureSizeVectors[currentLetter]);
 		}
 		cout << endl;
 		char FileTabText[4] = { 'f', 'i', 'l', 'e' };
