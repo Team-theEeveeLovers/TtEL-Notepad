@@ -8,4 +8,5 @@ This is an unfinished notepad program where you can (partially) enter text.
 
 ## Building
 Supply SDL extension libraries with their required external libraries.
-Then run CMake.
+Then, build SDL3 and all extension libraries using CMake.
+Finally, build the Notepad using CMake.
