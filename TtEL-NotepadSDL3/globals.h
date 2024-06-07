@@ -8,3 +8,4 @@
 #elif defined(UNIX) && !defined(WIN32)
 #define POSIX
 #endif
+#define DRAW_DEBUG
