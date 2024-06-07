@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 using namespace std;
 #include <SDL.h>
@@ -51,8 +52,7 @@ extern vector2_int textTextureSourceVectors[256];
 
 character loadCharFromChar(char* chara) {
 	character tempChar;
-	int charaNum = static_cast<int>(*chara);
-	tempChar.loadChar(chara, textTextures[charaNum], textTextureSizeVectors[charaNum], textTextureSourceVectors[charaNum]);
+	tempChar.loadChar(chara, textTextures[0], textTextureSizeVectors[0], textTextureSourceVectors[0]);
 	return tempChar;
 	tempChar.freeCharacter();
 }

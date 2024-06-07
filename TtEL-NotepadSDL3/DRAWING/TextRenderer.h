@@ -15,33 +15,21 @@ extern vector2_int textTextureSourceVectors[256];
 class character {
 private:
 	// This is a magic number, it uses unused space in memory
-	char magic[2] = { 'N', 'T' };
-	// This is a magic number, it uses unused space in memory
-	char magic2[4] = { 'C', 'h', 'a', 'r'};
+	char magic[2] = { 'N', 'C' };
 	// This is padding between the magic number and the letter contained by the variable, it also uses unused memory space
 	char padding[1] = { '\x20' };
 	// The unused space is caused by the letter variable
 public:
 	// This is the letter contained by the character
-	char letter[1] = "";
-	// This is the texture of the letter
-	SDL_Texture* letter_texture = NULL;
+	char letter[1] = { '\0' };
 	// This is the x position of the character
 	float x = 0.f;
 	// This is the y position of the character
 	float y = 0.f;
 	// This is the width of the character
-	Uint8 w = 0;	
+	Uint16 w = 0;	
 	// This is the height of the character
-	Uint8 h = 0;
-	// This is the x texture source position of the character
-	Uint8 sx = 0;
-	// This is the y texture source position of the character
-	Uint8 sy = 0;
-	// This is the width of the source rectangle of the character
-	Uint16 sw = 0;
-	// This is the height of the source rectangle of the character
-	Uint16 sh = 0;
+	Uint16 h = 0;
 
 	void drawCharacter();
 	void freeCharacter();
@@ -49,9 +37,11 @@ public:
 };
 
 void character::drawCharacter() {
-	SDL_FRect currentDraw = { x,y,static_cast<float>(w),static_cast<float>(h)};
-	SDL_FRect currentSource = { static_cast<float>(sx), static_cast<float>(sy),static_cast<float>(w),static_cast<float>(h)};
-	SDL_RenderTexture(main_renderer, textTextures[static_cast<int>(letter[0])], &currentSource, &currentDraw);
+	int tableIDX = static_cast<int>(letter[0]);
+	float width = static_cast<float>(w), height = static_cast<float>(h);
+	SDL_FRect currentDraw = { x,y,width,height };
+	SDL_FRect currentSource = { static_cast<float>(textTextureSourceVectors[tableIDX].x), static_cast<float>(textTextureSourceVectors[tableIDX].y),width,height };
+	SDL_RenderTexture(main_renderer, textTextures[tableIDX], &currentSource, &currentDraw);
 #ifdef DRAW_DEBUG
 	SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xFF);
 	SDL_RenderRect(main_renderer, &currentDraw);
@@ -70,15 +60,12 @@ void character::freeCharacter() {
 	magicptr[0] = NULL;
 	magicptr[1] = NULL;
 #endif
-	SDL_DestroyTexture(letter_texture);
 }
 
 void character::loadChar(char chrctr[1], SDL_Texture* textTexture, vector2_int size, vector2_int source) {
 	letter[0] = chrctr[0];
-	letter_texture = textTextures[static_cast<int>(letter[0])];
-	w = size.x;
-	h = size.y;
-	sx = source.x;
-	sy = source.y;
+	int tableIDX = static_cast<int>(letter[0]);
+	w = textTextureSizeVectors[tableIDX].x;
+	h = textTextureSizeVectors[tableIDX].y;
 };
 #endif

@@ -307,8 +307,7 @@ int main(int argc, char *argv[]) {
 					switch (e.key.keysym.sym) {	
 					case SDLK_SPACE:
 						for (int i = 0; i <= 256; i++) {
-							if (text[i].letter_texture == NULL) {
-								text[i].letter_texture = textTextures[0x20];
+							if (text[i].letter[0] == '\0') {
 								char letter = ' ';
 								text[i] = loadCharFromChar(&letter);
 								break;
@@ -317,22 +316,20 @@ int main(int argc, char *argv[]) {
 						break;
 					case SDLK_BACKSPACE:
 						for (int i = 255; i >= 0; i--) {
-							if (text[i].letter_texture != NULL) {
-								text[i].letter_texture = NULL;
+							if (text[i].letter[0] != '\0') {
+								text[i].letter[0] = '\0';
 								break;
 							}
 						}
 						break;
 					case SDLK_a:
 						for (int i = 0; i <= 256; i++) {
-							if (text[i].letter_texture == NULL) {
+							if (text[i].letter[0] == '\0') {
 								char letter;
 								if (capital) {
-									text[i].letter_texture = textTextures[0x41];
 									letter = 'A';
 								}
 								else {
-									text[i].letter_texture = textTextures[0x61];
 									letter = 'a';
 								}
 								text[i] = loadCharFromChar(&letter);
@@ -342,14 +339,12 @@ int main(int argc, char *argv[]) {
 						break;
 					case SDLK_b:
 						for (int i = 0; i <= 256; i++) {
-							if (text[i].letter_texture == NULL) {
+							if (text[i].letter[0] == '\0') {
 								char letter;
 								if (capital) {
-									text[i].letter_texture = textTextures[0x42];
 									letter = 'B';
 								}
 								else {
-									text[i].letter_texture = textTextures[0x62];
 									letter = 'b';
 								}
 								text[i] = loadCharFromChar(&letter);
@@ -359,14 +354,12 @@ int main(int argc, char *argv[]) {
 						break;
 					case SDLK_c:
 						for (int i = 0; i <= 256; i++) {
-							if (text[i].letter_texture == NULL) {
+							if (text[i].letter[0] == '\0') {
 								char letter;
 								if (capital) {
-									text[i].letter_texture = textTextures[0x43];
 									letter = 'C';
 								}
 								else {
-									text[i].letter_texture = textTextures[0x63];
 									letter = 'c';
 								}
 								text[i] = loadCharFromChar(&letter);
@@ -376,14 +369,12 @@ int main(int argc, char *argv[]) {
 						break;
 					case SDLK_d:
 						for (int i = 0; i <= 256; i++) {
-							if (text[i].letter_texture == NULL) {
+							if (text[i].letter[0] == '\0') {
 								char letter;
 								if (capital) {
-									text[i].letter_texture = textTextures[0x44];
 									letter = 'D';
 								}
 								else {
-									text[i].letter_texture = textTextures[0x64];
 									letter = 'd';
 								}
 								text[i] = loadCharFromChar(&letter);
@@ -460,7 +451,7 @@ int main(int argc, char *argv[]) {
 				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
 				RD::FillFRectFromInputRect(TextBKG);
 				for (int i = 0; i <= 255; i++) {
-					if (text[i].letter_texture != NULL) {
+					if (text[i].letter[0] != '\0') {
 
 						if (i == 0) {
 							text[i].x = TextBKG.x + 10.f;
