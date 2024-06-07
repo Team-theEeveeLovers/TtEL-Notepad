@@ -1,7 +1,7 @@
 # TtEL-SDL3-Notepad
-This is an unfinished notepad program where you can enter text.
+This is an unfinished notepad program where you can (partially) enter text.
 
-
+![Screenshot of the notepad program.](README-assets/Screenshot.png)
 
 
 <br><br>
