@@ -575,17 +575,14 @@ void exit() {
 		currentTime = SDL_GetTicks() - startTime;
 	}
 
-	/*cout << "Freeing Assets..." << endl;
-	for (int i = 0; i < 10; i++) {
-		SDL_DestroyTexture(Digits[i]);
-		Digits[i] = nullptr;
-		DigitsHeight[i] = 0.f;
+	cout << "Freeing Assets..." << endl;
+	for (int i = 0; i < 256; i++) {
+		SDL_DestroyTexture(textTextures[i]);
+		textTextures[i] = nullptr;
+		textTextureSizeVectors[i].x = NULL;textTextureSizeVectors[i].y = NULL;
+		textTextureSourceVectors[i].x = NULL; textTextureSourceVectors[i].y = NULL;
 	}
-	for (int i = 0; i < 4; i++) {
-		SDL_DestroyTexture(Operators[i]);
-		Operators[i] = nullptr;
-	}
-	cout << "Assets freed." << endl << endl;*/
+	cout << "Assets freed." << endl << endl;
 
 	cout << "SDL_image is exiting..." << endl;
 	IMG_Quit();
