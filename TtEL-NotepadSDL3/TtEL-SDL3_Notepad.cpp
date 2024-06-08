@@ -145,6 +145,7 @@ bool loadAssets() {
 			int height;
 
 			textTextures[currentNumber] = loadTextureFromChar(NotoMath, number, {0,0,0}, &height, &width);
+			SDL_SetTextureAlphaModFloat(textTextures[currentNumber], 0.85f);
 
 			textTextureSizeVectors[currentNumber] = vector2_int(width, height);
 			textTextureSourceVectors[currentNumber] = vector2_int(0,0);
@@ -164,6 +165,7 @@ bool loadAssets() {
 			int height;
 
 			textTextures[currentLetter] = loadTextureFromChar(NotoMath, letter, { 0,0,0 }, &height, &width);
+			SDL_SetTextureAlphaModFloat(textTextures[currentLetter], 0.85f);
 
 			textTextureSizeVectors[currentLetter] = vector2_int(width, height);
 			textTextureSourceVectors[currentLetter] = vector2_int(0, 0);
@@ -181,6 +183,7 @@ bool loadAssets() {
 			int height;
 
 			textTextures[currentLetter] = loadTextureFromChar(NotoMath, letter, { 0,0,0 }, &height, &width);
+			SDL_SetTextureAlphaModFloat(textTextures[currentLetter], 0.85f);
 
 			textTextureSourceVectors[currentLetter] = vector2_int(0, 0);
 			textTextureSizeVectors[currentLetter] = vector2_int(width, height);
@@ -217,7 +220,7 @@ bool loadAssets() {
 				return false;
 			}
 			else {
-				ibeam = SDL_CreateColorCursor(ibeamCur, 16, 15);
+				ibeam = SDL_CreateColorCursor(ibeamCur, 16, 14);
 			}
 		}
 		return true;
@@ -436,7 +439,12 @@ int main(int argc, char *argv[]) {
 
 			}
 			if (!exiting) {
-				SDL_SetCursor(arrow);
+				if (isFMouseInFRectangle(mouseX, mouseY, &TextBKG)) {
+					SDL_SetCursor(ibeam);
+				}
+				else {
+					SDL_SetCursor(arrow);
+				}
 				SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, 0x44);
 				SDL_RenderClear(main_renderer);
 
@@ -492,9 +500,6 @@ int main(int argc, char *argv[]) {
 				FileTab[3].drawCharacter();
 
 
-				if (isFMouseInFRectangle(mouseX, mouseY, &TextBKG)) {
-					SDL_SetCursor(ibeam);
-				}
 				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x22);
 				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
 				RD::FillFRectFromInputRect(TextBKG);
