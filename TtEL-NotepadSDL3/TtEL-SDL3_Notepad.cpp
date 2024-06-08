@@ -450,6 +450,30 @@ int main(int argc, char *argv[]) {
 							}
 						}
 						break;
+					case SDLK_j:
+						for (int i = 0; i <= 256; i++) {
+							if (text[i].letter[0] == '\0') {
+								char letter = 'j';
+								if (capital) {
+									letter = 'J';
+								}
+								text[i] = loadCharFromChar(&letter);
+								break;
+							}
+						}
+						break;
+					case SDLK_k:
+						for (int i = 0; i <= 256; i++) {
+							if (text[i].letter[0] == '\0') {
+								char letter = 'k';
+								if (capital) {
+									letter = 'K';
+								}
+								text[i] = loadCharFromChar(&letter);
+								break;
+							}
+						}
+						break;
 					}
 					break;
 				}
