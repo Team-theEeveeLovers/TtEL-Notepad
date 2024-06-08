@@ -28,6 +28,9 @@ Uint8 FileBKG_R = 0xD6, FileBKG_G = 0xDC, FileBKG_B = 0xDE;
 SDL_FRect TextBKG = { 15.f, 56.f, 420.f, 560.f };
 float RightTextMargin = 425.f;
 
+
+
+
 #ifdef WINDOWS
 
 HMODULE MainModuleHandle;
@@ -36,11 +39,14 @@ HRSRC Close_SRC;
 #endif
 
 
+
+
 SDL_Surface* arrowCur = NULL;
 SDL_Cursor* arrow = NULL;
 
 SDL_Surface* ibeamCur = NULL;
 SDL_Cursor* ibeam = NULL;
+
 
 
 #ifdef DRAW_DEBUG
@@ -418,6 +424,18 @@ int main(int argc, char *argv[]) {
 								char letter = 'h';
 								if (capital) {
 									letter = 'H';
+								}
+								text[i] = loadCharFromChar(&letter);
+								break;
+							}
+						}
+						break;
+					case SDLK_i:
+						for (int i = 0; i <= 256; i++) {
+							if (text[i].letter[0] == '\0') {
+								char letter = 'i';
+								if (capital) {
+									letter = 'I';
 								}
 								text[i] = loadCharFromChar(&letter);
 								break;
