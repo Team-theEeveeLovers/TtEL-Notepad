@@ -6,3 +6,9 @@
 * @date June 8th, 2024
 */
 
+#include <SDL.h>
+
+class TextFile {
+public:
+    char text[256];
+}
