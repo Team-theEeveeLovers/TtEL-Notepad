@@ -57,7 +57,7 @@ extern vector2_int textTextureSourceVectors[256];
 
 character loadCharFromChar(char* chara) {
 	character tempChar;
-	tempChar.loadChar(chara, textTextures[0], textTextureSizeVectors[0], textTextureSourceVectors[0]);
+	tempChar.loadChar(chara);
 	return tempChar;
 	tempChar.freeCharacter();
 }
