@@ -5,7 +5,7 @@
 # Add source to this project's executable.
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-	add_executable (TtEL-SDL3_Notepad "TtEL-SDL3_Notepad.cpp" "TtEL-SDL3_Notepad.hpp" "DRAWING/TtEL-SDL3_Notepad-DRAW.h" "TtEL-SDL3_Notepad-MATH.h" "DRAWING/TextRenderer.h" "DRAWING/VectorTypes.h" "TtEL-SDL3_Notepad-LOGIC.h" "TtEL-SDL3_Notepad.rc" "globals.h" "DRAWING/NotepadTexture.h" "DRAWING/SDL_Surface-Tools.h")
+	add_executable (TtEL-SDL3_Notepad "TtEL-SDL3_Notepad.cpp" "TtEL-SDL3_Notepad.hpp" "DRAWING/TtEL-SDL3_Notepad-DRAW.h" "TtEL-SDL3_Notepad-MATH.h" "DRAWING/TextRenderer.h" "DRAWING/VectorTypes.h" "TtEL-SDL3_Notepad-LOGIC.h" "TtEL-SDL3_Notepad.rc" "globals.h" "DRAWING/NotepadTexture.h" "DRAWING/SDL_Surface-Tools.h" "FILESYS/TtEL-SDL3_Notepad-FILELOADING.h")
 
 
 # COPY DLLs
