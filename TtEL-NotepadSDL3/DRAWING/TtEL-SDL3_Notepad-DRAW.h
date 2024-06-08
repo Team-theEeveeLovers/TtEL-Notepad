@@ -5,8 +5,10 @@
 #include "VectorTypes.h"
 #include "../globals.h"
 #include <SDL3_ttf/SDL_ttf.h>
+#include "SDL_Surface-Tools.h"
 
 #include <string>
+#include <iostream>
 using namespace std;
 extern SDL_Renderer* main_renderer;
 extern SDL_Texture* textTextures[256];
