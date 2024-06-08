@@ -37,7 +37,7 @@ public:
 
 	void drawCharacter();
 	void freeCharacter();
-	void loadChar(char chrctr[1], SDL_Texture* textTexture, vector2_int size = vector2_int(48, 48), vector2_int source = vector2_int(0, 0));
+	void loadChar(char chrctr[1], SDL_Texture* textTexture = NULL, vector2_int size = vector2_int(48, 48), vector2_int source = vector2_int(0, 0));
 };
 
 void character::drawCharacter() {
