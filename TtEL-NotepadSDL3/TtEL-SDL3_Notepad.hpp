@@ -30,6 +30,11 @@ extern int scr_hei;
 extern float scr_floatwid;
 extern float scr_floathei; 
 
+
+#ifdef DRAW_DEBUG
+extern bool DRAW_DBG;
+#endif
+
 #ifndef DEBUG_BREAK
 #if defined (_MSC_VER)
 #define DEBUG_BREAK()    __debugbreak()

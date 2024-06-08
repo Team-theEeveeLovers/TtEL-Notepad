@@ -33,14 +33,6 @@ float RightTextMargin = 425.f;
 HMODULE MainModuleHandle;
 HRSRC Close_SRC;
 
-
-
-
-
-
-
-
-
 #endif
 
 
@@ -49,6 +41,12 @@ SDL_Cursor* arrow = NULL;
 
 SDL_Surface* ibeamCur = NULL;
 SDL_Cursor* ibeam = NULL;
+
+
+#ifdef DRAW_DEBUG
+bool DRAW_DBG = true;
+#endif
+
 
 void exit(void); // Define exit function so the code can be placed at the bottom of the file (makes sense for code order)
 // and still be callable from the main function.
@@ -305,6 +303,11 @@ int main(int argc, char *argv[]) {
 						capital = true;
 					}
 					switch (e.key.keysym.sym) {	
+					case SDLK_F1:
+					#ifdef DRAW_DEBUG
+						DRAW_DBG = !DRAW_DBG;
+					#endif
+						break;
 					case SDLK_SPACE:
 						for (int i = 0; i <= 256; i++) {
 							if (text[i].letter[0] == '\0') {

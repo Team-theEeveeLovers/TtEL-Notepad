@@ -12,6 +12,10 @@ extern vector2_int textTextureSizeVectors[256];
 extern vector2_int textTextureSourceVectors[256];
 #include "../globals.h"
 
+#ifdef DRAW_DEBUG
+extern bool DRAW_DBG;
+#endif
+
 class character {
 private:
 	// This is a magic number, it uses unused space in memory
@@ -43,8 +47,10 @@ void character::drawCharacter() {
 	SDL_FRect currentSource = { static_cast<float>(textTextureSourceVectors[tableIDX].x), static_cast<float>(textTextureSourceVectors[tableIDX].y),width,height };
 	SDL_RenderTexture(main_renderer, textTextures[tableIDX], &currentSource, &currentDraw);
 #ifdef DRAW_DEBUG
-	SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xFF);
-	SDL_RenderRect(main_renderer, &currentDraw);
+	if (DRAW_DBG) {
+		SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xFF);
+		SDL_RenderRect(main_renderer, &currentDraw);
+	}
 #endif
 	//SDL_free(&currentDraw);
 }

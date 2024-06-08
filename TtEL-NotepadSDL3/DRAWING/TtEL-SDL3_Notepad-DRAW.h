@@ -24,6 +24,10 @@ extern vector2_int textTextureSourceVectors[256];
  * It is defined using left edge x value, a right edge x value, a top edge y value, and a bottom edge y value.
  */
 
+#ifdef DRAW_DEBUG
+extern bool DRAW_DBG;
+#endif
+
 extern int scr_wid;
 extern int scr_hei;
 extern float scr_floatwid;
