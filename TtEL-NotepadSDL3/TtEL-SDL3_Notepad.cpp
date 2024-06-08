@@ -331,12 +331,9 @@ int main(int argc, char *argv[]) {
 					case SDLK_a:
 						for (int i = 0; i <= 256; i++) {
 							if (text[i].letter[0] == '\0') {
-								char letter;
+								char letter = 'a';
 								if (capital) {
 									letter = 'A';
-								}
-								else {
-									letter = 'a';
 								}
 								text[i] = loadCharFromChar(&letter);
 								break;
@@ -346,12 +343,9 @@ int main(int argc, char *argv[]) {
 					case SDLK_b:
 						for (int i = 0; i <= 256; i++) {
 							if (text[i].letter[0] == '\0') {
-								char letter;
+								char letter = 'b';
 								if (capital) {
 									letter = 'B';
-								}
-								else {
-									letter = 'b';
 								}
 								text[i] = loadCharFromChar(&letter);
 								break;
@@ -361,12 +355,9 @@ int main(int argc, char *argv[]) {
 					case SDLK_c:
 						for (int i = 0; i <= 256; i++) {
 							if (text[i].letter[0] == '\0') {
-								char letter;
+								char letter = 'c';
 								if (capital) {
 									letter = 'C';
-								}
-								else {
-									letter = 'c';
 								}
 								text[i] = loadCharFromChar(&letter);
 								break;
@@ -376,12 +367,9 @@ int main(int argc, char *argv[]) {
 					case SDLK_d:
 						for (int i = 0; i <= 256; i++) {
 							if (text[i].letter[0] == '\0') {
-								char letter;
+								char letter = 'd';
 								if (capital) {
 									letter = 'D';
-								}
-								else {
-									letter = 'd';
 								}
 								text[i] = loadCharFromChar(&letter);
 								break;
@@ -391,12 +379,9 @@ int main(int argc, char *argv[]) {
 					case SDLK_e:
 						for (int i = 0; i <= 256; i++) {
 							if (text[i].letter[0] == '\0') {
-								char letter;
+								char letter = 'e';
 								if (capital) {
 									letter = 'E';
-								}
-								else {
-									letter = 'e';
 								}
 								text[i] = loadCharFromChar(&letter);
 								break;
@@ -406,12 +391,9 @@ int main(int argc, char *argv[]) {
 					case SDLK_f:
 						for (int i = 0; i <= 256; i++) {
 							if (text[i].letter[0] == '\0') {
-								char letter;
+								char letter = 'f';
 								if (capital) {
 									letter = 'F';
-								}
-								else {
-									letter = 'f';
 								}
 								text[i] = loadCharFromChar(&letter);
 								break;
@@ -421,12 +403,9 @@ int main(int argc, char *argv[]) {
 					case SDLK_g:
 						for (int i = 0; i <= 256; i++) {
 							if (text[i].letter[0] == '\0') {
-								char letter;
+								char letter = 'g';
 								if (capital) {
 									letter = 'G';
-								}
-								else {
-									letter = 'g';
 								}
 								text[i] = loadCharFromChar(&letter);
 								break;
@@ -436,12 +415,9 @@ int main(int argc, char *argv[]) {
 					case SDLK_h:
 						for (int i = 0; i <= 256; i++) {
 							if (text[i].letter[0] == '\0') {
-								char letter;
+								char letter = 'h';
 								if (capital) {
 									letter = 'H';
-								}
-								else {
-									letter = 'h';
 								}
 								text[i] = loadCharFromChar(&letter);
 								break;
