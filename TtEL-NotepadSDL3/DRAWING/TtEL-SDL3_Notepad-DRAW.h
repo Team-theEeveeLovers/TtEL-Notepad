@@ -1,3 +1,10 @@
+/**
+* @file TtEL-SDL3_Notepad-DRAW.h
+* @brief A header file of the TtEL SDL3 GUI Notepad, containing drawing functions
+* @author Team theEeveeLovers Sean
+* @date May 23rd, 2024
+*/
+
 #ifndef TTEL_SDL3_NOTEPAD_DRAW
 #define TTEL_SDL3_NOTEPAD_DRAW
 #include <SDL.h>
@@ -14,17 +21,7 @@ extern SDL_Renderer* main_renderer;
 extern SDL_Texture* textTextures[256];
 extern vector2_int textTextureSizeVectors[256];
 extern vector2_int textTextureSourceVectors[256];
-/**
-* @file TtEL-SDL3_Notepad-DRAW.h
-* @brief A header file of the TtEL SDL3 GUI Notepad, containing drawing functions
-* @author Team theEeveeLovers Sean
-* @date May 23rd, 2024
-*/
 
-/**
- * @brief A custom rectangle type defined using edge values.\n
- * It is defined using left edge x value, a right edge x value, a top edge y value, and a bottom edge y value.
- */
 
 #ifdef DRAW_DEBUG
 extern bool DRAW_DBG;
@@ -35,6 +32,10 @@ extern int scr_hei;
 extern float scr_floatwid;
 extern float scr_floathei;
 
+/**
+ * @brief A custom rectangle type defined using edge values.\n
+ * It is defined using left edge x value, a right edge x value, a top edge y value, and a bottom edge y value.
+ */
 typedef struct NOTEPAD_RECT {
 	int lx; // Left Edge X Value
 	int rx; // Right Edge X Value
@@ -126,6 +127,19 @@ SDL_Texture* loadTextureFromChar(TTF_Font* font, char text, SDL_Color textColor 
         return NULL;
     }
     else {
+        /*if (crop) {
+            Uint32 bg = GetSurfacePixel32(0, 0, textSurface);
+            int startY = 0;
+            for (int y = 0; y < textSurface->h; y++) {
+                for (int x = 0; x < textSurface->w; x++) {
+                    Uint32 currentPixel = GetSurfacePixel32(x, y, textSurface);
+                    if (currentPixel != bg) {
+                        startY = y;
+                        break;
+                    }
+                }
+            }
+        }*/
         mTex = SDL_CreateTextureFromSurface(main_renderer, textSurface); // Create a texture from the text surface
         if (height != NULL) {
             *height = textSurface->h;
