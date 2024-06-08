@@ -28,7 +28,7 @@ Uint8 FileBKG_R = 0xD6, FileBKG_G = 0xDC, FileBKG_B = 0xDE;
 SDL_FRect TextBKG = { 15.f, 56.f, 420.f, 560.f };
 float RightTextMargin = 425.f;
 
-
+SDL_FRect filetabOptionBKGs[4] = { {15.f, 53.f, 90.f, 40.f}, {15.f, 93.f, 90.f, 40.f}, {15.f, 133.f, 90.f, 40.f}, {15.f, 173.f, 90.f, 40.f} };
 
 
 #ifdef WINDOWS
@@ -247,6 +247,8 @@ int main(int argc, char *argv[]) {
 		SDL_FRect currentDrawRect = { 0,0,scr_floatwid,scr_floathei };
 		float mouseX = 0.f, mouseY = 0.f;
 		bool mouseClicked = false;
+		bool fileMenuOpen = false;
+		float fileMenuY_Offset = 40.f;
 		while (!exiting) {
 			while (SDL_PollEvent(&e)) {
 				switch (e.type) {
@@ -300,6 +302,9 @@ int main(int argc, char *argv[]) {
 					// Mouse button pressed
 				case SDL_EVENT_MOUSE_BUTTON_DOWN:
 					mouseClicked = true;
+					if (isFMouseInFRectangle(mouseX, mouseY, &fileTabBKG)) {
+						fileMenuOpen = !fileMenuOpen;
+					}
 					break;
 					// Mouse button released
 				case SDL_EVENT_MOUSE_BUTTON_UP:
@@ -500,14 +505,15 @@ int main(int argc, char *argv[]) {
 						FileBKG_B += 2;
 					}
 				}
-				SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE-0x44);
+				if (fileMenuY_Offset == 40.f || fileMenuY_Offset == 0.f) {
+					SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
 
-				RD::FillFRectFromInputRect(fileTabBKG);
-				FileTab[0].drawCharacter();
-				FileTab[1].drawCharacter();
-				FileTab[2].drawCharacter();
-				FileTab[3].drawCharacter();
-
+					RD::FillFRectFromInputRect(fileTabBKG);
+					FileTab[0].drawCharacter();
+					FileTab[1].drawCharacter();
+					FileTab[2].drawCharacter();
+					FileTab[3].drawCharacter();
+				}
 
 				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x22);
 				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
@@ -541,6 +547,40 @@ int main(int argc, char *argv[]) {
 					}
 				}
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
+
+				if (fileMenuOpen) {
+					for (int i = 0; i < 4; i++) {
+						SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA5, SDL_ALPHA_OPAQUE - 0x44);
+						if (fileMenuY_Offset > 0.f) {
+							if (fileMenuY_Offset <= 10) {
+								fileMenuY_Offset -= 0.25f;
+							}
+							else if (fileMenuY_Offset <= 25.f) {
+								fileMenuY_Offset -= 0.5f;
+							}
+							else {
+								fileMenuY_Offset -= 1.f;
+							}
+							RD::FillFRectFromInput(filetabOptionBKGs[i].x, filetabOptionBKGs[i].y - fileMenuY_Offset, filetabOptionBKGs[i].w, filetabOptionBKGs[i].h);
+							if (fileMenuY_Offset != 40.f) {
+								SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
+
+								RD::FillFRectFromInputRect(fileTabBKG);
+								FileTab[0].drawCharacter();
+								FileTab[1].drawCharacter();
+								FileTab[2].drawCharacter();
+								FileTab[3].drawCharacter();
+							}
+						}
+						else {
+							RD::FillFRectFromInputRect(filetabOptionBKGs[i]);
+						}
+					}
+				}
+				else {
+					fileMenuY_Offset = 40.f;
+				}
+
 				SDL_RenderPresent(main_renderer);
 			}
 		}
