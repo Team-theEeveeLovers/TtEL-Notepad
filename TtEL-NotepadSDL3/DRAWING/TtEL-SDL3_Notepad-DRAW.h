@@ -220,12 +220,34 @@ namespace RectDraw {
         SDL_free(&drawRect);
     }   
     /**
-    * @brief A function that draws and fills an input rectangle 
+    * @brief A function that draws and fills an input rectangle.
     * @param drawRect - A nonpointer to a rectangle to draw.
     * @return 0 on success, or -1 on error.
     */
     int FillFRectFromInputRect(SDL_FRect drawRect) {
         return SDL_RenderFillRect(main_renderer, &drawRect);
+    }
+    /**
+    * @brief A function that draws an unfilled rectangle using input position and size.
+    * @param x - X position of the rectangle in pixels, where the origin is at the left edge of the screen.
+    * @param y - Y position of the rectangle in pixels, where the origin is at the top edge of the screen.
+    * @param w - Width of the rectangle in pixels.
+    * @param h - Height of the rectangle in pixels.
+    *
+    * @return 0 on success, or -1 on error.
+    */
+    int StrokeFRectFromInput(float x, float y, float w, float h) {
+        SDL_FRect drawRect = { x, y, w, h };
+        return SDL_RenderRect(main_renderer, &drawRect);
+        SDL_free(&drawRect);
+    }
+    /**
+    * @brief A function that outlines an input rectangle.
+    * @param drawRect - A nonpointer to a rectangle to draw.
+    * @return 0 on success, or -1 on error.
+    */
+    int StrokeFRectFromInputRect(SDL_FRect drawRect) {
+        return SDL_RenderRect(main_renderer, &drawRect);
     }
 }
 
