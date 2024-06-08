@@ -218,7 +218,12 @@ namespace RectDraw {
         SDL_FRect drawRect = { x, y, w, h };
         return SDL_RenderFillRect(main_renderer, &drawRect);
         SDL_free(&drawRect);
-    }    
+    }   
+    /**
+    * @brief A function that draws and fills an input rectangle 
+    * @param drawRect - A nonpointer to a rectangle to draw.
+    * @return 0 on success, or -1 on error.
+    */
     int FillFRectFromInputRect(SDL_FRect drawRect) {
         return SDL_RenderFillRect(main_renderer, &drawRect);
     }
