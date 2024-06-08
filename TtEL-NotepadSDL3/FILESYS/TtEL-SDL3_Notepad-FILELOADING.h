@@ -11,4 +11,4 @@
 class TextFile {
 public:
     char text[256];
-}
+};
