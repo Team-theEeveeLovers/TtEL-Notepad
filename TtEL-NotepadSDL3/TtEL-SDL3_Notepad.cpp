@@ -17,16 +17,19 @@ TTF_Font* NotoMath = NULL;
 character text[256];
 character FileTab[4];
 
-
 SDL_Texture* textTextures[256];
 vector2_int textTextureSizeVectors[256];
 vector2_int textTextureSourceVectors[256];
 
-SDL_FRect fileTabBKG = { 15.f, 13.f, 90.f, 40.f };
-Uint8 FileBKG_R = 0xD6, FileBKG_G = 0xDC, FileBKG_B = 0xDE;
-
 SDL_FRect TextBKG = { 15.f, 56.f, 420.f, 560.f };
 float RightTextMargin = 425.f;
+
+
+
+
+
+SDL_FRect fileTabBKG = { 15.f, 13.f, 90.f, 40.f };
+Uint8 FileBKG_R = 0xD6, FileBKG_G = 0xDC, FileBKG_B = 0xDE;
 
 SDL_FRect filetabOptionBKGs[4] = { {15.f, 53.f, 90.f, 40.f}, {15.f, 93.f, 90.f, 40.f}, {15.f, 133.f, 90.f, 40.f}, {15.f, 173.f, 90.f, 40.f} };
 
