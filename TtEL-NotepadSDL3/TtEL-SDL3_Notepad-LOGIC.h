@@ -1,7 +1,3 @@
-#ifndef SDL3_CALC_LOGIC
-#define SDL3_CALC_LOGIC
-
-#include <SDL.h>
 // 
 /**
 * @file TtEL-SDL3_Notepad-LOGIC.h
@@ -10,6 +6,11 @@
 * @author Team theEeveeLovers Sean
 * @date May 27th, 2024
 */
+#ifndef SDL3_CALC_LOGIC
+#define SDL3_CALC_LOGIC
+
+#include <SDL.h>
+
 extern SDL_Renderer* main_renderer;
 
 /**
