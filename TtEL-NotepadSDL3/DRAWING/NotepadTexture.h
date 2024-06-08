@@ -5,7 +5,7 @@ class NOTEPAD_Texture {
 public:
 	// Initalize
 	NOTEPAD_Texture();
-
+private:
 	SDL_Texture* tex;
 };
 
