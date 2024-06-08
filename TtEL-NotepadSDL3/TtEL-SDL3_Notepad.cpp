@@ -222,13 +222,13 @@ bool loadAssets() {
 			return false;
 		}
 		else {
-			arrow = SDL_CreateColorCursor(arrowCur, 0, 0);
 			ibeamCur = IMG_Load("assets/cur/i_beam.cur");
 			if (ibeamCur == NULL) {
 				cout << "Failed to load cursor. SDL_image error: " << IMG_GetError() << endl;
 				return false;
 			}
 			else {
+				arrow = SDL_CreateColorCursor(arrowCur, 0, 0);
 				ibeam = SDL_CreateColorCursor(ibeamCur, 16, 14);
 			}
 		}
