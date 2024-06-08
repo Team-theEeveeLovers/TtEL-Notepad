@@ -526,7 +526,7 @@ int main(int argc, char *argv[]) {
 							text[i].y = TextBKG.y + 4.f;
 						}
 						else {
-							text[i].x = (text[i - 1].x + text[i - 1].w) + 2.5f;
+							text[i].x = (text[i - 1].x + text[i - 1].w) + 0.3125f;
 							text[i].y = text[i - 1].y;
 						}
 
