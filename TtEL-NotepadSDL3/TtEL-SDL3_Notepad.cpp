@@ -516,6 +516,18 @@ int main(int argc, char *argv[]) {
 							}
 						}
 						break;
+					case SDLK_l:
+						for (int i = 0; i <= 256; i++) {
+							if (text[i].letter[0] == '\0') {
+								char letter = 'l';
+								if (capital) {
+									letter = 'L';
+								}
+								text[i] = loadCharFromChar(&letter);
+								break;
+							}
+						}
+						break;
 					}
 					break;
 				}
