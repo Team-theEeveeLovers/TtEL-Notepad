@@ -7,6 +7,7 @@
 */
 
 #include <SDL.h>
+#include "osdialog/osdialog.h"
 
 class TextFile {
 public:
