@@ -14,8 +14,9 @@ bool isWindowMinimized = false; // is the window minimized?
 // The font Noto Sans Math
 TTF_Font* NotoMath = NULL;
 
-character text[256];
-character FileTab[4];
+character text[256]; // all the text in the 'document'
+character FileTab[4]; // the letters for the file menu button
+character FileMenu[12]; // the letters for the options in the file menu
 
 SDL_Texture* textTextures[256];
 vector2_int textTextureSizeVectors[256];
@@ -215,6 +216,14 @@ bool loadAssets() {
 
 		FileTab[3] = loadCharFromChar(&FileTabText[3]);
 		FileTab[3].x = 68.f;
+
+		char FileMenuText[12] = { 'O','p','e','n', 'S','a','v','e', 'E','x','i','t' };
+		for (int i = 0; i < 12; i++) {
+			for (int j = 0; j < 4; j++) {
+				FileMenu[i] = loadCharFromChar(&FileMenuText[i]);
+				FileMenu[i].x = FileTab[j].x;
+			}
+		}
 
 		arrowCur = IMG_Load("assets/cur/arrow.cur");
 		if (arrowCur == NULL) {
