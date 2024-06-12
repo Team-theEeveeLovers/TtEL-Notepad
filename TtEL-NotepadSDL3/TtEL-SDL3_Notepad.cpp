@@ -32,8 +32,7 @@ float RightTextMargin = 425.f;
 SDL_FRect fileTabBKG = { 15.f, 13.f, 90.f, 40.f };
 Uint8 FileBKG_R = 0xD6, FileBKG_G = 0xDC, FileBKG_B = 0xDE;
 
-SDL_FRect filetabOptionBKGs[4] = { {15.f, 53.f, 90.f, 40.f}, {15.f, 93.f, 90.f, 40.f}, {15.f, 133.f, 90.f, 40.f}, {15.f, 173.f, 90.f, 40.f} };
-
+SDL_FRect filetabOptionBKGs[4] = { {15.f, 53.f, 120.f, 40.f}, {15.f, 53.f+40.f, 120.f, 40.f}, {15.f, 53.f + 80.f, 120.f, 40.f}, {15.f, 53.f + 120.f, 120.f, 40.f} };
 
 #ifdef WINDOWS
 
@@ -215,11 +214,14 @@ bool loadAssets() {
 
 
 		char FileMenuText[12] = { 'O','p','e','n', 'S','a','v','e', 'E','x','i','t' };
+		
 		for (int i = 0; i < 12; i++) {
-			for (int j = 0; j < 4; j++) {
-				FileMenu[i] = loadCharFromChar(&FileMenuText[i]);
-				FileMenu[i].x = FileTab[j].x;
+			int h = floorf((static_cast<float>(i) / 4.f));
+			int j = i;
+			if (i > 4) {
+				j = i % 4;
 			}
+			FileMenu[i] = loadCharFromChar(&FileMenuText[i], vector2_float(FileTab[j].x, filetabOptionBKGs[h].y));
 		}
 
 		arrowCur = IMG_Load("assets/cur/arrow.cur");
@@ -654,6 +656,10 @@ int main(int argc, char *argv[]) {
 						}
 						else {
 							RD::FillFRectFromInputRect(filetabOptionBKGs[i]);
+							for (int j = 0; j < 4; j++) {
+								int h = j + (i * 3);
+								FileMenu[h-1].drawCharacter();
+							}
 						}
 					}
 				}
