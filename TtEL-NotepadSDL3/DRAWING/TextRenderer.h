@@ -41,18 +41,30 @@ public:
 };
 
 void character::drawCharacter() {
-	int tableIDX = static_cast<int>(letter[0]);
-	float width = static_cast<float>(w), height = static_cast<float>(h);
-	SDL_FRect currentDraw = { x,y,width,height };
-	SDL_FRect currentSource = { static_cast<float>(textTextureSourceVectors[tableIDX].x), static_cast<float>(textTextureSourceVectors[tableIDX].y),width,height };
-	SDL_RenderTexture(main_renderer, textTextures[tableIDX], &currentSource, &currentDraw);
-#ifdef DRAW_DEBUG
-	if (DRAW_DBG) {
-		SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xFF);
-		SDL_RenderRect(main_renderer, &currentDraw);
+	if (magic[0] != 'N' || magic[1] != 'C') {
+		ASSERT("TextRenderer.h: Not a valid character! ");
+		ASSERT("Header was invalid!");
+		DEBUG_BREAK();
 	}
+	else if (padding[0] != '\x20') {
+		ASSERT("TextRenderer.h: Not a valid character! ");
+		ASSERT("Header Padding was invalid!");
+		DEBUG_BREAK();
+	}
+	else {
+		int tableIDX = static_cast<int>(letter[0]);
+		float width = static_cast<float>(w), height = static_cast<float>(h);
+		SDL_FRect currentDraw = { x,y,width,height };
+		SDL_FRect currentSource = { static_cast<float>(textTextureSourceVectors[tableIDX].x), static_cast<float>(textTextureSourceVectors[tableIDX].y),width,height };
+		SDL_RenderTexture(main_renderer, textTextures[tableIDX], &currentSource, &currentDraw);
+#ifdef DRAW_DEBUG
+		if (DRAW_DBG) {
+			SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xFF);
+			SDL_RenderRect(main_renderer, &currentDraw);
+		}
 #endif
-	//SDL_free(&currentDraw);
+		//SDL_free(&currentDraw);
+	}
 }
 
 void character::freeCharacter() {
