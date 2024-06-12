@@ -55,9 +55,15 @@ extern SDL_Texture* textTextures[256];
 extern vector2_int textTextureSizeVectors[256];
 extern vector2_int textTextureSourceVectors[256];
 
-character loadCharFromChar(char* chara) {
+character loadCharFromChar(char* chara, vector2_float position = vector2_float()) {
 	character tempChar;
 	tempChar.loadChar(chara);
+	if (position.x != 0.f) {
+		tempChar.x = position.x;
+	}
+	if (position.y != 0.f) {
+		tempChar.y = position.y;
+	}
 	return tempChar;
 	tempChar.freeCharacter();
 }
