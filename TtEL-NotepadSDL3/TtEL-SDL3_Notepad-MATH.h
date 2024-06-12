@@ -11,6 +11,7 @@
 
 #ifndef SDL3_CALC_MATH
 #define SDL3_CALC_MATH
+#include "math.h"
 
 namespace mathext {
 	// Parity functions
