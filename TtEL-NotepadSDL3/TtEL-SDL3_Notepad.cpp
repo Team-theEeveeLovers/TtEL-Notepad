@@ -604,18 +604,20 @@ int main(int argc, char *argv[]) {
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
 
 				if (fileMenuOpen) {
+					if (fileMenuY_Offset > 0.f) {
+						if (fileMenuY_Offset <= 10) {
+							fileMenuY_Offset -= 0.25f;
+						}
+						else if (fileMenuY_Offset <= 25.f) {
+							fileMenuY_Offset -= 0.5f;
+						}
+						else {
+							fileMenuY_Offset -= 1.f;
+						}
+					}
 					for (int i = 0; i < 4; i++) {
 						SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA5, SDL_ALPHA_OPAQUE - 0x44);
 						if (fileMenuY_Offset > 0.f) {
-							if (fileMenuY_Offset <= 10) {
-								fileMenuY_Offset -= 0.25f;
-							}
-							else if (fileMenuY_Offset <= 25.f) {
-								fileMenuY_Offset -= 0.5f;
-							}
-							else {
-								fileMenuY_Offset -= 1.f;
-							}
 							RD::FillFRectFromInput(filetabOptionBKGs[i].x, filetabOptionBKGs[i].y - fileMenuY_Offset, filetabOptionBKGs[i].w, filetabOptionBKGs[i].h);
 							if (fileMenuY_Offset != 40.f) {
 								SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
