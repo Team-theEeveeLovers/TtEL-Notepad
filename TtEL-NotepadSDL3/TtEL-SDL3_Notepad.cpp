@@ -628,7 +628,12 @@ int main(int argc, char *argv[]) {
 						}
 					}
 					for (int i = 0; i < 4; i++) {
-						SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA5, SDL_ALPHA_OPAQUE - 0x44);
+						if (ME::isIntEven(i)) {
+							SDL_SetRenderDrawColor(main_renderer, 0xAA, 0xAC, 0xA2, SDL_ALPHA_OPAQUE - 0x44);
+						}
+						else {
+							SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA5, SDL_ALPHA_OPAQUE - 0x44);
+						}
 						if (fileMenuY_Offset > 0.f) {
 							RD::FillFRectFromInput(filetabOptionBKGs[i].x, filetabOptionBKGs[i].y - fileMenuY_Offset, filetabOptionBKGs[i].w, filetabOptionBKGs[i].h);
 							if (fileMenuY_Offset != 40.f && i == 0) {
