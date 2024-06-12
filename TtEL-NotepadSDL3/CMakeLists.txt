@@ -3,9 +3,9 @@
 #
 
 # Add source to this project's executable.
-
+message(STATUS "Configuring main executable")	
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-	add_executable (TtEL-SDL3_Notepad "TtEL-SDL3_Notepad.cpp" "TtEL-SDL3_Notepad.hpp" "DRAWING/TtEL-SDL3_Notepad-DRAW.h" "TtEL-SDL3_Notepad-MATH.h" "DRAWING/TextRenderer.h" "DRAWING/VectorTypes.h" "TtEL-SDL3_Notepad-LOGIC.h" "TtEL-SDL3_Notepad.rc" "globals.h" "DRAWING/NotepadTexture.h" "DRAWING/SDL_Surface-Tools.h" "FILESYS/TtEL-SDL3_Notepad-FILELOADING.h" "FILESYS/osdialog/osdialog_win.c" "FILESYS/osdialog/osdialog.c")
+	add_executable (TtEL-SDL3_Notepad "TtEL-SDL3_Notepad.cpp" "TtEL-SDL3_Notepad.hpp" "DRAWING/TtEL-SDL3_Notepad-DRAW.h" "TtEL-SDL3_Notepad-MATH.h" "DRAWING/TextRenderer.h" "DRAWING/VectorTypes.h" "TtEL-SDL3_Notepad-LOGIC.h" "TtEL-SDL3_Notepad.rc" "globals.h" "DRAWING/NotepadTexture.h" "DRAWING/SDL_Surface-Tools.h" "FILESYS/TtEL-SDL3_Notepad-FILELOADING.h")
 
 
 # COPY DLLs
@@ -35,14 +35,8 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
 	message(STATUS "Building for Windows.")	
 else()
-if(UNIX AND NOT APPLE)
-	add_executable (TtEL-SDL3_Notepad "TtEL-SDL3_Notepad.cpp" "TtEL-SDL3_Notepad.hpp" "TtEL-SDL3_Notepad-DRAW.h" "TtEL-SDL3_Notepad-MATH.h" "DRAWING/TextRenderer.h" "DRAWING/VectorTypes.h" "TtEL-SDL3_Notepad-LOGIC.h" "globals.h" "DRAWING/NotepadTexture.h" "DRAWING/SDL_Surface-Tools.h" "FILESYS/TtEL-SDL3_Notepad-FILELOADING.h" "FILESYS/osdialog/osdialog_gtk3.c" "FILESYS/osdialog/osdialog.c")
+	add_executable (TtEL-SDL3_Notepad "TtEL-SDL3_Notepad.cpp" "TtEL-SDL3_Notepad.hpp" "TtEL-SDL3_Notepad-DRAW.h" "TtEL-SDL3_Notepad-MATH.h" "DRAWING/TextRenderer.h" "DRAWING/VectorTypes.h" "TtEL-SDL3_Notepad-LOGIC.h" "globals.h" "DRAWING/NotepadTexture.h" "DRAWING/SDL_Surface-Tools.h" "FILESYS/TtEL-SDL3_Notepad-FILELOADING.h")
 	message(AUTHOR_WARNING "Building for ${CMAKE_SYSTEM_NAME}. Please note that I have not tested other OSes, so please report any bugs on the GitHub.")
-else()
-	add_executable (TtEL-SDL3_Notepad "TtEL-SDL3_Notepad.cpp" "TtEL-SDL3_Notepad.hpp" "TtEL-SDL3_Notepad-DRAW.h" "TtEL-SDL3_Notepad-MATH.h" "DRAWING/TextRenderer.h" "DRAWING/VectorTypes.h" "TtEL-SDL3_Notepad-LOGIC.h" "globals.h" "DRAWING/NotepadTexture.h" "DRAWING/SDL_Surface-Tools.h" "FILESYS/TtEL-SDL3_Notepad-FILELOADING.h" "FILESYS/osdialog/osdialog.c")
-	message(AUTHOR_WARNING "Building for ${CMAKE_SYSTEM_NAME}. Please note that I have not tested other OSes, so please report any bugs on the GitHub.")
-endif()
-
 endif()
 
 # COPY ASSETS
