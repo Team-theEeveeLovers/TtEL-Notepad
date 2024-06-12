@@ -205,17 +205,14 @@ bool loadAssets() {
 		cout << endl;
 		char FileTabText[4] = { 'f', 'i', 'l', 'e' };
 
-		FileTab[0] = loadCharFromChar(&FileTabText[0]);
-		FileTab[0].x = 20.f;
+		FileTab[0] = loadCharFromChar(&FileTabText[0], vector2_float(20.f, 0.f));
 
-		FileTab[1] = loadCharFromChar(&FileTabText[1]);
-		FileTab[1].x = 40.f;
+		FileTab[1] = loadCharFromChar(&FileTabText[1], vector2_float(40.f, 0.f));
 
-		FileTab[2] = loadCharFromChar(&FileTabText[2]);
-		FileTab[2].x = 55.f;
+		FileTab[2] = loadCharFromChar(&FileTabText[2], vector2_float(55.f, 0.f));
 
-		FileTab[3] = loadCharFromChar(&FileTabText[3]);
-		FileTab[3].x = 68.f;
+		FileTab[3] = loadCharFromChar(&FileTabText[3], vector2_float(68.f, 0.f));
+
 
 		char FileMenuText[12] = { 'O','p','e','n', 'S','a','v','e', 'E','x','i','t' };
 		for (int i = 0; i < 12; i++) {
