@@ -275,7 +275,9 @@ int main(int argc, char *argv[]) {
 					SDL_SetWindowInputFocus(main_window);
 					break;
 				case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
-					SDL_GetWindowSize(main_window, &scr_wid, &scr_hei); // get the new size of the window
+					// get the new size of the window
+					scr_wid = e.window.data1, scr_hei = e.window.data2; //SDL_GetWindowSize(main_window, &scr_wid, &scr_hei); 
+					
 					scr_floatwid = static_cast<float>(scr_wid); // convert to float
 					scr_floathei = static_cast<float>(scr_hei); // convert to float
 
@@ -295,6 +297,32 @@ int main(int argc, char *argv[]) {
 
 					TextBKG.y = 56.f * common_scale;
 					TextBKG.h = scr_floathei - TextBKG.y - 24.f;
+
+
+
+
+					/*
+					/// Draw
+					SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, 0x44);
+					SDL_RenderClear(main_renderer);
+
+					SDL_SetRenderScale(main_renderer, 1.f, 1.f);
+
+					// loop through rectangles
+					SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE - 0x44);
+
+					// we are subtracting the border size here from the screen size in the width value to prevent overdraw from right rect
+					RD::FillFRectFromInput(0.f, 0.f, scr_floatwid - BorderSize, BorderSize);
+					// we are subtracting the border size here from the screen size in the height value to prevent overdraw from bottom rect
+					RD::FillFRectFromInput(0.f, 0.f, BorderSize, scr_floathei - BorderSize);
+
+					SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE - 0x44);
+
+					RD::FillFRectFromInput(scr_floatwid - BorderSize, 0.f, BorderSize, scr_floathei); // Right Rect
+					RD::FillFRectFromInput(0.f, scr_floathei - BorderSize, scr_floatwid, BorderSize); // Bottom Rect
+
+					SDL_RenderPresent(main_renderer);
+					*/
 					break;
 				case SDL_EVENT_WINDOW_RESIZED:
 					break;
