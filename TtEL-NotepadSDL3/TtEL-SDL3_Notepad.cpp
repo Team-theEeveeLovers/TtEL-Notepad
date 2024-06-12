@@ -213,15 +213,21 @@ bool loadAssets() {
 		FileTab[3] = loadCharFromChar(&FileTabText[3], vector2_float(68.f, 0.f));
 
 
-		char FileMenuText[12] = { 'O','p','e','n', 'S','a','v','e', 'E','x','i','t' };
-		
+		char FileMenuText[12] = 
+		{ 
+			'O','p','e','n', 
+			'S','a','v','e', 
+			'E','x','i','t' 
+		};
+		float filetabOptionTextXPositions[12] = 
+		{ 
+			20.f, 53.f, 78.f, 102.f, 
+			20.f, 42.f, 65.f, 84.f, 
+			20.f, 44.f, 64.f, 76.f 
+		};
 		for (int i = 0; i < 12; i++) {
 			int h = floorf((static_cast<float>(i) / 4.f));
-			int j = i;
-			if (i > 4) {
-				j = i % 4;
-			}
-			FileMenu[i] = loadCharFromChar(&FileMenuText[i], vector2_float(FileTab[j].x, filetabOptionBKGs[h].y));
+			FileMenu[i] = loadCharFromChar(&FileMenuText[i], vector2_float(filetabOptionTextXPositions[i], filetabOptionBKGs[h].y-14.f));
 		}
 
 		arrowCur = IMG_Load("assets/cur/arrow.cur");
@@ -517,7 +523,23 @@ int main(int argc, char *argv[]) {
 			}
 			if (!exiting) {
 				if (isFMouseInFRectangle(mouseX, mouseY, &TextBKG)) {
-					SDL_SetCursor(ibeam);
+					if (fileMenuOpen) {
+						bool FileMenuHover = false;
+						for (int i = 0; i < 4; i++) {
+							if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[i])) {
+								FileMenuHover = true;
+							}
+						}
+						if (FileMenuHover) {
+							SDL_SetCursor(arrow);
+						}
+						else {
+							SDL_SetCursor(ibeam);
+						}
+					}
+					else {
+						SDL_SetCursor(ibeam);
+					}
 				}
 				else {
 					SDL_SetCursor(arrow);
@@ -655,7 +677,33 @@ int main(int argc, char *argv[]) {
 							}
 						}
 						else {
+							if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[i])) { 
+								if (mouseClicked) {
+									SDL_SetRenderDrawColor(main_renderer, 0x98, 0x9C, 0x90, SDL_ALPHA_OPAQUE - 0x24);
+									switch (i) {
+									case 0:
+										break;
+									case 1:
+										break;
+									case 2:
+										exiting = true;
+										break;
+									case 3:
+										break;
+									}
+								}
+								else {
+									SDL_SetRenderDrawColor(main_renderer, 0xA8, 0xAC, 0xA0, SDL_ALPHA_OPAQUE - 0x24);
+								}
+							}
 							RD::FillFRectFromInputRect(filetabOptionBKGs[i]);
+#ifdef DRAW_DEBUG
+							if (DRAW_DBG) {
+								SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xFF);
+								RD::StrokeFRectFromInputRect(filetabOptionBKGs[i]);
+							}
+#endif
+							
 							for (int j = 0; j < 4; j++) {
 								int h = j + (i * 3);
 								FileMenu[h-1].drawCharacter();
@@ -666,7 +714,7 @@ int main(int argc, char *argv[]) {
 				else {
 					fileMenuY_Offset = 40.f;
 				}
-
+				
 				SDL_RenderPresent(main_renderer);
 			}
 		}
