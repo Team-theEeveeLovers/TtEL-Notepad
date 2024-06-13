@@ -26,7 +26,7 @@ SDL_FRect TextBKG = { 15.f, 56.f, 420.f, 560.f };
 float RightTextMargin = 425.f;
 
 
-
+TextFile currentFile;
 
 
 SDL_FRect fileTabBKG = { 15.f, 13.f, 90.f, 40.f };
@@ -266,6 +266,9 @@ int main(int argc, char *argv[]) {
 		bool mouseClicked = false;
 		bool fileMenuOpen = false;
 		float fileMenuY_Offset = 40.f;
+		
+		const char* currentTextFilePath;
+		bool fileDialogOpen = false;
 		while (!exiting) {
 			while (SDL_PollEvent(&e)) {
 				switch (e.type) {
@@ -694,6 +697,13 @@ int main(int argc, char *argv[]) {
 									SDL_SetRenderDrawColor(main_renderer, 0x98, 0x9C, 0x90, SDL_ALPHA_OPAQUE - 0x24);
 									switch (i) {
 									case 0:
+										if (currentFile.isFileDialogOpen()) {
+											cout << "Main: FILE DIALOG ALREADY OPEN" << endl;
+										}
+										else {
+											cout << "Main: Opening file dialog..." << endl;
+											currentFile.openFileDialog();
+										}
 										break;
 									case 1:
 										break;
@@ -715,7 +725,6 @@ int main(int argc, char *argv[]) {
 								RD::StrokeFRectFromInputRect(filetabOptionBKGs[i]);
 							}
 #endif
-							
 							for (int j = 0; j < 4; j++) {
 								int h = j + (i * 3);
 								FileMenu[h-1].drawCharacter();
@@ -726,7 +735,24 @@ int main(int argc, char *argv[]) {
 				else {
 					fileMenuY_Offset = 40.f;
 				}
-				
+				if (currentFile.isFileDialogOpen()) {
+					fileDialogOpen = true;
+				}
+				else {
+					if (fileDialogOpen) {
+						// make temporary variable 
+						string currentFilepath = currentFile.getSelectedFile();
+						fileDialogOpen = false;
+						if (currentFilepath == "INVALID") {
+							cout << "No file selected." << endl;
+						}
+						else {
+							if (!currentFile.loadFile(currentFilepath)) {
+								cout << "FAILED TO LOAD FILE" << endl;
+							}
+						}
+					}
+				}
 				SDL_RenderPresent(main_renderer);
 			}
 		}
