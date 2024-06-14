@@ -62,13 +62,31 @@ public:
     SDL_IOStream* fileStream;
     const char* fileName;
     char File_text[256];
+    /**
+    * @brief Open a file dialog
+    */
     void openFileDialog();
+    /**
+     * @brief Check if the file dialog is currently open
+     * @return true, if the file dialog is open
+     */
     inline bool isFileDialogOpen() {
         return fileDialogOpen;
     };
+    /**
+    * @brief get the currently selected file's path
+    *
+    * @return string, path to the currently selected file
+    */
     string getSelectedFile();
+    /**
+    * @brief Load a file from a path into the TextFile class
+    * @param filePath - (string) path to the file to load
+    * @returns True if file loaded successfully, or false if file was not loaded successfully.
+    */
     bool loadFile(string filePath);
 };
+
 /**
  * @brief Open a file dialog
  */
@@ -77,9 +95,21 @@ void TextFile::openFileDialog() {
     SDL_ShowOpenFileDialog(&callback, NULL, main_window, filters, NULL, 0);
 
 }
+
+/**
+* @brief get the currently selected file's path
+* 
+* @return string, path to the currently selected file
+*/
 string TextFile::getSelectedFile() {
     return selectedFile;
 }
+
+/**
+* @brief Load a file from a path into the TextFile class
+* @param filePath - (string) path to the file to load
+* @returns True if file loaded successfully, or false if file was not loaded successfully.
+*/
 bool TextFile::loadFile(string filePath) {
     bool success = true;
     if (filePath == "INVALID") {
@@ -89,16 +119,22 @@ bool TextFile::loadFile(string filePath) {
         const char* temp_filePath = filePath.c_str();
         std::filesystem::path FS_filePath = filePath;
         std::filesystem::path fileNamePath = FS_filePath.filename();
+
         string fileNameString;
-        // for some reason the std::filesystem::path .c_str() function
+
+        // for some reason the std::filesystem::path.c_str() function
         // doesn't actually return a c_str so this code is here
         // it stupidly returns const std::filesytem::path::value_type*
         // Also it's convienient for safer printing
         fileNameString = fileNamePath.string();
         fileName = fileNameString.c_str();
+
         cout << "FileLoader: LOADING FILE '" << fileNameString << "' ";
         cout << "in: '" << FS_filePath.parent_path().string() << "'" << endl;
+
         fileStream = SDL_IOFromFile(temp_filePath, "r+");
+
+        // Delete pre-existing text from the screen text buffer
         for (int i = 0; i < 256; i++) {
             text[i].freeCharacter();
         }
