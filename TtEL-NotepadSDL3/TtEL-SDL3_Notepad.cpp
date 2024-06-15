@@ -45,6 +45,7 @@ HRSRC Close_SRC;
 
 float Scroll = 0.0f;
 bool NaturalScrolling = false;
+const float ScrollUpperBound = 1600.f;
 
 SDL_Surface* arrowCur = NULL;
 SDL_Cursor* arrow = NULL;
@@ -481,6 +482,9 @@ int main(int argc, char *argv[]) {
 					if (Scroll < 0.f) {
 						Scroll = 0.f;
 					}
+					else if (Scroll > ScrollUpperBound) {
+						Scroll = ScrollUpperBound;
+					}
 					break;
 				case SDL_EVENT_KEY_DOWN:
 					const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
@@ -517,6 +521,9 @@ int main(int argc, char *argv[]) {
 						break;
 					case SDLK_DOWN:
 						Scroll += 20.f;
+						if (Scroll > ScrollUpperBound) {
+							Scroll = ScrollUpperBound;
+						}
 						break;
 					case SDLK_UP:
 						// Keep the scroll value from being or becoming negative
