@@ -371,19 +371,23 @@ int main(int argc, char *argv[]) {
 					#endif
 						break;
 					case SDLK_SPACE:
+						// Iterate through screen buffer to find unpopulated space 
 						for (int i = 0; i <= 256; i++) {
+							// Is empty space
 							if (text[i].letter[0] == '\0') {
-								char letter = ' ';
-								text[i] = loadCharFromChar(&letter);
-								break;
+								char space = ' '; // make space char
+								text[i] = loadCharFromChar(&space); // add space to the buffer
+								break; // Leave this loop
 							}
 						}
 						break;
 					case SDLK_BACKSPACE:
+						// Iterate through screen buffer to find populated space 
 						for (int i = 255; i >= 0; i--) {
+							// Is filled space
 							if (text[i].letter[0] != '\0') {
-								text[i].letter[0] = '\0';
-								break;
+								text[i].letter[0] = '\0'; // Fill area with empty space
+								break; // Leave this loop
 							}
 						}
 						break;
