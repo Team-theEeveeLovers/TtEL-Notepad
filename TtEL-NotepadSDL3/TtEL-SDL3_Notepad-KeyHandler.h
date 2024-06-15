@@ -17,10 +17,23 @@ extern character text[256]; // all the text in the 'document'
 *
 */
 void handleKey(SDL_Keycode keyCode, bool capital) {
-	// Keycode is a letter
-	if (ME::thresholdInt(keyCode, 97, 122)) {
+	// Keycode is a number
+	if (ME::thresholdInt(keyCode, 48, 57)) {
 		// Iterate through screen buffer to find unpopulated space 
 		for (int i = 0; i <= 256; i++) {
+			// Is empty space
+			if (text[i].letter[0] == '\0') {
+				char number = static_cast<char>(keyCode); // turn keyCode to char
+				text[i] = loadCharFromChar(&number); // add number to the buffer
+				break; // Leave this loop
+			}
+		}
+	}
+	// Keycode is a letter
+	else if (ME::thresholdInt(keyCode, 97, 122)) {
+		// Iterate through screen buffer to find unpopulated space 
+		for (int i = 0; i <= 256; i++) {
+			// Is empty space
 			if (text[i].letter[0] == '\0') {
 				char letter = static_cast<char>(keyCode); // turn keyCode to char
 				if (capital) {
