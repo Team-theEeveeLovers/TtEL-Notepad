@@ -15,6 +15,11 @@ extern character text[256]; // all the text in the 'document'
 string selectedFile;
 bool fileDialogOpen = false;
 
+enum TextEncoding {
+    CODEPAGE_7bASCII = 0x49435341,
+    CODEPAGE_8bWIN1252 = 0x32353231 
+};
+
 static const SDL_DialogFileFilter filters[] = {
     { "Text documents",  "txt" },
     { "All files",   "*" },
@@ -59,8 +64,16 @@ static void SDLCALL callback(void* userdata, const char* const* filelist, int fi
 
 class TextFile {
 public:
-    SDL_IOStream* fileStream;
-    const char* fileName;
+    SDL_IOStream* fileStream; // The IOStream of the file
+    const char* fileName; // The name of the file
+    TextEncoding encoding = TextEncoding::CODEPAGE_7bASCII; // The text encoding of the document
+
+    // Unused space (due to 8 byte alignment)
+    char padding[1] = { '\x20' };
+    char magic[3] = { 'T', 'X', 'T'};
+    
+
+
     /**
     * @brief Open a file dialog
     */
