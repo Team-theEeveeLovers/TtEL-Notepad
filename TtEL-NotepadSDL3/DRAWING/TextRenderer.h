@@ -35,12 +35,12 @@ public:
 	// This is the height of the character
 	Uint16 h = 0;
 
-	void drawCharacter();
+	void drawCharacter(vector2_float posOffset = vector2_float());
 	void freeCharacter();
 	void loadChar(char chrctr[1]);
 };
 
-void character::drawCharacter() {
+void character::drawCharacter(vector2_float posOffset) {
 	if (magic[0] != 'N' || magic[1] != 'C') {
 		ASSERT("TextRenderer.h: Not a valid character! ");
 		ASSERT("Header was invalid!");
@@ -54,8 +54,15 @@ void character::drawCharacter() {
 	else {
 		int tableIDX = static_cast<int>(letter[0]);
 		float width = static_cast<float>(w), height = static_cast<float>(h);
-		SDL_FRect currentDraw = { x,y,width,height };
-		SDL_FRect currentSource = { static_cast<float>(textTextureSourceVectors[tableIDX].x), static_cast<float>(textTextureSourceVectors[tableIDX].y),width,height };
+		SDL_FRect currentDraw = { 
+			x + posOffset.x,y + posOffset.y,
+			width,height 
+		};
+		SDL_FRect currentSource = { 
+			static_cast<float>(textTextureSourceVectors[tableIDX].x), 
+			static_cast<float>(textTextureSourceVectors[tableIDX].y),
+			width,height 
+		};
 		if (textTextures[tableIDX] == NULL) {
 			ASSERT("TextRenderer.h: Character has no letter texture!");
 			cout << "Missing Texture for letter '" << letter[0] << "'!" << endl;
