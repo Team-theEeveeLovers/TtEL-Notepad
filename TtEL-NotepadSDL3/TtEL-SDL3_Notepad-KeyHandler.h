@@ -24,7 +24,7 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 			if (text[i].letter[0] == '\0') {
 				char letter = static_cast<char>(keyCode); // turn keyCode to char
 				if (capital) {
-					letter+=' '; // add space character to the letter to make it uppercase, ASCII is beautiful
+					letter -= ' '; // subtract space character from the letter to make it uppercase, ASCII is beautiful
 				}
 				text[i] = loadCharFromChar(&letter); // add letter to the buffer
 				break; // Leave this loop
