@@ -84,6 +84,22 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 					case 0x32:
 						number += 0xE;
 						break;
+					// SHIFT + 3	(#)
+					case 0x33:
+						number -= 0x10;
+						break;
+					// SHIFT + 4	($)
+					case 0x34:
+						number -= 0x10;
+						break;
+					// SHIFT + 5	(%)
+					case 0x35:
+						number -= 0x10;
+						break;
+					// SHIFT + 7	(&)
+					case 0x37:
+						number -= 0x11;
+						break;
 					// SHIFT + 8	(*)
 					case 0x38:
 						number -= 0xE;
