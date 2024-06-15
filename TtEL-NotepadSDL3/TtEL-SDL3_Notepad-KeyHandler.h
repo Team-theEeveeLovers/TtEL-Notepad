@@ -5,4 +5,23 @@
 * @author Team theEeveeLovers Sean
 * @date June 14th, 2024
 */
-#include <SDL.h>
+#include "TtEL-SDL3_Notepad.hpp"
+
+extern character text[256]; // all the text in the 'document'
+
+void handleKey(SDL_KeyCode keyCode, bool capital) {
+	// Keycode is a letter
+	if (ME::thresholdInt(keyCode, 97, 122)) {
+		// Iterate through screen buffer to find unpopulated space 
+		for (int i = 0; i <= 256; i++) {
+			if (text[i].letter[0] == '\0') {
+				char letter = static_cast<char>(keyCode); // turn keyCode to char
+				if (capital) {
+					letter+=' '; // add space character to the letter to make it uppercase, ASCII is beautiful
+				}
+				text[i] = loadCharFromChar(&letter); // add letter to the buffer
+				break; // Leave this loop
+			}
+		}
+	}
+}
