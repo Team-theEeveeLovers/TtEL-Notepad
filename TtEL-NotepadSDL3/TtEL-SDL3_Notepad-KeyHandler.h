@@ -17,6 +17,18 @@ extern character text[256]; // all the text in the 'document'
 *
 */
 void handleKey(SDL_Keycode keyCode, bool capital) {
+	// Keycode is a special character
+	if (ME::thresholdInt(keyCode, 33, 47)) {
+		// Iterate through screen buffer to find unpopulated space 
+		for (int i = 0; i <= 256; i++) {
+			// Is empty space
+			if (text[i].letter[0] == '\0') {
+				char specChar = static_cast<char>(keyCode); // turn keyCode to char
+				text[i] = loadCharFromChar(&specChar); // add special character to the buffer
+				break; // Leave this loop
+			}
+		}
+	}
 	// Keycode is a number
 	if (ME::thresholdInt(keyCode, 48, 57)) {
 		// Iterate through screen buffer to find unpopulated space 
@@ -24,6 +36,14 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 			// Is empty space
 			if (text[i].letter[0] == '\0') {
 				char number = static_cast<char>(keyCode); // turn keyCode to char
+				// number row special character
+				if (capital) {
+					switch (keyCode) {
+					// SHIFT + 1
+					case 49:
+						number -= 0x10;
+					}
+				}
 				text[i] = loadCharFromChar(&number); // add number to the buffer
 				break; // Leave this loop
 			}
