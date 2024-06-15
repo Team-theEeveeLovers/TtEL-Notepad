@@ -198,7 +198,7 @@ bool loadAssets() {
 
 			textTextures[currentspecChar] = loadTextureFromChar(NotoMath, specchar, { 0,0,0 }, &height, &width);
 			textTextureSizeVectors[currentspecChar] = vector2_int(width, height);
-			textTextureSourceVectors[currentspecChar] = vector2_int(0, 0);
+			textTextureSourceVectors[currentspecChar] = vector2_int();
 
 			cout << specchar;
 			char specCharTable[1] = { specchar };
@@ -214,7 +214,7 @@ bool loadAssets() {
 
 			textTextures[currentspecChar] = loadTextureFromChar(NotoMath, specchar, { 0,0,0 }, &height, &width);
 			textTextureSizeVectors[currentspecChar] = vector2_int(width, height);
-			textTextureSourceVectors[currentspecChar] = vector2_int(0, 0);
+			textTextureSourceVectors[currentspecChar] = vector2_int();
 
 			cout << specchar;
 			char specCharTable[1] = { specchar };
@@ -232,7 +232,7 @@ bool loadAssets() {
 			SDL_SetTextureAlphaModFloat(textTextures[currentNumber], 0.85f);
 
 			textTextureSizeVectors[currentNumber] = vector2_int(width, height);
-			textTextureSourceVectors[currentNumber] = vector2_int(0,0);
+			textTextureSourceVectors[currentNumber] = vector2_int();
 
 			cout << number;
 			char numberTable[1] = { number };
@@ -252,7 +252,7 @@ bool loadAssets() {
 			SDL_SetTextureAlphaModFloat(textTextures[currentLetter], 0.85f);
 
 			textTextureSizeVectors[currentLetter] = vector2_int(width, height);
-			textTextureSourceVectors[currentLetter] = vector2_int(0, 0);
+			textTextureSourceVectors[currentLetter] = vector2_int();
 
 			cout << letter;
 			char letterTable[1] = { letter };
@@ -269,7 +269,7 @@ bool loadAssets() {
 			textTextures[currentLetter] = loadTextureFromChar(NotoMath, letter, { 0,0,0 }, &height, &width);
 			SDL_SetTextureAlphaModFloat(textTextures[currentLetter], 0.85f);
 
-			textTextureSourceVectors[currentLetter] = vector2_int(0, 0);
+			textTextureSourceVectors[currentLetter] = vector2_int();
 			textTextureSizeVectors[currentLetter] = vector2_int(width, height);
 
 			cout << letter;
