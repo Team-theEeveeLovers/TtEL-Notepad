@@ -61,7 +61,6 @@ class TextFile {
 public:
     SDL_IOStream* fileStream;
     const char* fileName;
-    char File_text[256];
     /**
     * @brief Open a file dialog
     */
@@ -144,9 +143,11 @@ bool TextFile::loadFile(string filePath) {
         if (fileSize > 256) {
             fileSize = 256;
         }
+        char currentChar = '\0';
         for (int i = 0; i < fileSize; i++) {
-            SDL_ReadIO(fileStream, &File_text[i], sizeof(char));
-            text[i].loadChar(&File_text[i]);
+            
+            SDL_ReadIO(fileStream, &currentChar, sizeof(char));
+            text[i].loadChar(&currentChar);
         }
     }
     return success;
