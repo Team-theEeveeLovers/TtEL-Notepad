@@ -203,11 +203,11 @@ bool loadAssets() {
 			text[i + 52].loadChar(&letterTable[0]);
 		}
 		cout << endl;
-		char FileTabText[4] = { 'f', 'i', 'l', 'e' };
+		char FileTabText[4] = { 'F', 'i', 'l', 'e' };
 
 		FileTab[0] = loadCharFromChar(&FileTabText[0], vector2_float(20.f, 0.f));
 
-		FileTab[1] = loadCharFromChar(&FileTabText[1], vector2_float(40.f, 0.f));
+		FileTab[1] = loadCharFromChar(&FileTabText[1], vector2_float(44.f, 0.f));
 
 		FileTab[2] = loadCharFromChar(&FileTabText[2], vector2_float(55.f, 0.f));
 
