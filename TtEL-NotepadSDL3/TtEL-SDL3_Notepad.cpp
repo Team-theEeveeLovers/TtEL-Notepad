@@ -737,6 +737,9 @@ int main(int argc, char *argv[]) {
 							if (!currentFile.loadFile(currentFilepath)) {
 								cout << "FAILED TO LOAD FILE" << endl;
 							}
+							else {
+								fileMenuOpen = false;
+							}
 						}
 					}
 				}
