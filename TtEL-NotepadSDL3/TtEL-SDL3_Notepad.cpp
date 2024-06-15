@@ -307,8 +307,6 @@ bool loadAssets() {
 
 		FileTab[0] = loadCharFromChar(&FileTabText[0], vector2_float(20.f, 0.f));
 
-		SDL_RenderPresent(main_renderer);
-
 		FileTab[1] = loadCharFromChar(&FileTabText[1], vector2_float(44.f, 0.f));
 
 		FileTab[2] = loadCharFromChar(&FileTabText[2], vector2_float(55.f, 0.f));
@@ -574,10 +572,10 @@ int main(int argc, char *argv[]) {
 					SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
 
 					RD::FillFRectFromInputRect(fileTabBKG);
-					FileTab[0].drawCharacter();
-					FileTab[1].drawCharacter();
-					FileTab[2].drawCharacter();
-					FileTab[3].drawCharacter();
+					for (int i = 0; i < 4; i++) {
+						FileTab[i].drawCharacter();
+					}
+
 				}
 
 				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x22);
