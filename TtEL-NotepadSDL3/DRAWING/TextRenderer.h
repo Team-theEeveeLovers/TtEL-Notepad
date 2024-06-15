@@ -56,7 +56,14 @@ void character::drawCharacter() {
 		float width = static_cast<float>(w), height = static_cast<float>(h);
 		SDL_FRect currentDraw = { x,y,width,height };
 		SDL_FRect currentSource = { static_cast<float>(textTextureSourceVectors[tableIDX].x), static_cast<float>(textTextureSourceVectors[tableIDX].y),width,height };
-		SDL_RenderTexture(main_renderer, textTextures[tableIDX], &currentSource, &currentDraw);
+		if (textTextures[tableIDX] == NULL) {
+			ASSERT("TextRenderer.h: Character has no letter texture!");
+			cout << "Missing Texture for letter '" << letter[0] << "'!" << endl;
+			DEBUG_BREAK();
+		}
+		else {
+			SDL_RenderTexture(main_renderer, textTextures[tableIDX], &currentSource, &currentDraw);
+		}
 #ifdef DRAW_DEBUG
 		if (DRAW_DBG) {
 			SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xFF);
