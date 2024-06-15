@@ -345,6 +345,10 @@ bool loadAssets() {
 			else {
 				arrow = SDL_CreateColorCursor(arrowCur, 0, 0);
 				ibeam = SDL_CreateColorCursor(ibeamCur, 16, 14);
+
+				// destroy temporary surfaces
+				SDL_DestroySurface(arrowCur);
+				SDL_DestroySurface(ibeamCur);
 			}
 		}
 		return true;
