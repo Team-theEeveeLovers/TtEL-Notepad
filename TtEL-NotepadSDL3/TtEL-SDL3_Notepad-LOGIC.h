@@ -103,7 +103,7 @@ bool isFMouseInFRectangle(float mouseX, float mouseY, SDL_FRect* checkRect) {
 * However, this code was specifically written for the purpose of checking mice.
 * @deprecated Deprecated in SDL3 since Mouse Position is now stored as a float.
 * This is now a wrapper for @code isFMouseInFRectangle() @endcode
-* It essentially was always one for it used the same code
+* It essentially was always one as it used the same code
 *
 * @param mouseX - The X position of the mouse.
 * @param mouseY - The Y position of the mouse.
