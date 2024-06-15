@@ -39,6 +39,10 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 					case 46:
 						specChar += 0x10;
 						break;
+					// SHIFT + /	(?)
+					case 47:
+						specChar += 0x10;
+						break;
 					// SHIFT + ;	(:)
 					case 59:
 						specChar--;
