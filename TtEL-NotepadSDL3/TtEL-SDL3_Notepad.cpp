@@ -207,7 +207,7 @@ bool loadAssets() {
 			text[i].loadChar(&specCharTable[0]);
 
 		}
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 7; i++) {
 			int currentspecChar = 0x3A + i;
 			char specchar = static_cast<char>(currentspecChar);
 			string numberString(1, specchar); // The random conversion to string helps with corrupted text somehow
@@ -239,7 +239,7 @@ bool loadAssets() {
 
 			cout << number;
 			char numberTable[1] = { number };
-			text[i+22].loadChar(&numberTable[0]);
+			text[i+23].loadChar(&numberTable[0]);
 
 			
 		}
@@ -277,7 +277,7 @@ bool loadAssets() {
 
 			cout << letter;
 			char letterTable[1] = { letter };
-			text[i+32].loadChar(&letterTable[0]);
+			text[i+33].loadChar(&letterTable[0]);
 		}
 		for (int i = 0; i < 4; i++) {
 			char LOADtable[4] = { 'L', 'O', 'A', 'D' };
@@ -303,7 +303,7 @@ bool loadAssets() {
 
 			cout << letter;
 			char letterTable[1] = { letter };
-			text[i + 58].loadChar(&letterTable[0]);
+			text[i + 59].loadChar(&letterTable[0]);
 		}
 		cout << endl;
 
