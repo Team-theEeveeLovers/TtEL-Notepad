@@ -15,6 +15,7 @@ bool isWindowMinimized = false; // is the window minimized?
 // The font Noto Sans Math
 TTF_Font* NotoMath = NULL;
 
+character LOAD[4]; // the LOAD text
 character text[256]; // all the text in the 'document'
 character FileTab[4]; // the letters for the file menu button
 character FileMenu[12]; // the letters for the options in the file menu
@@ -190,6 +191,7 @@ bool loadAssets() {
 
 		cout << endl << "Initalizing Special Characters" << endl;
 		for (int i = 0; i <= 0xF; i++) {
+
 			int currentspecChar = 0x20 + i;
 			char specchar = static_cast<char>(currentspecChar);
 			string numberString(1, specchar); // The random conversion to string helps with corrupted text somehow
@@ -222,6 +224,7 @@ bool loadAssets() {
 		}
 		cout << endl << "Initalizing Numbers" << endl;
 		for (int i = 0; i < 10; i++) {
+
 			int currentNumber = 0x30 + i;
 			char number = static_cast<char>(currentNumber);
 			string numberString(1, number); // The random conversion to string helps with corrupted text somehow
@@ -237,8 +240,26 @@ bool loadAssets() {
 			cout << number;
 			char numberTable[1] = { number };
 			text[i+22].loadChar(&numberTable[0]);
+
 			
 		}
+
+		SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, 0x44);
+		SDL_RenderClear(main_renderer);
+
+		// loop through rectangles
+		SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE - 0x44);
+
+		// we are subtracting the border size here from the screen size in the width value to prevent overdraw from right rect
+		RD::FillFRectFromInput(0.f, 0.f, scr_floatwid - 10.f, 10.f);
+		// we are subtracting the border size here from the screen size in the height value to prevent overdraw from bottom rect
+		RD::FillFRectFromInput(0.f, 0.f, 10.f, scr_floathei - 10.f);
+
+		SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE - 0x44);
+
+		RD::FillFRectFromInput(scr_floatwid - 10.f, 0.f, 10.f, scr_floathei); // Right Rect
+		RD::FillFRectFromInput(0.f, scr_floathei - 10.f, scr_floatwid, 10.f); // Bottom Rect
+
 		cout << endl << "Initalizing Letters" << endl;
 		for (int i = 0; i < 26; i++) {
 			
@@ -258,7 +279,15 @@ bool loadAssets() {
 			char letterTable[1] = { letter };
 			text[i+32].loadChar(&letterTable[0]);
 		}
+		for (int i = 0; i < 4; i++) {
+			char LOADtable[4] = { 'L', 'O', 'A', 'D' };
+			LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 20.f));
+
+			LOAD[i].drawCharacter();
+		}
 		cout << endl;
+		SDL_RenderPresent(main_renderer);
+
 		for (int i = 0; i < 26; i++) {
 			int currentLetter = 0x61 + i;
 			char letter = static_cast<char>(currentLetter);
@@ -306,12 +335,16 @@ bool loadAssets() {
 		char FileTabText[4] = { 'F', 'i', 'l', 'e' };
 
 		FileTab[0] = loadCharFromChar(&FileTabText[0], vector2_float(20.f, 0.f));
+		LOAD[0].destroyCharacter();
 
 		FileTab[1] = loadCharFromChar(&FileTabText[1], vector2_float(44.f, 0.f));
+		LOAD[1].destroyCharacter();
 
 		FileTab[2] = loadCharFromChar(&FileTabText[2], vector2_float(55.f, 0.f));
+		LOAD[2].destroyCharacter();
 
 		FileTab[3] = loadCharFromChar(&FileTabText[3], vector2_float(68.f, 0.f));
+		LOAD[3].destroyCharacter();
 
 
 		char FileMenuText[12] = 
