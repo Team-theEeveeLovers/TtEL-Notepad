@@ -683,7 +683,7 @@ void exit() {
 	while (currentTime < 200) {
 		currentTime = SDL_GetTicks() - startTime;
 	}
-	SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xC7, 0x86, 0x66);
+	SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xC7, 0x86, 0x56);
 	SDL_RenderClear(main_renderer);
 	SDL_RenderPresent(main_renderer);
 
@@ -699,11 +699,11 @@ void exit() {
 	while (currentTime < 250) {
 		currentTime = SDL_GetTicks() - startTime;
 	}
-	SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xC7, 0x86, 0x66);
+	SDL_SetRenderDrawColor(main_renderer, 0xCB, 0xB7, 0x76, 0x46);
 	SDL_RenderClear(main_renderer);
 	SDL_RenderPresent(main_renderer);
 
-
+	currentTime = SDL_GetTicks() - startTime;
 	cout << "Freeing Assets..." << endl;
 	for (int i = 0; i < 256; i++) {
 		SDL_DestroyTexture(textTextures[i]);
@@ -716,16 +716,24 @@ void exit() {
 	while (currentTime < 350) {
 		currentTime = SDL_GetTicks() - startTime;
 	}
-	SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xC7, 0x86, 0x66);
+	SDL_SetRenderDrawColor(main_renderer, 0xBB, 0xA7, 0x66, 0x36);
 	SDL_RenderClear(main_renderer);
 	SDL_RenderPresent(main_renderer);
 
-
+	currentTime = SDL_GetTicks() - startTime;
 	cout << "Clearing text..." << endl;
 	for (int i = 0; i < 256; i++) {
 		text[i].freeCharacter();
 	}
 	cout << "Text cleared." << endl << endl;
+	while (currentTime < 450) {
+		currentTime = SDL_GetTicks() - startTime;
+	}
+
+	SDL_SetRenderDrawColor(main_renderer, 0xAB, 0x97, 0x56, 0x26);
+	SDL_RenderClear(main_renderer);
+	SDL_RenderPresent(main_renderer);
+
 
 	cout << "SDL_image is exiting..." << endl;
 	IMG_Quit();
