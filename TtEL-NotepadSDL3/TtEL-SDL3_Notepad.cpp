@@ -860,6 +860,14 @@ void exit() {
 	SDL_RenderClear(main_renderer);
 	SDL_RenderPresent(main_renderer);
 
+	cout << "Closing file..." << endl;
+	currentFile.closeFile();
+	cout << "File closed." << endl << endl;
+
+
+	SDL_SetRenderDrawColor(main_renderer, 0x9B, 0x87, 0x46, 0x16);
+	SDL_RenderClear(main_renderer);
+	SDL_RenderPresent(main_renderer);
 
 	cout << "SDL_image is exiting..." << endl;
 	IMG_Quit();
