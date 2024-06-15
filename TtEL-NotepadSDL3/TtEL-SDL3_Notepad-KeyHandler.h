@@ -22,7 +22,7 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 		// Iterate through screen buffer to find unpopulated space 
 		for (int i = 0; i <= 256; i++) {
 			// Is empty space
-			if (text[i].letter[0] == '\0') {
+			if (text[i].isEmptyChar()) {
 				char specChar = static_cast<char>(keyCode); // turn keyCode to char
 				// shift special character
 				if (capital) {
@@ -63,7 +63,7 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 		// Iterate through screen buffer to find unpopulated space 
 		for (int i = 0; i <= 256; i++) {
 			// Is empty space
-			if (text[i].letter[0] == '\0') {
+			if (text[i].isEmptyChar()) {
 				char number = static_cast<char>(keyCode); // turn keyCode to char
 				// number row special character
 				if (capital) {
@@ -100,7 +100,7 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 		// Iterate through screen buffer to find unpopulated space 
 		for (int i = 0; i <= 256; i++) {
 			// Is empty space
-			if (text[i].letter[0] == '\0') {
+			if (text[i].isEmptyChar()) {
 				char letter = static_cast<char>(keyCode); // turn keyCode to char
 				if (capital) {
 					letter -= ' '; // subtract space character from the letter to make it uppercase, ASCII is beautiful

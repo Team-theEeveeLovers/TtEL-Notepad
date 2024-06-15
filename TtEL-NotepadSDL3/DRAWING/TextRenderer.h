@@ -39,6 +39,12 @@ public:
 	void freeCharacter();
 	void destroyCharacter();
 	void loadChar(char chrctr[1]);
+
+	// does the char contain a letter?
+	inline bool isFilledChar() const { return letter[0] != '\0'; };
+
+	// does the char contain unfilled space?
+	inline bool isEmptyChar() const { return letter[0] == '\0'; };
 };
 
 void character::drawCharacter(vector2_float posOffset) {

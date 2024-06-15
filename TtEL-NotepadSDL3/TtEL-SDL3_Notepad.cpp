@@ -502,7 +502,7 @@ int main(int argc, char *argv[]) {
 						// Iterate through screen buffer to find unpopulated space 
 						for (int i = 0; i <= 256; i++) {
 							// Is empty space
-							if (text[i].letter[0] == '\0') {
+							if (text[i].isEmptyChar()) {
 								char space = ' '; // make space char
 								text[i] = loadCharFromChar(&space); // add space to the buffer
 								break; // Leave this loop
@@ -513,7 +513,7 @@ int main(int argc, char *argv[]) {
 						// Iterate through screen buffer to find populated space 
 						for (int i = 255; i >= 0; i--) {
 							// Is filled space
-							if (text[i].letter[0] != '\0') {
+							if (text[i].isFilledChar()) {
 								text[i].letter[0] = '\0'; // Fill area with empty space
 								break; // Leave this loop
 							}
@@ -627,7 +627,7 @@ int main(int argc, char *argv[]) {
 				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
 				RD::FillFRectFromInputRect(TextBKG);
 				for (int i = 0; i <= 255; i++) {
-					if (text[i].letter[0] != '\0') {
+					if (text[i].isFilledChar()) {
 
 						if (i == 0) {
 							text[i].x = TextBKG.x + 10.f;
