@@ -18,7 +18,7 @@ extern character text[256]; // all the text in the 'document'
 */
 void handleKey(SDL_Keycode keyCode, bool capital) {
 	// Keycode is a special character
-	if (ME::thresholdInt(keyCode, 33, 47)) {
+	if (ME::thresholdInt(keyCode, 33, 47) || ME::thresholdInt(keyCode, 58, 63)) {
 		// Iterate through screen buffer to find unpopulated space 
 		for (int i = 0; i <= 256; i++) {
 			// Is empty space
@@ -27,9 +27,17 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 				// shift special character
 				if (capital) {
 					switch (keyCode) {
-						// SHIFT + '	(")
+					// SHIFT + '	(")
 					case 39:
 						specChar -= 5;
+						break;
+					// SHIFT + ;	(:)
+					case 59:
+						specChar--;
+						break;
+					// SHIFT + =	(+)
+					case 61:
+						specChar -= 0x12;
 						break;
 					}
 				}
