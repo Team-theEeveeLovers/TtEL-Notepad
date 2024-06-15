@@ -75,16 +75,9 @@ void character::drawCharacter() {
 }
 
 void character::freeCharacter() {
-	char* magicptr[2];
-	magicptr[0] = &magic[0];
-	magicptr[1] = &magic[1];
-#ifdef _NATIVE_NULLPTR_SUPPORTED
-	magicptr[0] = nullptr;
-	magicptr[1] = nullptr;
-#else
-	magicptr[0] = NULL;
-	magicptr[1] = NULL;
-#endif
+	letter[0] = '\0'; // nullify letter
+	x = 0.f; y = 0.f; // zeroify position
+	w = 0; h = 0; // zeroify size
 }
 
 void character::loadChar(char chrctr[1]) {
