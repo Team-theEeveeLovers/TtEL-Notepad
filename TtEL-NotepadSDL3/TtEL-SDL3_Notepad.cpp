@@ -268,7 +268,6 @@ int main(int argc, char *argv[]) {
 		bool fileMenuOpen = false;
 		float fileMenuY_Offset = 40.f;
 		
-		const char* currentTextFilePath;
 		bool fileDialogOpen = false;
 		while (!exiting) {
 			while (SDL_PollEvent(&e)) {
