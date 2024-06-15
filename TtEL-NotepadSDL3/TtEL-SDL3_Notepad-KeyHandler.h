@@ -9,7 +9,14 @@
 
 extern character text[256]; // all the text in the 'document'
 
-void handleKey(SDL_KeyCode keyCode, bool capital) {
+/**
+* @brief A function to handle a SDL Keycode.
+* 
+* @param keyCode - The SDL_Keycode to handle.
+* @param capital - Bool describing if shift is pressed.
+*
+*/
+void handleKey(SDL_Keycode keyCode, bool capital) {
 	// Keycode is a letter
 	if (ME::thresholdInt(keyCode, 97, 122)) {
 		// Iterate through screen buffer to find unpopulated space 
