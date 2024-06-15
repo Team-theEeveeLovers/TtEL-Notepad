@@ -549,6 +549,10 @@ int main(int argc, char *argv[]) {
 								filetabOptionBKGs[i].w, 
 								filetabOptionBKGs[i].h
 							);
+							for (int j = 0; j < 4; j++) {
+								int h = j + (i * 3);
+								FileMenu[h - 1].drawCharacter(vector2_float(0.f, 0.f-fileMenuY_Offset));
+							}
 #ifdef DRAW_DEBUG
 							if (DRAW_DBG) {
 								SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xAA);
