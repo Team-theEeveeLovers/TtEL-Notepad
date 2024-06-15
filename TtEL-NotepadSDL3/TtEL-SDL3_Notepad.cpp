@@ -549,9 +549,9 @@ int main(int argc, char *argv[]) {
 								filetabOptionBKGs[i].w, 
 								filetabOptionBKGs[i].h
 							);
-							for (int j = 0; j < 4; j++) {
+							for (int j = 0; j < 3; j++) {
 								int h = j + (i * 3);
-								FileMenu[h - 1].drawCharacter(vector2_float(0.f, 0.f-fileMenuY_Offset));
+								FileMenu[h].drawCharacter(vector2_float(0.f, 0.f-fileMenuY_Offset));
 							}
 #ifdef DRAW_DEBUG
 							if (DRAW_DBG) {
@@ -608,9 +608,9 @@ int main(int argc, char *argv[]) {
 								RD::StrokeFRectFromInputRect(filetabOptionBKGs[i]);
 							}
 #endif
-							for (int j = 0; j < 4; j++) {
+							for (int j = 0; j < 3; j++) {
 								int h = j + (i * 3);
-								FileMenu[h-1].drawCharacter();
+								FileMenu[h].drawCharacter();
 							}
 						}
 					}
