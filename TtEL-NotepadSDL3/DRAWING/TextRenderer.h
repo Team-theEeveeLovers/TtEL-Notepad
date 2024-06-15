@@ -37,6 +37,7 @@ public:
 
 	void drawCharacter(vector2_float posOffset = vector2_float());
 	void freeCharacter();
+	void destroyCharacter();
 	void loadChar(char chrctr[1]);
 };
 
@@ -83,6 +84,17 @@ void character::drawCharacter(vector2_float posOffset) {
 
 void character::freeCharacter() {
 	letter[0] = '\0'; // nullify letter
+	x = 0.f; y = 0.f; // zeroify position
+	w = 0; h = 0; // zeroify size
+}
+void character::destroyCharacter() {
+	magic[0] = '\0'; // nullify magic
+	magic[1] = '\0'; // nullify magic
+	*magic = NULL; // null magic
+	padding[0] = '\0'; // nullify padding
+	*padding = NULL; // null padding
+	letter[0] = '\0'; // nullify letter
+	*letter = NULL; // null letter
 	x = 0.f; y = 0.f; // zeroify position
 	w = 0; h = 0; // zeroify size
 }
