@@ -20,6 +20,8 @@ namespace RD = RectDraw;
 
 #include "FILESYS/TtEL-SDL3_Notepad-FILELOADING.h"
 
+#include "TtEL-SDL3_Notepad-KeyHandler.h"
+
 extern SDL_Renderer* main_renderer;
 
 extern int scr_wid;
