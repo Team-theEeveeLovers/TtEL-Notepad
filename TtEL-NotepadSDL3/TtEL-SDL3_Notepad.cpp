@@ -517,7 +517,7 @@ int main(int argc, char *argv[]) {
 					}
 					else if (fileMenuY_Offset > 0.f) {
 						if (fileMenuY_Offset <= 10.f) {
-							fileMenuY_Offset -= 0.75f;
+							fileMenuY_Offset -= 1.f;
 							if (fileMenuY_Offset <= 0.f) {
 								SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
 
@@ -529,10 +529,10 @@ int main(int argc, char *argv[]) {
 							}
 						}
 						else if (fileMenuY_Offset <= 25.f) {
-							fileMenuY_Offset -= 1.5f;
+							fileMenuY_Offset -= 2.f;
 						}
 						else {
-							fileMenuY_Offset -= 3.f;
+							fileMenuY_Offset -= 4.f;
 						}
 					}
 					for (int i = 0; i < 4; i++) {
