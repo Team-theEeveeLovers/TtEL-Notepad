@@ -66,8 +66,8 @@ void character::drawCharacter() {
 		}
 #ifdef DRAW_DEBUG
 		if (DRAW_DBG) {
-			SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0x66);
-			RectDraw::StrokeFRectFromInputRect(currentDraw);
+			SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xFF);
+			SDL_RenderRect(main_renderer, &currentDraw);
 		}
 #endif
 		//SDL_free(&currentDraw);
