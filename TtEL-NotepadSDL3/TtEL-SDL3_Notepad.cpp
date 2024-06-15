@@ -2,6 +2,7 @@
 
 SDL_Window* main_window = NULL; // The main window
 SDL_Renderer* main_renderer = NULL; // The main renderering context
+SDL_Renderer* unsynced_renderer = NULL; // a rendering context without VSync
 
 int scr_wid = 480, scr_hei = 640; // screen size variable
 float scr_floatwid = 480.f, scr_floathei = 640.f; // screen size variable but converted to float because using a lot of static_cast looks messy.
@@ -92,13 +93,24 @@ bool init(void) {
 				cout << "SDL3 renderer creation failed. SDL_error: " << SDL_GetError() << endl;
 			}
 			else {
+				unsynced_renderer = SDL_CreateRenderer(main_window, NULL, SDL_RENDERER_ACCELERATED);
 				cout << "Render started." << endl;
 				SDL_SetRenderDrawBlendMode(main_renderer, SDL_BLENDMODE_BLEND);
+				SDL_SetRenderDrawBlendMode(unsynced_renderer, SDL_BLENDMODE_BLEND);
+
+				SDL_SetRenderDrawColor(unsynced_renderer, 0xDB, 0xD7, 0xB6, 0x14);
+				SDL_RenderClear(unsynced_renderer);
+
+				SDL_RenderPresent(unsynced_renderer);
 				if (TTF_Init() == -1) {
 					success = false;
 					cout << "SDL3_ttf failed to initalize. SDL_ttf error: " << TTF_GetError() << endl;
 				}
 				else {
+					SDL_SetRenderDrawColor(unsynced_renderer, 0xDB, 0xD7, 0xB6, 0x24);
+					SDL_RenderClear(unsynced_renderer);
+
+					SDL_RenderPresent(unsynced_renderer);
 					cout << "SDL3_ttf initalized successfully." << endl;
 					int imgFlags = IMG_INIT_PNG;
 					if (!(IMG_Init(imgFlags) & imgFlags)) {
@@ -106,6 +118,27 @@ bool init(void) {
 						success = false;
 					}
 					else {
+						SDL_SetRenderDrawColor(unsynced_renderer, 0xDB, 0xD7, 0xB6, 0x34);
+						SDL_RenderClear(unsynced_renderer);
+						SDL_FRect drawingRect;
+						// loop through rectangles
+						SDL_SetRenderDrawColor(unsynced_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE - 0x44);
+
+						// we are subtracting the border size here from the screen size in the width value to prevent overdraw from right rect
+						drawingRect = { 0.f, 0.f, scr_floatwid - 10.f, 10.f };
+						SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+						// we are subtracting the border size here from the screen size in the height value to prevent overdraw from bottom rect
+						drawingRect = { 0.f, 0.f, 10.f, scr_floathei - 10.f };
+						SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+
+						SDL_SetRenderDrawColor(unsynced_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE - 0x44);
+
+						drawingRect = { scr_floatwid - 10.f, 0.f, 10.f, scr_floathei }; // Right Rect
+						SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+						drawingRect = { 0.f, scr_floathei - 10.f, scr_floatwid, 10.f }; // Bottom Rect
+						SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+
+						SDL_RenderPresent(unsynced_renderer);
 						cout << "SDL3_image initalized successfully." << endl;
 						if (!loadAssets()) {
 							success = false;
@@ -129,6 +162,32 @@ bool loadAssets() {
 		return false;
 	}
 	else {
+		SDL_SetRenderDrawColor(unsynced_renderer, 0xDB, 0xD7, 0xB6, 0x44);
+		SDL_RenderClear(unsynced_renderer);
+		// loop through rectangles
+		SDL_SetRenderDrawColor(unsynced_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE - 0x44);
+		SDL_FRect drawingRect;
+		// we are subtracting the border size here from the screen size in the width value to prevent overdraw from right rect
+		drawingRect = { 0.f, 0.f, scr_floatwid - 10.f, 10.f };
+		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+		// we are subtracting the border size here from the screen size in the height value to prevent overdraw from bottom rect
+		drawingRect = { 0.f, 0.f, 10.f, scr_floathei - 10.f };
+		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+
+		SDL_SetRenderDrawColor(unsynced_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE - 0x44);
+
+		drawingRect = { scr_floatwid - 10.f, 0.f, 10.f, scr_floathei }; // Right Rect
+		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+		drawingRect = { 0.f, scr_floathei - 10.f, scr_floatwid, 10.f }; // Bottom Rect
+		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+
+		SDL_SetRenderDrawColor(unsynced_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
+
+		SDL_RenderFillRect(unsynced_renderer, &fileTabBKG);
+		SDL_RenderFillRect(unsynced_renderer, &TextBKG);
+
+		SDL_RenderPresent(unsynced_renderer);
+
 		cout << endl << "Initalizing Special Characters" << endl;
 		for (int i = 0; i <= 0xF; i++) {
 			int currentspecChar = 0x20 + i;
@@ -218,9 +277,37 @@ bool loadAssets() {
 			text[i + 58].loadChar(&letterTable[0]);
 		}
 		cout << endl;
+
+		SDL_SetRenderDrawColor(unsynced_renderer, 0xDB, 0xD7, 0xB6, 0x44);
+		SDL_RenderClear(unsynced_renderer);
+		// loop through rectangles
+		SDL_SetRenderDrawColor(unsynced_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE - 0x44);
+		// we are subtracting the border size here from the screen size in the width value to prevent overdraw from right rect
+		drawingRect = { 0.f, 0.f, scr_floatwid - 10.f, 10.f };
+		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+		// we are subtracting the border size here from the screen size in the height value to prevent overdraw from bottom rect
+		drawingRect = { 0.f, 0.f, 10.f, scr_floathei - 10.f };
+		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+
+		SDL_SetRenderDrawColor(unsynced_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE - 0x44);
+
+		drawingRect = { scr_floatwid - 10.f, 0.f, 10.f, scr_floathei }; // Right Rect
+		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+		drawingRect = { 0.f, scr_floathei - 10.f, scr_floatwid, 10.f }; // Bottom Rect
+		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+
+		SDL_SetRenderDrawColor(unsynced_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
+
+		SDL_RenderFillRect(unsynced_renderer, &fileTabBKG);
+
+
+		SDL_RenderPresent(unsynced_renderer);
+
 		char FileTabText[4] = { 'F', 'i', 'l', 'e' };
 
 		FileTab[0] = loadCharFromChar(&FileTabText[0], vector2_float(20.f, 0.f));
+
+		SDL_RenderPresent(main_renderer);
 
 		FileTab[1] = loadCharFromChar(&FileTabText[1], vector2_float(44.f, 0.f));
 
