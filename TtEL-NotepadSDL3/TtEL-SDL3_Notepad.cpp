@@ -44,7 +44,7 @@ HRSRC Close_SRC;
 #endif
 
 
-
+float Scroll = 0.0f;
 
 SDL_Surface* arrowCur = NULL;
 SDL_Cursor* arrow = NULL;
@@ -528,6 +528,20 @@ int main(int argc, char *argv[]) {
 							}
 						}
 						break;
+					case SDLK_DOWN:
+						Scroll += 20.f;
+						break;
+					case SDLK_UP:
+						// Keep the scroll value from being or becoming negative
+						// It is possible for the scroll value to be too high causing float imprecision
+						// Which will make the scroll value not a multiple of 20
+						if (Scroll >= 20.f) {
+							Scroll -= 20.f;
+						}
+						else {
+							Scroll = 0.f; 
+						}
+						break;
 					default:
 						handleKey(e.key.keysym.sym, capital);
 						break;
@@ -643,7 +657,7 @@ int main(int argc, char *argv[]) {
 							}
 						}
 						
-						text[i].drawCharacter();
+						text[i].drawCharacter(vector2_float(0.f, 0.f-Scroll));
 					}
 				}
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
