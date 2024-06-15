@@ -43,8 +43,8 @@ HRSRC Close_SRC;
 
 #endif
 
-
 float Scroll = 0.0f;
+bool NaturalScrolling = false;
 
 SDL_Surface* arrowCur = NULL;
 SDL_Cursor* arrow = NULL;
@@ -452,31 +452,6 @@ int main(int argc, char *argv[]) {
 					TextBKG.y = 56.f * common_scale;
 					TextBKG.h = scr_floathei - TextBKG.y - 24.f;
 
-
-
-
-					/*
-					/// Draw
-					SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, 0x44);
-					SDL_RenderClear(main_renderer);
-
-					SDL_SetRenderScale(main_renderer, 1.f, 1.f);
-
-					// loop through rectangles
-					SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE - 0x44);
-
-					// we are subtracting the border size here from the screen size in the width value to prevent overdraw from right rect
-					RD::FillFRectFromInput(0.f, 0.f, scr_floatwid - BorderSize, BorderSize);
-					// we are subtracting the border size here from the screen size in the height value to prevent overdraw from bottom rect
-					RD::FillFRectFromInput(0.f, 0.f, BorderSize, scr_floathei - BorderSize);
-
-					SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE - 0x44);
-
-					RD::FillFRectFromInput(scr_floatwid - BorderSize, 0.f, BorderSize, scr_floathei); // Right Rect
-					RD::FillFRectFromInput(0.f, scr_floathei - BorderSize, scr_floatwid, BorderSize); // Bottom Rect
-
-					SDL_RenderPresent(main_renderer);
-					*/
 					break;
 				case SDL_EVENT_WINDOW_RESIZED:
 					break;
@@ -494,6 +469,18 @@ int main(int argc, char *argv[]) {
 					// Mouse button released
 				case SDL_EVENT_MOUSE_BUTTON_UP:
 					mouseClicked = false;
+					break;
+				case SDL_EVENT_MOUSE_WHEEL:
+					if (NaturalScrolling) {
+						Scroll += 4.f * e.wheel.y;
+					}
+					else {
+						Scroll -= 4.f * e.wheel.y;
+					}
+					// Keep the scroll value from being negative
+					if (Scroll < 0.f) {
+						Scroll = 0.f;
+					}
 					break;
 				case SDL_EVENT_KEY_DOWN:
 					const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
