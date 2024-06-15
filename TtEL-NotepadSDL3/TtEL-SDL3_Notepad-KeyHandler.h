@@ -24,6 +24,15 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 			// Is empty space
 			if (text[i].letter[0] == '\0') {
 				char specChar = static_cast<char>(keyCode); // turn keyCode to char
+				// shift special character
+				if (capital) {
+					switch (keyCode) {
+						// SHIFT + '	(")
+					case 39:
+						specChar -= 5;
+						break;
+					}
+				}
 				text[i] = loadCharFromChar(&specChar); // add special character to the buffer
 				break; // Leave this loop
 			}
@@ -39,9 +48,10 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 				// number row special character
 				if (capital) {
 					switch (keyCode) {
-					// SHIFT + 1
+					// SHIFT + 1	(!)
 					case 49:
 						number -= 0x10;
+						break;
 					}
 				}
 				text[i] = loadCharFromChar(&number); // add number to the buffer
