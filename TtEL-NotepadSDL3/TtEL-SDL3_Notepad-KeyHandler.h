@@ -68,9 +68,21 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 				// number row special character
 				if (capital) {
 					switch (keyCode) {
+					// SHIFT + 0	())
+					case 0x30:
+						number -= 7;
+						break;
+					// SHIFT + 9	(()
+					case 0x39:
+						number -= 0x11;
+						break;
 					// SHIFT + 1	(!)
-					case 49:
+					case 0x31:
 						number -= 0x10;
+						break;
+					// SHIFT + 8	(*)
+					case 0x38:
+						number -= 0xE;
 						break;
 					}
 				}
