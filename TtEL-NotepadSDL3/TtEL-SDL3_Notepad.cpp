@@ -543,7 +543,23 @@ int main(int argc, char *argv[]) {
 							SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA5, SDL_ALPHA_OPAQUE - 0x44);
 						}
 						if (fileMenuY_Offset > 0.f) {
-							RD::FillFRectFromInput(filetabOptionBKGs[i].x, filetabOptionBKGs[i].y - fileMenuY_Offset, filetabOptionBKGs[i].w, filetabOptionBKGs[i].h);
+							RD::FillFRectFromInput(
+								filetabOptionBKGs[i].x,
+								filetabOptionBKGs[i].y - fileMenuY_Offset, 
+								filetabOptionBKGs[i].w, 
+								filetabOptionBKGs[i].h
+							);
+#ifdef DRAW_DEBUG
+							if (DRAW_DBG) {
+								SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xAA);
+								RD::StrokeFRectFromInput(
+									filetabOptionBKGs[i].x, 
+									filetabOptionBKGs[i].y - fileMenuY_Offset, 
+									filetabOptionBKGs[i].w, 
+									filetabOptionBKGs[i].h
+								);
+							}
+#endif
 							if (fileMenuY_Offset != 40.f && i == 0) {
 								SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
 
