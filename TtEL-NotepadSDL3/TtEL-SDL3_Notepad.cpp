@@ -130,7 +130,7 @@ bool loadAssets() {
 	}
 	else {
 		cout << endl << "Initalizing Special Characters" << endl;
-		for (int i = 0; i < 0xF; i++) {
+		for (int i = 0; i <= 0xF; i++) {
 			int currentspecChar = 0x20 + i;
 			char specchar = static_cast<char>(currentspecChar);
 			string numberString(1, specchar); // The random conversion to string helps with corrupted text somehow
@@ -140,9 +140,10 @@ bool loadAssets() {
 			textTextures[currentspecChar] = loadTextureFromChar(NotoMath, specchar, { 0,0,0 }, &height, &width);
 			textTextureSizeVectors[currentspecChar] = vector2_int(width, height);
 			textTextureSourceVectors[currentspecChar] = vector2_int(0, 0);
+
 			cout << specchar;
-			//char specCharTable[1] = { specchar };
-			//text[i].loadChar(&specCharTable[0]);
+			char specCharTable[1] = { specchar };
+			text[i].loadChar(&specCharTable[0]);
 
 		}
 		cout << endl << "Initalizing Numbers" << endl;
@@ -161,7 +162,7 @@ bool loadAssets() {
 
 			cout << number;
 			char numberTable[1] = { number };
-			text[i].loadChar(&numberTable[0]);
+			text[i+16].loadChar(&numberTable[0]);
 			
 		}
 		cout << endl << "Initalizing Letters" << endl;
@@ -181,7 +182,7 @@ bool loadAssets() {
 
 			cout << letter;
 			char letterTable[1] = { letter };
-			text[i+10].loadChar(&letterTable[0]);
+			text[i+26].loadChar(&letterTable[0]);
 		}
 		cout << endl;
 		for (int i = 0; i < 26; i++) {
@@ -199,7 +200,7 @@ bool loadAssets() {
 
 			cout << letter;
 			char letterTable[1] = { letter };
-			text[i + 36].loadChar(&letterTable[0]);
+			text[i + 52].loadChar(&letterTable[0]);
 		}
 		cout << endl;
 		char FileTabText[4] = { 'f', 'i', 'l', 'e' };
@@ -630,7 +631,7 @@ void exit() {
 	while (currentTime < 150) {
 		currentTime = SDL_GetTicks() - startTime;
 	}
-	SDL_SetRenderDrawColor(main_renderer, 0xEB, 0xD7, 0x96, 0xFF);
+	SDL_SetRenderDrawColor(main_renderer, 0xEB, 0xD7, 0x96, 0x66);
 	SDL_RenderClear(main_renderer);
 	SDL_RenderPresent(main_renderer);
 
@@ -644,7 +645,7 @@ void exit() {
 	while (currentTime < 200) {
 		currentTime = SDL_GetTicks() - startTime;
 	}
-	SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xC7, 0x86, 0xFF);
+	SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xC7, 0x86, 0x66);
 	SDL_RenderClear(main_renderer);
 	SDL_RenderPresent(main_renderer);
 
@@ -660,6 +661,10 @@ void exit() {
 	while (currentTime < 250) {
 		currentTime = SDL_GetTicks() - startTime;
 	}
+	SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xC7, 0x86, 0x66);
+	SDL_RenderClear(main_renderer);
+	SDL_RenderPresent(main_renderer);
+
 
 	cout << "Freeing Assets..." << endl;
 	for (int i = 0; i < 256; i++) {
@@ -669,6 +674,20 @@ void exit() {
 		textTextureSourceVectors[i].x = NULL; textTextureSourceVectors[i].y = NULL;
 	}
 	cout << "Assets freed." << endl << endl;
+
+	while (currentTime < 350) {
+		currentTime = SDL_GetTicks() - startTime;
+	}
+	SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xC7, 0x86, 0x66);
+	SDL_RenderClear(main_renderer);
+	SDL_RenderPresent(main_renderer);
+
+
+	cout << "Clearing text..." << endl;
+	for (int i = 0; i < 256; i++) {
+		text[i].freeCharacter();
+	}
+	cout << "Text cleared." << endl << endl;
 
 	cout << "SDL_image is exiting..." << endl;
 	IMG_Quit();
