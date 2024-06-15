@@ -84,6 +84,10 @@ public:
     * @returns True if file loaded successfully, or false if file was not loaded successfully.
     */
     bool loadFile(string filePath);
+    /**
+     * @brief Closes the io stream of the file and frees variables
+     */
+    void closeFile();
 };
 
 /**
@@ -138,10 +142,15 @@ bool TextFile::loadFile(string filePath) {
             text[i].freeCharacter();
         }
         Sint64 fileSize = SDL_GetIOSize(fileStream);
-        cout << "FileLoader: SIZE IS: " << fileSize << " BYTES" << endl;
+
+        cout << "FileLoader: SIZE IS: " << fileSize << " BYTES";
 
         if (fileSize > 256) {
             fileSize = 256;
+            cout << " (trimmed to 256 bytes)" << endl;
+        }
+        else {
+            cout << endl;
         }
         char currentChar = '\0';
         for (int i = 0; i < fileSize; i++) {
@@ -151,4 +160,16 @@ bool TextFile::loadFile(string filePath) {
         }
     }
     return success;
+}
+
+/**
+ * @brief Closes the io stream of the file and frees variables
+ */
+void TextFile::closeFile() {
+    SDL_CloseIO(fileStream);
+#ifdef _NATIVE_NULLPTR_SUPPORTED
+    fileName = nullptr;
+#else
+    fileName = NULL;
+#endif
 }
