@@ -98,10 +98,10 @@ bool init(void) {
 				SDL_SetRenderDrawBlendMode(main_renderer, SDL_BLENDMODE_BLEND);
 				SDL_SetRenderDrawBlendMode(unsynced_renderer, SDL_BLENDMODE_BLEND);
 
-				SDL_SetRenderDrawColor(unsynced_renderer, 0xDB, 0xD7, 0xB6, 0x14);
-				SDL_RenderClear(unsynced_renderer);
+				SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, 0x14);
+				SDL_RenderClear(main_renderer);
 
-				SDL_RenderPresent(unsynced_renderer);
+				SDL_RenderPresent(main_renderer);
 				if (TTF_Init() == -1) {
 					success = false;
 					cout << "SDL3_ttf failed to initalize. SDL_ttf error: " << TTF_GetError() << endl;
