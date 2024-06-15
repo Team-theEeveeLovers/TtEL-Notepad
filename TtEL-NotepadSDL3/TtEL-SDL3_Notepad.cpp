@@ -600,7 +600,7 @@ int main(int argc, char *argv[]) {
 							RD::FillFRectFromInputRect(filetabOptionBKGs[i]);
 #ifdef DRAW_DEBUG
 							if (DRAW_DBG) {
-								SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xFF);
+								SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0xAA);
 								RD::StrokeFRectFromInputRect(filetabOptionBKGs[i]);
 							}
 #endif
