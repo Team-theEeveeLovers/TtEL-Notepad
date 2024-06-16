@@ -13,6 +13,12 @@
 #define SDL3_CALC_MATH
 #include "math.h"
 
+// These functions were loaned from f2c.h which is publically available.
+// Handle them with care. They have been commented for your convienience.
+#define min(a,b) ((a) <= (b) ? (a) : (b)) // get the lowest value of two inputs
+#define max(a,b) ((a) >= (b) ? (a) : (b)) // get the highest value of two inputs
+
+
 namespace mathext {
 	// Parity functions
 	/**
