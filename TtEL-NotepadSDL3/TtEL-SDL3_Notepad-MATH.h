@@ -50,41 +50,45 @@ namespace mathext {
 		else { return true; } // if neither of those are the case
 	}
 
-	/// <summary>
-	/// Checks if a float is between two bounds.
-	/// </summary>
-	/// <param name="numToTest">The float to test</param>
-	/// <param name="lowerBound">The lower bound, being the minimum value.</param>
-	/// <param name="upperBound">The upper bound, being the maximum value.</param>
-	/// <returns>A bool, with true meaning the input float was between the two bounds.</returns>
+	/**
+	* @brief Checks if a float is between two bounds.
+	*
+	* @param numToTest The float to test
+	* @param lowerBound The lower bound, being the minimum value.
+	* @param upperBound The upper bound, being the maximum value.
+	* @return A bool, with true meaning the input float was between the two bounds.
+	*/
 	bool thresholdFloat(float numToTest, float lowerBound, float upperBound) {
 		if (numToTest > upperBound || numToTest < lowerBound) { return false; } // if the number is greater than the upper bound or lower than the lower bound
 		else { return true; } // if neither of those are the case
 	}
-	/// <summary>
-	/// Checks if a long is between two bounds.
-	/// </summary>
-	/// <param name="numToTest">The long to test</param>
-	/// <param name="lowerBound">The lower bound, being the minimum value.</param>
-	/// <param name="upperBound">The upper bound, being the maximum value.</param>
-	/// <returns>A bool, with true meaning the input long was between the two bounds.</returns>
+	/**
+	* @brief Checks if a long is between two bounds.
+	* 
+	* @param numToTest The long to test
+	* @param lowerBound The lower bound, being the minimum value.
+	* @param upperBound The upper bound, being the maximum value.
+	* @return A bool, with true meaning the input long was between the two bounds.
+	*/
 	bool thresholdLong(long numToTest, long lowerBound, long upperBound) {
 		if (numToTest > upperBound || numToTest < lowerBound) { return false; } // if the number is greater than the upper bound or lower than the lower bound
 		else { return true; } // if neither of those are the case
 	}
-	/// <summary>
-	/// Checks if a int is between two bounds.
-	/// </summary>
-	/// <param name="numToTest">The int to test</param>
-	/// <param name="lowerBound">The lower bound, being the minimum value.</param>
-	/// <param name="upperBound">The upper bound, being the maximum value.</param>
-	/// <returns>A bool, with true meaning the input int was between the two bounds.</returns>
+	/**
+	* @brief Checks if a int is between two bounds.
+	* 
+	* @param numToTest The int to test
+	* @param lowerBound The lower bound, being the minimum value.
+	* @param upperBound The upper bound, being the maximum value.
+	* @return A bool, with true meaning the input int was between the two bounds.
+	*/
 	bool thresholdInt(int numToTest, int lowerBound, int upperBound) {
 		if (numToTest > upperBound || numToTest < lowerBound) { return false; } // if the number is greater than the upper bound or lower than the lower bound
 		else { return true; } // if neither of those are the case
 	}
 	/**
 	* @brief Clamps a double between two bounds.
+	* 
 	* @param dblToClamp The double to clamp
 	* @param lowerBound The double is increased if it is below this bound.
 	* @param upperBound The double is decreased if it is above this bound.
@@ -144,6 +148,7 @@ namespace mathext {
 	// Comparison Functions
 	/**
 	* @brief A function that gives the lowest float of its inputs.
+	* 
 	* @param float1 First float to compare
 	* @param float2 Second float to compare
 	* @sa std::min from <algorithm>
@@ -165,6 +170,7 @@ namespace mathext {
 	}
 	/**
 	* @brief A function that gives the highest float of its inputs.
+	* 
 	* @param float1 First float to compare
 	* @param float2 Second float to compare
 	* @sa std::max from <algorithm>
