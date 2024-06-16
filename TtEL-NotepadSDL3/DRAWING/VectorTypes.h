@@ -3,7 +3,7 @@
 * @file VectorTypes.h
 * @brief A header file containing vector types, created for the TtEL GUI Notepad.
 * @author Team theEeveeLovers Sean
-* @date May 23th, 2024
+* @date May 23rd, 2024
 */
 #ifndef VECTOR_TYPES
 #define VECTOR_TYPES
