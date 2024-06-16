@@ -12,6 +12,7 @@
 /**
  * @brief A vector type holding two integers.
  * It can be constructed using @code vector2_int(x, y) @endcode 
+ * or just @code vector2_int() @endcode for a default containing 0's
  */
 typedef struct vector2_int {
 	int										x, y;
@@ -21,6 +22,7 @@ typedef struct vector2_int {
 /**
  * @brief A vector type holding two floats.
  * It can be constructed using @code vector2_float(x, y) @endcode
+ * or just @code vector2_float() @endcode for a default containing 0's
  */
 typedef struct vector2_float {
 	float									x, y;
@@ -31,6 +33,7 @@ typedef struct vector2_float {
 /**
  * @brief A vector type holding three integers.
  * It can be constructed using @code vector3_int(x, y, z) @endcode
+ * or just @code vector3_int() @endcode for a default containing 0's
  */
 typedef struct vector3_int {
 	int										x, y, z;
@@ -40,6 +43,7 @@ typedef struct vector3_int {
 /**
  * @brief A vector type holding three floats.
  * It can be constructed using @code vector3_float(x, y,z) @endcode
+ * or just @code vector3_float() @endcode for a default containing 0's
  */
 typedef struct vector3_float {
 	float									x, y, z;
