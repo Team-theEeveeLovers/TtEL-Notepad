@@ -6,13 +6,22 @@ namespace BM = ByteMath;
 
 
 namespace checkUTF8 {
-
+	/**
+	 * @brief Get the size of a codepoint based on a sample of bytes
+	 * @param CodepointBytes a pointer to the bytes to get the size of
+	 * @return 0 on error, size of codepoint on success
+	 */
 	Uint8 getCodepointSize(Uint8* CodepointBytes) {
 		switch (sizeof(*CodepointBytes)) {
 		case 0:
+			return 0;
 			DEBUG_BREAK();
+			break;
+		case 1: return 1; break;
 		default:
+			return 0;
 			DEBUG_BREAK();
+			break;
 		}
 	};
 	bool checkInvalidCodepoint(Uint8* CodepointBytes) {
