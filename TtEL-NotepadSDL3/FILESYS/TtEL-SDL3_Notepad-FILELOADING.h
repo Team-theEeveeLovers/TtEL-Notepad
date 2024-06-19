@@ -9,6 +9,7 @@
 #include <SDL.h>
 #include <filesystem>
 #include "../DRAWING/TextRenderer.h"
+#include "UTF8_Checking.h"
 extern SDL_Window* main_window;
 extern character text[256]; // all the text in the 'document'
 
@@ -17,7 +18,8 @@ bool fileDialogOpen = false;
 
 enum TextEncoding {
     CODEPAGE_7bASCII = 0x49435341,
-    CODEPAGE_8bWIN1252 = 0x32353231 
+    CODEPAGE_8bWIN1252 = 0x32353231,
+    CODEPAGE_UTF8 = 0x38465455
 };
 
 static const SDL_DialogFileFilter filters[] = {

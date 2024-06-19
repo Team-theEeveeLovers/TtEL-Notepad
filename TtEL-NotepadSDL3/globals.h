@@ -8,6 +8,8 @@
 #elif defined(UNIX) && !defined(WIN32)
 #define POSIX
 #endif
+
+
 #define DRAW_DEBUG
 
 
@@ -31,3 +33,14 @@
 #define DEBUG_BREAK()    ASSERT(0)    // It is expected that you define DEBUG_BREAK() into something that will break nicely in a debugger!
 #endif
 #endif // #ifndef DEBUG_BREAK
+
+#include <stdlib.h>
+#ifndef ABORT
+
+#define ABORT() abort()
+#endif
+
+#ifndef EXIT
+
+#define EXIT() exit()
+#endif
