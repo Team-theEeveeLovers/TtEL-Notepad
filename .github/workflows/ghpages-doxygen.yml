@@ -7,6 +7,9 @@ on:
       - master
       - gh-pages
   pull_request:
+  
+permissions:
+  contents: write
 
 # In that case do the job 'make_and_deploy_doxygen'
 jobs:
