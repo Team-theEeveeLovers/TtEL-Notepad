@@ -1,0 +1,47 @@
+.TH "preprocessor_stringify.h" 3 "Sun Jun 30 2024" "Version 0.8.0.76f02c051c9b" "MetaCall" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+preprocessor_stringify.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <preprocessor/preprocessor_api\&.h>\fP
+.br
+\fC#include <preprocessor/preprocessor_for\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPREPROCESSOR_STRINGIFY_IMPL\fP(\&.\&.\&.)   #__VA_ARGS__"
+.br
+.ti -1c
+.RI "#define \fBPREPROCESSOR_STRINGIFY\fP(expr)   \fBPREPROCESSOR_STRINGIFY_IMPL\fP(expr)"
+.br
+.ti -1c
+.RI "#define \fBPREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL\fP(\&.\&.\&.)   #__VA_ARGS__"
+.br
+.ti -1c
+.RI "#define \fBPREPROCESSOR_STRINGIFY_OR_EMPTY\fP(expr)   \fBPREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL\fP(expr)"
+.br
+.ti -1c
+.RI "#define \fBPREPROCESSOR_STRINGIFY_VARIADIC\fP(\&.\&.\&.)   	PREPROCESSOR_FOR_EACH(\fBPREPROCESSOR_STRINGIFY\fP, __VA_ARGS__)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PREPROCESSOR_STRINGIFY_IMPL( \&.\&.\&.)   #__VA_ARGS__"
+
+.SS "#define PREPROCESSOR_STRINGIFY(expr)   \fBPREPROCESSOR_STRINGIFY_IMPL\fP(expr)"
+
+.SS "#define PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL( \&.\&.\&.)   #__VA_ARGS__"
+
+.SS "#define PREPROCESSOR_STRINGIFY_OR_EMPTY(expr)   \fBPREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL\fP(expr)"
+
+.SS "#define PREPROCESSOR_STRINGIFY_VARIADIC( \&.\&.\&.)   	PREPROCESSOR_FOR_EACH(\fBPREPROCESSOR_STRINGIFY\fP, __VA_ARGS__)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MetaCall from the source code\&.

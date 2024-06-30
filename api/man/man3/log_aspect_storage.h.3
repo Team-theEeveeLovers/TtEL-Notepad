@@ -1,0 +1,52 @@
+.TH "log_aspect_storage.h" 3 "Sun Jun 30 2024" "Version 0.8.0.76f02c051c9b" "MetaCall" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+log_aspect_storage.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <log/log_api\&.h>\fP
+.br
+\fC#include <log/log_aspect\&.h>\fP
+.br
+\fC#include <log/log_record\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlog_aspect_storage_impl\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int(* \fBlog_aspect_storage_append\fP) (\fBlog_aspect\fP, const \fBlog_record\fP)"
+.br
+.ti -1c
+.RI "typedef int(* \fBlog_aspect_storage_flush\fP) (\fBlog_aspect\fP)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "LOG_API log_aspect_interface \fBlog_aspect_storage_interface\fP (void)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef int(* log_aspect_storage_append) (\fBlog_aspect\fP, const \fBlog_record\fP)"
+
+.SS "typedef int(* log_aspect_storage_flush) (\fBlog_aspect\fP)"
+
+.SH "Function Documentation"
+.PP 
+.SS "LOG_API log_aspect_interface log_aspect_storage_interface (void)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MetaCall from the source code\&.

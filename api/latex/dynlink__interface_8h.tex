@@ -1,0 +1,156 @@
+\doxysection{dynlink\+\_\+interface.\+h File Reference}
+\label{dynlink__interface_8h}\index{dynlink\_interface.h@{dynlink\_interface.h}}
+{\ttfamily \#include $<$dynlink/dynlink\+\_\+api.\+h$>$}\newline
+{\ttfamily \#include $<$dynlink/dynlink\+\_\+type.\+h$>$}\newline
+{\ttfamily \#include $<$dynlink/dynlink\+\_\+impl.\+h$>$}\newline
+{\ttfamily \#include $<$preprocessor/preprocessor\+\_\+concatenation.\+h$>$}\newline
+{\ttfamily \#include $<$preprocessor/preprocessor\+\_\+stringify.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for dynlink\+\_\+interface.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dynlink__interface_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dynlink__interface_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ dynlink\+\_\+impl\+\_\+interface}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ DYNLINK\+\_\+\+SYMBOL\+\_\+\+PREFIX\+\_\+\+STR}()~ \textbf{ PREPROCESSOR\+\_\+\+STRINGIFY\+\_\+\+OR\+\_\+\+EMPTY}(\textbf{ DYNLINK\+\_\+\+SYMBOL\+\_\+\+PREFIX})
+\item 
+\#define \textbf{ DYNLINK\+\_\+\+SYMBOL\+\_\+\+NAME}(name)~ \textbf{ PREPROCESSOR\+\_\+\+CONCAT}(\textbf{ DYNLINK\+\_\+\+SYMBOL\+\_\+\+PREFIX}, name)
+\item 
+\#define \textbf{ DYNLINK\+\_\+\+SYMBOL\+\_\+\+NAME\+\_\+\+STR}(name)~ \textbf{ PREPROCESSOR\+\_\+\+STRINGIFY}(\textbf{ DYNLINK\+\_\+\+SYMBOL\+\_\+\+NAME}(name))
+\item 
+\#define \textbf{ DYNLINK\+\_\+\+SYMBOL\+\_\+\+STR}(name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \textbf{ dynlink\+\_\+symbol\+\_\+addr} $\ast$ \textbf{ dynlink\+\_\+symbol\+\_\+addr\+\_\+ptr}
+\item 
+typedef const char $\ast$($\ast$ \textbf{ dynlink\+\_\+impl\+\_\+interface\+\_\+extension}) (void)
+\item 
+typedef void($\ast$ \textbf{ dynlink\+\_\+impl\+\_\+interface\+\_\+get\+\_\+name}) (\textbf{ dynlink\+\_\+name}, \textbf{ dynlink\+\_\+name\+\_\+impl}, size\+\_\+t)
+\item 
+typedef \textbf{ dynlink\+\_\+impl}($\ast$ \textbf{ dynlink\+\_\+impl\+\_\+interface\+\_\+load}) (\textbf{ dynlink})
+\item 
+typedef int($\ast$ \textbf{ dynlink\+\_\+impl\+\_\+interface\+\_\+symbol}) (\textbf{ dynlink}, \textbf{ dynlink\+\_\+impl}, \textbf{ dynlink\+\_\+symbol\+\_\+name}, \textbf{ dynlink\+\_\+symbol\+\_\+addr\+\_\+ptr})
+\item 
+typedef int($\ast$ \textbf{ dynlink\+\_\+impl\+\_\+interface\+\_\+unload}) (\textbf{ dynlink}, \textbf{ dynlink\+\_\+impl})
+\item 
+typedef dynlink\+\_\+impl\+\_\+interface($\ast$ \textbf{ dynlink\+\_\+impl\+\_\+interface\+\_\+singleton\+\_\+ptr}) (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+DYNLINK\+\_\+\+API \textbf{ dynlink\+\_\+impl\+\_\+interface\+\_\+singleton\+\_\+ptr} \textbf{ dynlink\+\_\+interface} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{dynlink__interface_8h_ad8a26dbee90709b64932f5bcd4e596de}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!DYNLINK\_SYMBOL\_PREFIX\_STR@{DYNLINK\_SYMBOL\_PREFIX\_STR}}
+\index{DYNLINK\_SYMBOL\_PREFIX\_STR@{DYNLINK\_SYMBOL\_PREFIX\_STR}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{DYNLINK\_SYMBOL\_PREFIX\_STR}
+{\footnotesize\ttfamily \#define DYNLINK\+\_\+\+SYMBOL\+\_\+\+PREFIX\+\_\+\+STR(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~ \textbf{ PREPROCESSOR\+\_\+\+STRINGIFY\+\_\+\+OR\+\_\+\+EMPTY}(\textbf{ DYNLINK\+\_\+\+SYMBOL\+\_\+\+PREFIX})}
+
+\mbox{\label{dynlink__interface_8h_a3b16a8e9c3d36c7699863ae99beea1c3}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!DYNLINK\_SYMBOL\_NAME@{DYNLINK\_SYMBOL\_NAME}}
+\index{DYNLINK\_SYMBOL\_NAME@{DYNLINK\_SYMBOL\_NAME}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{DYNLINK\_SYMBOL\_NAME}
+{\footnotesize\ttfamily \#define DYNLINK\+\_\+\+SYMBOL\+\_\+\+NAME(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~ \textbf{ PREPROCESSOR\+\_\+\+CONCAT}(\textbf{ DYNLINK\+\_\+\+SYMBOL\+\_\+\+PREFIX}, name)}
+
+\mbox{\label{dynlink__interface_8h_a21a82e97886b5fff8860f9ad4faed545}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!DYNLINK\_SYMBOL\_NAME\_STR@{DYNLINK\_SYMBOL\_NAME\_STR}}
+\index{DYNLINK\_SYMBOL\_NAME\_STR@{DYNLINK\_SYMBOL\_NAME\_STR}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{DYNLINK\_SYMBOL\_NAME\_STR}
+{\footnotesize\ttfamily \#define DYNLINK\+\_\+\+SYMBOL\+\_\+\+NAME\+\_\+\+STR(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~ \textbf{ PREPROCESSOR\+\_\+\+STRINGIFY}(\textbf{ DYNLINK\+\_\+\+SYMBOL\+\_\+\+NAME}(name))}
+
+\mbox{\label{dynlink__interface_8h_af77a57ea1674e4e345399d4267422185}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!DYNLINK\_SYMBOL\_STR@{DYNLINK\_SYMBOL\_STR}}
+\index{DYNLINK\_SYMBOL\_STR@{DYNLINK\_SYMBOL\_STR}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{DYNLINK\_SYMBOL\_STR}
+{\footnotesize\ttfamily \#define DYNLINK\+\_\+\+SYMBOL\+\_\+\+STR(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    DYNLINK\_SYMBOL\_PREFIX\_STR() \(\backslash\)}
+\DoxyCodeLine{    name}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{dynlink__interface_8h_a7db607b0a040bc9bf987ca5e1c5539cc}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!dynlink\_symbol\_addr\_ptr@{dynlink\_symbol\_addr\_ptr}}
+\index{dynlink\_symbol\_addr\_ptr@{dynlink\_symbol\_addr\_ptr}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{dynlink\_symbol\_addr\_ptr}
+{\footnotesize\ttfamily typedef \textbf{ dynlink\+\_\+symbol\+\_\+addr}$\ast$ \textbf{ dynlink\+\_\+symbol\+\_\+addr\+\_\+ptr}}
+
+\mbox{\label{dynlink__interface_8h_abaedd3442a0b899dc1abad65ff6f41c2}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!dynlink\_impl\_interface\_extension@{dynlink\_impl\_interface\_extension}}
+\index{dynlink\_impl\_interface\_extension@{dynlink\_impl\_interface\_extension}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{dynlink\_impl\_interface\_extension}
+{\footnotesize\ttfamily typedef const char$\ast$($\ast$ dynlink\+\_\+impl\+\_\+interface\+\_\+extension) (void)}
+
+\mbox{\label{dynlink__interface_8h_a983f933be9d7b9651828a1ed51b937fb}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!dynlink\_impl\_interface\_get\_name@{dynlink\_impl\_interface\_get\_name}}
+\index{dynlink\_impl\_interface\_get\_name@{dynlink\_impl\_interface\_get\_name}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{dynlink\_impl\_interface\_get\_name}
+{\footnotesize\ttfamily typedef void($\ast$ dynlink\+\_\+impl\+\_\+interface\+\_\+get\+\_\+name) (\textbf{ dynlink\+\_\+name}, \textbf{ dynlink\+\_\+name\+\_\+impl}, size\+\_\+t)}
+
+\mbox{\label{dynlink__interface_8h_a830e6cbd1f246ffc55445c07b4bf3c75}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!dynlink\_impl\_interface\_load@{dynlink\_impl\_interface\_load}}
+\index{dynlink\_impl\_interface\_load@{dynlink\_impl\_interface\_load}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{dynlink\_impl\_interface\_load}
+{\footnotesize\ttfamily typedef \textbf{ dynlink\+\_\+impl}($\ast$ dynlink\+\_\+impl\+\_\+interface\+\_\+load) (\textbf{ dynlink})}
+
+\mbox{\label{dynlink__interface_8h_ae1d2ad5a0c69c2398553baf0e12b4bd5}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!dynlink\_impl\_interface\_symbol@{dynlink\_impl\_interface\_symbol}}
+\index{dynlink\_impl\_interface\_symbol@{dynlink\_impl\_interface\_symbol}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{dynlink\_impl\_interface\_symbol}
+{\footnotesize\ttfamily typedef int($\ast$ dynlink\+\_\+impl\+\_\+interface\+\_\+symbol) (\textbf{ dynlink}, \textbf{ dynlink\+\_\+impl}, \textbf{ dynlink\+\_\+symbol\+\_\+name}, \textbf{ dynlink\+\_\+symbol\+\_\+addr\+\_\+ptr})}
+
+\mbox{\label{dynlink__interface_8h_ac3977092576cd5ab38b0663726f6a4b8}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!dynlink\_impl\_interface\_unload@{dynlink\_impl\_interface\_unload}}
+\index{dynlink\_impl\_interface\_unload@{dynlink\_impl\_interface\_unload}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{dynlink\_impl\_interface\_unload}
+{\footnotesize\ttfamily typedef int($\ast$ dynlink\+\_\+impl\+\_\+interface\+\_\+unload) (\textbf{ dynlink}, \textbf{ dynlink\+\_\+impl})}
+
+\mbox{\label{dynlink__interface_8h_a63b6182b20ad6de2cbb8b71f7c840056}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!dynlink\_impl\_interface\_singleton\_ptr@{dynlink\_impl\_interface\_singleton\_ptr}}
+\index{dynlink\_impl\_interface\_singleton\_ptr@{dynlink\_impl\_interface\_singleton\_ptr}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{dynlink\_impl\_interface\_singleton\_ptr}
+{\footnotesize\ttfamily typedef dynlink\+\_\+impl\+\_\+interface($\ast$ dynlink\+\_\+impl\+\_\+interface\+\_\+singleton\+\_\+ptr) (void)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{dynlink__interface_8h_a6640f7bd2ba179bbb8b30c929530d86e}} 
+\index{dynlink\_interface.h@{dynlink\_interface.h}!dynlink\_interface@{dynlink\_interface}}
+\index{dynlink\_interface@{dynlink\_interface}!dynlink\_interface.h@{dynlink\_interface.h}}
+\doxysubsubsection{dynlink\_interface()}
+{\footnotesize\ttfamily DYNLINK\+\_\+\+API \textbf{ dynlink\+\_\+impl\+\_\+interface\+\_\+singleton\+\_\+ptr} dynlink\+\_\+interface (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the dynlink interface for specified platform. 
+
+\begin{DoxyReturn}{Returns}
+A constant pointer to the platform singleton 
+\end{DoxyReturn}

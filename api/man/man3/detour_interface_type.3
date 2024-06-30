@@ -1,0 +1,40 @@
+.TH "detour_interface" 3 "Sun Jun 30 2024" "Version 0.8.0.76f02c051c9b" "MetaCall" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+detour_interface
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include </home/runner/work/TtEL\-Notepad/TtEL\-Notepad/core/source/detour/include/detour/detour_interface\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBdetour_impl_handle\fP(* \fBinitialize\fP )(void)"
+.br
+.ti -1c
+.RI "int(* \fBinstall\fP )(\fBdetour_impl_handle\fP, void(**)(void), void(*)(void))"
+.br
+.ti -1c
+.RI "int(* \fBuninstall\fP )(\fBdetour_impl_handle\fP)"
+.br
+.ti -1c
+.RI "int(* \fBdestroy\fP )(\fBdetour_impl_handle\fP)"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBdetour_impl_handle\fP(* detour_interface::initialize) (void)"
+
+.SS "int(* detour_interface::install) (\fBdetour_impl_handle\fP, void(**)(void), void(*)(void))"
+
+.SS "int(* detour_interface::uninstall) (\fBdetour_impl_handle\fP)"
+
+.SS "int(* detour_interface::destroy) (\fBdetour_impl_handle\fP)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MetaCall from the source code\&.

@@ -1,0 +1,83 @@
+.TH "reflect_exception.h" 3 "Sun Jun 30 2024" "Version 0.8.0.76f02c051c9b" "MetaCall" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+reflect_exception.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <reflect/reflect_api\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct exception_type * \fBexception\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "REFLECT_API \fBexception\fP \fBexception_create\fP (char *message, char *label, int64_t code, char *stacktrace)"
+.br
+.ti -1c
+.RI "REFLECT_API \fBexception\fP \fBexception_create_const\fP (const char *message, const char *label, int64_t code, const char *stacktrace)"
+.br
+.ti -1c
+.RI "REFLECT_API int \fBexception_increment_reference\fP (\fBexception\fP ex)"
+.br
+.ti -1c
+.RI "REFLECT_API int \fBexception_decrement_reference\fP (\fBexception\fP ex)"
+.br
+.ti -1c
+.RI "REFLECT_API const char * \fBexception_message\fP (\fBexception\fP ex)"
+.br
+.ti -1c
+.RI "REFLECT_API const char * \fBexception_label\fP (\fBexception\fP ex)"
+.br
+.ti -1c
+.RI "REFLECT_API int64_t \fBexception_error_code\fP (\fBexception\fP ex)"
+.br
+.ti -1c
+.RI "REFLECT_API const char * \fBexception_stacktrace\fP (\fBexception\fP ex)"
+.br
+.ti -1c
+.RI "REFLECT_API void \fBexception_stats_debug\fP (void)"
+.br
+.ti -1c
+.RI "REFLECT_API void \fBexception_destroy\fP (\fBexception\fP ex)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct exception_type* \fBexception\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "REFLECT_API \fBexception\fP exception_create (char * message, char * label, int64_t code, char * stacktrace)"
+
+.SS "REFLECT_API \fBexception\fP exception_create_const (const char * message, const char * label, int64_t code, const char * stacktrace)"
+
+.SS "REFLECT_API int exception_increment_reference (\fBexception\fP ex)"
+
+.SS "REFLECT_API int exception_decrement_reference (\fBexception\fP ex)"
+
+.SS "REFLECT_API const char* exception_message (\fBexception\fP ex)"
+
+.SS "REFLECT_API const char* exception_label (\fBexception\fP ex)"
+
+.SS "REFLECT_API int64_t exception_error_code (\fBexception\fP ex)"
+
+.SS "REFLECT_API const char* exception_stacktrace (\fBexception\fP ex)"
+
+.SS "REFLECT_API void exception_stats_debug (void)"
+
+.SS "REFLECT_API void exception_destroy (\fBexception\fP ex)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MetaCall from the source code\&.

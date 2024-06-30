@@ -1,0 +1,34 @@
+<map id="plugin.h" name="plugin.h">
+<area shape="rect" id="node1" title=" " alt="" coords="53,5,115,31"/>
+<area shape="rect" id="node2" title=" " alt="" coords="45,372,168,397"/>
+<area shape="rect" id="node3" href="$plugin__manager_8h.html" title=" " alt="" coords="87,79,239,104"/>
+<area shape="rect" id="node4" href="$plugin__impl_8h.html" title=" " alt="" coords="175,225,303,251"/>
+<area shape="rect" id="node27" href="$plugin__loader_8h.html" title=" " alt="" coords="93,152,232,177"/>
+<area shape="rect" id="node28" href="$adt__set_8h.html" title=" " alt="" coords="505,152,596,177"/>
+<area shape="rect" id="node5" href="$plugin__descriptor_8h.html" title=" " alt="" coords="195,299,352,324"/>
+<area shape="rect" id="node6" href="$dynlink_8h.html" title=" " alt="" coords="206,372,314,397"/>
+<area shape="rect" id="node7" title=" " alt="" coords="279,699,411,724"/>
+<area shape="rect" id="node8" href="$dynlink__type_8h.html" title=" " alt="" coords="170,612,307,637"/>
+<area shape="rect" id="node10" href="$dynlink__flags_8h.html" title=" " alt="" coords="281,445,423,471"/>
+<area shape="rect" id="node11" href="$dynlink__interface_8h.html" title=" " alt="" coords="447,445,606,471"/>
+<area shape="rect" id="node26" href="$dynlink__symbol_8h.html" title=" " alt="" coords="53,525,206,551"/>
+<area shape="rect" id="node9" title=" " alt="" coords="126,692,255,731"/>
+<area shape="rect" id="node12" href="$dynlink__impl_8h.html" title=" " alt="" coords="433,525,572,551"/>
+<area shape="rect" id="node13" title=" " alt="" coords="562,612,622,637"/>
+<area shape="rect" id="node14" href="$preprocessor__concatenation_8h.html" title=" " alt="" coords="545,779,706,817"/>
+<area shape="rect" id="node16" href="$preprocessor__stringify_8h.html" title=" " alt="" coords="859,519,1021,557"/>
+<area shape="rect" id="node15" title=" " alt="" coords="1090,1125,1251,1164"/>
+<area shape="rect" id="node17" href="$preprocessor__for_8h.html" title=" " alt="" coords="859,605,1021,644"/>
+<area shape="rect" id="node18" href="$preprocessor__arguments_8h.html" title=" " alt="" coords="1070,692,1231,731"/>
+<area shape="rect" id="node23" href="$preprocessor__empty_8h.html" title=" " alt="" coords="921,865,1082,904"/>
+<area shape="rect" id="node25" href="$preprocessor__tuple_8h.html" title=" " alt="" coords="782,779,943,817"/>
+<area shape="rect" id="node19" href="$preprocessor__arithmetic_8h.html" title=" " alt="" coords="1445,952,1606,991"/>
+<area shape="rect" id="node20" href="$preprocessor__boolean_8h.html" title=" " alt="" coords="1259,952,1421,991"/>
+<area shape="rect" id="node22" href="$preprocessor__comma_8h.html" title=" " alt="" coords="1070,779,1231,817"/>
+<area shape="rect" id="node24" href="$preprocessor__if_8h.html" title=" " alt="" coords="1209,872,1391,897"/>
+<area shape="rect" id="node21" href="$preprocessor__complement_8h.html" title=" " alt="" coords="1310,1039,1471,1077"/>
+<area shape="rect" id="node29" title=" " alt="" coords="505,299,597,324"/>
+<area shape="rect" id="node30" href="$adt__comparable_8h.html" title=" " alt="" coords="481,225,620,251"/>
+<area shape="rect" id="node31" href="$adt__hash_8h.html" title=" " alt="" coords="357,225,457,251"/>
+<area shape="rect" id="node32" title=" " alt="" coords="377,299,436,324"/>
+</map>

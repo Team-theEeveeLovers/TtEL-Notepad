@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="preprocessor__if_8h" kind="file" language="C++">
+    <compoundname>preprocessor_if.h</compoundname>
+    <includes local="no">preprocessor/preprocessor_api.h</includes>
+    <includes refid="preprocessor__boolean_8h" local="no">preprocessor/preprocessor_boolean.h</includes>
+    <includedby refid="preprocessor_8h" local="no">preprocessor.h</includedby>
+    <includedby refid="preprocessor__arguments_8h" local="no">preprocessor_arguments.h</includedby>
+    <includedby refid="preprocessor__comma_8h" local="no">preprocessor_comma.h</includedby>
+    <includedby refid="preprocessor__comparison_8h" local="no">preprocessor_comparison.h</includedby>
+    <includedby refid="log__preprocessor_8h" local="no">log_preprocessor.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>preprocessor_if.h</label>
+        <link refid="preprocessor__if_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>preprocessor/preprocessor_complement.h</label>
+        <link refid="preprocessor__complement_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>preprocessor/preprocessor_boolean.h</label>
+        <link refid="preprocessor__boolean_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>preprocessor/preprocessor_api.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>preprocessor_for.h</label>
+        <link refid="preprocessor__for_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>preprocessor_if.h</label>
+        <link refid="preprocessor__if_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>preprocessor_arguments.h</label>
+        <link refid="preprocessor__arguments_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>dynlink.h</label>
+        <link refid="dynlink_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>plugin_impl.h</label>
+        <link refid="plugin__impl_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>plugin_loader.h</label>
+        <link refid="plugin__loader_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>plugin_interface.hpp</label>
+        <link refid="plugin__interface_8hpp"/>
+      </node>
+      <node id="24">
+        <label>preprocessor_comma.h</label>
+        <link refid="preprocessor__comma_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>loader_impl.h</label>
+        <link refid="loader__impl_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>preprocessor_comparison.h</label>
+        <link refid="preprocessor__comparison_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>dynlink_interface.h</label>
+        <link refid="dynlink__interface_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>preprocessor_stringify.h</label>
+        <link refid="preprocessor__stringify_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>plugin_manager.h</label>
+        <link refid="plugin__manager_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>dynlink_impl.h</label>
+        <link refid="dynlink__impl_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>detour.h</label>
+        <link refid="detour_8h"/>
+      </node>
+      <node id="23">
+        <label>log.h</label>
+        <link refid="log_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>log_preprocessor.h</label>
+        <link refid="log__preprocessor_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>preprocessor_detection.h</label>
+        <link refid="preprocessor__detection_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>loader_host.h</label>
+        <link refid="loader__host_8h"/>
+      </node>
+      <node id="11">
+        <label>plugin_descriptor.h</label>
+        <link refid="plugin__descriptor_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>preprocessor.h</label>
+        <link refid="preprocessor_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>loader_manager_impl.h</label>
+        <link refid="loader__manager__impl_8h"/>
+      </node>
+      <node id="15">
+        <label>plugin.h</label>
+        <link refid="plugin_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>loader.h</label>
+        <link refid="loader_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="preprocessor__if_8h_1a9d67ef498d03ce8c5f3e69b916ccd7e1" prot="public" static="no">
+        <name>PREPROCESSOR_IIF_IMPL_0</name>
+        <param><defname>true_expr</defname></param>
+        <param><defname>false_expr</defname></param>
+        <initializer>false_expr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h" line="32" column="11" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="preprocessor__if_8h_1af5e2316cae61eea69caa0af7dcfbe7e0" prot="public" static="no">
+        <name>PREPROCESSOR_IIF_IMPL_1</name>
+        <param><defname>true_expr</defname></param>
+        <param><defname>false_expr</defname></param>
+        <initializer>true_expr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h" line="33" column="10" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="preprocessor__if_8h_1afeeadcecd7e438a36ffc8b6273ceb980" prot="public" static="no">
+        <name>PREPROCESSOR_IIF_IMPL</name>
+        <param><defname>value</defname></param>
+        <param><defname>true_expr</defname></param>
+        <param><defname>false_expr</defname></param>
+        <initializer>PREPROCESSOR_IIF_IMPL_##<ref refid="reflect__value_8h_1a54c528809d1b8a4d229f655f96b2433a" kindref="member">value</ref>(true_expr, false_expr)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h" line="40" column="11" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="preprocessor__if_8h_1a847441b9d01481a1286936f52a508ce3" prot="public" static="no">
+        <name>PREPROCESSOR_IIF</name>
+        <param><defname>value</defname></param>
+        <param><defname>true_expr</defname></param>
+        <param><defname>false_expr</defname></param>
+        <initializer><ref refid="preprocessor__if_8h_1afeeadcecd7e438a36ffc8b6273ceb980" kindref="member">PREPROCESSOR_IIF_IMPL</ref>(<ref refid="reflect__value_8h_1a54c528809d1b8a4d229f655f96b2433a" kindref="member">value</ref>, true_expr, false_expr)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h" line="47" column="11" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="preprocessor__if_8h_1aec1ff7c94271c1198ca5a2c2d3ff75a9" prot="public" static="no">
+        <name>PREPROCESSOR_IF</name>
+        <param><defname>condition</defname></param>
+        <param><defname>true_expr</defname></param>
+        <param><defname>false_expr</defname></param>
+        <initializer><ref refid="preprocessor__if_8h_1a847441b9d01481a1286936f52a508ce3" kindref="member">PREPROCESSOR_IIF</ref>(<ref refid="preprocessor__boolean_8h_1afecbb990f64de5941e902a04701c7f95" kindref="member">PREPROCESSOR_BOOL</ref>(condition), (true_expr), (false_expr))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h" line="54" column="11" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/>Preprocessor<sp/>Library<sp/>by<sp/>Parra<sp/>Studios</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/>Copyright<sp/>(C)<sp/>2016<sp/>-<sp/>2024<sp/>Vicente<sp/>Eduardo<sp/>Ferrer<sp/>Garcia<sp/>&lt;vic798@gmail.com&gt;</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>A<sp/>generic<sp/>header-only<sp/>preprocessor<sp/>metaprogramming<sp/>library.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>PREPROCESSOR_IF_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PREPROCESSOR_IF_H<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>--<sp/>Headers<sp/>--<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;preprocessor/preprocessor_api.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="preprocessor__boolean_8h" kindref="compound">preprocessor/preprocessor_boolean.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>--<sp/>Macros<sp/>--<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__GNUC__)<sp/>||<sp/>defined(__clang__)<sp/>||<sp/>defined(_MSC_VER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_IMPL_EXPAND_ARGS(...)<sp/>__VA_ARGS__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_IMPL_EXPAND(expr)<sp/>expr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_IMPL_EXPAND_REMOVE_PARENTHESIS(expr)<sp/>PREPROCESSOR_IIF_IMPL_EXPAND(PREPROCESSOR_IIF_IMPL_EXPAND_ARGS<sp/>expr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_IMPL_0(true_expr,<sp/>false_expr)<sp/>PREPROCESSOR_IIF_IMPL_EXPAND_REMOVE_PARENTHESIS(false_expr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_IMPL_1(true_expr,<sp/>false_expr)<sp/>PREPROCESSOR_IIF_IMPL_EXPAND_REMOVE_PARENTHESIS(true_expr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="preprocessor__if_8h_1a9d67ef498d03ce8c5f3e69b916ccd7e1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_IMPL_0(true_expr,<sp/>false_expr)<sp/>false_expr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="preprocessor__if_8h_1af5e2316cae61eea69caa0af7dcfbe7e0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_IMPL_1(true_expr,<sp/>false_expr)<sp/>true_expr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(_MSC_VER)<sp/>&amp;&amp;<sp/>!defined(__clang__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_IMPL_I(expr)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>expr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_IMPL(value,<sp/>true_expr,<sp/>false_expr)<sp/>PREPROCESSOR_IIF_IMPL_I(PREPROCESSOR_IIF_IMPL_##value(true_expr,<sp/>false_expr))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="preprocessor__if_8h_1afeeadcecd7e438a36ffc8b6273ceb980" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_IMPL(value,<sp/>true_expr,<sp/>false_expr)<sp/>PREPROCESSOR_IIF_IMPL_##value(true_expr,<sp/>false_expr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__MWERKS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF_EXPAND(expr)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PREPROCESSOR_IIF_IMPL##expr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF(value,<sp/>true_expr,<sp/>false_expr)<sp/>PREPROCESSOR_IIF_EXPAND((value,<sp/>true_expr,<sp/>false_expr))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="preprocessor__if_8h_1a847441b9d01481a1286936f52a508ce3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IIF(value,<sp/>true_expr,<sp/>false_expr)<sp/>PREPROCESSOR_IIF_IMPL(value,<sp/>true_expr,<sp/>false_expr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__EDG__)<sp/>||<sp/>defined(__EDG_VERSION__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IF_IMPL(condition,<sp/>true_expr,<sp/>false_expr)<sp/>PREPROCESSOR_IIF(PREPROCESSOR_BOOL(condition),<sp/>true_expr,<sp/>false_expr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IF(condition,<sp/>true_expr,<sp/>false_expr)<sp/><sp/><sp/><sp/><sp/><sp/>PREPROCESSOR_IF_IMPL(condition,<sp/>true_expr,<sp/>false_expr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="preprocessor__if_8h_1aec1ff7c94271c1198ca5a2c2d3ff75a9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_IF(condition,<sp/>true_expr,<sp/>false_expr)<sp/>PREPROCESSOR_IIF(PREPROCESSOR_BOOL(condition),<sp/>(true_expr),<sp/>(false_expr))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>PREPROCESSOR_IF_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_if.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,53 @@
+.TH "adt_hash.h" 3 "Sun Jun 30 2024" "Version 0.8.0.76f02c051c9b" "MetaCall" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+adt_hash.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <adt/adt_api\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uintptr_t \fBhash\fP"
+.br
+.ti -1c
+.RI "typedef void * \fBhash_key\fP"
+.br
+.ti -1c
+.RI "typedef \fBhash\fP(* \fBhash_callback\fP) (const \fBhash_key\fP)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "ADT_API \fBhash\fP \fBhash_callback_str\fP (const \fBhash_key\fP key)"
+.br
+.ti -1c
+.RI "ADT_API \fBhash\fP \fBhash_callback_ptr\fP (const \fBhash_key\fP key)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef uintptr_t \fBhash\fP"
+
+.SS "typedef void* \fBhash_key\fP"
+
+.SS "typedef \fBhash\fP(* hash_callback) (const \fBhash_key\fP)"
+
+.SH "Function Documentation"
+.PP 
+.SS "ADT_API \fBhash\fP hash_callback_str (const \fBhash_key\fP key)"
+
+.SS "ADT_API \fBhash\fP hash_callback_ptr (const \fBhash_key\fP key)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MetaCall from the source code\&.

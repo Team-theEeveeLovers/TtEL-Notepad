@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdetour__interface__type" xml:lang="en-US">
+<title>detour_interface Struct Reference</title>
+<indexterm><primary>detour_interface</primary></indexterm>
+<para>
+<computeroutput>#include &lt;/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h&gt;</computeroutput>
+</para>
+Collaboration diagram for detour_interface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="structdetour__interface__type__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3">detour_impl_handle</link>(* <link linkend="_structdetour__interface__type_1acb16b3a629f349310d7695e949948673">initialize</link> )(void)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structdetour__interface__type_1a6683de1a06c8e161d9d4ea28f868dd0f">install</link> )(<link linkend="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3">detour_impl_handle</link>, void(**)(void), void(*)(void))</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structdetour__interface__type_1a7565f1847f77e145cb88227bc468718e">uninstall</link> )(<link linkend="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3">detour_impl_handle</link>)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structdetour__interface__type_1ad849a47ecc5cad92a4cb60f23561a849">destroy</link> )(<link linkend="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3">detour_impl_handle</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structdetour__interface__type_1acb16b3a629f349310d7695e949948673"/>    <section>
+    <title>initialize</title>
+<indexterm><primary>initialize</primary><secondary>detour_interface</secondary></indexterm>
+<indexterm><primary>detour_interface</primary><secondary>initialize</secondary></indexterm>
+<para><computeroutput><link linkend="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3">detour_impl_handle</link>(* detour_interface::initialize) (void)</computeroutput></para>    </section><anchor xml:id="_structdetour__interface__type_1a6683de1a06c8e161d9d4ea28f868dd0f"/>    <section>
+    <title>install</title>
+<indexterm><primary>install</primary><secondary>detour_interface</secondary></indexterm>
+<indexterm><primary>detour_interface</primary><secondary>install</secondary></indexterm>
+<para><computeroutput>int(* detour_interface::install) (<link linkend="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3">detour_impl_handle</link>, void(**)(void), void(*)(void))</computeroutput></para>    </section><anchor xml:id="_structdetour__interface__type_1a7565f1847f77e145cb88227bc468718e"/>    <section>
+    <title>uninstall</title>
+<indexterm><primary>uninstall</primary><secondary>detour_interface</secondary></indexterm>
+<indexterm><primary>detour_interface</primary><secondary>uninstall</secondary></indexterm>
+<para><computeroutput>int(* detour_interface::uninstall) (<link linkend="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3">detour_impl_handle</link>)</computeroutput></para>    </section><anchor xml:id="_structdetour__interface__type_1ad849a47ecc5cad92a4cb60f23561a849"/>    <section>
+    <title>destroy</title>
+<indexterm><primary>destroy</primary><secondary>detour_interface</secondary></indexterm>
+<indexterm><primary>detour_interface</primary><secondary>destroy</secondary></indexterm>
+<para><computeroutput>int(* detour_interface::destroy) (<link linkend="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3">detour_impl_handle</link>)</computeroutput></para></section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+<link linkend="_detour__interface_8h">detour_interface.h</link></section>
+</section>

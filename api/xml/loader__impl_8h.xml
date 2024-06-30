@@ -1,0 +1,1153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="loader__impl_8h" kind="file" language="C++">
+    <compoundname>loader_impl.h</compoundname>
+    <includes local="no">loader/loader_api.h</includes>
+    <includes refid="loader__impl__interface_8h" local="no">loader/loader_impl_interface.h</includes>
+    <includes refid="loader__naming_8h" local="no">loader/loader_naming.h</includes>
+    <includes refid="plugin__impl_8h" local="no">plugin/plugin_impl.h</includes>
+    <includes refid="plugin__manager_8h" local="no">plugin/plugin_manager.h</includes>
+    <includedby refid="loader_8h" local="no">loader.h</includedby>
+    <includedby refid="loader__host_8h" local="no">loader_host.h</includedby>
+    <includedby refid="loader__manager__impl_8h" local="no">loader_manager_impl.h</includedby>
+    <incdepgraph>
+      <node id="32">
+        <label>preprocessor/preprocessor_for.h</label>
+        <link refid="preprocessor__for_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>loader/loader_impl_interface.h</label>
+        <link refid="loader__impl__interface_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>preprocessor/preprocessor_if.h</label>
+        <link refid="preprocessor__if_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>preprocessor/preprocessor_arguments.h</label>
+        <link refid="preprocessor__arguments_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>dynlink/dynlink.h</label>
+        <link refid="dynlink_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>plugin/plugin_impl.h</label>
+        <link refid="plugin__impl_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>portability/portability_path.h</label>
+      </node>
+      <node id="24">
+        <label>dynlink/dynlink_type.h</label>
+        <link refid="dynlink__type_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>plugin/plugin_loader.h</label>
+        <link refid="plugin__loader_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>stdint.h</label>
+      </node>
+      <node id="17">
+        <label>stdlib.h</label>
+      </node>
+      <node id="10">
+        <label>reflect/reflect_scope.h</label>
+        <link refid="reflect__scope_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>loader/loader_impl_data.h</label>
+        <link refid="loader__impl__data_8h"/>
+      </node>
+      <node id="37">
+        <label>preprocessor/preprocessor_comma.h</label>
+        <link refid="preprocessor__comma_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>reflect/reflect_context.h</label>
+        <link refid="reflect__context_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>loader_impl.h</label>
+        <link refid="loader__impl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>dynlink/dynlink_interface.h</label>
+        <link refid="dynlink__interface_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>preprocessor/preprocessor_tuple.h</label>
+        <link refid="preprocessor__tuple_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>preprocessor/preprocessor_concatenation.h</label>
+        <link refid="preprocessor__concatenation_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>loader/loader_api.h</label>
+      </node>
+      <node id="16">
+        <label>reflect/reflect_value.h</label>
+        <link refid="reflect__value_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>reflect/reflect_signature.h</label>
+        <link refid="reflect__signature_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>portability/portability_library_path.h</label>
+      </node>
+      <node id="31">
+        <label>preprocessor/preprocessor_stringify.h</label>
+        <link refid="preprocessor__stringify_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>dynlink/dynlink_flags.h</label>
+        <link refid="dynlink__flags_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>preprocessor/preprocessor_arithmetic.h</label>
+        <link refid="preprocessor__arithmetic_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>preprocessor/preprocessor_complement.h</label>
+        <link refid="preprocessor__complement_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>plugin/plugin_manager.h</label>
+        <link refid="plugin__manager_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>plugin/plugin_api.h</label>
+      </node>
+      <node id="45">
+        <label>adt/adt_api.h</label>
+      </node>
+      <node id="28">
+        <label>dynlink/dynlink_impl.h</label>
+        <link refid="dynlink__impl_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>preprocessor/preprocessor_boolean.h</label>
+        <link refid="preprocessor__boolean_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>loader/loader_handle.h</label>
+        <link refid="loader__handle_8h"/>
+      </node>
+      <node id="11">
+        <label>reflect/reflect_function.h</label>
+        <link refid="reflect__function_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>preprocessor/preprocessor_empty.h</label>
+        <link refid="preprocessor__empty_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>dynlink/dynlink_api.h</label>
+      </node>
+      <node id="9">
+        <label>reflect/reflect_api.h</label>
+      </node>
+      <node id="12">
+        <label>reflect/reflect_async.h</label>
+        <link refid="reflect__async_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>reflect/reflect_type.h</label>
+        <link refid="reflect__type_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>configuration/configuration.h</label>
+      </node>
+      <node id="41">
+        <label>dynlink/dynlink_symbol.h</label>
+        <link refid="dynlink__symbol_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>preprocessor/preprocessor_api.h</label>
+      </node>
+      <node id="6">
+        <label>loader/loader_naming.h</label>
+        <link refid="loader__naming_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>adt/adt_hash.h</label>
+        <link refid="adt__hash_8h"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>plugin/plugin_descriptor.h</label>
+        <link refid="plugin__descriptor_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>reflect/reflect_type_id.h</label>
+        <link refid="reflect__type__id_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>adt/adt_comparable.h</label>
+        <link refid="adt__comparable_8h"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>adt/adt_set.h</label>
+        <link refid="adt__set_8h"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>loader_impl.h</label>
+        <link refid="loader__impl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>loader_host.h</label>
+        <link refid="loader__host_8h"/>
+      </node>
+      <node id="4">
+        <label>loader_manager_impl.h</label>
+        <link refid="loader__manager__impl_8h"/>
+      </node>
+      <node id="2">
+        <label>loader.h</label>
+        <link refid="loader_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="loader__impl_8h_1a3f2a7835ee2b99411b1f4af33ef5d4b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API int</type>
+        <definition>LOADER_API int loader_impl_is_initialized</definition>
+        <argsstring>(loader_impl impl)</argsstring>
+        <name>loader_impl_is_initialized</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="38" column="16" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="38" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1ad68d477fa1eccd2a26aabccd6e8c80c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+        <definition>LOADER_API loader_impl loader_impl_create</definition>
+        <argsstring>(const loader_tag tag)</argsstring>
+        <name>loader_impl_create</name>
+        <param>
+          <type>const <ref refid="loader__naming_8h_1acdc949191ac2655c54541e7f287e2c0e" kindref="member">loader_tag</ref></type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="40" column="24" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="40" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a7225a152e1e19ec5d398c2360c004e89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+        <definition>LOADER_API loader_impl loader_impl_create_host</definition>
+        <argsstring>(const loader_tag tag)</argsstring>
+        <name>loader_impl_create_host</name>
+        <param>
+          <type>const <ref refid="loader__naming_8h_1acdc949191ac2655c54541e7f287e2c0e" kindref="member">loader_tag</ref></type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="42" column="24" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="42" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a7872fe8c6bff10d3851dced4859287af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API void</type>
+        <definition>LOADER_API void loader_impl_attach</definition>
+        <argsstring>(loader_impl impl, plugin p)</argsstring>
+        <name>loader_impl_attach</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref></type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="44" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="44" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a5c96d10a4dd5bfe14641f16f62facbd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref></type>
+        <definition>LOADER_API plugin loader_impl_plugin</definition>
+        <argsstring>(loader_impl impl)</argsstring>
+        <name>loader_impl_plugin</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="46" column="19" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="46" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1af0d21828a829732e62791a3941242d01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="loader__impl__data_8h_1ab431d457f46d287723fd3922779f9c2c" kindref="member">loader_impl_data</ref></type>
+        <definition>LOADER_API loader_impl_data loader_impl_get</definition>
+        <argsstring>(loader_impl impl)</argsstring>
+        <name>loader_impl_get</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="48" column="29" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="48" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a612796e92003f5325098db4b60e7f287" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="reflect__value_8h_1a54c528809d1b8a4d229f655f96b2433a" kindref="member">value</ref></type>
+        <definition>LOADER_API value loader_impl_get_value</definition>
+        <argsstring>(loader_impl impl, const char *name)</argsstring>
+        <name>loader_impl_get_value</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="50" column="18" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="50" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1acbe6beea3b8aa45da1b0b4d3f23cf03a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="reflect__context_8h_1ab01e2b1d8e268430d5c2d3d1d870251b" kindref="member">context</ref></type>
+        <definition>LOADER_API context loader_impl_context</definition>
+        <argsstring>(loader_impl impl)</argsstring>
+        <name>loader_impl_context</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="52" column="20" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="52" declcolumn="20"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1aa2168a5acade5495211094e35331c604" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="reflect__type_8h_1a9989d3b49f04ce2227be1eedda3efaac" kindref="member">type</ref></type>
+        <definition>LOADER_API type loader_impl_type</definition>
+        <argsstring>(loader_impl impl, const char *name)</argsstring>
+        <name>loader_impl_type</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="54" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="54" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a167299d624745a6c7d4b946f6bbbf8a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API int</type>
+        <definition>LOADER_API int loader_impl_type_define</definition>
+        <argsstring>(loader_impl impl, const char *name, type t)</argsstring>
+        <name>loader_impl_type_define</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="reflect__type_8h_1a9989d3b49f04ce2227be1eedda3efaac" kindref="member">type</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="56" column="16" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="56" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a9cee63cd2230314fd19a5fba128b9f72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API int</type>
+        <definition>LOADER_API int loader_impl_execution_path</definition>
+        <argsstring>(plugin p, loader_impl impl, const loader_path path)</argsstring>
+        <name>loader_impl_execution_path</name>
+        <param>
+          <type><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>const <ref refid="loader__naming_8h_1a0c504454714715861c9a58fc48a8176c" kindref="member">loader_path</ref></type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="58" column="16" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="58" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1ab347f85052cf82d066f88896b70fa99a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API int</type>
+        <definition>LOADER_API int loader_impl_load_from_file</definition>
+        <argsstring>(plugin_manager manager, plugin p, loader_impl impl, const loader_path paths[], size_t size, void **handle_ptr)</argsstring>
+        <name>loader_impl_load_from_file</name>
+        <param>
+          <type>plugin_manager</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>const <ref refid="loader__naming_8h_1a0c504454714715861c9a58fc48a8176c" kindref="member">loader_path</ref></type>
+          <declname>paths</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>handle_ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="60" column="16" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="60" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a6395a1993caa91b6c0af647613b7d242" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API int</type>
+        <definition>LOADER_API int loader_impl_load_from_memory</definition>
+        <argsstring>(plugin_manager manager, plugin p, loader_impl impl, const char *buffer, size_t size, void **handle_ptr)</argsstring>
+        <name>loader_impl_load_from_memory</name>
+        <param>
+          <type>plugin_manager</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>handle_ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="62" column="16" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="62" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1ae89cfe9b975d49a6394ea736d81f7566" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API int</type>
+        <definition>LOADER_API int loader_impl_load_from_package</definition>
+        <argsstring>(plugin_manager manager, plugin p, loader_impl impl, const loader_path path, void **handle_ptr)</argsstring>
+        <name>loader_impl_load_from_package</name>
+        <param>
+          <type>plugin_manager</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>const <ref refid="loader__naming_8h_1a0c504454714715861c9a58fc48a8176c" kindref="member">loader_path</ref></type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>handle_ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="64" column="16" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="64" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1ae51eabce177ad3f740f54abed5085f79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API void *</type>
+        <definition>LOADER_API void* loader_impl_get_handle</definition>
+        <argsstring>(loader_impl impl, const char *name)</argsstring>
+        <name>loader_impl_get_handle</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="66" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="66" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1ab0a5e979f9e63c12c08e029f36994461" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API void</type>
+        <definition>LOADER_API void loader_impl_set_options</definition>
+        <argsstring>(loader_impl impl, void *options)</argsstring>
+        <name>loader_impl_set_options</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="68" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="68" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1ab38c47aad274df78e047d04eff7b4ce9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API void *</type>
+        <definition>LOADER_API void* loader_impl_get_options</definition>
+        <argsstring>(loader_impl impl)</argsstring>
+        <name>loader_impl_get_options</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="70" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="70" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1ac7c0d3b76bfd440f5b012ae77f97244f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API int</type>
+        <definition>LOADER_API int loader_impl_handle_initialize</definition>
+        <argsstring>(plugin_manager manager, plugin p, loader_impl impl, const loader_path name, void **handle_ptr)</argsstring>
+        <name>loader_impl_handle_initialize</name>
+        <param>
+          <type>plugin_manager</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>const <ref refid="loader__naming_8h_1a0c504454714715861c9a58fc48a8176c" kindref="member">loader_path</ref></type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>handle_ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="72" column="16" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="72" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a993df828c6ea2b2c1c9bf2141978e5aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="adt__vector_8h_1addb8a5a5ce3ff4924de759607f4a7a8f" kindref="member">vector</ref></type>
+        <definition>LOADER_API vector loader_impl_handle_populated</definition>
+        <argsstring>(void *handle)</argsstring>
+        <name>loader_impl_handle_populated</name>
+        <param>
+          <type>void *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="74" column="19" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="74" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a0c0545504b51df3a1b0de1c2068f4c60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API const char *</type>
+        <definition>LOADER_API const char* loader_impl_handle_id</definition>
+        <argsstring>(void *handle)</argsstring>
+        <name>loader_impl_handle_id</name>
+        <param>
+          <type>void *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="76" column="23" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="76" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a7b8593fabd702e8bdb2552755128aa44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="reflect__value_8h_1a54c528809d1b8a4d229f655f96b2433a" kindref="member">value</ref></type>
+        <definition>LOADER_API value loader_impl_handle_export</definition>
+        <argsstring>(void *handle)</argsstring>
+        <name>loader_impl_handle_export</name>
+        <param>
+          <type>void *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="78" column="18" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="78" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a0feed327b857033b702cf7c21fc0b88d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="reflect__context_8h_1ab01e2b1d8e268430d5c2d3d1d870251b" kindref="member">context</ref></type>
+        <definition>LOADER_API context loader_impl_handle_context</definition>
+        <argsstring>(void *handle)</argsstring>
+        <name>loader_impl_handle_context</name>
+        <param>
+          <type>void *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="80" column="20" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="80" declcolumn="20"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a18baa8c973288183e0393cf3c216e655" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API void *</type>
+        <definition>LOADER_API void* loader_impl_handle_container_of</definition>
+        <argsstring>(loader_impl impl, void *handle)</argsstring>
+        <name>loader_impl_handle_container_of</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="82" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="82" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a27eb3f04e9de3df4db549aff83ad2f67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API int</type>
+        <definition>LOADER_API int loader_impl_handle_validate</definition>
+        <argsstring>(void *handle)</argsstring>
+        <name>loader_impl_handle_validate</name>
+        <param>
+          <type>void *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="84" column="16" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="84" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a1533d375b2c0936275ea5d6b47a498c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API <ref refid="reflect__value_8h_1a54c528809d1b8a4d229f655f96b2433a" kindref="member">value</ref></type>
+        <definition>LOADER_API value loader_impl_metadata</definition>
+        <argsstring>(loader_impl impl)</argsstring>
+        <name>loader_impl_metadata</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="86" column="18" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="86" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1af1f5d8072b794eec75444ccf79abe9ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API int</type>
+        <definition>LOADER_API int loader_impl_clear</definition>
+        <argsstring>(void *handle)</argsstring>
+        <name>loader_impl_clear</name>
+        <param>
+          <type>void *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="88" column="16" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="88" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a222684e3ae6d78eba758da03ea663023" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API void</type>
+        <definition>LOADER_API void loader_impl_destroy_objects</definition>
+        <argsstring>(loader_impl impl)</argsstring>
+        <name>loader_impl_destroy_objects</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="90" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="90" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a67191758ada394d8b9571796a5181fe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API void</type>
+        <definition>LOADER_API void loader_impl_destroy_deallocate</definition>
+        <argsstring>(loader_impl impl)</argsstring>
+        <name>loader_impl_destroy_deallocate</name>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="92" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="92" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1a2e76b29aa6dd94d7d2cb3a1b8e47c914" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API void</type>
+        <definition>LOADER_API void loader_impl_destroy_dtor</definition>
+        <argsstring>(plugin p)</argsstring>
+        <name>loader_impl_destroy_dtor</name>
+        <param>
+          <type><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref></type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="94" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="94" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="loader__impl_8h_1aa0630f1622261defddff9ad33f8c2c27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOADER_API void</type>
+        <definition>LOADER_API void loader_impl_destroy</definition>
+        <argsstring>(plugin p, loader_impl impl)</argsstring>
+        <name>loader_impl_destroy</name>
+        <param>
+          <type><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref></type>
+          <declname>impl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" line="96" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h" declline="96" declcolumn="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/>Loader<sp/>Library<sp/>by<sp/>Parra<sp/>Studios</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/>A<sp/>library<sp/>for<sp/>loading<sp/>executable<sp/>code<sp/>at<sp/>run-time<sp/>into<sp/>a<sp/>process.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>Copyright<sp/>(C)<sp/>2016<sp/>-<sp/>2024<sp/>Vicente<sp/>Eduardo<sp/>Ferrer<sp/>Garcia<sp/>&lt;vic798@gmail.com&gt;</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LOADER_IMPL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOADER_IMPL_H<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;loader/loader_api.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="loader__impl__interface_8h" kindref="compound">loader/loader_impl_interface.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="loader__naming_8h" kindref="compound">loader/loader_naming.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="plugin__impl_8h" kindref="compound">plugin/plugin_impl.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="plugin__manager_8h" kindref="compound">plugin/plugin_manager.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>--<sp/>Methods<sp/>--<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="loader__impl_8h_1a3f2a7835ee2b99411b1f4af33ef5d4b2" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1a3f2a7835ee2b99411b1f4af33ef5d4b2" kindref="member">loader_impl_is_initialized</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="loader__impl_8h_1ad68d477fa1eccd2a26aabccd6e8c80c3" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/><ref refid="loader__impl_8h_1ad68d477fa1eccd2a26aabccd6e8c80c3" kindref="member">loader_impl_create</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="loader__naming_8h_1acdc949191ac2655c54541e7f287e2c0e" kindref="member">loader_tag</ref><sp/>tag);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="loader__impl_8h_1a7225a152e1e19ec5d398c2360c004e89" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/><ref refid="loader__impl_8h_1a7225a152e1e19ec5d398c2360c004e89" kindref="member">loader_impl_create_host</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="loader__naming_8h_1acdc949191ac2655c54541e7f287e2c0e" kindref="member">loader_tag</ref><sp/>tag);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="loader__impl_8h_1a7872fe8c6bff10d3851dced4859287af" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1a7872fe8c6bff10d3851dced4859287af" kindref="member">loader_impl_attach</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref><sp/>p);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="loader__impl_8h_1a5c96d10a4dd5bfe14641f16f62facbd3" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref><sp/><ref refid="loader__impl_8h_1a5c96d10a4dd5bfe14641f16f62facbd3" kindref="member">loader_impl_plugin</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="loader__impl_8h_1af0d21828a829732e62791a3941242d01" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="loader__impl__data_8h_1ab431d457f46d287723fd3922779f9c2c" kindref="member">loader_impl_data</ref><sp/><ref refid="loader__impl_8h_1af0d21828a829732e62791a3941242d01" kindref="member">loader_impl_get</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="loader__impl_8h_1a612796e92003f5325098db4b60e7f287" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="reflect__value_8h_1a54c528809d1b8a4d229f655f96b2433a" kindref="member">value</ref><sp/><ref refid="loader__impl_8h_1a612796e92003f5325098db4b60e7f287" kindref="member">loader_impl_get_value</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="loader__impl_8h_1acbe6beea3b8aa45da1b0b4d3f23cf03a" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="reflect__context_8h_1ab01e2b1d8e268430d5c2d3d1d870251b" kindref="member">context</ref><sp/><ref refid="loader__impl_8h_1acbe6beea3b8aa45da1b0b4d3f23cf03a" kindref="member">loader_impl_context</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="loader__impl_8h_1aa2168a5acade5495211094e35331c604" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="reflect__type_8h_1a9989d3b49f04ce2227be1eedda3efaac" kindref="member">type</ref><sp/><ref refid="loader__impl_8h_1aa2168a5acade5495211094e35331c604" kindref="member">loader_impl_type</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="loader__impl_8h_1a167299d624745a6c7d4b946f6bbbf8a8" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1a167299d624745a6c7d4b946f6bbbf8a8" kindref="member">loader_impl_type_define</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name,<sp/><ref refid="reflect__type_8h_1a9989d3b49f04ce2227be1eedda3efaac" kindref="member">type</ref><sp/>t);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="loader__impl_8h_1a9cee63cd2230314fd19a5fba128b9f72" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1a9cee63cd2230314fd19a5fba128b9f72" kindref="member">loader_impl_execution_path</ref>(<ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref><sp/>p,<sp/><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="loader__naming_8h_1a0c504454714715861c9a58fc48a8176c" kindref="member">loader_path</ref><sp/>path);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="loader__impl_8h_1ab347f85052cf82d066f88896b70fa99a" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1ab347f85052cf82d066f88896b70fa99a" kindref="member">loader_impl_load_from_file</ref>(plugin_manager<sp/>manager,<sp/><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref><sp/>p,<sp/><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="loader__naming_8h_1a0c504454714715861c9a58fc48a8176c" kindref="member">loader_path</ref><sp/>paths[],<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**handle_ptr);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="loader__impl_8h_1a6395a1993caa91b6c0af647613b7d242" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1a6395a1993caa91b6c0af647613b7d242" kindref="member">loader_impl_load_from_memory</ref>(plugin_manager<sp/>manager,<sp/><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref><sp/>p,<sp/><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**handle_ptr);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="loader__impl_8h_1ae89cfe9b975d49a6394ea736d81f7566" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1ae89cfe9b975d49a6394ea736d81f7566" kindref="member">loader_impl_load_from_package</ref>(plugin_manager<sp/>manager,<sp/><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref><sp/>p,<sp/><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="loader__naming_8h_1a0c504454714715861c9a58fc48a8176c" kindref="member">loader_path</ref><sp/>path,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**handle_ptr);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="loader__impl_8h_1ae51eabce177ad3f740f54abed5085f79" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="loader__impl_8h_1ae51eabce177ad3f740f54abed5085f79" kindref="member">loader_impl_get_handle</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="loader__impl_8h_1ab0a5e979f9e63c12c08e029f36994461" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1ab0a5e979f9e63c12c08e029f36994461" kindref="member">loader_impl_set_options</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*options);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="loader__impl_8h_1ab38c47aad274df78e047d04eff7b4ce9" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="loader__impl_8h_1ab38c47aad274df78e047d04eff7b4ce9" kindref="member">loader_impl_get_options</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="loader__impl_8h_1ac7c0d3b76bfd440f5b012ae77f97244f" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1ac7c0d3b76bfd440f5b012ae77f97244f" kindref="member">loader_impl_handle_initialize</ref>(plugin_manager<sp/>manager,<sp/><ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref><sp/>p,<sp/><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="loader__naming_8h_1a0c504454714715861c9a58fc48a8176c" kindref="member">loader_path</ref><sp/>name,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**handle_ptr);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="loader__impl_8h_1a993df828c6ea2b2c1c9bf2141978e5aa" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="adt__vector_8h_1addb8a5a5ce3ff4924de759607f4a7a8f" kindref="member">vector</ref><sp/><ref refid="loader__impl_8h_1a993df828c6ea2b2c1c9bf2141978e5aa" kindref="member">loader_impl_handle_populated</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*handle);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="loader__impl_8h_1a0c0545504b51df3a1b0de1c2068f4c60" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="loader__impl_8h_1a0c0545504b51df3a1b0de1c2068f4c60" kindref="member">loader_impl_handle_id</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*handle);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="loader__impl_8h_1a7b8593fabd702e8bdb2552755128aa44" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="reflect__value_8h_1a54c528809d1b8a4d229f655f96b2433a" kindref="member">value</ref><sp/><ref refid="loader__impl_8h_1a7b8593fabd702e8bdb2552755128aa44" kindref="member">loader_impl_handle_export</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*handle);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="loader__impl_8h_1a0feed327b857033b702cf7c21fc0b88d" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="reflect__context_8h_1ab01e2b1d8e268430d5c2d3d1d870251b" kindref="member">context</ref><sp/><ref refid="loader__impl_8h_1a0feed327b857033b702cf7c21fc0b88d" kindref="member">loader_impl_handle_context</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*handle);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="loader__impl_8h_1a18baa8c973288183e0393cf3c216e655" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="loader__impl_8h_1a18baa8c973288183e0393cf3c216e655" kindref="member">loader_impl_handle_container_of</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*handle);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="loader__impl_8h_1a27eb3f04e9de3df4db549aff83ad2f67" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1a27eb3f04e9de3df4db549aff83ad2f67" kindref="member">loader_impl_handle_validate</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*handle);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="loader__impl_8h_1a1533d375b2c0936275ea5d6b47a498c0" refkind="member"><highlight class="normal">LOADER_API<sp/><ref refid="reflect__value_8h_1a54c528809d1b8a4d229f655f96b2433a" kindref="member">value</ref><sp/><ref refid="loader__impl_8h_1a1533d375b2c0936275ea5d6b47a498c0" kindref="member">loader_impl_metadata</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="loader__impl_8h_1af1f5d8072b794eec75444ccf79abe9ce" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1af1f5d8072b794eec75444ccf79abe9ce" kindref="member">loader_impl_clear</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*handle);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="loader__impl_8h_1a222684e3ae6d78eba758da03ea663023" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1a222684e3ae6d78eba758da03ea663023" kindref="member">loader_impl_destroy_objects</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="loader__impl_8h_1a67191758ada394d8b9571796a5181fe2" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1a67191758ada394d8b9571796a5181fe2" kindref="member">loader_impl_destroy_deallocate</ref>(<ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="loader__impl_8h_1a2e76b29aa6dd94d7d2cb3a1b8e47c914" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1a2e76b29aa6dd94d7d2cb3a1b8e47c914" kindref="member">loader_impl_destroy_dtor</ref>(<ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref><sp/>p);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="loader__impl_8h_1aa0630f1622261defddff9ad33f8c2c27" refkind="member"><highlight class="normal">LOADER_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="loader__impl_8h_1aa0630f1622261defddff9ad33f8c2c27" kindref="member">loader_impl_destroy</ref>(<ref refid="plugin__impl_8h_1af5672f8038c7c743f97c5e6fd31e3bdc" kindref="member">plugin</ref><sp/>p,<sp/><ref refid="loader__impl__interface_8h_1a92e542164f804b49f0c1d6149b1c045e" kindref="member">loader_impl</ref><sp/>impl);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>LOADER_IMPL_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/loader/include/loader/loader_impl.h"/>
+  </compounddef>
+</doxygen>

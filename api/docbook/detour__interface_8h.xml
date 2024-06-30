@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_detour__interface_8h" xml:lang="en-US">
+<title>detour_interface.h File Reference</title>
+<indexterm><primary>detour_interface.h</primary></indexterm>
+<programlisting>#include &lt;detour/detour_api.h&gt;
+</programlisting>Include dependency graph for detour_interface.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="detour__interface_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structdetour__interface__type">detour_interface</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef void * <link linkend="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3">detour_impl_handle</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3"/>    <section>
+    <title>detour_impl_handle</title>
+<indexterm><primary>detour_impl_handle</primary><secondary>detour_interface.h</secondary></indexterm>
+<indexterm><primary>detour_interface.h</primary><secondary>detour_impl_handle</secondary></indexterm>
+<para><computeroutput>typedef void* <link linkend="_detour__interface_8h_1af561155897833a2ccb83169ed78de0a3">detour_impl_handle</link></computeroutput></para></section>
+</section>
+</section>

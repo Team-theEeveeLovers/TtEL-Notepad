@@ -1,0 +1,30 @@
+.TH "preprocessor_concatenation.h" 3 "Sun Jun 30 2024" "Version 0.8.0.76f02c051c9b" "MetaCall" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+preprocessor_concatenation.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <preprocessor/preprocessor_api\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPREPROCESSOR_CONCAT_IMPL\fP(left,  right)   left##right"
+.br
+.ti -1c
+.RI "#define \fBPREPROCESSOR_CONCAT\fP(left,  right)   \fBPREPROCESSOR_CONCAT_IMPL\fP(left, right)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PREPROCESSOR_CONCAT_IMPL(left, right)   left##right"
+
+.SS "#define PREPROCESSOR_CONCAT(left, right)   \fBPREPROCESSOR_CONCAT_IMPL\fP(left, right)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MetaCall from the source code\&.

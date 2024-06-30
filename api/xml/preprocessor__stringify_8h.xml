@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="preprocessor__stringify_8h" kind="file" language="C++">
+    <compoundname>preprocessor_stringify.h</compoundname>
+    <includes local="no">preprocessor/preprocessor_api.h</includes>
+    <includes refid="preprocessor__for_8h" local="no">preprocessor/preprocessor_for.h</includes>
+    <includedby refid="preprocessor_8h" local="no">preprocessor.h</includedby>
+    <includedby refid="dynlink__interface_8h" local="no">dynlink_interface.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>preprocessor/preprocessor_for.h</label>
+        <link refid="preprocessor__for_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>preprocessor/preprocessor_if.h</label>
+        <link refid="preprocessor__if_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>preprocessor/preprocessor_arguments.h</label>
+        <link refid="preprocessor__arguments_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>preprocessor/preprocessor_comma.h</label>
+        <link refid="preprocessor__comma_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>preprocessor/preprocessor_tuple.h</label>
+        <link refid="preprocessor__tuple_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>preprocessor/preprocessor_concatenation.h</label>
+        <link refid="preprocessor__concatenation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>preprocessor_stringify.h</label>
+        <link refid="preprocessor__stringify_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>preprocessor/preprocessor_arithmetic.h</label>
+        <link refid="preprocessor__arithmetic_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>preprocessor/preprocessor_complement.h</label>
+        <link refid="preprocessor__complement_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>preprocessor/preprocessor_boolean.h</label>
+        <link refid="preprocessor__boolean_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>preprocessor/preprocessor_empty.h</label>
+        <link refid="preprocessor__empty_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>preprocessor/preprocessor_api.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>dynlink.h</label>
+        <link refid="dynlink_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>plugin_impl.h</label>
+        <link refid="plugin__impl_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>plugin_loader.h</label>
+        <link refid="plugin__loader_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>plugin_interface.hpp</label>
+        <link refid="plugin__interface_8hpp"/>
+      </node>
+      <node id="12">
+        <label>loader_impl.h</label>
+        <link refid="loader__impl_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>dynlink_interface.h</label>
+        <link refid="dynlink__interface_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>preprocessor_stringify.h</label>
+        <link refid="preprocessor__stringify_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>plugin_manager.h</label>
+        <link refid="plugin__manager_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>dynlink_impl.h</label>
+        <link refid="dynlink__impl_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>detour.h</label>
+        <link refid="detour_8h"/>
+      </node>
+      <node id="14">
+        <label>loader_host.h</label>
+        <link refid="loader__host_8h"/>
+      </node>
+      <node id="6">
+        <label>plugin_descriptor.h</label>
+        <link refid="plugin__descriptor_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>preprocessor.h</label>
+        <link refid="preprocessor_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>loader_manager_impl.h</label>
+        <link refid="loader__manager__impl_8h"/>
+      </node>
+      <node id="10">
+        <label>plugin.h</label>
+        <link refid="plugin_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>loader.h</label>
+        <link refid="loader_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="preprocessor__stringify_8h_1a1b1e31e7e2766efeeb542784afe00673" prot="public" static="no">
+        <name>PREPROCESSOR_STRINGIFY_IMPL</name>
+        <param><defname>...</defname></param>
+        <initializer>#__VA_ARGS__</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h" line="25" column="9" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="preprocessor__stringify_8h_1a687b07489efaaf2b4a03568c2117d32b" prot="public" static="no">
+        <name>PREPROCESSOR_STRINGIFY</name>
+        <param><defname>expr</defname></param>
+        <initializer><ref refid="preprocessor__stringify_8h_1a1b1e31e7e2766efeeb542784afe00673" kindref="member">PREPROCESSOR_STRINGIFY_IMPL</ref>(expr)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h" line="34" column="11" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="preprocessor__stringify_8h_1a0691ba9453df48a48d4a51b8f6e06395" prot="public" static="no">
+        <name>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL</name>
+        <param><defname>...</defname></param>
+        <initializer>#__VA_ARGS__</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h" line="45" column="11" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="preprocessor__stringify_8h_1ac094787bffb9429bdf67ef52744a6ddb" prot="public" static="no">
+        <name>PREPROCESSOR_STRINGIFY_OR_EMPTY</name>
+        <param><defname>expr</defname></param>
+        <initializer><ref refid="preprocessor__stringify_8h_1a0691ba9453df48a48d4a51b8f6e06395" kindref="member">PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL</ref>(expr)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h" line="55" column="11" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="preprocessor__stringify_8h_1a7e0a8927e7cbacb2bf75f782ffe25610" prot="public" static="no">
+        <name>PREPROCESSOR_STRINGIFY_VARIADIC</name>
+        <param><defname>...</defname></param>
+        <initializer>	PREPROCESSOR_FOR_EACH(<ref refid="preprocessor__stringify_8h_1a687b07489efaaf2b4a03568c2117d32b" kindref="member">PREPROCESSOR_STRINGIFY</ref>, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h" line="59" column="9" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/>Preprocessor<sp/>Library<sp/>by<sp/>Parra<sp/>Studios</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/>Copyright<sp/>(C)<sp/>2016<sp/>-<sp/>2024<sp/>Vicente<sp/>Eduardo<sp/>Ferrer<sp/>Garcia<sp/>&lt;vic798@gmail.com&gt;</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>A<sp/>generic<sp/>header-only<sp/>preprocessor<sp/>metaprogramming<sp/>library.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>PREPROCESSOR_STRINGIFY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PREPROCESSOR_STRINGIFY_H<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>--<sp/>Headers<sp/>--<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;preprocessor/preprocessor_api.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="preprocessor__for_8h" kindref="compound">preprocessor/preprocessor_for.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>--<sp/>Macros<sp/>--<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Stringify<sp/>a<sp/>symbol<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="preprocessor__stringify_8h_1a1b1e31e7e2766efeeb542784afe00673" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PREPROCESSOR_STRINGIFY_IMPL(...)<sp/>#__VA_ARGS__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__MWERKS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY_IMPL_I(tuple)<sp/>PREPROCESSOR_STRINGIFY_IMPL##tuple</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY(expr)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PREPROCESSOR_STRINGIFY_IMPL_I((expr))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(_MSC_VER)<sp/>&amp;&amp;<sp/>!defined(__clang__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY_IMPL_I(tuple)<sp/>PREPROCESSOR_STRINGIFY_IMPL<sp/>tuple</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY(expr)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PREPROCESSOR_STRINGIFY_IMPL_I((expr))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="preprocessor__stringify_8h_1a687b07489efaaf2b4a03568c2117d32b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY(expr)<sp/>PREPROCESSOR_STRINGIFY_IMPL(expr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Stringify<sp/>a<sp/>symbol<sp/>or<sp/>return<sp/>empty<sp/>string<sp/>if<sp/>the<sp/>expression<sp/>expands<sp/>to<sp/>nothing<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(_MSC_VER)<sp/>&amp;&amp;<sp/>!defined(__clang__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL_II(...)<sp/>#__VA_ARGS__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL(...)<sp/>\</highlight></codeline>
+<codeline lineno="41"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PREPROCESSOR_IF(PREPROCESSOR_ARGS_NOT_EMPTY(__VA_ARGS__),<sp/>\</highlight></codeline>
+<codeline lineno="42"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL_II(__VA_ARGS__),<sp/>\</highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="preprocessor__stringify_8h_1a0691ba9453df48a48d4a51b8f6e06395" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL(...)<sp/>#__VA_ARGS__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__MWERKS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL_I(tuple)<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL##tuple</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY(expr)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL_I((expr))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(_MSC_VER)<sp/>&amp;&amp;<sp/>!defined(__clang__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL_I(tuple)<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL<sp/>tuple</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY(expr)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL_I((expr))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="preprocessor__stringify_8h_1ac094787bffb9429bdf67ef52744a6ddb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY(expr)<sp/>PREPROCESSOR_STRINGIFY_OR_EMPTY_IMPL(expr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Stringify<sp/>a<sp/>list<sp/>of<sp/>symbols<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="preprocessor__stringify_8h_1a7e0a8927e7cbacb2bf75f782ffe25610" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PREPROCESSOR_STRINGIFY_VARIADIC(...)<sp/>\</highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>PREPROCESSOR_FOR_EACH(PREPROCESSOR_STRINGIFY,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>PREPROCESSOR_STRINGIFY_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/preprocessor/include/preprocessor/preprocessor_stringify.h"/>
+  </compounddef>
+</doxygen>

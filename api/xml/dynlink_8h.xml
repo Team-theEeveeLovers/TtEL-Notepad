@@ -1,0 +1,812 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dynlink_8h" kind="file" language="C++">
+    <compoundname>dynlink.h</compoundname>
+    <includes local="no">dynlink/dynlink_api.h</includes>
+    <includes refid="dynlink__type_8h" local="no">dynlink/dynlink_type.h</includes>
+    <includes refid="dynlink__flags_8h" local="no">dynlink/dynlink_flags.h</includes>
+    <includes refid="dynlink__interface_8h" local="no">dynlink/dynlink_interface.h</includes>
+    <includes refid="dynlink__symbol_8h" local="no">dynlink/dynlink_symbol.h</includes>
+    <includedby refid="plugin__descriptor_8h" local="no">plugin_descriptor.h</includedby>
+    <incdepgraph>
+      <node id="12">
+        <label>preprocessor/preprocessor_for.h</label>
+        <link refid="preprocessor__for_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>preprocessor/preprocessor_if.h</label>
+        <link refid="preprocessor__if_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>preprocessor/preprocessor_arguments.h</label>
+        <link refid="preprocessor__arguments_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>dynlink.h</label>
+        <link refid="dynlink_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>dynlink/dynlink_type.h</label>
+        <link refid="dynlink__type_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>stdlib.h</label>
+      </node>
+      <node id="17">
+        <label>preprocessor/preprocessor_comma.h</label>
+        <link refid="preprocessor__comma_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>dynlink/dynlink_interface.h</label>
+        <link refid="dynlink__interface_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>preprocessor/preprocessor_tuple.h</label>
+        <link refid="preprocessor__tuple_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>preprocessor/preprocessor_concatenation.h</label>
+        <link refid="preprocessor__concatenation_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>portability/portability_library_path.h</label>
+      </node>
+      <node id="11">
+        <label>preprocessor/preprocessor_stringify.h</label>
+        <link refid="preprocessor__stringify_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>dynlink/dynlink_flags.h</label>
+        <link refid="dynlink__flags_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>preprocessor/preprocessor_arithmetic.h</label>
+        <link refid="preprocessor__arithmetic_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>preprocessor/preprocessor_complement.h</label>
+        <link refid="preprocessor__complement_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>dynlink/dynlink_impl.h</label>
+        <link refid="dynlink__impl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>preprocessor/preprocessor_boolean.h</label>
+        <link refid="preprocessor__boolean_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>preprocessor/preprocessor_empty.h</label>
+        <link refid="preprocessor__empty_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dynlink/dynlink_api.h</label>
+      </node>
+      <node id="21">
+        <label>dynlink/dynlink_symbol.h</label>
+        <link refid="dynlink__symbol_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>preprocessor/preprocessor_api.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>dynlink.h</label>
+        <link refid="dynlink_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>plugin_impl.h</label>
+        <link refid="plugin__impl_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>plugin_loader.h</label>
+        <link refid="plugin__loader_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>loader_impl.h</label>
+        <link refid="loader__impl_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>plugin_manager.h</label>
+        <link refid="plugin__manager_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>detour.h</label>
+        <link refid="detour_8h"/>
+      </node>
+      <node id="10">
+        <label>loader_host.h</label>
+        <link refid="loader__host_8h"/>
+      </node>
+      <node id="2">
+        <label>plugin_descriptor.h</label>
+        <link refid="plugin__descriptor_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>loader_manager_impl.h</label>
+        <link refid="loader__manager__impl_8h"/>
+      </node>
+      <node id="6">
+        <label>plugin.h</label>
+        <link refid="plugin_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>loader.h</label>
+        <link refid="loader_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="user-defined">
+      <description><para>Get the path to a library loaded in the process itself by</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the library that will be searched for the path (without platform dependant prefix, suffix or extension)</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path found (if any) with that library name</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of the path found (if any)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns zero if it could find the path, different from zero if not found </para>
+</simplesect>
+</para>
+</description>
+      <memberdef kind="function" id="dynlink_8h_1a944e8fcabefe9789b689229e27d8c54a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DYNLINK_API int</type>
+        <definition>DYNLINK_API int dynlink_library_path</definition>
+        <argsstring>(dynlink_name name, dynlink_library_path_str path, size_t *length)</argsstring>
+        <name>dynlink_library_path</name>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a11b32b057aa8ea512ea863e185547cd0" kindref="member">dynlink_name</ref></type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a1c4b6d7db5f1f2c3c881bca3c701e6ae" kindref="member">dynlink_library_path_str</ref></type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" line="146" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" declline="146" declcolumn="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>as a base for it</header>
+      <description><para>Retrieve the library platform standard name by using</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the library that will be used for generating the platform dependant library name (i.e example)</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resulting library name that will be generated (i.e libexample.so in Linux, or example.dll in Windows) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+</description>
+      <memberdef kind="function" id="dynlink_8h_1a39f7c492ed481320eb5be223cfb639c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DYNLINK_API void</type>
+        <definition>DYNLINK_API void dynlink_platform_name</definition>
+        <argsstring>(dynlink_name name, dynlink_name_impl result)</argsstring>
+        <name>dynlink_platform_name</name>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a11b32b057aa8ea512ea863e185547cd0" kindref="member">dynlink_name</ref></type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="dynlink__type_8h_1ae1d8bf84ee2ad46a7513e6d4eb6782fb" kindref="member">dynlink_name_impl</ref></type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" line="158" column="18" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" declline="158" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="dynlink_8h_1ab765b5a60456a7ca75e6e48c661f897f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DYNLINK_API const char *</type>
+        <definition>DYNLINK_API const char* dynlink_print_info</definition>
+        <argsstring>(void)</argsstring>
+        <name>dynlink_print_info</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Provide the module information. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Static string containing module information </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" line="168" column="24" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" declline="168" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="dynlink_8h_1acae6eace8be50dd724538af11d6f9b54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DYNLINK_API const char *</type>
+        <definition>DYNLINK_API const char* dynlink_extension</definition>
+        <argsstring>(void)</argsstring>
+        <name>dynlink_extension</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the library extension for specified platform. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A constant string pointer to the platform extension </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" line="47" column="24" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" declline="47" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="dynlink_8h_1a914187cf2ab8243349c6c1e3615624c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DYNLINK_API <ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref></type>
+        <definition>DYNLINK_API dynlink dynlink_load</definition>
+        <argsstring>(dynlink_path path, dynlink_name name, dynlink_flags flags)</argsstring>
+        <name>dynlink_load</name>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a8e2c4f432f3e87b96997514ab62cf2c2" kindref="member">dynlink_path</ref></type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a11b32b057aa8ea512ea863e185547cd0" kindref="member">dynlink_name</ref></type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="dynlink__flags_8h_1a5eb7c21c7f6671d1b1d25092ba3b0648" kindref="member">dynlink_flags</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Load a dynamically linked shared object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path where is located the shared object</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier of the shared object</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Dynamic linking flags</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A handle to the dynamically linked shared object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" line="65" column="21" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" declline="65" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="dynlink_8h_1aff22375c0da8b77fe21b8692de33b319" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DYNLINK_API <ref refid="dynlink__type_8h_1a11b32b057aa8ea512ea863e185547cd0" kindref="member">dynlink_name</ref></type>
+        <definition>DYNLINK_API dynlink_name dynlink_get_name</definition>
+        <argsstring>(dynlink handle)</argsstring>
+        <name>dynlink_get_name</name>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Retreive the name of the dynamically linked shared object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle of dynamically linked shared object</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the name of the dynamically linked shared object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" line="77" column="26" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" declline="77" declcolumn="26"/>
+      </memberdef>
+      <memberdef kind="function" id="dynlink_8h_1ad70c135891290391e7bb100a5278a3e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DYNLINK_API <ref refid="dynlink__type_8h_1a11b32b057aa8ea512ea863e185547cd0" kindref="member">dynlink_name</ref></type>
+        <definition>DYNLINK_API dynlink_name dynlink_get_name_impl</definition>
+        <argsstring>(dynlink handle)</argsstring>
+        <name>dynlink_get_name_impl</name>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Retreive the file name of the dynamically linked shared object handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle of dynamically linked shared object</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the file name of the dynamically linked shared object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" line="89" column="26" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" declline="89" declcolumn="26"/>
+      </memberdef>
+      <memberdef kind="function" id="dynlink_8h_1af28e4096eecb9b3215779e8a636cb6e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DYNLINK_API <ref refid="dynlink__flags_8h_1a5eb7c21c7f6671d1b1d25092ba3b0648" kindref="member">dynlink_flags</ref></type>
+        <definition>DYNLINK_API dynlink_flags dynlink_get_flags</definition>
+        <argsstring>(dynlink handle)</argsstring>
+        <name>dynlink_get_flags</name>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Retreive the linking flags of the dynamically linked shared object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle of dynamically linked shared object</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Linking flags of dynamically linked shared object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" line="101" column="27" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" declline="101" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="dynlink_8h_1a18a6b5308d1b292c32a0a1f19ae38a5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DYNLINK_API int</type>
+        <definition>DYNLINK_API int dynlink_symbol</definition>
+        <argsstring>(dynlink handle, dynlink_symbol_name symbol_name, dynlink_symbol_addr *symbol_address)</argsstring>
+        <name>dynlink_symbol</name>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a3c96aed7c9128f3d4be1c9b2b75174c5" kindref="member">dynlink_symbol_name</ref></type>
+          <declname>symbol_name</declname>
+        </param>
+        <param>
+          <type><ref refid="dynlink__impl__symbol__beos_8h_1abedcfb8b256940cff900c9a92c628aaf" kindref="member">dynlink_symbol_addr</ref> *</type>
+          <declname>symbol_address</declname>
+        </param>
+        <briefdescription>
+<para>Get a symbol address of dynamically linked shared object by name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle of dynamically linked shared object</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the of dynamically linked shared object symbol</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">symbol_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the address of the of dynamically linked shared object symbol</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns zero on correct dynamic linking, distinct from zero otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" line="119" column="17" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" declline="119" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="dynlink_8h_1abb108f7bc002ff0de09f992501a722d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DYNLINK_API void</type>
+        <definition>DYNLINK_API void dynlink_unload</definition>
+        <argsstring>(dynlink handle)</argsstring>
+        <name>dynlink_unload</name>
+        <param>
+          <type><ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Unloads a dynamically linked shared object by its handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle of dynamically linked shared object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" line="128" column="18" declfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h" declline="128" declcolumn="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/>Dynamic<sp/>Link<sp/>Library<sp/>by<sp/>Parra<sp/>Studios</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/>A<sp/>library<sp/>for<sp/>dynamic<sp/>loading<sp/>and<sp/>linking<sp/>shared<sp/>objects<sp/>at<sp/>run-time.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>Copyright<sp/>(C)<sp/>2016<sp/>-<sp/>2024<sp/>Vicente<sp/>Eduardo<sp/>Ferrer<sp/>Garcia<sp/>&lt;vic798@gmail.com&gt;</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DYNLINK_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DYNLINK_H<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>--<sp/>Headers<sp/>--<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dynlink/dynlink_api.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dynlink__type_8h" kindref="compound">dynlink/dynlink_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dynlink__flags_8h" kindref="compound">dynlink/dynlink_flags.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dynlink__interface_8h" kindref="compound">dynlink/dynlink_interface.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dynlink__symbol_8h" kindref="compound">dynlink/dynlink_symbol.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>--<sp/>Methods<sp/>--<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="40"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="41"><highlight class="comment">*<sp/><sp/>@brief</highlight></codeline>
+<codeline lineno="42"><highlight class="comment">*<sp/><sp/><sp/><sp/>Get<sp/>the<sp/>library<sp/>extension<sp/>for<sp/>specified<sp/>platform</highlight></codeline>
+<codeline lineno="43"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">*<sp/><sp/>@return</highlight></codeline>
+<codeline lineno="45"><highlight class="comment">*<sp/><sp/><sp/><sp/>A<sp/>constant<sp/>string<sp/>pointer<sp/>to<sp/>the<sp/>platform<sp/>extension</highlight></codeline>
+<codeline lineno="46"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="dynlink_8h_1acae6eace8be50dd724538af11d6f9b54" refkind="member"><highlight class="normal">DYNLINK_API<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="dynlink_8h_1acae6eace8be50dd724538af11d6f9b54" kindref="member">dynlink_extension</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="49"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="50"><highlight class="comment">*<sp/><sp/>@brief</highlight></codeline>
+<codeline lineno="51"><highlight class="comment">*<sp/><sp/><sp/><sp/>Load<sp/>a<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="52"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="53"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>path</highlight></codeline>
+<codeline lineno="54"><highlight class="comment">*<sp/><sp/><sp/><sp/>Path<sp/>where<sp/>is<sp/>located<sp/>the<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="55"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="56"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>name</highlight></codeline>
+<codeline lineno="57"><highlight class="comment">*<sp/><sp/><sp/><sp/>Name<sp/>identifier<sp/>of<sp/>the<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="58"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="59"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>flags</highlight></codeline>
+<codeline lineno="60"><highlight class="comment">*<sp/><sp/><sp/><sp/>Dynamic<sp/>linking<sp/>flags</highlight></codeline>
+<codeline lineno="61"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="62"><highlight class="comment">*<sp/><sp/>@return</highlight></codeline>
+<codeline lineno="63"><highlight class="comment">*<sp/><sp/><sp/><sp/>A<sp/>handle<sp/>to<sp/>the<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="64"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="dynlink_8h_1a914187cf2ab8243349c6c1e3615624c6" refkind="member"><highlight class="normal">DYNLINK_API<sp/><ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref><sp/><ref refid="dynlink_8h_1a914187cf2ab8243349c6c1e3615624c6" kindref="member">dynlink_load</ref>(<ref refid="dynlink__type_8h_1a8e2c4f432f3e87b96997514ab62cf2c2" kindref="member">dynlink_path</ref><sp/>path,<sp/><ref refid="dynlink__type_8h_1a11b32b057aa8ea512ea863e185547cd0" kindref="member">dynlink_name</ref><sp/>name,<sp/><ref refid="dynlink__flags_8h_1a5eb7c21c7f6671d1b1d25092ba3b0648" kindref="member">dynlink_flags</ref><sp/>flags);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="67"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="68"><highlight class="comment">*<sp/><sp/>@brief</highlight></codeline>
+<codeline lineno="69"><highlight class="comment">*<sp/><sp/><sp/><sp/>Retreive<sp/>the<sp/>name<sp/>of<sp/>the<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="70"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="71"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>handle</highlight></codeline>
+<codeline lineno="72"><highlight class="comment">*<sp/><sp/><sp/><sp/>Handle<sp/>of<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="73"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="74"><highlight class="comment">*<sp/><sp/>@return</highlight></codeline>
+<codeline lineno="75"><highlight class="comment">*<sp/><sp/><sp/><sp/>Reference<sp/>to<sp/>the<sp/>name<sp/>of<sp/>the<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="76"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="dynlink_8h_1aff22375c0da8b77fe21b8692de33b319" refkind="member"><highlight class="normal">DYNLINK_API<sp/><ref refid="dynlink__type_8h_1a11b32b057aa8ea512ea863e185547cd0" kindref="member">dynlink_name</ref><sp/><ref refid="dynlink_8h_1aff22375c0da8b77fe21b8692de33b319" kindref="member">dynlink_get_name</ref>(<ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref><sp/>handle);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="79"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="80"><highlight class="comment">*<sp/><sp/>@brief</highlight></codeline>
+<codeline lineno="81"><highlight class="comment">*<sp/><sp/><sp/><sp/>Retreive<sp/>the<sp/>file<sp/>name<sp/>of<sp/>the<sp/>dynamically<sp/>linked<sp/>shared<sp/>object<sp/>handle</highlight></codeline>
+<codeline lineno="82"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="83"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>handle</highlight></codeline>
+<codeline lineno="84"><highlight class="comment">*<sp/><sp/><sp/><sp/>Handle<sp/>of<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="85"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="86"><highlight class="comment">*<sp/><sp/>@return</highlight></codeline>
+<codeline lineno="87"><highlight class="comment">*<sp/><sp/><sp/><sp/>Reference<sp/>to<sp/>the<sp/>file<sp/>name<sp/>of<sp/>the<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="88"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="dynlink_8h_1ad70c135891290391e7bb100a5278a3e7" refkind="member"><highlight class="normal">DYNLINK_API<sp/><ref refid="dynlink__type_8h_1a11b32b057aa8ea512ea863e185547cd0" kindref="member">dynlink_name</ref><sp/><ref refid="dynlink_8h_1ad70c135891290391e7bb100a5278a3e7" kindref="member">dynlink_get_name_impl</ref>(<ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref><sp/>handle);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="91"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="92"><highlight class="comment">*<sp/><sp/>@brief</highlight></codeline>
+<codeline lineno="93"><highlight class="comment">*<sp/><sp/><sp/><sp/>Retreive<sp/>the<sp/>linking<sp/>flags<sp/>of<sp/>the<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="94"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="95"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>handle</highlight></codeline>
+<codeline lineno="96"><highlight class="comment">*<sp/><sp/><sp/><sp/>Handle<sp/>of<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="97"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="98"><highlight class="comment">*<sp/><sp/>@return</highlight></codeline>
+<codeline lineno="99"><highlight class="comment">*<sp/><sp/><sp/><sp/>Linking<sp/>flags<sp/>of<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="100"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="dynlink_8h_1af28e4096eecb9b3215779e8a636cb6e3" refkind="member"><highlight class="normal">DYNLINK_API<sp/><ref refid="dynlink__flags_8h_1a5eb7c21c7f6671d1b1d25092ba3b0648" kindref="member">dynlink_flags</ref><sp/><ref refid="dynlink_8h_1af28e4096eecb9b3215779e8a636cb6e3" kindref="member">dynlink_get_flags</ref>(<ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref><sp/>handle);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="103"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="104"><highlight class="comment">*<sp/><sp/>@brief</highlight></codeline>
+<codeline lineno="105"><highlight class="comment">*<sp/><sp/><sp/><sp/>Get<sp/>a<sp/>symbol<sp/>address<sp/>of<sp/>dynamically<sp/>linked<sp/>shared<sp/>object<sp/>by<sp/>name</highlight></codeline>
+<codeline lineno="106"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="107"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>handle</highlight></codeline>
+<codeline lineno="108"><highlight class="comment">*<sp/><sp/><sp/><sp/>Handle<sp/>of<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="109"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="110"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>symbol_name</highlight></codeline>
+<codeline lineno="111"><highlight class="comment">*<sp/><sp/><sp/><sp/>Name<sp/>of<sp/>the<sp/>of<sp/>dynamically<sp/>linked<sp/>shared<sp/>object<sp/>symbol</highlight></codeline>
+<codeline lineno="112"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="113"><highlight class="comment">*<sp/><sp/>@param[out]<sp/>symbol_address</highlight></codeline>
+<codeline lineno="114"><highlight class="comment">*<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>address<sp/>of<sp/>the<sp/>of<sp/>dynamically<sp/>linked<sp/>shared<sp/>object<sp/>symbol</highlight></codeline>
+<codeline lineno="115"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="116"><highlight class="comment">*<sp/><sp/>@return</highlight></codeline>
+<codeline lineno="117"><highlight class="comment">*<sp/><sp/><sp/><sp/>Returns<sp/>zero<sp/>on<sp/>correct<sp/>dynamic<sp/>linking,<sp/>distinct<sp/>from<sp/>zero<sp/>otherwise</highlight></codeline>
+<codeline lineno="118"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="dynlink_8h_1a18a6b5308d1b292c32a0a1f19ae38a5f" refkind="member"><highlight class="normal">DYNLINK_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dynlink_8h_1a18a6b5308d1b292c32a0a1f19ae38a5f" kindref="member">dynlink_symbol</ref>(<ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref><sp/>handle,<sp/><ref refid="dynlink__type_8h_1a3c96aed7c9128f3d4be1c9b2b75174c5" kindref="member">dynlink_symbol_name</ref><sp/>symbol_name,<sp/><ref refid="dynlink__impl__symbol__beos_8h_1abedcfb8b256940cff900c9a92c628aaf" kindref="member">dynlink_symbol_addr</ref><sp/>*symbol_address);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="121"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="122"><highlight class="comment">*<sp/><sp/>@brief</highlight></codeline>
+<codeline lineno="123"><highlight class="comment">*<sp/><sp/><sp/><sp/>Unloads<sp/>a<sp/>dynamically<sp/>linked<sp/>shared<sp/>object<sp/>by<sp/>its<sp/>handle</highlight></codeline>
+<codeline lineno="124"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="125"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>handle</highlight></codeline>
+<codeline lineno="126"><highlight class="comment">*<sp/><sp/><sp/><sp/>Handle<sp/>of<sp/>dynamically<sp/>linked<sp/>shared<sp/>object</highlight></codeline>
+<codeline lineno="127"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="dynlink_8h_1abb108f7bc002ff0de09f992501a722d4" refkind="member"><highlight class="normal">DYNLINK_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dynlink_8h_1abb108f7bc002ff0de09f992501a722d4" kindref="member">dynlink_unload</ref>(<ref refid="dynlink__type_8h_1a78848577adb8462475a9af5d06560873" kindref="member">dynlink</ref><sp/>handle);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="130"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="131"><highlight class="comment">*<sp/><sp/>@brief</highlight></codeline>
+<codeline lineno="132"><highlight class="comment">*<sp/><sp/><sp/><sp/>Get<sp/>the<sp/>path<sp/>to<sp/>a<sp/>library<sp/>loaded<sp/>in<sp/>the<sp/>process<sp/>itself<sp/>by<sp/>@name</highlight></codeline>
+<codeline lineno="133"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="134"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>name</highlight></codeline>
+<codeline lineno="135"><highlight class="comment">*<sp/><sp/><sp/><sp/>Name<sp/>of<sp/>the<sp/>library<sp/>that<sp/>will<sp/>be<sp/>searched<sp/>for<sp/>the<sp/>path<sp/>(without<sp/>platform<sp/>dependant<sp/>prefix,<sp/>suffix<sp/>or<sp/>extension)</highlight></codeline>
+<codeline lineno="136"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="137"><highlight class="comment">*<sp/><sp/>@param[out]<sp/>path</highlight></codeline>
+<codeline lineno="138"><highlight class="comment">*<sp/><sp/><sp/><sp/>The<sp/>path<sp/>found<sp/>(if<sp/>any)<sp/>with<sp/>that<sp/>library<sp/>name</highlight></codeline>
+<codeline lineno="139"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="140"><highlight class="comment">*<sp/><sp/>@param[out]<sp/>length</highlight></codeline>
+<codeline lineno="141"><highlight class="comment">*<sp/><sp/><sp/><sp/>The<sp/>length<sp/>of<sp/>the<sp/>path<sp/>found<sp/>(if<sp/>any)</highlight></codeline>
+<codeline lineno="142"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="143"><highlight class="comment">*<sp/><sp/>@return</highlight></codeline>
+<codeline lineno="144"><highlight class="comment">*<sp/><sp/><sp/><sp/>Returns<sp/>zero<sp/>if<sp/>it<sp/>could<sp/>find<sp/>the<sp/>path,<sp/>different<sp/>from<sp/>zero<sp/>if<sp/>not<sp/>found</highlight></codeline>
+<codeline lineno="145"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="dynlink_8h_1a944e8fcabefe9789b689229e27d8c54a" refkind="member"><highlight class="normal">DYNLINK_API<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dynlink_8h_1a944e8fcabefe9789b689229e27d8c54a" kindref="member">dynlink_library_path</ref>(<ref refid="dynlink__type_8h_1a11b32b057aa8ea512ea863e185547cd0" kindref="member">dynlink_name</ref><sp/>name,<sp/><ref refid="dynlink__type_8h_1a1c4b6d7db5f1f2c3c881bca3c701e6ae" kindref="member">dynlink_library_path_str</ref><sp/>path,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>*length);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="148"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="149"><highlight class="comment">*<sp/><sp/>@brief</highlight></codeline>
+<codeline lineno="150"><highlight class="comment">*<sp/><sp/><sp/><sp/>Retrieve<sp/>the<sp/>library<sp/>platform<sp/>standard<sp/>name<sp/>by<sp/>using<sp/>@name<sp/>as<sp/>a<sp/>base<sp/>for<sp/>it</highlight></codeline>
+<codeline lineno="151"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="152"><highlight class="comment">*<sp/><sp/>@param[in]<sp/>name</highlight></codeline>
+<codeline lineno="153"><highlight class="comment">*<sp/><sp/><sp/><sp/>Name<sp/>of<sp/>the<sp/>library<sp/>that<sp/>will<sp/>be<sp/>used<sp/>for<sp/>generating<sp/>the<sp/>platform<sp/>dependant<sp/>library<sp/>name<sp/>(i.e<sp/>example)</highlight></codeline>
+<codeline lineno="154"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="155"><highlight class="comment">*<sp/><sp/>@param[out]<sp/>result</highlight></codeline>
+<codeline lineno="156"><highlight class="comment">*<sp/><sp/><sp/><sp/>The<sp/>resulting<sp/>library<sp/>name<sp/>that<sp/>will<sp/>be<sp/>generated<sp/>(i.e<sp/>libexample.so<sp/>in<sp/>Linux,<sp/>or<sp/>example.dll<sp/>in<sp/>Windows)</highlight></codeline>
+<codeline lineno="157"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="dynlink_8h_1a39f7c492ed481320eb5be223cfb639c7" refkind="member"><highlight class="normal">DYNLINK_API<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dynlink_8h_1a39f7c492ed481320eb5be223cfb639c7" kindref="member">dynlink_platform_name</ref>(<ref refid="dynlink__type_8h_1a11b32b057aa8ea512ea863e185547cd0" kindref="member">dynlink_name</ref><sp/>name,<sp/><ref refid="dynlink__type_8h_1ae1d8bf84ee2ad46a7513e6d4eb6782fb" kindref="member">dynlink_name_impl</ref><sp/>result);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="160"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="161"><highlight class="comment">*<sp/><sp/>@brief</highlight></codeline>
+<codeline lineno="162"><highlight class="comment">*<sp/><sp/><sp/><sp/>Provide<sp/>the<sp/>module<sp/>information</highlight></codeline>
+<codeline lineno="163"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="164"><highlight class="comment">*<sp/><sp/>@return</highlight></codeline>
+<codeline lineno="165"><highlight class="comment">*<sp/><sp/><sp/><sp/>Static<sp/>string<sp/>containing<sp/>module<sp/>information</highlight></codeline>
+<codeline lineno="166"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="167"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168" refid="dynlink_8h_1ab765b5a60456a7ca75e6e48c661f897f" refkind="member"><highlight class="normal">DYNLINK_API<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="dynlink_8h_1ab765b5a60456a7ca75e6e48c661f897f" kindref="member">dynlink_print_info</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>DYNLINK_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/dynlink/include/dynlink/dynlink.h"/>
+  </compounddef>
+</doxygen>

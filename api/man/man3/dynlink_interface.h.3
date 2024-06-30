@@ -1,0 +1,123 @@
+.TH "dynlink_interface.h" 3 "Sun Jun 30 2024" "Version 0.8.0.76f02c051c9b" "MetaCall" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dynlink_interface.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <dynlink/dynlink_api\&.h>\fP
+.br
+\fC#include <dynlink/dynlink_type\&.h>\fP
+.br
+\fC#include <dynlink/dynlink_impl\&.h>\fP
+.br
+\fC#include <preprocessor/preprocessor_concatenation\&.h>\fP
+.br
+\fC#include <preprocessor/preprocessor_stringify\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBdynlink_impl_interface\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDYNLINK_SYMBOL_PREFIX_STR\fP()   	\fBPREPROCESSOR_STRINGIFY_OR_EMPTY\fP(\fBDYNLINK_SYMBOL_PREFIX\fP)"
+.br
+.ti -1c
+.RI "#define \fBDYNLINK_SYMBOL_NAME\fP(name)   	\fBPREPROCESSOR_CONCAT\fP(\fBDYNLINK_SYMBOL_PREFIX\fP, name)"
+.br
+.ti -1c
+.RI "#define \fBDYNLINK_SYMBOL_NAME_STR\fP(name)   	\fBPREPROCESSOR_STRINGIFY\fP(\fBDYNLINK_SYMBOL_NAME\fP(name))"
+.br
+.ti -1c
+.RI "#define \fBDYNLINK_SYMBOL_STR\fP(name)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef \fBdynlink_symbol_addr\fP * \fBdynlink_symbol_addr_ptr\fP"
+.br
+.ti -1c
+.RI "typedef const char *(* \fBdynlink_impl_interface_extension\fP) (void)"
+.br
+.ti -1c
+.RI "typedef void(* \fBdynlink_impl_interface_get_name\fP) (\fBdynlink_name\fP, \fBdynlink_name_impl\fP, size_t)"
+.br
+.ti -1c
+.RI "typedef \fBdynlink_impl\fP(* \fBdynlink_impl_interface_load\fP) (\fBdynlink\fP)"
+.br
+.ti -1c
+.RI "typedef int(* \fBdynlink_impl_interface_symbol\fP) (\fBdynlink\fP, \fBdynlink_impl\fP, \fBdynlink_symbol_name\fP, \fBdynlink_symbol_addr_ptr\fP)"
+.br
+.ti -1c
+.RI "typedef int(* \fBdynlink_impl_interface_unload\fP) (\fBdynlink\fP, \fBdynlink_impl\fP)"
+.br
+.ti -1c
+.RI "typedef dynlink_impl_interface(* \fBdynlink_impl_interface_singleton_ptr\fP) (void)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "DYNLINK_API \fBdynlink_impl_interface_singleton_ptr\fP \fBdynlink_interface\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DYNLINK_SYMBOL_PREFIX_STR()   	\fBPREPROCESSOR_STRINGIFY_OR_EMPTY\fP(\fBDYNLINK_SYMBOL_PREFIX\fP)"
+
+.SS "#define DYNLINK_SYMBOL_NAME(name)   	\fBPREPROCESSOR_CONCAT\fP(\fBDYNLINK_SYMBOL_PREFIX\fP, name)"
+
+.SS "#define DYNLINK_SYMBOL_NAME_STR(name)   	\fBPREPROCESSOR_STRINGIFY\fP(\fBDYNLINK_SYMBOL_NAME\fP(name))"
+
+.SS "#define DYNLINK_SYMBOL_STR(name)"
+\fBValue:\fP
+.PP
+.nf
+    DYNLINK_SYMBOL_PREFIX_STR() \
+    name
+.fi
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef \fBdynlink_symbol_addr\fP* \fBdynlink_symbol_addr_ptr\fP"
+
+.SS "typedef const char*(* dynlink_impl_interface_extension) (void)"
+
+.SS "typedef void(* dynlink_impl_interface_get_name) (\fBdynlink_name\fP, \fBdynlink_name_impl\fP, size_t)"
+
+.SS "typedef \fBdynlink_impl\fP(* dynlink_impl_interface_load) (\fBdynlink\fP)"
+
+.SS "typedef int(* dynlink_impl_interface_symbol) (\fBdynlink\fP, \fBdynlink_impl\fP, \fBdynlink_symbol_name\fP, \fBdynlink_symbol_addr_ptr\fP)"
+
+.SS "typedef int(* dynlink_impl_interface_unload) (\fBdynlink\fP, \fBdynlink_impl\fP)"
+
+.SS "typedef dynlink_impl_interface(* dynlink_impl_interface_singleton_ptr) (void)"
+
+.SH "Function Documentation"
+.PP 
+.SS "DYNLINK_API \fBdynlink_impl_interface_singleton_ptr\fP dynlink_interface (void)"
+
+.PP
+Get the dynlink interface for specified platform\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A constant pointer to the platform singleton 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MetaCall from the source code\&.

@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structdetour__interface__type" kind="struct" language="C++" prot="public">
+    <compoundname>detour_interface_type</compoundname>
+    <includes refid="detour__interface_8h" local="no">/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structdetour__interface__type_1acb16b3a629f349310d7695e949948673" prot="public" static="no" mutable="no">
+        <type><ref refid="detour__interface_8h_1af561155897833a2ccb83169ed78de0a3" kindref="member">detour_impl_handle</ref>(*</type>
+        <definition>detour_impl_handle(* detour_interface::initialize) (void)</definition>
+        <argsstring>)(void)</argsstring>
+        <name>initialize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h" line="45" column="1" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdetour__interface__type_1a6683de1a06c8e161d9d4ea28f868dd0f" prot="public" static="no" mutable="no">
+        <type>int(*</type>
+        <definition>int(* detour_interface::install) (detour_impl_handle, void(**)(void), void(*)(void))</definition>
+        <argsstring>)(detour_impl_handle, void(**)(void), void(*)(void))</argsstring>
+        <name>install</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h" line="46" column="1" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdetour__interface__type_1a7565f1847f77e145cb88227bc468718e" prot="public" static="no" mutable="no">
+        <type>int(*</type>
+        <definition>int(* detour_interface::uninstall) (detour_impl_handle)</definition>
+        <argsstring>)(detour_impl_handle)</argsstring>
+        <name>uninstall</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h" line="47" column="1" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdetour__interface__type_1ad849a47ecc5cad92a4cb60f23561a849" prot="public" static="no" mutable="no">
+        <type>int(*</type>
+        <definition>int(* detour_interface::destroy) (detour_impl_handle)</definition>
+        <argsstring>)(detour_impl_handle)</argsstring>
+        <name>destroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h" line="48" column="1" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>detour_impl_handle(*)(void)</label>
+      </node>
+      <node id="4">
+        <label>int(*)(detour_impl_handle)</label>
+      </node>
+      <node id="2">
+        <label>int(*)(detour_impl_handle, void(**)(void), void(*)(void))</label>
+      </node>
+      <node id="1">
+        <label>detour_interface</label>
+        <link refid="structdetour__interface__type"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+install</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+initialize</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+destroy</edgelabel>
+          <edgelabel>+uninstall</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h" line="43" column="1" bodyfile="/home/runner/work/TtEL-Notepad/TtEL-Notepad/core/source/detour/include/detour/detour_interface.h" bodystart="44" bodyend="49"/>
+    <listofallmembers>
+      <member refid="structdetour__interface__type_1ad849a47ecc5cad92a4cb60f23561a849" prot="public" virt="non-virtual"><scope>detour_interface_type</scope><name>destroy</name></member>
+      <member refid="structdetour__interface__type_1acb16b3a629f349310d7695e949948673" prot="public" virt="non-virtual"><scope>detour_interface_type</scope><name>initialize</name></member>
+      <member refid="structdetour__interface__type_1a6683de1a06c8e161d9d4ea28f868dd0f" prot="public" virt="non-virtual"><scope>detour_interface_type</scope><name>install</name></member>
+      <member refid="structdetour__interface__type_1a7565f1847f77e145cb88227bc468718e" prot="public" virt="non-virtual"><scope>detour_interface_type</scope><name>uninstall</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

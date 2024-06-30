@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_d50ae27ce1e25427d19ce4c25c05a71d" xml:lang="en-US">
+<title>loader Directory Reference</title>
+<indexterm><primary>loader Directory Reference</primary></indexterm>
+Directory dependency graph for loader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_d50ae27ce1e25427d19ce4c25c05a71d_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_loader_8h">loader.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_loader__handle_8h">loader_handle.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_loader__host_8h">loader_host.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_loader__impl_8h">loader_impl.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_loader__impl__data_8h">loader_impl_data.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_loader__impl__interface_8h">loader_impl_interface.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_loader__manager__impl_8h">loader_manager_impl.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_loader__naming_8h">loader_naming.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>
