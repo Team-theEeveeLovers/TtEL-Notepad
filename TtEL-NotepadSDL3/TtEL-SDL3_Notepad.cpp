@@ -666,8 +666,13 @@ int main(int argc, char *argv[]) {
 								text[i].x = (TextBKG.x + 10.f);
 							}
 						}
-						
-						text[i].drawCharacter(vector2_float(0.f, 0.f-Scroll));
+						// If the text got scrolled above the textbox (with added 20.f because of the empty space)
+						if (text[i].y - Scroll + 20.f < TextBKG.y) {
+							// please add something here
+						}
+						else {
+							text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll));
+						}
 					}
 				}
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
