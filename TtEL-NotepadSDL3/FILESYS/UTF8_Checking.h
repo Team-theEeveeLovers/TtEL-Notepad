@@ -18,6 +18,15 @@ namespace checkUTF8 {
 			DEBUG_BREAK();
 			break;
 		case 1: return 1; break;
+		case 2:
+			if (BM::thresholdByte(CodepointBytes[0], 0x00, 0x7F)) { return 1; }
+			else { return 2; }
+			break;
+		case 3:
+			if (BM::thresholdByte(CodepointBytes[0], 0x00, 0x7F)) { return 1; }
+			else if (BM::thresholdByte(CodepointBytes[1], 0x00, 0x7F)) {}
+			else { return 3; }
+			break;
 		default:
 			return 0;
 			DEBUG_BREAK();
