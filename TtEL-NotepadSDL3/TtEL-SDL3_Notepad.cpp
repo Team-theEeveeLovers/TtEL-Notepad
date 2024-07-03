@@ -190,6 +190,21 @@ bool loadAssets() {
 
 		SDL_RenderPresent(unsynced_renderer);
 
+
+		cout << endl << "Initalizing replacement character... ";
+
+		int width;
+		int height;
+		textTextures[0] = loadTextureFromUnicodeCodepoint(NotoMath, 0xFFFD, { 0,0,0 }, &height, &width);
+		textTextureSizeVectors[0] = vector2_int(width, height);
+		textTextureSourceVectors[0] = vector2_int();
+
+		// FREE STUFF
+		width = NULL;
+		height = NULL;
+
+		cout << "Done!"; 
+
 		cout << endl << "Initalizing Special Characters" << endl;
 		for (int i = 0; i <= 0xF; i++) {
 

@@ -61,7 +61,11 @@ void character::drawCharacter(vector2_float posOffset) {
 		DEBUG_BREAK(); // Break in case assert is unavailable or just doesn't want to abort the application
 	}
 	else {
-		int tableIDX = static_cast<int>(letter[0]);
+		// Unsigned so we don't index before an array
+		Uint8 tableIDX = static_cast<Uint8>(letter[0]);
+		// IF UNKNOWN CHARACTER
+		if (textTextures[tableIDX] == NULL)
+			tableIDX = 0; // REPLACE WITH REPLACEMENT CHARACTER
 		float width = static_cast<float>(w), height = static_cast<float>(h);
 		SDL_FRect currentDraw = { 
 			x + posOffset.x,y + posOffset.y,
@@ -72,19 +76,21 @@ void character::drawCharacter(vector2_float posOffset) {
 			static_cast<float>(textTextureSourceVectors[tableIDX].y),
 			width,height 
 		};
-		if (textTextures[tableIDX] == NULL) {
+		/*if (textTextures[tableIDX] == NULL) {
+			// OLD DEBUG THINGS
 			//ASSERT("TextRenderer.h: Character has no letter texture!");
-
 			int printNumb = static_cast<int>(letter[0]) << 24; // shift left 3 bytes (8x3 bits) to cut off the leading 0xFFFFFF
 			cout << "Missing Texture for letter '" << letter[0] << "'! (0x";
 			cout << hex << printNumb << ") " << endl;
 			ASSERT(textTextures[tableIDX] != NULL && "Missing texture for letter" && letter[0]);
 			
 			DEBUG_BREAK(); // Break in case assert is unavailable or just doesn't want to abort the application
+
 		}
 		else {
 			SDL_RenderTexture(main_renderer, textTextures[tableIDX], &currentSource, &currentDraw);
-		}
+		}*/
+		SDL_RenderTexture(main_renderer, textTextures[tableIDX], &currentSource, &currentDraw);
 #ifdef DRAW_DEBUG
 		if (DRAW_DBG) {
 			SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0x66);
@@ -114,7 +120,11 @@ void character::destroyCharacter() {
 
 void character::loadChar(char chrctr[1]) {
 	letter[0] = chrctr[0];
-	int tableIDX = static_cast<int>(letter[0]);
+	// Unsigned so we don't index before an array
+	Uint8 tableIDX = static_cast<Uint8>(letter[0]);
+	// IF UNKNOWN CHARACTER
+	if (textTextures[tableIDX] == NULL)
+		tableIDX = 0; // REPLACE WITH REPLACEMENT CHARACTER
 	w = textTextureSizeVectors[tableIDX].x;
 	h = textTextureSizeVectors[tableIDX].y;
 };
