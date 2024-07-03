@@ -49,14 +49,16 @@ public:
 
 void character::drawCharacter(vector2_float posOffset) {
 	if (magic[0] != 'N' || magic[1] != 'C') {
-		ASSERT("TextRenderer.h: Not a valid character! ");
-		ASSERT("Header was invalid!");
-		DEBUG_BREAK();
+		//ASSERT("TextRenderer.h: Not a valid character! ");
+		//ASSERT("Header was invalid!");
+		ASSERT(magic[0] == 'N' && magic[1] == 'C' && "Invalidated header!"); // The character has an invalid header
+		DEBUG_BREAK(); // Break in case assert is unavailable or just doesn't want to abort the application
 	}
 	else if (padding[0] != '\x20') {
-		ASSERT("TextRenderer.h: Not a valid character! ");
-		ASSERT("Header Padding was invalid!");
-		DEBUG_BREAK();
+		//ASSERT("TextRenderer.h: Not a valid character! ");
+		//ASSERT("Header Padding was invalid!");
+		ASSERT(padding[0] == '\x20' && "Invalidated header padding!"); // The padding between the header and data was invalid
+		DEBUG_BREAK(); // Break in case assert is unavailable or just doesn't want to abort the application
 	}
 	else {
 		int tableIDX = static_cast<int>(letter[0]);
@@ -71,9 +73,14 @@ void character::drawCharacter(vector2_float posOffset) {
 			width,height 
 		};
 		if (textTextures[tableIDX] == NULL) {
-			ASSERT("TextRenderer.h: Character has no letter texture!");
-			cout << "Missing Texture for letter '" << letter[0] << "'!" << endl;
-			DEBUG_BREAK();
+			//ASSERT("TextRenderer.h: Character has no letter texture!");
+
+			int printNumb = static_cast<int>(letter[0]) << 24; // shift left 3 bytes (8x3 bits) to cut off the leading 0xFFFFFF
+			cout << "Missing Texture for letter '" << letter[0] << "'! (0x";
+			cout << hex << printNumb << ") " << endl;
+			ASSERT(textTextures[tableIDX] != NULL && "Missing texture for letter" && letter[0]);
+			
+			DEBUG_BREAK(); // Break in case assert is unavailable or just doesn't want to abort the application
 		}
 		else {
 			SDL_RenderTexture(main_renderer, textTextures[tableIDX], &currentSource, &currentDraw);
