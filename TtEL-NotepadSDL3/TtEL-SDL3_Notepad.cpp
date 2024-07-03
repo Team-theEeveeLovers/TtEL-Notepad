@@ -713,7 +713,7 @@ int main(int argc, char *argv[]) {
 								// allan please add code
 							}
 							else {
-								text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll), vector4_float(0.f, 0.f-((above/2.f)-text[i].y), 0.f, 0.f-below + text[i].y), vector2_float(0.f, 0.f - below));
+								text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll + below), vector4_float(0.f, 0.f-((above/1.5f)-text[i].y), 0.f, 0.f-below + text[i].y), vector2_float(0.f, 0.f - below));
 
 								// keep this for scrolling text from below the textbox
 								// float above = text[i].y - Scroll;
