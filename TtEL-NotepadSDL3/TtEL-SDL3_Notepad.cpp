@@ -199,13 +199,35 @@ bool loadAssets() {
 		textTextureSizeVectors[0] = vector2_int(width, height);
 		textTextureSourceVectors[0] = vector2_int();
 
-		// FREE STUFF
-		width = NULL;
-		height = NULL;
+
 
 		cout << "Done!"; 
 
 		cout << endl << "Initalizing Special Characters" << endl;
+		
+		cout << "Line breaks... ";
+		int currentlbChar = 0x0A;
+		char LBchar = static_cast<char>(currentlbChar);
+		string numberString(1, LBchar); // The random conversion to string helps with corrupted text somehow
+
+		textTextures[currentlbChar] = loadTextureFromChar(NotoMath, LBchar, { 0,0,0 }, &height, &width);
+		textTextureSizeVectors[currentlbChar] = vector2_int(width, height);
+		textTextureSourceVectors[currentlbChar] = vector2_int();
+
+		currentlbChar = 0x0D;
+		LBchar = static_cast<char>(currentlbChar);
+		string numberString2(1, LBchar); // The random conversion to string helps with corrupted text somehow
+
+		textTextures[currentlbChar] = loadTextureFromChar(NotoMath, LBchar, { 0,0,0 }, &height, &width);
+		textTextureSizeVectors[currentlbChar] = vector2_int(width, height);
+		textTextureSourceVectors[currentlbChar] = vector2_int();
+
+		// FREE STUFF
+		width = NULL;
+		height = NULL;
+
+		cout << "Done!" << endl;
+
 		for (int i = 0; i <= 0xF; i++) {
 
 			int currentspecChar = 0x20 + i;
