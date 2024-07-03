@@ -816,6 +816,7 @@ int main(int argc, char *argv[]) {
 							}
 							else {
 								fileMenuOpen = false;
+								Scroll = 0.0f; // Reset scroll value
 							}
 						}
 					}
