@@ -705,7 +705,21 @@ int main(int argc, char *argv[]) {
 						}
 						// If the text got scrolled above the textbox (with added 20.f because of the empty space)
 						if (text[i].y - Scroll + 20.f < TextBKG.y) {
-							// please add something here
+							// how far above are we?
+							float above = text[i].y + Scroll;
+							float below = text[i].y - Scroll;
+							// If we are completely above
+							if (text[i].y - Scroll + text[i].h + 20.f < TextBKG.y) {
+								// allan please add code
+							}
+							else {
+								text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll), vector4_float(0.f, 0.f-((above/2.f)-text[i].y), 0.f, 0.f-below + text[i].y), vector2_float(0.f, 0.f - below));
+
+								// keep this for scrolling text from below the textbox
+								// float above = text[i].y - Scroll;
+								// text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll), vector4_float(0.f, 0.f-(above/2.f), 0.f, 0.f-above), vector2_float(0.f, 0.f-above));
+								
+							}
 						}
 						else {
 							text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll));

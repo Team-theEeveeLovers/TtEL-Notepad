@@ -35,7 +35,7 @@ public:
 	// This is the height of the character
 	Uint16 h = 0;
 
-	void drawCharacter(vector2_float posOffset = vector2_float());
+	void drawCharacter(vector2_float posOffset = vector2_float(), vector4_float srcOffset = vector4_float(), vector2_float sizeOffset = vector2_float());
 	void freeCharacter();
 	void destroyCharacter();
 	void loadChar(char chrctr[1]);
@@ -47,7 +47,13 @@ public:
 	inline bool isEmptyChar() const { return letter[0] == '\0'; };
 };
 
-void character::drawCharacter(vector2_float posOffset) {
+/**
+ * @brief Draws the character on the screen
+ * @param posOffset - an offset modifying the position of drawing on the screen, positive y values are downward
+ * @param srcOffset - an offset modifying the source rectangle for drawing the text texture partially (cropping), positive y values are downward. The z value is width and the w value is height (negative values subtract and positive values add).
+ * @param sizeOffset - an offset modifying the render size of the texture for stretching the texture or adjusting for source offsets. X is width and y is height. (negative values subtract and positive values add)
+ */
+void character::drawCharacter(vector2_float posOffset, vector4_float srcOffset, vector2_float sizeOffset) {
 	if (magic[0] != 'N' || magic[1] != 'C') {
 		//ASSERT("TextRenderer.h: Not a valid character! ");
 		//ASSERT("Header was invalid!");
@@ -71,10 +77,35 @@ void character::drawCharacter(vector2_float posOffset) {
 			x + posOffset.x,y + posOffset.y,
 			width,height 
 		};
+
+		if (sizeOffset.x != 0.f)
+			currentDraw.w += sizeOffset.x; // add the offset
+
+		if (sizeOffset.y != 0.f)
+			currentDraw.h += sizeOffset.y; // add the offset
+
+		// initalize source rect variables
+		float sourceX = static_cast<float>(textTextureSourceVectors[tableIDX].x);
+		float sourceY = static_cast<float>(textTextureSourceVectors[tableIDX].y);
+		float sourceW = width;
+		float sourceH = height;
+
+		if (srcOffset.x != 0.f)
+			sourceX += srcOffset.x; // add the offset
+
+		if (srcOffset.y != 0.f)
+			sourceY += srcOffset.y; // add the offset
+
+		if (srcOffset.z != 0.f)
+			sourceW += srcOffset.z; // add the offset
+
+		if (srcOffset.w != 0.f)
+			sourceH += srcOffset.w; // add the offset
+		
+
 		SDL_FRect currentSource = { 
-			static_cast<float>(textTextureSourceVectors[tableIDX].x), 
-			static_cast<float>(textTextureSourceVectors[tableIDX].y),
-			width,height 
+			sourceX,sourceY,
+			sourceW,sourceH
 		};
 		/*if (textTextures[tableIDX] == NULL) {
 			// OLD DEBUG THINGS
@@ -95,6 +126,17 @@ void character::drawCharacter(vector2_float posOffset) {
 		if (DRAW_DBG) {
 			SDL_SetRenderDrawColor(main_renderer, 0xFF, 0x00, 0x00, 0x66);
 			SDL_RenderRect(main_renderer, &currentDraw);
+			// if the sourceRect isn't the whole texture
+			if (currentSource.x != 0.f || currentSource.y != 0.f || currentSource.w != currentDraw.w || currentSource.h != currentDraw.h) {
+				SDL_FRect debugSourceRect = {
+					currentSource.x + currentDraw.x,
+					currentSource.y + currentDraw.y,
+					currentSource.w,
+					currentSource.h,
+				};
+				SDL_SetRenderDrawColor(main_renderer, 0x33, 0xFF, 0x33, 0x66);
+				SDL_RenderRect(main_renderer, &debugSourceRect);
+			}
 		}
 #endif
 		//SDL_free(&currentDraw);
