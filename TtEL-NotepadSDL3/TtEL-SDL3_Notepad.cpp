@@ -56,9 +56,11 @@ SDL_Cursor* ibeam = NULL;
 
 
 #ifdef DRAW_DEBUG
-bool DRAW_DBG = true;
+bool DRAW_DBG = true; // debug rectangles active?
+bool INCREASE_SPACING = false; // increase the spacing between lines
 #endif
 
+float lineSpacing = 50.f;
 
 void exit(void); // Define exit function so the code can be placed at the bottom of the file (makes sense for code order)
 // and still be callable from the main function.
@@ -546,11 +548,14 @@ int main(int argc, char *argv[]) {
 						capital = true;
 					}
 					switch (e.key.keysym.sym) {	
+#ifdef DRAW_DEBUG
 					case SDLK_F1:
-					#ifdef DRAW_DEBUG
 						DRAW_DBG = !DRAW_DBG;
-					#endif
 						break;
+					case SDLK_F2:
+						INCREASE_SPACING = !INCREASE_SPACING;
+						break;
+#endif
 					case SDLK_SPACE:
 						// Iterate through screen buffer to find unpopulated space 
 						for (int i = 0; i <= 256; i++) {
@@ -676,6 +681,13 @@ int main(int argc, char *argv[]) {
 
 				}
 
+#ifdef DRAW_DEBUG 
+				if (INCREASE_SPACING)
+					lineSpacing = 70.f;
+				else
+					lineSpacing = 50.f;
+#endif
+
 				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x22);
 				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
 				RD::FillFRectFromInputRect(TextBKG);
@@ -684,7 +696,7 @@ int main(int argc, char *argv[]) {
 
 						if (i == 0) {
 							text[i].x = TextBKG.x + 10.f;
-							text[i].y = TextBKG.y + 4.f;
+							text[i].y = TextBKG.y + 14.f;
 						}
 						else {
 							text[i].x = (text[i - 1].x + text[i - 1].w) + 0.3125f;
@@ -695,7 +707,7 @@ int main(int argc, char *argv[]) {
 						if (text[i].x + text[i].w > RightTextMargin) {
 							while (text[i].x + text[i].w > RightTextMargin) {
 								text[i].x = text[i].x - (RightTextMargin - 20.f);
-								text[i].y = text[i].y + 50.f;
+								text[i].y = text[i].y + lineSpacing;
 							}
 						}
 						if (i > 0) {
@@ -713,7 +725,7 @@ int main(int argc, char *argv[]) {
 								// allan please add code
 							}
 							else {
-								text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll + below), vector4_float(0.f, 0.f-((above/1.5f)-text[i].y), 0.f, 0.f-below + text[i].y), vector2_float(0.f, 0.f - below));
+								text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll + below), vector4_float(0.f, 0.f-((above/3.5f)), 0.f, 0.f-below + text[i].y), vector2_float(0.f, 0.f - below));
 
 								// keep this for scrolling text from below the textbox
 								// float above = text[i].y - Scroll;
