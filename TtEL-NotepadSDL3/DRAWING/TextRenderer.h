@@ -45,6 +45,10 @@ public:
 
 	// does the char contain unfilled space?
 	inline bool isEmptyChar() const { return letter[0] == '\0'; };
+
+	// is the bool a newline (line feed) character?
+	inline bool isNewline() const {return letter[0] == '\n'; // sorry CRLF fans, adding CR would add an additional overhead, so we just check for LF here
+	};
 };
 
 /**
