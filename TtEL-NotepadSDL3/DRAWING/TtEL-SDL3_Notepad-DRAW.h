@@ -42,6 +42,9 @@ typedef struct NOTEPAD_RECT {
 	int ty; // Top Edge Y Value
 	int by; // Bottom Edge Y Value
 
+    // CONVERTS THE NOTEPAD_RECT TO AN SDL_Rect
+    operator SDL_Rect() const { return { lx, ty, rx-lx, by-ty}; };
+
 	SDL_FRect toSDL_FRect() const;
 } NOTEPAD_RECT;
 
@@ -54,6 +57,23 @@ SDL_FRect NOTEPAD_RECT::toSDL_FRect() const {
 	SDL_FRect outRect = { x,y,w,h };
 	return outRect;
 }
+
+/**
+ * @brief A custom rectangle type defined using floating point edge values.\n
+ * It is defined using left edge x value, a right edge x value, a top edge y value, and a bottom edge y value.
+ */
+typedef struct NOTEPAD_FRECT {
+    float lx; // Left Edge X Value
+    float rx; // Right Edge X Value
+    float ty; // Top Edge Y Value
+    float by; // Bottom Edge Y Value
+
+    // CONVERTS THE NOTEPAD_RECT TO AN SDL_FRect
+    operator SDL_FRect() const { return { lx, ty, rx - lx, by - ty }; };
+
+} NOTEPAD_FRECT;
+
+
 /*
 // Converts the NOTEPAD_RECT to an SDL3 SDL_FRect
 SDL_FRect NOTEPAD_RECT::toSDL_FRect() const {
