@@ -89,7 +89,11 @@ bool init(void) {
 		main_window = SDL_CreateWindow("TtEL SDL3 GUI Notepad", init__scr_wid, init__scr_hei, SDL_WINDOW_RESIZABLE | SDL_WINDOW_TRANSPARENT);
 		if (main_window == NULL) {
 			success = false;
-			cout << "SDL3" << " window creation failed." << "SDL_error: " << SDL_GetError() << endl;
+			// Store SDL_error here to avoid making too many API calls
+			const char* SDL_ERR = SDL_GetError();
+			//cout << "SDL3" << " window creation failed." << "SDL_error: " << SDL_ERR << endl;
+			SDL_LogError(575, "SDL3 window creation failed. SDL_error: %s", SDL_ERR);
+			ASSERT("Couldn't open window " && (main_window != NULL));
 		}
 		else {
 			cout << "Window created." << endl << endl;
