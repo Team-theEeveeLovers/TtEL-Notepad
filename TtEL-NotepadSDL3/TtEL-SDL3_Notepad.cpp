@@ -76,8 +76,15 @@ constexpr auto INITALIZING = "Initalizing " ;
 
 
 
+// clears the screen using the default background color 
+int drawClear(void* data) {
+	int returnVal = 0;
+	returnVal = SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, 0x14);
+	returnVal |= SDL_RenderClear(main_renderer);
 
-
+	returnVal |= SDL_RenderPresent(main_renderer);
+	return returnVal;
+}
 
 
 bool init(void) {
@@ -499,7 +506,8 @@ int main(int argc, char *argv[]) {
 		bool exiting = false;
 		float BorderSize = 10.0f;
 		SDL_FRect currentDrawRect = { 0,0,scr_floatwid,scr_floathei };
-		float mouseX = 0.f, mouseY = 0.f;
+		float mouseX = 0.f, mouseY = 0.f; // 
+		float popupMouseX = 14314941448192.f, popupMouseY = 14245685100544.f; // Mouse positioning variables
 		bool mouseClicked = false;
 		bool fileMenuOpen = false;
 		float fileMenuY_Offset = 40.f;
@@ -570,8 +578,16 @@ int main(int argc, char *argv[]) {
 					break;
 					// Mouse Moved
 				case SDL_EVENT_MOUSE_MOTION:
-					mouseX = e.motion.x;
-					mouseY = e.motion.y;
+					// Handle mouse event if it didn't happen in the popup.
+					if (e.window.windowID == main_windowID) {
+						mouseX = e.motion.x;
+						mouseY = e.motion.y;
+					}
+					// We are assuming any other window is the popup as we don't open any other windows (except file dialog but that isn't owned by us)
+					else {
+						popupMouseX = e.motion.x;
+						popupMouseY = e.motion.y;
+					}
 					//SDL_GetMouseState(&mouseX, &mouseY);
 					break;
 					// Mouse button pressed
