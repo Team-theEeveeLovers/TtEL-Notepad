@@ -66,22 +66,33 @@ void exit(void); // Define exit function so the code can be placed at the bottom
 // and still be callable from the main function.
 bool loadAssets();
 
+// define "Initalizing" as a char for easier localization
+constexpr auto INITALIZING = "Initalizing " ;
+
+
+
+
+
+
 
 bool init(void) {
 	bool success = true;
+
+	cout << INITALIZING << "SDL3" << "..." << endl;
 	if (SDL_Init(SDL_INIT_VIDEO) > 0) {
 		success = false;
-		cout << "SDL3 failed to initalize. SDL_error: " << SDL_GetError() << endl;
+		cout << "SDL3" << " failed to initalize. " << "SDL_error: " << SDL_GetError() << endl;
 	}
 	else {
-		cout << "SDL3 initalized successfully." << endl;
+		cout << "SDL3" << " initalized successfully." << endl << endl;
+		cout << "Creating window" << "..." << endl;
 		main_window = SDL_CreateWindow("TtEL SDL3 GUI Notepad", init__scr_wid, init__scr_hei, SDL_WINDOW_RESIZABLE | SDL_WINDOW_TRANSPARENT);
 		if (main_window == NULL) {
 			success = false;
-			cout << "SDL3 window creation failed. SDL_error: " << SDL_GetError() << endl;
+			cout << "SDL3" << " window creation failed." << "SDL_error: " << SDL_GetError() << endl;
 		}
 		else {
-			cout << "Window created." << endl;
+			cout << "Window created." << endl << endl;
 #ifdef WINDOWS
 			MainModuleHandle = GetModuleHandleA("TtEL-SDL3_Notepad.exe");
 			if (MainModuleHandle == NULL) {
@@ -91,14 +102,15 @@ bool init(void) {
 
 #endif
 			SDL_SetWindowMinimumSize(main_window, init__scr_wid, init__scr_hei);
+			cout << "Starting render" << "..." << endl;
 			main_renderer = SDL_CreateRenderer(main_window, NULL, SDL_RENDERER_PRESENTVSYNC);
 			if (main_renderer == NULL) {
 				success = false;
-				cout << "SDL3 renderer creation failed. SDL_error: " << SDL_GetError() << endl;
+				cout << "SDL3" << " renderer creation failed. " << "SDL_error: " << SDL_GetError() << endl;
 			}
 			else {
 				unsynced_renderer = SDL_CreateRenderer(main_window, NULL, SDL_RENDERER_ACCELERATED);
-				cout << "Render started." << endl;
+				cout << "Render started." << endl << endl;
 				SDL_SetRenderDrawBlendMode(main_renderer, SDL_BLENDMODE_BLEND);
 				SDL_SetRenderDrawBlendMode(unsynced_renderer, SDL_BLENDMODE_BLEND);
 
@@ -106,19 +118,21 @@ bool init(void) {
 				SDL_RenderClear(main_renderer);
 
 				SDL_RenderPresent(main_renderer);
+				cout << INITALIZING << "SDL3_ttf" << "..." << endl;
 				if (TTF_Init() == -1) {
 					success = false;
-					cout << "SDL3_ttf failed to initalize. SDL_ttf error: " << TTF_GetError() << endl;
+					cout << "SDL3_ttf" << " failed to initalize. " << "SDL_ttf" << " error: " << TTF_GetError() << endl;
 				}
 				else {
 					SDL_SetRenderDrawColor(unsynced_renderer, 0xDB, 0xD7, 0xB6, 0x24);
 					SDL_RenderClear(unsynced_renderer);
 
 					SDL_RenderPresent(unsynced_renderer);
-					cout << "SDL3_ttf initalized successfully." << endl;
+					cout << "SDL3_ttf" << " initalized successfully." << endl << endl;
+					cout << INITALIZING << "SDL3_image" << "..." << endl;
 					int imgFlags = IMG_INIT_PNG;
 					if (!(IMG_Init(imgFlags) & imgFlags)) {
-						cout << "SDL3_image failed to initalize. SDL_image error: " << IMG_GetError() << endl;
+						cout << "SDL3_image" << " failed to initalize. " << "SDL_image" << " error: " << IMG_GetError() << endl;
 						success = false;
 					}
 					else {
@@ -143,13 +157,14 @@ bool init(void) {
 						SDL_RenderFillRect(unsynced_renderer, &drawingRect);
 
 						SDL_RenderPresent(unsynced_renderer);
-						cout << "SDL3_image initalized successfully." << endl;
+						cout << "SDL3_image" << " initalized successfully." << endl << endl;
+						cout << "Loading assets" << "..." << endl;
 						if (!loadAssets()) {
 							success = false;
 							cout << "Couldn't load assets! Check for error above" << endl;
 						}
 						else {
-							cout << "Loaded assets successfully." << endl;
+							cout << "Loaded assets successfully." << endl << endl;
 						}
 					}
 				}
@@ -160,9 +175,10 @@ bool init(void) {
 }
 
 bool loadAssets() {
+	cout << "Loading font..." << endl;
 	NotoMath = TTF_OpenFont("assets/NotoSansMath-Regular.ttf", 48);
 	if (NotoMath == NULL) {
-		cout << "SDL3_ttf failed to load font. SDL_ttf error: " << TTF_GetError() << endl;
+		cout << "SDL3_ttf" << " failed to load font. " << "SDL_ttf" << " error: " << TTF_GetError() << endl;
 		return false;
 	}
 	else {
@@ -193,7 +209,7 @@ bool loadAssets() {
 		SDL_RenderPresent(unsynced_renderer);
 
 
-		cout << endl << "Initalizing replacement character... ";
+		cout << endl << INITALIZING << "replacement character" << "...";
 
 		int width;
 		int height;
@@ -203,11 +219,11 @@ bool loadAssets() {
 
 
 
-		cout << "Done!"; 
+		cout << " Done!"; 
 
-		cout << endl << "Initalizing Special Characters" << endl;
+		cout << endl << INITALIZING << "Special Characters" << endl;
 		
-		cout << "Line breaks... ";
+		cout << "Line breaks" << "...";
 		int currentlbChar = 0x0A;
 		char LBchar = static_cast<char>(currentlbChar);
 		string numberString(1, LBchar); // The random conversion to string helps with corrupted text somehow
@@ -228,7 +244,7 @@ bool loadAssets() {
 		width = NULL;
 		height = NULL;
 
-		cout << "Done!" << endl;
+		cout << " Done!" << endl;
 
 		for (int i = 0; i <= 0xF; i++) {
 
@@ -278,7 +294,7 @@ bool loadAssets() {
 			text[i + 23].loadChar(&specChar);
 		}
 
-		cout << endl << "Initalizing Numbers" << endl;
+		cout << endl << INITALIZING << "Numbers" << endl;
 		for (int i = 0; i < 10; i++) {
 
 			int currentNumber = 0x30 + i;
@@ -316,7 +332,7 @@ bool loadAssets() {
 		RD::FillFRectFromInput(scr_floatwid - 10.f, 0.f, 10.f, scr_floathei); // Right Rect
 		RD::FillFRectFromInput(0.f, scr_floathei - 10.f, scr_floatwid, 10.f); // Bottom Rect
 
-		cout << endl << "Initalizing Letters" << endl;
+		cout << endl << INITALIZING << "Letters" << endl;
 		for (int i = 0; i < 26; i++) {
 			
 			int currentLetter = 0x41 + i;
@@ -445,7 +461,7 @@ bool loadAssets() {
 }
 
 int main(int argc, char *argv[]) {
-	cout << "TtEL SDL3-based Notepad\nStartup..." << endl << endl;
+	cout << "TtEL SDL3-based Notepad\nStartup" << "..." << endl << endl;
 	if (!init()) {
 		cout << "Failed to start." << endl;
 		return 575;
@@ -908,9 +924,9 @@ void exit() {
 	currentTime = SDL_GetTicks() - startTime;
 
 	
-	cout << "SDL_ttf is exiting..." << endl;
+	cout << "SDL_ttf" << " is exiting..." << endl;
 	TTF_Quit();
-	cout << "SDL_ttf shutdown complete." << endl << endl;
+	cout << "SDL_ttf" << " shutdown complete." << endl << endl;
 	
 
 
@@ -961,9 +977,9 @@ void exit() {
 	SDL_RenderClear(main_renderer);
 	SDL_RenderPresent(main_renderer);
 
-	cout << "SDL_image is exiting..." << endl;
+	cout << "SDL_image" << " is exiting..." << endl;
 	IMG_Quit();
-	cout << "SDL_image shutdown complete." << endl << endl;
+	cout << "SDL_image" << " shutdown complete." << endl << endl;
 
 	cout << "Destroying renderer..." << endl;
 	SDL_DestroyRenderer(main_renderer);
@@ -975,9 +991,9 @@ void exit() {
 	main_window = NULL;
 	cout << "Destroyed window!" << endl << endl;
 
-	cout << "SDL is exiting..." << endl;
+	cout << "SDL" << " is exiting..." << endl;
 	SDL_Quit();
-	cout << "SDL shutdown complete." << endl << endl;
+	cout << "SDL" << " shutdown complete." << endl << endl;
 
 	cout << "Goodbye." << endl;
 }
