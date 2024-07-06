@@ -60,7 +60,9 @@ SDL_Cursor* arrow = NULL;
 SDL_Surface* ibeamCur = NULL;
 SDL_Cursor* ibeam = NULL;
 
-
+const char* loadTooltip = "Open a text document.";
+const char* saveTooltip = "Not implemented yet.";
+const char* exitTooltip = "Close the notepad.";
 
 #ifdef DRAW_DEBUG
 bool DRAW_DBG = true; // debug rectangles active?
