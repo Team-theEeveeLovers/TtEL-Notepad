@@ -4,9 +4,9 @@ SDL_Window* main_window = NULL; // The main window
 SDL_Renderer* main_renderer = NULL; // The main renderering context
 SDL_WindowID main_windowID = NULL; // The main window's ID
 
-SDL_Window* debug_window = NULL; // A secondary popup window for debug
-SDL_Renderer* debug_window_RENDER = NULL; // a rendering context for the debug popup
-SDL_Surface* debug_window_SURFACE = NULL; // a window surface for the debug popup
+SDL_Window* debug_window = NULL; // A secondary popup window for tooltips
+SDL_Renderer* debug_window_RENDER = NULL; // a rendering context for the tooltip popup
+SDL_Surface* debug_window_SURFACE = NULL; // a window surface for the tooltip popup
 
 
 SDL_Renderer* unsynced_renderer = NULL; // a rendering context without VSync
@@ -61,8 +61,14 @@ SDL_Surface* ibeamCur = NULL;
 SDL_Cursor* ibeam = NULL;
 
 const char* loadTooltip = "Open a text document.";
+SDL_Surface* loadTooltipSRF = NULL; // surface always ready for immediate conversion to texture when tooltip popup appears
+SDL_Texture* loadTooltipTEX = NULL;
 const char* saveTooltip = "Not implemented yet.";
+SDL_Surface* saveTooltipSRF = NULL; // surface always ready for immediate conversion to texture when tooltip popup appears
+SDL_Texture* saveTooltipTEX = NULL;
 const char* exitTooltip = "Close the notepad.";
+SDL_Surface* exitTooltipSRF = NULL; // surface always ready for immediate conversion to texture when tooltip popup appears
+SDL_Texture* exitTooltipTEX = NULL;
 
 #ifdef DRAW_DEBUG
 bool DRAW_DBG = true; // debug rectangles active?
@@ -496,6 +502,30 @@ bool loadAssets() {
 				SDL_DestroySurface(ibeamCur);
 			}
 		}
+		// We have to make our own little loadTextureFromChar function as it uses main_renderer and debug_window_RENDER doesn't like that
+		loadTooltipSRF = TTF_RenderText_Blended(NotoMath, loadTooltip, { 0,0,0 });
+		if (loadTooltipSRF == NULL)
+		{
+			cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
+			ASSERT("Unable to render text to a surface." && !(loadTooltipSRF == NULL));
+			return false;
+		}
+		// We have to make our own little loadTextureFromChar function as it uses main_renderer and debug_window_RENDER doesn't like that
+		saveTooltipSRF = TTF_RenderText_Blended(NotoMath, saveTooltip, { 0,0,0 });
+		if (saveTooltipSRF == NULL)
+		{
+			cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
+			ASSERT("Unable to render text to a surface." && !(saveTooltipSRF == NULL));
+			return false;
+		}		
+		// We have to make our own little loadTextureFromChar function as it uses main_renderer and debug_window_RENDER doesn't like that
+		exitTooltipSRF = TTF_RenderText_Blended(NotoMath, exitTooltip, { 0,0,0 });
+		if (exitTooltipSRF == NULL)
+		{
+			cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
+			ASSERT("Unable to render text to a surface." && !(exitTooltipSRF == NULL));
+			return false;
+		}
 		return true;
 	}
 }
@@ -850,12 +880,44 @@ int main(int argc, char *argv[]) {
 							SDL_LogError(575, "SDL3 secondary window renderer creation failed. SDL_error: %s", SDL_ERR);
 							ASSERT("Couldn't create secondary window renderer. " && !(debug_window_RENDER == NULL) && SDL_ERR);
 						}
+
+
+
+						loadTooltipTEX = SDL_CreateTextureFromSurface(debug_window_RENDER, loadTooltipSRF); // Create a texture from the text surface
+						if (loadTooltipTEX == NULL) {
+							cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
+							ASSERT(!(loadTooltipTEX == NULL) && "Unable to make a texture from rendered text surface.");
+						}
+						// ^ implementation of: loadTooltipTEX = loadTextureFromChar(NotoMath, const_cast<char*>(loadTooltip));
+						saveTooltipTEX = SDL_CreateTextureFromSurface(debug_window_RENDER, saveTooltipSRF); // Create a texture from the text surface
+						if (saveTooltipTEX == NULL) {
+							cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
+							ASSERT(!(saveTooltipTEX == NULL) && "Unable to make a texture from rendered text surface.");
+						}						
+						exitTooltipTEX = SDL_CreateTextureFromSurface(debug_window_RENDER, exitTooltipSRF); // Create a texture from the text surface
+						if (exitTooltipTEX == NULL) {
+							cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
+							ASSERT(!(exitTooltipTEX == NULL) && "Unable to make a texture from rendered text surface.");
+						}
 					}
 					else {
 						SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGBA(debug_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
 						SDL_SetRenderDrawColor(debug_window_RENDER, 0xF0, 0xF0, 0xF0, 0x33);
 						SDL_RenderClear(debug_window_RENDER);
-						
+
+						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[0])) {
+							SDL_FRect DrawRect = { 10.f, 10.f, 280.f, 40.f };
+							SDL_RenderTexture(debug_window_RENDER, loadTooltipTEX, NULL, &DrawRect);
+						}
+						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[1])) {
+							SDL_FRect DrawRect = { 10.f, 10.f, 280.f, 40.f };
+							SDL_RenderTexture(debug_window_RENDER, saveTooltipTEX, NULL, &DrawRect);
+						}						
+						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[2])) {
+							SDL_FRect DrawRect = { 25.f, 10.f, 265.f, 40.f };
+							SDL_RenderTexture(debug_window_RENDER, exitTooltipTEX, NULL, &DrawRect);
+						}
+
 						SDL_RenderPresent(debug_window_RENDER);
 						SDL_UpdateWindowSurface(debug_window);
 					}
