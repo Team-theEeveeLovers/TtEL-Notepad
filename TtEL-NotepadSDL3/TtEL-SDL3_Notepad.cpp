@@ -869,7 +869,7 @@ int main(int argc, char *argv[]) {
 							SDL_LogError(575, "SDL3 secondary window surface getting failed. SDL_error: %s", SDL_ERR);
 							ASSERT("Couldn't get window surface of secondary window" && !(popup_window_SURFACE == NULL) && SDL_ERR);
 						}
-						SDL_FillSurfaceRect(popup_window_SURFACE, NULL, SDL_MapRGBA(popup_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
+						SDL_FillSurfaceRect(popup_window_SURFACE, NULL, SDL_MapRGBA(popup_window_SURFACE->format, 0x33, 0x33, 0x33, 0x99));
 
 						SDL_UpdateWindowSurface(popup_window);
 
@@ -901,8 +901,8 @@ int main(int argc, char *argv[]) {
 						}
 					}
 					else {
-						SDL_FillSurfaceRect(popup_window_SURFACE, NULL, SDL_MapRGBA(popup_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
-						SDL_SetRenderDrawColor(popup_window_RENDER, 0xDB, 0xD7, 0xB6, 0x33);
+						SDL_FillSurfaceRect(popup_window_SURFACE, NULL, SDL_MapRGBA(popup_window_SURFACE->format, 0x33, 0x33, 0x33, 0x66));
+						SDL_SetRenderDrawColor(popup_window_RENDER, 0xDB, 0xD7, 0xB6, 0x11);
 						SDL_RenderClear(popup_window_RENDER);
 
 						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[0])) {
