@@ -782,6 +782,8 @@ int main(int argc, char *argv[]) {
 						else {
 							text[i].x = (text[i - 1].x + text[i - 1].w) + 0.3125f;
 							text[i].y = text[i - 1].y;
+							if (text[i].isNewline())
+								text[i].y += lineSpacing + 10.f;
 						}
 
 						
