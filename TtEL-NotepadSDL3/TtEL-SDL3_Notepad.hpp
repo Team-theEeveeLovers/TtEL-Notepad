@@ -2,8 +2,11 @@
 #include <iostream>
 using namespace std;
 #include <SDL.h>
+
 // If the person is using an older version of SDL3
-#ifndef SDL_GetRendererName() // emulate the API function
+#ifndef SDL_GetRendererName()
+
+// emulate the API function
 /**
  * Get the name of a renderer.
  *
@@ -12,14 +15,14 @@ using namespace std;
  * @deprecated THIS IS NOT AN API CALL, IT IS A FUNCTIONAL EMULATION OF ONE FROM A NEWER VERSION.
  * PLEASE UPDATE YOUR SDL3 VERSION.
  *
- * \param renderer the rendering context.
- * \returns the name of the selected renderer, or NULL if the renderer is
+ * @param renderer the rendering context.
+ * @returns the name of the selected renderer, or NULL if the renderer is
  *          invalid.
  *
- * \since This function is available since SDL 3.0.0.
+ * @since This function is available since SDL 3.0.0.
  *
- * \sa SDL_CreateRenderer
- * \sa SDL_CreateRendererWithProperties
+ * @sa SDL_CreateRenderer
+ * @sa SDL_CreateRendererWithProperties
  */
 const char *SDL_GetRendererName(SDL_Renderer *renderer) {
 	SDL_RendererInfo renderer_info;
