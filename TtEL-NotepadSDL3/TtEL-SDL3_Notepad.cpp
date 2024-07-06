@@ -820,7 +820,7 @@ int main(int argc, char *argv[]) {
 
 				if (fileMenuOpen) {
 					if (debug_window == NULL) {
-						debug_window = SDL_CreatePopupWindow(main_window, init__scr_wid + 330, init__scr_hei + 210, 320, 200, SDL_WINDOW_POPUP_MENU);
+						debug_window = SDL_CreatePopupWindow(main_window, init__scr_wid - 230, init__scr_hei + 10, 320, 200, SDL_WINDOW_POPUP_MENU);
 						if (debug_window == NULL) {
 							// Store SDL_error here to avoid making too many API calls
 							const char* SDL_ERR = SDL_GetError();
