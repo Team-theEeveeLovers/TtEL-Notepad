@@ -71,7 +71,7 @@ SDL_Surface* exitTooltipSRF = NULL; // surface always ready for immediate conver
 SDL_Texture* exitTooltipTEX = NULL;
 
 #ifdef DRAW_DEBUG
-bool DRAW_DBG = true; // debug rectangles active?
+bool DRAW_DBG = false; // debug rectangles active?
 bool INCREASE_SPACING = false; // increase the spacing between lines
 #endif
 
