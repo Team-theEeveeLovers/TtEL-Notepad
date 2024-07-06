@@ -142,7 +142,7 @@ bool init(void) {
 				cout << INITALIZING << "SDL3_ttf" << "..." << endl;
 
 				// Test opening popups
-				debug_window = SDL_CreatePopupWindow(main_window, init__scr_wid - 322, init__scr_hei - 202, 320, 200, SDL_WINDOW_POPUP_MENU);
+				debug_window = SDL_CreatePopupWindow(main_window, init__scr_wid - 322, init__scr_hei - 202, 320, 200, SDL_WINDOW_POPUP_MENU | SDL_WINDOW_TRANSPARENT);
 				if (debug_window == NULL) {
 					success = false;
 					// Store SDL_error here to avoid making too many API calls
@@ -820,7 +820,7 @@ int main(int argc, char *argv[]) {
 
 				if (fileMenuOpen) {
 					if (debug_window == NULL) {
-						debug_window = SDL_CreatePopupWindow(main_window, init__scr_wid - 230, init__scr_hei + 10, 320, 200, SDL_WINDOW_POPUP_MENU);
+						debug_window = SDL_CreatePopupWindow(main_window, init__scr_wid - 230, init__scr_hei + 10, 320, 200, SDL_WINDOW_POPUP_MENU | SDL_WINDOW_TRANSPARENT);
 						if (debug_window == NULL) {
 							// Store SDL_error here to avoid making too many API calls
 							const char* SDL_ERR = SDL_GetError();
@@ -834,7 +834,7 @@ int main(int argc, char *argv[]) {
 							SDL_LogError(575, "SDL3 secondary window surface getting failed. SDL_error: %s", SDL_ERR);
 							ASSERT("Couldn't get window surface of secondary window" && !(debug_window_SURFACE == NULL) && SDL_ERR);
 						}
-						SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGB(debug_window_SURFACE->format, 0x33, 0x33, 0x33));
+						SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGBA(debug_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
 
 						SDL_UpdateWindowSurface(debug_window);
 
@@ -847,8 +847,8 @@ int main(int argc, char *argv[]) {
 						}
 					}
 					else {
-						//SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGB(debug_window_SURFACE->format, 0x33, 0x33, 0x33));
-						SDL_SetRenderDrawColor(debug_window_RENDER, 0xF0, 0xF0, 0xF0, 0x99);
+						SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGBA(debug_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
+						SDL_SetRenderDrawColor(debug_window_RENDER, 0xF0, 0xF0, 0xF0, 0x33);
 						SDL_RenderClear(debug_window_RENDER);
 						
 						SDL_RenderPresent(debug_window_RENDER);
