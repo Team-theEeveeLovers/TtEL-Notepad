@@ -4,7 +4,7 @@ using namespace std;
 #include <SDL.h>
 
 // If the person is using an older version of SDL3
-#ifndef SDL_GetRendererName()
+#ifndef SDL_GetRendererName
 
 // emulate the API function
 /**
