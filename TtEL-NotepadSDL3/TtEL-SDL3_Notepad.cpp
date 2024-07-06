@@ -914,7 +914,7 @@ int main(int argc, char *argv[]) {
 							SDL_RenderTexture(popup_window_RENDER, saveTooltipTEX, NULL, &DrawRect);
 						}						
 						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[2])) {
-							SDL_FRect DrawRect = { 25.f, 10.f, 265.f, 40.f };
+							SDL_FRect DrawRect = { 20.f, 10.f, 270.f, 40.f };
 							SDL_RenderTexture(popup_window_RENDER, exitTooltipTEX, NULL, &DrawRect);
 						}
 
