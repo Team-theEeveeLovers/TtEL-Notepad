@@ -263,17 +263,17 @@ bool loadAssets() {
 		cout << endl << INITALIZING << "Special Characters" << endl;
 		
 		cout << "Line breaks" << "...";
-		int currentlbChar = 0x0A;
-		char LBchar = static_cast<char>(currentlbChar);
-		string numberString(1, LBchar); // The random conversion to string helps with corrupted text somehow
+		int currentlbChar = 0x0A;				// Added 3 to make the texture for 0x0A the same as 0x0D
+		char LBchar[0x10 + 1] = {static_cast<char>(currentlbChar+3), '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0' };
+		//string numberString(1, LBchar); // The random conversion to string helps with corrupted text somehow
 
 		textTextures[currentlbChar] = loadTextureFromChar(NotoMath, LBchar, { 0,0,0 }, &height, &width);
 		textTextureSizeVectors[currentlbChar] = vector2_int(width, height);
 		textTextureSourceVectors[currentlbChar] = vector2_int();
 
 		currentlbChar = 0x0D;
-		LBchar = static_cast<char>(currentlbChar);
-		string numberString2(1, LBchar); // The random conversion to string helps with corrupted text somehow
+		LBchar[0] = static_cast<char>(currentlbChar);
+		//string numberString2(1, LBchar); // The random conversion to string helps with corrupted text somehow
 
 		textTextures[currentlbChar] = loadTextureFromChar(NotoMath, LBchar, { 0,0,0 }, &height, &width);
 		textTextureSizeVectors[currentlbChar] = vector2_int(width, height);
@@ -288,8 +288,8 @@ bool loadAssets() {
 		for (int i = 0; i <= 0xF; i++) {
 
 			int currentspecChar = 0x20 + i;
-			char specChar = static_cast<char>(currentspecChar);
-			string numberString(1, specChar); // The random conversion to string helps with corrupted text somehow
+			char specChar[0x10 + 1] = { static_cast<char>(currentspecChar), '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0' };
+			//string numberString(1, specChar); // The random conversion to string helps with corrupted text somehow
 			int width;
 			int height;
 
@@ -299,13 +299,13 @@ bool loadAssets() {
 
 			cout << specChar;
 			//char specCharTable[1] = { specChar };
-			text[i].loadChar(&specChar);
+			text[i].loadChar(specChar);
 
 		}
 		for (int i = 0; i < 7; i++) {
 			int currentspecChar = 0x3A + i;
-			char specChar = static_cast<char>(currentspecChar);
-			string numberString(1, specChar); // The random conversion to string helps with corrupted text somehow
+			char specChar[0x10 + 1] = { static_cast<char>(currentspecChar), '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0' };
+			//string numberString(1, specChar); // The random conversion to string helps with corrupted text somehow
 			int width;
 			int height;
 
@@ -315,12 +315,12 @@ bool loadAssets() {
 
 			cout << specChar;
 			//char specCharTable[1] = { specChar };
-			text[i + 16].loadChar(&specChar);
+			text[i + 16].loadChar(specChar);
 		}
 		for (int i = 0; i < 6; i++) {
 			int currentspecChar = 0x5B + i;
-			char specChar = static_cast<char>(currentspecChar);
-			string numberString(1, specChar); // The random conversion to string helps with corrupted text somehow
+			char specChar[0x10 + 1] = {static_cast<char>(currentspecChar), '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0' };
+			//string numberString(1, specChar); // The random conversion to string helps with corrupted text somehow
 			int width;
 			int height;
 
@@ -330,15 +330,15 @@ bool loadAssets() {
 
 			cout << specChar;
 			//char specCharTable[1] = { specChar };
-			text[i + 23].loadChar(&specChar);
+			text[i + 23].loadChar(specChar);
 		}
 
 		cout << endl << INITALIZING << "Numbers" << endl;
 		for (int i = 0; i < 10; i++) {
 
 			int currentNumber = 0x30 + i;
-			char number = static_cast<char>(currentNumber);
-			string numberString(1, number); // The random conversion to string helps with corrupted text somehow
+			char number[0x10 + 1] = { static_cast<char>(currentNumber), '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0' };  // now with null termination bytes!
+			//string numberString(1, number); // The random conversion to string helps with corrupted text somehow
 			int width;
 			int height;
 
@@ -350,7 +350,7 @@ bool loadAssets() {
 
 			cout << number;
 			//char numberTable[1] = { number };
-			text[i+29].loadChar(&number);
+			text[i+29].loadChar(number);
 
 			
 		}
@@ -375,12 +375,13 @@ bool loadAssets() {
 		for (int i = 0; i < 26; i++) {
 			
 			int currentLetter = 0x41 + i;
-			char letter = static_cast<char>(currentLetter);
-			string letterString(1, letter); // The conversion to string helps with corrupted text
+			char letter[0x10 + 1] = { static_cast<char>(currentLetter), '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0' };  // now with null termination bytes!
+			//string letterString(17, &letter); // The conversion to string helps with corrupted text
 			int width;
 			int height;
-
-			textTextures[currentLetter] = loadTextureFromChar(NotoMath, letter, { 0,0,0 }, &height, &width);
+			
+			//char* letterPtr = &letter[0];
+			textTextures[currentLetter] = loadTextureFromChar(NotoMath, letter, {0,0,0}, &height, &width);
 			SDL_SetTextureAlphaModFloat(textTextures[currentLetter], 0.85f);
 
 			textTextureSizeVectors[currentLetter] = vector2_int(width, height);
@@ -388,7 +389,7 @@ bool loadAssets() {
 
 			cout << letter;
 			//char letterTable[1] = { letter };
-			text[i+39].loadChar(&letter);
+			text[i+39].loadChar(letter);
 		}
 		for (int i = 0; i < 4; i++) {
 			char LOADtable[4] = { 'L', 'O', 'A', 'D' };
@@ -401,8 +402,8 @@ bool loadAssets() {
 
 		for (int i = 0; i < 26; i++) {
 			int currentLetter = 0x61 + i;
-			char letter = static_cast<char>(currentLetter);
-			string letterString(1, letter); // The conversion to string helps with corrupted text
+			char letter[0x10 + 1] = { static_cast<char>(currentLetter), '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0' };  // now with null termination bytes!
+			//string letterString(1, letter[0]); // The conversion to string helps with corrupted text
 			int width;
 			int height;
 
@@ -414,7 +415,7 @@ bool loadAssets() {
 
 			cout << letter;
 			//char letterTable[1] = { letter };
-			text[i + 65].loadChar(&letter);
+			text[i + 65].loadChar(letter);
 		}
 		cout << endl;
 
