@@ -4,9 +4,9 @@ SDL_Window* main_window = NULL; // The main window
 SDL_Renderer* main_renderer = NULL; // The main renderering context
 SDL_WindowID main_windowID = NULL; // The main window's ID
 
-SDL_Window* debug_window = NULL; // A secondary popup window for tooltips
-SDL_Renderer* debug_window_RENDER = NULL; // a rendering context for the tooltip popup
-SDL_Surface* debug_window_SURFACE = NULL; // a window surface for the tooltip popup
+SDL_Window* popup_window = NULL; // A secondary popup window for tooltips
+SDL_Renderer* popup_window_RENDER = NULL; // a rendering context for the tooltip popup
+SDL_Surface* popup_window_SURFACE = NULL; // a window surface for the tooltip popup
 
 
 SDL_Renderer* unsynced_renderer = NULL; // a rendering context without VSync
@@ -150,18 +150,18 @@ bool init(void) {
 				cout << INITALIZING << "SDL3_ttf" << "..." << endl;
 
 				// Test opening popups
-				debug_window = SDL_CreatePopupWindow(main_window, init__scr_wid - 322, init__scr_hei - 202, 320, 200, SDL_WINDOW_POPUP_MENU | SDL_WINDOW_TRANSPARENT);
-				if (debug_window == NULL) {
+				popup_window = SDL_CreatePopupWindow(main_window, init__scr_wid - 322, init__scr_hei - 202, 320, 200, SDL_WINDOW_POPUP_MENU | SDL_WINDOW_TRANSPARENT);
+				if (popup_window == NULL) {
 					success = false;
 					// Store SDL_error here to avoid making too many API calls
 					const char* SDL_ERR = SDL_GetError();
 					SDL_LogError(575, "SDL3 secondary window creation failed. SDL_error: %s", SDL_ERR);
-					ASSERT("Couldn't open secondary window " && (debug_window != NULL) && SDL_ERR);
+					ASSERT("Couldn't open secondary window " && (popup_window != NULL) && SDL_ERR);
 				}
 				else {
 					// Test done, window no longer needed
-					SDL_DestroyWindow(debug_window);
-					debug_window = NULL;
+					SDL_DestroyWindow(popup_window);
+					popup_window = NULL;
 
 					if (TTF_Init() == -1) {
 						success = false;
@@ -502,7 +502,7 @@ bool loadAssets() {
 				SDL_DestroySurface(ibeamCur);
 			}
 		}
-		// We have to make our own little loadTextureFromChar function as it uses main_renderer and debug_window_RENDER doesn't like that
+		// We have to make our own little loadTextureFromChar function as it uses main_renderer and popup_window_RENDER doesn't like that
 		loadTooltipSRF = TTF_RenderText_Blended(NotoMath, loadTooltip, { 0,0,0 });
 		if (loadTooltipSRF == NULL)
 		{
@@ -510,7 +510,7 @@ bool loadAssets() {
 			ASSERT("Unable to render text to a surface." && !(loadTooltipSRF == NULL));
 			return false;
 		}
-		// We have to make our own little loadTextureFromChar function as it uses main_renderer and debug_window_RENDER doesn't like that
+		// We have to make our own little loadTextureFromChar function as it uses main_renderer and popup_window_RENDER doesn't like that
 		saveTooltipSRF = TTF_RenderText_Blended(NotoMath, saveTooltip, { 0,0,0 });
 		if (saveTooltipSRF == NULL)
 		{
@@ -518,7 +518,7 @@ bool loadAssets() {
 			ASSERT("Unable to render text to a surface." && !(saveTooltipSRF == NULL));
 			return false;
 		}		
-		// We have to make our own little loadTextureFromChar function as it uses main_renderer and debug_window_RENDER doesn't like that
+		// We have to make our own little loadTextureFromChar function as it uses main_renderer and popup_window_RENDER doesn't like that
 		exitTooltipSRF = TTF_RenderText_Blended(NotoMath, exitTooltip, { 0,0,0 });
 		if (exitTooltipSRF == NULL)
 		{
@@ -854,72 +854,72 @@ int main(int argc, char *argv[]) {
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
 
 				if (fileMenuOpen) {
-					if (debug_window == NULL) {
-						debug_window = SDL_CreatePopupWindow(main_window, init__scr_wid - 230, init__scr_hei - 10, 320, 68, SDL_WINDOW_POPUP_MENU | SDL_WINDOW_TRANSPARENT);
-						if (debug_window == NULL) {
+					if (popup_window == NULL) {
+						popup_window = SDL_CreatePopupWindow(main_window, init__scr_wid - 230, init__scr_hei - 10, 320, 68, SDL_WINDOW_POPUP_MENU | SDL_WINDOW_TRANSPARENT);
+						if (popup_window == NULL) {
 							// Store SDL_error here to avoid making too many API calls
 							const char* SDL_ERR = SDL_GetError();
 							SDL_LogError(575, "SDL3 secondary window creation failed. SDL_error: %s", SDL_ERR);
-							ASSERT("Couldn't open secondary window " && !(debug_window == NULL) && SDL_ERR);
+							ASSERT("Couldn't open secondary window " && !(popup_window == NULL) && SDL_ERR);
 						}
-						debug_window_SURFACE = SDL_GetWindowSurface(debug_window);
-						if (debug_window_SURFACE == NULL) {
+						popup_window_SURFACE = SDL_GetWindowSurface(popup_window);
+						if (popup_window_SURFACE == NULL) {
 							// Store SDL_error here to avoid making too many API calls
 							const char* SDL_ERR = SDL_GetError();
 							SDL_LogError(575, "SDL3 secondary window surface getting failed. SDL_error: %s", SDL_ERR);
-							ASSERT("Couldn't get window surface of secondary window" && !(debug_window_SURFACE == NULL) && SDL_ERR);
+							ASSERT("Couldn't get window surface of secondary window" && !(popup_window_SURFACE == NULL) && SDL_ERR);
 						}
-						SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGBA(debug_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
+						SDL_FillSurfaceRect(popup_window_SURFACE, NULL, SDL_MapRGBA(popup_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
 
-						SDL_UpdateWindowSurface(debug_window);
+						SDL_UpdateWindowSurface(popup_window);
 
-						debug_window_RENDER = SDL_CreateSoftwareRenderer(debug_window_SURFACE);
-						if (debug_window_RENDER == NULL) {
+						popup_window_RENDER = SDL_CreateSoftwareRenderer(popup_window_SURFACE);
+						if (popup_window_RENDER == NULL) {
 							// Store SDL_error here to avoid making too many API calls
 							const char* SDL_ERR = SDL_GetError();
 							SDL_LogError(575, "SDL3 secondary window renderer creation failed. SDL_error: %s", SDL_ERR);
-							ASSERT("Couldn't create secondary window renderer. " && !(debug_window_RENDER == NULL) && SDL_ERR);
+							ASSERT("Couldn't create secondary window renderer. " && !(popup_window_RENDER == NULL) && SDL_ERR);
 						}
 
 
 
-						loadTooltipTEX = SDL_CreateTextureFromSurface(debug_window_RENDER, loadTooltipSRF); // Create a texture from the text surface
+						loadTooltipTEX = SDL_CreateTextureFromSurface(popup_window_RENDER, loadTooltipSRF); // Create a texture from the text surface
 						if (loadTooltipTEX == NULL) {
 							cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
 							ASSERT(!(loadTooltipTEX == NULL) && "Unable to make a texture from rendered text surface.");
 						}
 						// ^ implementation of: loadTooltipTEX = loadTextureFromChar(NotoMath, const_cast<char*>(loadTooltip));
-						saveTooltipTEX = SDL_CreateTextureFromSurface(debug_window_RENDER, saveTooltipSRF); // Create a texture from the text surface
+						saveTooltipTEX = SDL_CreateTextureFromSurface(popup_window_RENDER, saveTooltipSRF); // Create a texture from the text surface
 						if (saveTooltipTEX == NULL) {
 							cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
 							ASSERT(!(saveTooltipTEX == NULL) && "Unable to make a texture from rendered text surface.");
 						}						
-						exitTooltipTEX = SDL_CreateTextureFromSurface(debug_window_RENDER, exitTooltipSRF); // Create a texture from the text surface
+						exitTooltipTEX = SDL_CreateTextureFromSurface(popup_window_RENDER, exitTooltipSRF); // Create a texture from the text surface
 						if (exitTooltipTEX == NULL) {
 							cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
 							ASSERT(!(exitTooltipTEX == NULL) && "Unable to make a texture from rendered text surface.");
 						}
 					}
 					else {
-						SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGBA(debug_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
-						SDL_SetRenderDrawColor(debug_window_RENDER, 0xDB, 0xD7, 0xB6, 0x33);
-						SDL_RenderClear(debug_window_RENDER);
+						SDL_FillSurfaceRect(popup_window_SURFACE, NULL, SDL_MapRGBA(popup_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
+						SDL_SetRenderDrawColor(popup_window_RENDER, 0xDB, 0xD7, 0xB6, 0x33);
+						SDL_RenderClear(popup_window_RENDER);
 
 						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[0])) {
 							SDL_FRect DrawRect = { 10.f, 10.f, 280.f, 40.f };
-							SDL_RenderTexture(debug_window_RENDER, loadTooltipTEX, NULL, &DrawRect);
+							SDL_RenderTexture(popup_window_RENDER, loadTooltipTEX, NULL, &DrawRect);
 						}
 						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[1])) {
 							SDL_FRect DrawRect = { 10.f, 10.f, 280.f, 40.f };
-							SDL_RenderTexture(debug_window_RENDER, saveTooltipTEX, NULL, &DrawRect);
+							SDL_RenderTexture(popup_window_RENDER, saveTooltipTEX, NULL, &DrawRect);
 						}						
 						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[2])) {
 							SDL_FRect DrawRect = { 25.f, 10.f, 265.f, 40.f };
-							SDL_RenderTexture(debug_window_RENDER, exitTooltipTEX, NULL, &DrawRect);
+							SDL_RenderTexture(popup_window_RENDER, exitTooltipTEX, NULL, &DrawRect);
 						}
 
-						SDL_RenderPresent(debug_window_RENDER);
-						SDL_UpdateWindowSurface(debug_window);
+						SDL_RenderPresent(popup_window_RENDER);
+						SDL_UpdateWindowSurface(popup_window);
 					}
 					if (fileMenuY_Offset < 0.f) {
 						fileMenuY_Offset = 0.f;
@@ -1026,9 +1026,9 @@ int main(int argc, char *argv[]) {
 				}
 				else {
 					fileMenuY_Offset = 40.f;
-					if (debug_window != NULL) {
-						SDL_DestroyWindow(debug_window); 
-						debug_window = NULL;
+					if (popup_window != NULL) {
+						SDL_DestroyWindow(popup_window);
+						popup_window = NULL;
 
 						// Capture the mouse outside the window position since the popup is positioned outside the main window but is now closed
 						SDL_CaptureMouse(SDL_TRUE); // By default SDL only captures within a window
@@ -1193,21 +1193,21 @@ void exit() {
 	// Disable the mouse event so it doesn't get processed triggering an READ_ACCESS_VIOLATION when SDL Quits
 	SDL_QuitSubSystem(SDL_INIT_EVENTS);
 	cout << "Destroying window..." << endl;
-	if (debug_window != NULL) {
+	if (popup_window != NULL) {
 		// prevent READ_ACCESS_VIOLATION
 		try {
 			// USING THIS FUNKY MESS
-			if ((&debug_window) == NULL) {
+			if ((&popup_window) == NULL) {
 				throw("ERR");
 			}
 			else {
-				SDL_DestroyRenderer(debug_window_RENDER);
+				SDL_DestroyRenderer(popup_window_RENDER);
 
-				debug_window_RENDER = NULL;
+				popup_window_RENDER = NULL;
 
-				SDL_DestroyWindow(*&*&debug_window); // USING THIS FUNKY MESS
+				SDL_DestroyWindow(*&*&popup_window); // USING THIS FUNKY MESS
 
-				debug_window = NULL;
+				popup_window = NULL;
 			}
 		}
 		catch (int ERR) {
