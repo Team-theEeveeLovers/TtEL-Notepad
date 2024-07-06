@@ -126,7 +126,7 @@ SDL_Texture* loadTextureFromText(TTF_Font* font, string text, SDL_Color textColo
 }
 
 /**
-* @brief A function that loads an <SDL_Texture*> from a text string of char class.
+* @brief A function that loads an <SDL_Texture*> from a text string of char* class.
 * @param font - The font to render with
 * @param text - The text to render
 * @param textColor - The color to render the text with. It defaults to black.
@@ -135,12 +135,12 @@ SDL_Texture* loadTextureFromText(TTF_Font* font, string text, SDL_Color textColo
 *
 * @return The loaded <SDL_Texture*>, or NULL upon error.
 */
-SDL_Texture* loadTextureFromChar(TTF_Font* font, char text, SDL_Color textColor = { 0x0,0x0,0x0 }, int* height = NULL, int* width = NULL) {
+SDL_Texture* loadTextureFromChar(TTF_Font* font, char* text, SDL_Color textColor = { 0x0,0x0,0x0 }, int* height = NULL, int* width = NULL) {
     // declare temporary variable
     SDL_Texture* mTex = NULL;
 
 
-    SDL_Surface* textSurface = TTF_RenderText_Blended(font, &text, textColor); // Render text to a surface
+    SDL_Surface* textSurface = TTF_RenderText_Blended(font, text, textColor); // Render text to a surface
     if (textSurface == NULL)
     {
         cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
@@ -270,11 +270,6 @@ namespace RectDraw {
         return SDL_RenderRect(main_renderer, &drawRect);
     }
 }
-
-
-
-
-
 
 
 
