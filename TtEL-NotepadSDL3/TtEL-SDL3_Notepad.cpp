@@ -847,8 +847,8 @@ int main(int argc, char *argv[]) {
 						}
 					}
 					else {
-						SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGB(debug_window_SURFACE->format, 0x33, 0x33, 0x33));
-						SDL_SetRenderDrawColor(debug_window_RENDER, 0xFF, 0xFF, 0xFF, 0x99);
+						//SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGB(debug_window_SURFACE->format, 0x33, 0x33, 0x33));
+						SDL_SetRenderDrawColor(debug_window_RENDER, 0xF0, 0xF0, 0xF0, 0x99);
 						SDL_RenderClear(debug_window_RENDER);
 						
 						SDL_RenderPresent(debug_window_RENDER);
