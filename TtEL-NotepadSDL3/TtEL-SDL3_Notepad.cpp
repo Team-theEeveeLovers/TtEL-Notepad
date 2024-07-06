@@ -880,7 +880,7 @@ int main(int argc, char *argv[]) {
 						}
 						else {
 							if (!currentFile.loadFile(currentFilepath)) {
-								cout << "FAILED TO LOAD FILE" << endl;
+								cout << "FAILED TO LOAD FILE AT '" << currentFilepath << "'" << endl;
 							}
 							else {
 								fileMenuOpen = false;
