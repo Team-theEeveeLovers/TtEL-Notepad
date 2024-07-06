@@ -1,12 +1,14 @@
 #include "TtEL-SDL3_Notepad.hpp"
 
 SDL_Window* main_window = NULL; // The main window
+SDL_Renderer* main_renderer = NULL; // The main renderering context
 SDL_WindowID main_windowID = NULL; // The main window's ID
 
 SDL_Window* debug_window = NULL; // A secondary popup window for debug
+SDL_Renderer* debug_window_RENDER = NULL; // a rendering context for the debug popup
 SDL_Surface* debug_window_SURFACE = NULL; // a window surface for the debug popup
 
-SDL_Renderer* main_renderer = NULL; // The main renderering context
+
 SDL_Renderer* unsynced_renderer = NULL; // a rendering context without VSync
 
 int scr_wid = 480, scr_hei = 640; // screen size variable
@@ -120,6 +122,7 @@ bool init(void) {
 #endif
 			main_windowID = SDL_GetWindowID(main_window);
 			SDL_SetWindowMinimumSize(main_window, init__scr_wid, init__scr_hei);
+
 			cout << "Starting render" << "..." << endl;
 			main_renderer = SDL_CreateRenderer(main_window, NULL, SDL_RENDERER_PRESENTVSYNC);
 			if (main_renderer == NULL) {
@@ -128,7 +131,7 @@ bool init(void) {
 			}
 			else {
 				unsynced_renderer = SDL_CreateRenderer(main_window, NULL, SDL_RENDERER_ACCELERATED);
-				cout << "Render started." << endl << endl;
+				cout << "Render started on: " << SDL_GetRendererName(main_renderer) << endl << endl;
 				SDL_SetRenderDrawBlendMode(main_renderer, SDL_BLENDMODE_BLEND);
 				SDL_SetRenderDrawBlendMode(unsynced_renderer, SDL_BLENDMODE_BLEND);
 
@@ -832,17 +835,23 @@ int main(int argc, char *argv[]) {
 							ASSERT("Couldn't get window surface of secondary window" && !(debug_window_SURFACE == NULL) && SDL_ERR);
 						}
 						SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGB(debug_window_SURFACE->format, 0x33, 0x33, 0x33));
+
 						SDL_UpdateWindowSurface(debug_window);
-					}
-					else {
-						debug_window_SURFACE = SDL_GetWindowSurface(debug_window);
-						if (debug_window_SURFACE == NULL) {
+
+						debug_window_RENDER = SDL_CreateSoftwareRenderer(debug_window_SURFACE);
+						if (debug_window_RENDER == NULL) {
 							// Store SDL_error here to avoid making too many API calls
 							const char* SDL_ERR = SDL_GetError();
-							SDL_LogError(575, "SDL3 secondary window surface getting failed. SDL_error: %s", SDL_ERR);
-							ASSERT("Couldn't get window surface of secondary window" && !(debug_window_SURFACE == NULL) && SDL_ERR);
+							SDL_LogError(575, "SDL3 secondary window renderer creation failed. SDL_error: %s", SDL_ERR);
+							ASSERT("Couldn't create secondary window renderer. " && !(debug_window_RENDER == NULL) && SDL_ERR);
 						}
-						SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGB(debug_window_SURFACE->format, 0xFF, 0xFF, 0xFF));
+					}
+					else {
+						SDL_FillSurfaceRect(debug_window_SURFACE, NULL, SDL_MapRGB(debug_window_SURFACE->format, 0x33, 0x33, 0x33));
+						SDL_SetRenderDrawColor(debug_window_RENDER, 0xFF, 0xFF, 0xFF, 0x99);
+						SDL_RenderClear(debug_window_RENDER);
+						
+						SDL_RenderPresent(debug_window_RENDER);
 						SDL_UpdateWindowSurface(debug_window);
 					}
 					if (fileMenuY_Offset < 0.f) {
@@ -1125,6 +1134,10 @@ void exit() {
 				throw("ERR");
 			}
 			else {
+				SDL_DestroyRenderer(debug_window_RENDER);
+
+				debug_window_RENDER = NULL;
+
 				SDL_DestroyWindow(*&*&debug_window); // USING THIS FUNKY MESS
 
 				debug_window = NULL;
