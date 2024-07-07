@@ -11,7 +11,7 @@
 #include "../DRAWING/TextRenderer.h"
 #include "UTF8_Checking.h"
 extern SDL_Window* main_window;
-extern character text[256]; // all the text in the 'document'
+extern character* Dtext; // all the text in the 'document'
 
 string selectedFile;
 bool fileDialogOpen = false;
@@ -154,7 +154,7 @@ bool TextFile::loadFile(string filePath) {
 
         // Delete pre-existing text from the screen text buffer
         for (int i = 0; i < 256; i++) {
-            text[i].freeCharacter();
+            Dtext[i].freeCharacter();
         }
         Sint64 fileSize = SDL_GetIOSize(fileStream);
 
@@ -171,7 +171,7 @@ bool TextFile::loadFile(string filePath) {
         for (int i = 0; i < fileSize; i++) {
             
             SDL_ReadIO(fileStream, &currentChar, sizeof(char));
-            text[i].loadChar(&currentChar);
+            Dtext[i].loadChar(&currentChar);
         }
     }
     return success;
