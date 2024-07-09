@@ -17,6 +17,9 @@ extern int textBufferSize; // the size of the textual screen buffer
 string selectedFile;
 bool fileDialogOpen = false;
 
+#define MAX_FILESIZE 256
+#define FILE_PAD 16
+
 enum TextEncoding {
     CODEPAGE_7bASCII = 0x49435341,
     CODEPAGE_8bWIN1252 = 0x32353231,
@@ -161,9 +164,19 @@ bool TextFile::loadFile(string filePath) {
 
         cout << "FileLoader: SIZE IS: " << fileSize << " BYTES";
 
-        if (fileSize > 256) {
-            fileSize = 256;
-            cout << " (trimmed to 256 bytes)" << endl;
+        // if the file is too big
+        if (fileSize > MAX_FILESIZE) {
+            fileSize = MAX_FILESIZE;
+            cout << " (trimmed to " << MAX_FILESIZE << " bytes)" << endl;
+        } // if the file's size is not a multiple of the padding number
+        else if (fileSize < FILE_PAD) {
+            fileSize = FILE_PAD;
+            cout << " (padded to " << FILE_PAD << " bytes)" << endl;
+        }
+        else if (fileSize % FILE_PAD != 0) {
+            // add the remainder to make the filesize a multiple of the padding number
+            fileSize += fileSize % FILE_PAD;
+            cout << " (padded to " << fileSize << " bytes)" << endl;
         }
         else {
             cout << endl;
