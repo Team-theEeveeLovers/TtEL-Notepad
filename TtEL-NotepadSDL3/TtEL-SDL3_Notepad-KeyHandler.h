@@ -8,6 +8,7 @@
 #include "TtEL-SDL3_Notepad.hpp"
 
 extern character* Dtext; // all the text in the 'document'
+extern int textBufferSize; // the size of the textual screen buffer
 
 /**
 * @brief A function to handle a SDL Keycode.
@@ -20,7 +21,7 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 	// Keycode is a special character
 	if (ME::thresholdInt(keyCode, 33, 47) || ME::thresholdInt(keyCode, 58, 63)) {
 		// Iterate through screen buffer to find unpopulated space 
-		for (int i = 0; i <= 256; i++) {
+		for (int i = 0; i <= textBufferSize; i++) {
 			// Is empty space
 			if (Dtext[i].isEmptyChar()) {
 				char specChar = static_cast<char>(keyCode); // turn keyCode to char
@@ -61,7 +62,7 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 	// Keycode is a number
 	if (ME::thresholdInt(keyCode, 48, 57)) {
 		// Iterate through screen buffer to find unpopulated space 
-		for (int i = 0; i <= 256; i++) {
+		for (int i = 0; i <= textBufferSize; i++) {
 			// Is empty space
 			if (Dtext[i].isEmptyChar()) {
 				char number = static_cast<char>(keyCode); // turn keyCode to char
@@ -118,7 +119,7 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 	// Keycode is a letter
 	else if (ME::thresholdInt(keyCode, 97, 122)) {
 		// Iterate through screen buffer to find unpopulated space 
-		for (int i = 0; i <= 256; i++) {
+		for (int i = 0; i <= textBufferSize; i++) {
 			// Is empty space
 			if (Dtext[i].isEmptyChar()) {
 				char letter = static_cast<char>(keyCode); // turn keyCode to char

@@ -12,6 +12,7 @@
 #include "UTF8_Checking.h"
 extern SDL_Window* main_window;
 extern character* Dtext; // all the text in the 'document'
+extern int textBufferSize; // the size of the textual screen buffer
 
 string selectedFile;
 bool fileDialogOpen = false;
@@ -153,7 +154,7 @@ bool TextFile::loadFile(string filePath) {
         fileStream = SDL_IOFromFile(temp_filePath, "r+");
 
         // Delete pre-existing text from the screen text buffer
-        for (int i = 0; i < 256; i++) {
+        for (int i = 0; i < textBufferSize; i++) {
             Dtext[i].freeCharacter();
         }
         Sint64 fileSize = SDL_GetIOSize(fileStream);

@@ -22,8 +22,10 @@ bool isWindowMinimized = false; // is the window minimized?
 // The font Noto Sans Math
 TTF_Font* NotoMath = NULL;
 
+int textBufferSize = 256; // the size of the textual screen buffer
+
 character LOAD[4]; // the LOAD text
-character *Dtext = new character[256]; // all the text in the 'document'
+character *Dtext = new character[textBufferSize]; // all the text in the 'document'
 character FileTab[4]; // the letters for the file menu button
 character FileMenu[12]; // the letters for the options in the file menu
 
@@ -52,7 +54,7 @@ HRSRC Close_SRC;
 
 float Scroll = 0.0f;
 bool NaturalScrolling = false;
-const float ScrollUpperBound = 1600.f;
+float ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
 
 SDL_Surface* arrowCur = NULL;
 SDL_Cursor* arrow = NULL;
@@ -669,7 +671,7 @@ int main(int argc, char *argv[]) {
 #endif
 					case SDLK_SPACE:
 						// Iterate through screen buffer to find unpopulated space 
-						for (int i = 0; i <= 256; i++) {
+						for (int i = 0; i <= textBufferSize; i++) {
 							// Is empty space
 							if (Dtext[i].isEmptyChar()) {
 								char space = ' '; // make space char
@@ -680,7 +682,7 @@ int main(int argc, char *argv[]) {
 						break;
 					case SDLK_BACKSPACE:
 						// Iterate through screen buffer to find populated space 
-						for (int i = 255; i >= 0; i--) {
+						for (int i = textBufferSize-1; i >= 0; i--) {
 							// Is filled space
 							if (Dtext[i].isFilledChar()) {
 								Dtext[i].letter[0] = '\0'; // Fill area with empty space
@@ -802,7 +804,7 @@ int main(int argc, char *argv[]) {
 				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x22);
 				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
 				RD::FillFRectFromInputRect(TextBKG);
-				for (int i = 0; i <= 255; i++) {
+				for (int i = 0; i <= textBufferSize-1; i++) {
 					if (Dtext[i].isFilledChar()) {
 
 						if (i == 0) {
@@ -1059,6 +1061,7 @@ int main(int argc, char *argv[]) {
 							else {
 								fileMenuOpen = false;
 								Scroll = 0.0f; // Reset scroll value
+								ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
 							}
 						}
 					}
@@ -1142,7 +1145,7 @@ void exit() {
 
 	currentTime = SDL_GetTicks() - startTime;
 	cout << "Clearing text..." << endl;
-	for (int i = 0; i < 256; i++) {
+	for (int i = 0; i < textBufferSize; i++) {
 		Dtext[i].freeCharacter();
 	}
 	cout << "Text cleared." << endl << endl;
