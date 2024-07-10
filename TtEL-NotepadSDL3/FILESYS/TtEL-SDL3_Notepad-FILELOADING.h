@@ -191,8 +191,10 @@ bool TextFile::loadFile(string filePath) {
 
 
         for (int i = 0; i < fileSize; i++) {
-            
-            SDL_ReadIO(fileStream, &currentChar, sizeof(char));
+            // if we have gone past the end of the file due to padding
+            if (SDL_ReadIO(fileStream, &currentChar, sizeof(char)) == 0)
+                currentChar = '\0';
+
             Dtext[i].loadChar(&currentChar);
         }
     }
