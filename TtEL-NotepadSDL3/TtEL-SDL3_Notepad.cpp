@@ -342,6 +342,21 @@ bool loadAssets() {
 			//char specCharTable[1] = { specChar };
 			Dtext[i + 23].loadChar(specChar);
 		}
+		for (int i = 0; i < 5; i++) {
+			int currentspecChar = 0x7B + i;
+			char specChar[0x10 + 1] = { static_cast<char>(currentspecChar), '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0' };
+			//string numberString(1, specChar); // The random conversion to string helps with corrupted text somehow
+			int width;
+			int height;
+
+			textTextures[currentspecChar] = loadTextureFromChar(NotoMath, specChar, { 0,0,0 }, &height, &width);
+			textTextureSizeVectors[currentspecChar] = vector2_int(width, height);
+			textTextureSourceVectors[currentspecChar] = vector2_int();
+
+			cout << specChar;
+			//char specCharTable[1] = { specChar };
+			Dtext[i + 29].loadChar(specChar);
+		}
 
 		cout << endl << INITALIZING << "Numbers" << endl;
 		for (int i = 0; i < 10; i++) {
@@ -360,7 +375,7 @@ bool loadAssets() {
 
 			cout << number;
 			//char numberTable[1] = { number };
-			Dtext[i+29].loadChar(number);
+			Dtext[i+33].loadChar(number);
 
 			
 		}
@@ -399,7 +414,7 @@ bool loadAssets() {
 
 			cout << letter;
 			//char letterTable[1] = { letter };
-			Dtext[i+39].loadChar(letter);
+			Dtext[i+43].loadChar(letter);
 		}
 		for (int i = 0; i < 4; i++) {
 			char LOADtable[4] = { 'L', 'O', 'A', 'D' };
@@ -425,7 +440,7 @@ bool loadAssets() {
 
 			cout << letter;
 			//char letterTable[1] = { letter };
-			Dtext[i + 65].loadChar(letter);
+			Dtext[i + 69].loadChar(letter);
 		}
 		cout << endl;
 
