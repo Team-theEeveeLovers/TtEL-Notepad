@@ -183,12 +183,14 @@ bool TextFile::loadFile(string filePath) {
         }
         char currentChar = '\0';
 
-        // delete the old buffer
-        delete[] Dtext;
-        // remake the buffer with the wanted size
-        Dtext = new character[fileSize];
-        textBufferSize = fileSize;
-
+        // resize the buffer only if the new size is different from the old size
+        if (fileSize != textBufferSize) {
+            // delete the old buffer
+            delete[] Dtext;
+            // remake the buffer with the wanted size
+            Dtext = new character[fileSize];
+            textBufferSize = fileSize; // update the size variable
+        }
 
         for (int i = 0; i < fileSize; i++) {
             // if we have gone past the end of the file due to padding
