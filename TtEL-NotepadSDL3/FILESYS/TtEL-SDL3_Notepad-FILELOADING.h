@@ -17,7 +17,7 @@ extern int textBufferSize; // the size of the textual screen buffer
 string selectedFile;
 bool fileDialogOpen = false;
 
-#define MAX_FILESIZE 256
+#define MAX_FILESIZE 512
 #define FILE_PAD 16
 
 enum TextEncoding {

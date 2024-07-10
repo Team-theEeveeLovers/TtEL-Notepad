@@ -22,7 +22,7 @@ bool isWindowMinimized = false; // is the window minimized?
 // The font Noto Sans Math
 TTF_Font* NotoMath = NULL;
 
-int textBufferSize = 256; // the size of the textual screen buffer
+int textBufferSize = 512; // the size of the textual screen buffer
 
 character LOAD[4]; // the LOAD text
 character *Dtext = new character[textBufferSize]; // all the text in the 'document'
