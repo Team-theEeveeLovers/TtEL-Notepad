@@ -175,7 +175,7 @@ bool TextFile::loadFile(string filePath) {
         }
         else if (fileSize % FILE_PAD != 0) {
             // add the remainder to make the filesize a multiple of the padding number
-            fileSize += fileSize % FILE_PAD;
+            fileSize += FILE_PAD-(fileSize % FILE_PAD);
             cout << " (padded to " << fileSize << " bytes)" << endl;
         }
         else {
