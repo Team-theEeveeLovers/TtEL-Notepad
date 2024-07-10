@@ -36,6 +36,10 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 					case 44:
 						specChar += 0x10;
 						break;
+					// SHIFT + -	(_)
+					case 45:
+						specChar += 50;
+						break;
 					// SHIFT + .	(>)
 					case 46:
 						specChar += 0x10;
@@ -51,6 +55,22 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 					// SHIFT + =	(+)
 					case 61:
 						specChar -= 0x12;
+						break;
+					// SHIFT + [	({)
+					case 91:
+						specChar += ' ';
+						break;		
+					// SHIFT + \	(|)
+					case 92:
+						specChar += ' ';
+						break;
+					// SHIFT + ]	(})
+					case 93:
+						specChar += ' ';
+						break;
+					// SHIFT + `	(~)
+					case 96:
+						specChar += 30;
 						break;
 					}
 				}
@@ -83,29 +103,49 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 				// shift special character
 				if (capital) {
 					switch (keyCode) {
-						// SHIFT + '	(")
+					// SHIFT + '	(")
 					case 39:
 						specChar -= 5;
 						break;
-						// SHIFT + ,	(<)
+					// SHIFT + ,	(<)
 					case 44:
 						specChar += 0x10;
 						break;
-						// SHIFT + .	(>)
+					// SHIFT + -	(_)
+					case 45:
+						specChar += 50;
+						break;
+					// SHIFT + .	(>)
 					case 46:
 						specChar += 0x10;
 						break;
-						// SHIFT + /	(?)
+					// SHIFT + /	(?)
 					case 47:
 						specChar += 0x10;
 						break;
-						// SHIFT + ;	(:)
+					// SHIFT + ;	(:)
 					case 59:
 						specChar--;
 						break;
-						// SHIFT + =	(+)
+					// SHIFT + =	(+)
 					case 61:
 						specChar -= 0x12;
+						break;
+					// SHIFT + [	({)
+					case 91:
+						specChar += ' ';
+						break;
+					// SHIFT + \	(|)
+					case 92:
+						specChar += ' ';
+						break;
+					// SHIFT + ]	(})
+					case 93:
+						specChar += ' ';
+						break;
+					// SHIFT + `	(~)
+					case 96:
+						specChar += 30;
 						break;
 					}
 				}
