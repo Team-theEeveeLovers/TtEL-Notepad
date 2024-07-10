@@ -73,7 +73,7 @@ SDL_Surface* exitTooltipSRF = NULL; // surface always ready for immediate conver
 SDL_Texture* exitTooltipTEX = NULL;
 
 #ifdef DRAW_DEBUG
-bool DRAW_DBG = true; // debug rectangles active?
+bool DRAW_DBG = false; // debug rectangles active?
 bool INCREASE_SPACING = false; // increase the spacing between lines
 #endif
 
@@ -260,7 +260,9 @@ bool loadAssets() {
 
 		int width;
 		int height;
-		textTextures[0] = loadTextureFromUnicodeCodepoint(NotoMath, 0xFFFD, { 0,0,0 }, &height, &width);
+		Uint16 replacement[2] = {0xFFDD, 0x0000};
+		textTextures[0] = loadTextureFromUnicodeCodepoint(NotoMath, replacement, { 0,0,0 }, &height, &width);
+		if (textTextures[0] == NULL) { cout << "Asset loading failed." << endl; return false; }
 		textTextureSizeVectors[0] = vector2_int(width, height);
 		textTextureSourceVectors[0] = vector2_int();
 
@@ -876,7 +878,7 @@ int main(int argc, char *argv[]) {
 							SDL_LogError(575, "SDL3 secondary window surface getting failed. SDL_error: %s", SDL_ERR);
 							ASSERT("Couldn't get window surface of secondary window" && !(popup_window_SURFACE == NULL) && SDL_ERR);
 						}
-						SDL_FillSurfaceRect(popup_window_SURFACE, NULL, SDL_MapRGBA(popup_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
+						SDL_FillSurfaceRect(popup_window_SURFACE, NULL, SDL_MapRGBA(popup_window_SURFACE->format, 0x33, 0x33, 0x33, 0x99));
 
 						SDL_UpdateWindowSurface(popup_window);
 
@@ -908,8 +910,8 @@ int main(int argc, char *argv[]) {
 						}
 					}
 					else {
-						SDL_FillSurfaceRect(popup_window_SURFACE, NULL, SDL_MapRGBA(popup_window_SURFACE->format, 0x33, 0x33, 0x33, 0x33));
-						SDL_SetRenderDrawColor(popup_window_RENDER, 0xDB, 0xD7, 0xB6, 0x33);
+						SDL_FillSurfaceRect(popup_window_SURFACE, NULL, SDL_MapRGBA(popup_window_SURFACE->format, 0x33, 0x33, 0x33, 0x66));
+						SDL_SetRenderDrawColor(popup_window_RENDER, 0xDB, 0xD7, 0xB6, 0x11);
 						SDL_RenderClear(popup_window_RENDER);
 
 						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[0])) {

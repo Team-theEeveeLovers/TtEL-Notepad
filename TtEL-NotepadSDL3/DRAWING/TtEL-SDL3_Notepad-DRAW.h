@@ -104,6 +104,7 @@ SDL_Texture* loadTextureFromText(TTF_Font* font, string text, SDL_Color textColo
     if (textSurface == NULL)
     {
         cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
+        ASSERT(textSurface != NULL && "Couldn't render text to a surface." && TTF_GetError());
         return NULL;
     }
     else {
@@ -117,6 +118,7 @@ SDL_Texture* loadTextureFromText(TTF_Font* font, string text, SDL_Color textColo
         SDL_DestroySurface(textSurface);
         if (mTex == NULL) {
             cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
+            ASSERT(mTex != NULL && "Couldn't create a texture from rendered text surface." && SDL_GetError());
             return mTex;
         }
         else {
@@ -144,6 +146,7 @@ SDL_Texture* loadTextureFromChar(TTF_Font* font, char* text, SDL_Color textColor
     if (textSurface == NULL)
     {
         cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
+        ASSERT(textSurface != NULL && "Couldn't render text to a surface." && TTF_GetError());
         return NULL;
     }
     else {
@@ -170,6 +173,7 @@ SDL_Texture* loadTextureFromChar(TTF_Font* font, char* text, SDL_Color textColor
         SDL_DestroySurface(textSurface);
         if (mTex == NULL) {
             cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
+            ASSERT(mTex != NULL && "Couldn't create a texture from rendered text surface." && SDL_GetError());
             return mTex;
         }
         else {
@@ -180,7 +184,7 @@ SDL_Texture* loadTextureFromChar(TTF_Font* font, char* text, SDL_Color textColor
 /**
 * @brief A function that loads an <SDL_Texture*> from a UNICODE codepoint.
 * @param font - The font to render with
-* @param text - The codepoint to render
+* @param text - A pointer to the codepoint to render
 * @param textColor - The color to render the text with. It defaults to black.
 * @param height - Optional pointer to a variable to store the height of the texture.
 * @param width - Optional pointer to a variable to store the width of the texture. 
@@ -188,15 +192,15 @@ SDL_Texture* loadTextureFromChar(TTF_Font* font, char* text, SDL_Color textColor
 * @return The loaded <SDL_Texture*>, or NULL upon error.
 */
 
-SDL_Texture* loadTextureFromUnicodeCodepoint(TTF_Font* font, Uint16 text, SDL_Color textColor = { 0x0,0x0,0x0 }, int* height = NULL, int* width = NULL) {
+SDL_Texture* loadTextureFromUnicodeCodepoint(TTF_Font* font, Uint16* text, SDL_Color textColor = { 0x0,0x0,0x0 }, int* height = NULL, int* width = NULL) {
     // declare temporary variable
     SDL_Texture* mTex = NULL;
 
-    Uint16* text_ptr = &text;
-    SDL_Surface* textSurface = TTF_RenderUNICODE_Blended(font, text_ptr, textColor); // Render text to a surface
+    SDL_Surface* textSurface = TTF_RenderUNICODE_Blended(font, text, textColor); // Render text to a surface
     if (textSurface == NULL)
     {
         cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
+        ASSERT(textSurface != NULL && "Couldn't render text to a surface." && TTF_GetError());
         return NULL;
     }
     else {
@@ -210,6 +214,7 @@ SDL_Texture* loadTextureFromUnicodeCodepoint(TTF_Font* font, Uint16 text, SDL_Co
         SDL_DestroySurface(textSurface);
         if (mTex == NULL) {
             cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
+            ASSERT(mTex != NULL && "Couldn't create a texture from rendered text surface." && SDL_GetError());
             return mTex;
         }
         else {
