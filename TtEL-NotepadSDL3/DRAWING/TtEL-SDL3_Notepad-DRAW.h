@@ -104,6 +104,7 @@ SDL_Texture* loadTextureFromText(TTF_Font* font, string text, SDL_Color textColo
     if (textSurface == NULL)
     {
         cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
+        ASSERT(textSurface != NULL && "Couldn't render text to a surface." && TTF_GetError());
         return NULL;
     }
     else {
@@ -117,6 +118,7 @@ SDL_Texture* loadTextureFromText(TTF_Font* font, string text, SDL_Color textColo
         SDL_DestroySurface(textSurface);
         if (mTex == NULL) {
             cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
+            ASSERT(mTex != NULL && "Couldn't create a texture from rendered text surface." && SDL_GetError());
             return mTex;
         }
         else {
@@ -144,6 +146,7 @@ SDL_Texture* loadTextureFromChar(TTF_Font* font, char* text, SDL_Color textColor
     if (textSurface == NULL)
     {
         cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
+        ASSERT(textSurface != NULL && "Couldn't render text to a surface." && TTF_GetError());
         return NULL;
     }
     else {
@@ -170,6 +173,7 @@ SDL_Texture* loadTextureFromChar(TTF_Font* font, char* text, SDL_Color textColor
         SDL_DestroySurface(textSurface);
         if (mTex == NULL) {
             cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
+            ASSERT(mTex != NULL && "Couldn't create a texture from rendered text surface." && SDL_GetError());
             return mTex;
         }
         else {
@@ -196,6 +200,7 @@ SDL_Texture* loadTextureFromUnicodeCodepoint(TTF_Font* font, Uint16* text, SDL_C
     if (textSurface == NULL)
     {
         cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
+        ASSERT(textSurface != NULL && "Couldn't render text to a surface." && TTF_GetError());
         return NULL;
     }
     else {
@@ -209,6 +214,7 @@ SDL_Texture* loadTextureFromUnicodeCodepoint(TTF_Font* font, Uint16* text, SDL_C
         SDL_DestroySurface(textSurface);
         if (mTex == NULL) {
             cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
+            ASSERT(mTex != NULL && "Couldn't create a texture from rendered text surface." && SDL_GetError());
             return mTex;
         }
         else {

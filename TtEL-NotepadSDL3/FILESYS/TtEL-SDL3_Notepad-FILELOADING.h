@@ -151,6 +151,7 @@ bool TextFile::loadFile(string filePath) {
         cout << "in: '" << FS_filePath.parent_path().string() << "'" << endl;
 
         fileStream = SDL_IOFromFile(temp_filePath, "r+");
+        ASSERT(fileStream != NULL && "SDL couldn't open the file!" && SDL_GetError());
 
         // Delete pre-existing text from the screen text buffer
         for (int i = 0; i < 256; i++) {
