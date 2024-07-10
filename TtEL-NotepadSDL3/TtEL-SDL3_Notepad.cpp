@@ -33,8 +33,8 @@ SDL_Texture* textTextures[256];
 vector2_int textTextureSizeVectors[256];
 vector2_int textTextureSourceVectors[256];
 
-SDL_FRect TextBKG = { 15.f, 56.f, 420.f, 560.f };
-float RightTextMargin = 425.f;
+SDL_FRect TextBKG = { 15.f, 56.f, 435.f, 560.f };
+float RightTextMargin = 440.f;
 
 
 TextFile currentFile;
@@ -606,7 +606,7 @@ int main(int argc, char *argv[]) {
 						BorderSize = 10.f * common_scale;
 						// Text Background Scaling
 						TextBKG.x = 15.f * common_scale;
-						TextBKG.w = scr_floatwid - 60.f;
+						TextBKG.w = scr_floatwid - 45.f;
 						RightTextMargin = TextBKG.x + TextBKG.w - 10.f;
 
 						TextBKG.y = 56.f * common_scale;
