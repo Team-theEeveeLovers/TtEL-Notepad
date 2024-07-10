@@ -555,6 +555,9 @@ int main(int argc, char *argv[]) {
 		bool fileDialogOpen = false;
 		while (!exiting) {
 			while (SDL_PollEvent(&e)) {
+				// MSVC gives error C2360 (definiton skipped by 'case' label) if we define this in the one case that uses it
+				// So we define it here
+				string currentFilepath;
 				switch (e.type) {
 				case SDL_EVENT_QUIT:
 					exiting = true;
@@ -616,7 +619,20 @@ int main(int argc, char *argv[]) {
 					break;
 				case SDL_EVENT_WINDOW_RESIZED:
 					break;
-					// Mouse Moved
+				case SDL_EVENT_DROP_FILE:
+
+					currentFilepath = e.drop.data;
+
+					if (!currentFile.loadFile(currentFilepath)) {
+						cout << "FAILED TO LOAD FILE AT '" << currentFilepath << "'" << endl;
+					}
+					else {
+						Scroll = 0.0f; // Reset scroll value
+						ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
+					}
+
+					break;
+				// Mouse Moved
 				case SDL_EVENT_MOUSE_MOTION:
 					// Handle mouse event if it didn't happen in the popup.
 					if (e.window.windowID == main_windowID) {
