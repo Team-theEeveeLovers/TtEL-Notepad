@@ -182,6 +182,14 @@ bool TextFile::loadFile(string filePath) {
             cout << endl;
         }
         char currentChar = '\0';
+
+        // delete the old buffer
+        delete[] Dtext;
+        // remake the buffer with the wanted size
+        Dtext = new character[fileSize];
+        textBufferSize = fileSize;
+
+
         for (int i = 0; i < fileSize; i++) {
             
             SDL_ReadIO(fileStream, &currentChar, sizeof(char));
