@@ -258,7 +258,9 @@ bool loadAssets() {
 
 		int width;
 		int height;
-		textTextures[0] = loadTextureFromUnicodeCodepoint(NotoMath, 0xFFFD, { 0,0,0 }, &height, &width);
+		Uint16 replacement[2] = {0xFFDD, 0x0000};
+		textTextures[0] = loadTextureFromUnicodeCodepoint(NotoMath, replacement, { 0,0,0 }, &height, &width);
+		if (textTextures[0] == NULL) { cout << "Asset loading failed." << endl; return false; }
 		textTextureSizeVectors[0] = vector2_int(width, height);
 		textTextureSourceVectors[0] = vector2_int();
 
