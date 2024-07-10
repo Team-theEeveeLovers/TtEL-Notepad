@@ -19,7 +19,7 @@ extern int textBufferSize; // the size of the textual screen buffer
 */
 void handleKey(SDL_Keycode keyCode, bool capital) {
 	// Keycode is a special character
-	if (ME::thresholdInt(keyCode, 33, 47) || ME::thresholdInt(keyCode, 58, 63)) {
+	if (ME::thresholdInt(keyCode, 33, 47) || ME::thresholdInt(keyCode, 58, 63) || ME::thresholdInt(keyCode, 91, 93) || keyCode == 96) {
 		// Iterate through screen buffer to find unpopulated space 
 		for (int i = 0; i <= textBufferSize; i++) {
 			// Is empty space
