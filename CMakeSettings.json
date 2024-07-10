@@ -105,11 +105,6 @@
           "type": "BOOL"
         },
         {
-          "name": "CMAKE_BUILD_TYPE",
-          "value": "Release",
-          "type": "STRING"
-        },
-        {
           "name": "SDL3IMAGE_BACKEND_WIC",
           "value": "false",
           "type": "BOOL"
