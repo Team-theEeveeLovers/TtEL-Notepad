@@ -22,7 +22,7 @@ bool isWindowMinimized = false; // is the window minimized?
 // The font Noto Sans Math
 TTF_Font* NotoMath = NULL;
 
-int textBufferSize = 512; // the size of the textual screen buffer
+int textBufferSize = 128u; // the size of the textual screen buffer
 
 character LOAD[4]; // the LOAD text
 character *Dtext = new character[textBufferSize]; // all the text in the 'document'
@@ -695,6 +695,35 @@ int main(int argc, char *argv[]) {
 								char space = ' '; // make space char
 								Dtext[i] = loadCharFromChar(&space); // add space to the buffer
 								break; // Leave this loop
+							} // We have reached the end of the file and more bytes need to be allocated
+							else if (i == textBufferSize && Dtext[i].isFilledChar()) {
+								// put the current text into a buffer
+								character* tempBuffer = new character[textBufferSize];
+								for (int i = 0; i < textBufferSize; i++) { tempBuffer[i] = Dtext[i]; }
+
+								// Delete the old buffer
+								delete[] Dtext;
+
+								// store size of the old buffer
+								int oldSize = textBufferSize;
+
+								textBufferSize += FILE_PAD; // update the size variable
+								// remake the buffer with the wanted size
+								Dtext = new character[textBufferSize];
+
+								// put the old text into the new buffer
+								for (int i = 0; i < oldSize; i++) { Dtext[i] = tempBuffer[i]; }
+
+								// delete the temporary buffer
+								delete[] tempBuffer;
+
+								char space = ' '; // make space char
+								Dtext[i] = loadCharFromChar(&space); // add space to the buffer
+
+								// log 
+								SDL_Log("Buffer size increased from %d to %d!\n", oldSize, textBufferSize);
+
+								break; // Leave this loop
 							}
 						}
 						break;
@@ -703,7 +732,42 @@ int main(int argc, char *argv[]) {
 						for (int i = textBufferSize-1; i >= 0; i--) {
 							// Is filled space
 							if (Dtext[i].isFilledChar()) {
-								Dtext[i].letter[0] = '\0'; // Fill area with empty space
+								*Dtext[i].letter = '\0'; // Fill area with empty space
+
+								// Currently commented out because heap corruption
+								/*
+								// reduce the buffer size if needed
+								if (textBufferSize > FILE_PAD && i <= textBufferSize - FILE_PAD - 1) {
+									int oldBufferSize = textBufferSize; // size of the previous buffer
+									textBufferSize -= FILE_PAD; // update the size variable
+
+									// put the current text into a buffer
+									character* tempBuffer = new character[oldBufferSize];
+									for (int i = 0; i < oldBufferSize; i++) { tempBuffer[i] = Dtext[i]; }
+
+
+
+									Sleep(250); // At least on Windows, we have to wait or heaps get corrupted (not good)
+									// Delete the old buffer
+									delete[] Dtext;
+
+									Sleep(250); // At least on Windows, we have to wait to create a recently deleted table or Access violation reading location 0x0000000000000000 (not good)
+									// remake the buffer with the wanted size
+									Dtext = new character[textBufferSize];
+
+									// put the old text into the new buffer
+									for (int i = 0; i < oldBufferSize; i++) { Dtext[i] = tempBuffer[i]; }
+
+									// delete the temporary buffer
+									delete[] tempBuffer;
+
+									// log 
+									SDL_Log("Buffer size decreased from %d to %d!\n", oldBufferSize, textBufferSize);
+
+									Sleep(250); // At least on Windows, we have to wait to delete a recently created table or heaps get corrupted (not good)
+								}
+								*/
+
 								break; // Leave this loop
 							}
 						}
@@ -727,6 +791,7 @@ int main(int argc, char *argv[]) {
 						break;
 					default:
 						handleKey(e.key.keysym.sym, capital);
+						ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
 						break;
 					}
 					break;
