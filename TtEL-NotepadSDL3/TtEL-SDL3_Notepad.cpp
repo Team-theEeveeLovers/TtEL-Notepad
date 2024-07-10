@@ -22,8 +22,10 @@ bool isWindowMinimized = false; // is the window minimized?
 // The font Noto Sans Math
 TTF_Font* NotoMath = NULL;
 
+int textBufferSize = 512; // the size of the textual screen buffer
+
 character LOAD[4]; // the LOAD text
-character text[256]; // all the text in the 'document'
+character *Dtext = new character[textBufferSize]; // all the text in the 'document'
 character FileTab[4]; // the letters for the file menu button
 character FileMenu[12]; // the letters for the options in the file menu
 
@@ -52,7 +54,7 @@ HRSRC Close_SRC;
 
 float Scroll = 0.0f;
 bool NaturalScrolling = false;
-const float ScrollUpperBound = 1600.f;
+float ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
 
 SDL_Surface* arrowCur = NULL;
 SDL_Cursor* arrow = NULL;
@@ -307,7 +309,7 @@ bool loadAssets() {
 
 			cout << specChar;
 			//char specCharTable[1] = { specChar };
-			text[i].loadChar(specChar);
+			Dtext[i].loadChar(specChar);
 
 		}
 		for (int i = 0; i < 7; i++) {
@@ -323,7 +325,7 @@ bool loadAssets() {
 
 			cout << specChar;
 			//char specCharTable[1] = { specChar };
-			text[i + 16].loadChar(specChar);
+			Dtext[i + 16].loadChar(specChar);
 		}
 		for (int i = 0; i < 6; i++) {
 			int currentspecChar = 0x5B + i;
@@ -338,7 +340,7 @@ bool loadAssets() {
 
 			cout << specChar;
 			//char specCharTable[1] = { specChar };
-			text[i + 23].loadChar(specChar);
+			Dtext[i + 23].loadChar(specChar);
 		}
 
 		cout << endl << INITALIZING << "Numbers" << endl;
@@ -358,7 +360,7 @@ bool loadAssets() {
 
 			cout << number;
 			//char numberTable[1] = { number };
-			text[i+29].loadChar(number);
+			Dtext[i+29].loadChar(number);
 
 			
 		}
@@ -397,7 +399,7 @@ bool loadAssets() {
 
 			cout << letter;
 			//char letterTable[1] = { letter };
-			text[i+39].loadChar(letter);
+			Dtext[i+39].loadChar(letter);
 		}
 		for (int i = 0; i < 4; i++) {
 			char LOADtable[4] = { 'L', 'O', 'A', 'D' };
@@ -423,7 +425,7 @@ bool loadAssets() {
 
 			cout << letter;
 			//char letterTable[1] = { letter };
-			text[i + 65].loadChar(letter);
+			Dtext[i + 65].loadChar(letter);
 		}
 		cout << endl;
 
@@ -553,6 +555,9 @@ int main(int argc, char *argv[]) {
 		bool fileDialogOpen = false;
 		while (!exiting) {
 			while (SDL_PollEvent(&e)) {
+				// MSVC gives error C2360 (definiton skipped by 'case' label) if we define this in the one case that uses it
+				// So we define it here
+				string currentFilepath;
 				switch (e.type) {
 				case SDL_EVENT_QUIT:
 					exiting = true;
@@ -614,7 +619,20 @@ int main(int argc, char *argv[]) {
 					break;
 				case SDL_EVENT_WINDOW_RESIZED:
 					break;
-					// Mouse Moved
+				case SDL_EVENT_DROP_FILE:
+
+					currentFilepath = e.drop.data;
+
+					if (!currentFile.loadFile(currentFilepath)) {
+						cout << "FAILED TO LOAD FILE AT '" << currentFilepath << "'" << endl;
+					}
+					else {
+						Scroll = 0.0f; // Reset scroll value
+						ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
+					}
+
+					break;
+				// Mouse Moved
 				case SDL_EVENT_MOUSE_MOTION:
 					// Handle mouse event if it didn't happen in the popup.
 					if (e.window.windowID == main_windowID) {
@@ -671,21 +689,21 @@ int main(int argc, char *argv[]) {
 #endif
 					case SDLK_SPACE:
 						// Iterate through screen buffer to find unpopulated space 
-						for (int i = 0; i <= 256; i++) {
+						for (int i = 0; i <= textBufferSize; i++) {
 							// Is empty space
-							if (text[i].isEmptyChar()) {
+							if (Dtext[i].isEmptyChar()) {
 								char space = ' '; // make space char
-								text[i] = loadCharFromChar(&space); // add space to the buffer
+								Dtext[i] = loadCharFromChar(&space); // add space to the buffer
 								break; // Leave this loop
 							}
 						}
 						break;
 					case SDLK_BACKSPACE:
 						// Iterate through screen buffer to find populated space 
-						for (int i = 255; i >= 0; i--) {
+						for (int i = textBufferSize-1; i >= 0; i--) {
 							// Is filled space
-							if (text[i].isFilledChar()) {
-								text[i].letter[0] = '\0'; // Fill area with empty space
+							if (Dtext[i].isFilledChar()) {
+								Dtext[i].letter[0] = '\0'; // Fill area with empty space
 								break; // Leave this loop
 							}
 						}
@@ -804,53 +822,58 @@ int main(int argc, char *argv[]) {
 				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x22);
 				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
 				RD::FillFRectFromInputRect(TextBKG);
-				for (int i = 0; i <= 255; i++) {
-					if (text[i].isFilledChar()) {
+				for (int i = 0; i <= textBufferSize-1; i++) {
+					if (Dtext[i].isFilledChar()) {
 
 						if (i == 0) {
-							text[i].x = TextBKG.x + 10.f;
-							text[i].y = TextBKG.y + 14.f;
+							Dtext[i].x = TextBKG.x + 10.f;
+							Dtext[i].y = TextBKG.y + 14.f;
 						}
 						else {
-							text[i].x = (text[i - 1].x + text[i - 1].w) + 0.3125f;
-							text[i].y = text[i - 1].y;
-							if (text[i].isNewline())
-								text[i].y += lineSpacing + 10.f;
+							Dtext[i].x = (Dtext[i - 1].x + Dtext[i - 1].w) + 0.3125f;
+							Dtext[i].y = Dtext[i - 1].y;
+							if (Dtext[i].isNewline())
+								Dtext[i].y += lineSpacing + 10.f;
 						}
 
 						
-						if (text[i].x + text[i].w > RightTextMargin) {
-							while (text[i].x + text[i].w > RightTextMargin) {
-								text[i].x = text[i].x - (RightTextMargin - 20.f);
-								text[i].y = text[i].y + lineSpacing;
+						if (Dtext[i].x + Dtext[i].w > RightTextMargin) {
+							while (Dtext[i].x + Dtext[i].w > RightTextMargin) {
+								Dtext[i].x = Dtext[i].x - (RightTextMargin - 20.f);
+								Dtext[i].y = Dtext[i].y + lineSpacing;
 							}
 						}
 						if (i > 0) {
-							if (text[i - 1].y < text[i].y) {
-								text[i].x = (TextBKG.x + 10.f);
+							if (Dtext[i - 1].y < Dtext[i].y) {
+								Dtext[i].x = (TextBKG.x + 10.f);
 							}
 						}
 						// If the text got scrolled above the textbox (with added 20.f because of the empty space)
-						if (text[i].y - Scroll + 20.f < TextBKG.y) {
+						if (Dtext[i].y - Scroll + 20.f < TextBKG.y) {
 							// how far above are we?
-							float above = text[i].y + Scroll;
-							float below = text[i].y - Scroll;
+							float above = Dtext[i].y + Scroll;
+							float below = Dtext[i].y - Scroll;
 							// If we are completely above
-							if (text[i].y - Scroll + text[i].h + 20.f < TextBKG.y) {
+							if (Dtext[i].y - Scroll + Dtext[i].h + 20.f < TextBKG.y) {
 								// allan please add code
 							}
 							else {
-								text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll + below), vector4_float(0.f, 0.f-((above/3.5f)), 0.f, 0.f-below + text[i].y), vector2_float(0.f, 0.f - below));
+								Dtext[i].drawCharacter(vector2_float(0.f, 0.f - Scroll + below), vector4_float(0.f, 0.f-((above/3.5f)), 0.f, 0.f-below + Dtext[i].y), vector2_float(0.f, 0.f - below));
 
 								// keep this for scrolling text from below the textbox
-								// float above = text[i].y - Scroll;
-								// text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll), vector4_float(0.f, 0.f-(above/2.f), 0.f, 0.f-above), vector2_float(0.f, 0.f-above));
+								// float above = Dtext[i].y - Scroll;
+								// Dtext[i].drawCharacter(vector2_float(0.f, 0.f - Scroll), vector4_float(0.f, 0.f-(above/2.f), 0.f, 0.f-above), vector2_float(0.f, 0.f-above));
 								
 							}
 						}
 						else {
-							text[i].drawCharacter(vector2_float(0.f, 0.f - Scroll));
+							Dtext[i].drawCharacter(vector2_float(0.f, 0.f - Scroll));
 						}
+					}
+					else {
+						// If this is the second instance of NULLness
+						if (i > 1 && Dtext[i - 1].isEmptyChar())
+							break; // Break out of the for loop
 					}
 				}
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
@@ -1056,6 +1079,7 @@ int main(int argc, char *argv[]) {
 							else {
 								fileMenuOpen = false;
 								Scroll = 0.0f; // Reset scroll value
+								ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
 							}
 						}
 					}
@@ -1139,8 +1163,8 @@ void exit() {
 
 	currentTime = SDL_GetTicks() - startTime;
 	cout << "Clearing text..." << endl;
-	for (int i = 0; i < 256; i++) {
-		text[i].freeCharacter();
+	for (int i = 0; i < textBufferSize; i++) {
+		Dtext[i].freeCharacter();
 	}
 	cout << "Text cleared." << endl << endl;
 	while (currentTime < 550) {

@@ -1,0 +1,125 @@
+﻿{
+  "configurations": [
+    {
+      "name": "x64-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "SDL_ASAN",
+          "value": "false",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_HAPTIC",
+          "value": "false",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_VIDEO",
+          "value": "true",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_RENDER",
+          "value": "true",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_ASSEMBLY",
+          "value": "true",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_AUDIO",
+          "value": "false",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_KMSDRM",
+          "value": "false",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_SENSOR",
+          "value": "false",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL3IMAGE_JXL",
+          "value": "false",
+          "type": "BOOL"
+        }
+      ]
+    },
+    {
+      "name": "x64-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "variables": [
+        {
+          "name": "SDL_DUMMYAUDIO",
+          "value": "true",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_LIBICONV",
+          "value": "false",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_XINPUT",
+          "value": "true",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_RENDER",
+          "value": "true",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL_AUDIO",
+          "value": "False",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL3IMAGE_VENDORED",
+          "value": "False",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL3IMAGE_AVIF",
+          "value": "False",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL3IMAGE_BACKEND_WIC",
+          "value": "false",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL3IMAGE_LBM",
+          "value": "False",
+          "type": "BOOL"
+        },
+        {
+          "name": "SDL3IMAGE_XV",
+          "value": "False",
+          "type": "BOOL"
+        }
+      ]
+    }
+  ]
+}

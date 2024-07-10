@@ -7,7 +7,8 @@
 */
 #include "TtEL-SDL3_Notepad.hpp"
 
-extern character text[256]; // all the text in the 'document'
+extern character* Dtext; // all the text in the 'document'
+extern int textBufferSize; // the size of the textual screen buffer
 
 /**
 * @brief A function to handle a SDL Keycode.
@@ -20,9 +21,9 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 	// Keycode is a special character
 	if (ME::thresholdInt(keyCode, 33, 47) || ME::thresholdInt(keyCode, 58, 63)) {
 		// Iterate through screen buffer to find unpopulated space 
-		for (int i = 0; i <= 256; i++) {
+		for (int i = 0; i <= textBufferSize; i++) {
 			// Is empty space
-			if (text[i].isEmptyChar()) {
+			if (Dtext[i].isEmptyChar()) {
 				char specChar = static_cast<char>(keyCode); // turn keyCode to char
 				// shift special character
 				if (capital) {
@@ -53,7 +54,7 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 						break;
 					}
 				}
-				text[i] = loadCharFromChar(&specChar); // add special character to the buffer
+				Dtext[i] = loadCharFromChar(&specChar); // add special character to the buffer
 				break; // Leave this loop
 			}
 		}
@@ -61,9 +62,9 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 	// Keycode is a number
 	if (ME::thresholdInt(keyCode, 48, 57)) {
 		// Iterate through screen buffer to find unpopulated space 
-		for (int i = 0; i <= 256; i++) {
+		for (int i = 0; i <= textBufferSize; i++) {
 			// Is empty space
-			if (text[i].isEmptyChar()) {
+			if (Dtext[i].isEmptyChar()) {
 				char number = static_cast<char>(keyCode); // turn keyCode to char
 				// number row special character
 				if (capital) {
@@ -110,7 +111,7 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 						break;
 					}
 				}
-				text[i] = loadCharFromChar(&number); // add number to the buffer
+				Dtext[i] = loadCharFromChar(&number); // add number to the buffer
 				break; // Leave this loop
 			}
 		}
@@ -118,14 +119,14 @@ void handleKey(SDL_Keycode keyCode, bool capital) {
 	// Keycode is a letter
 	else if (ME::thresholdInt(keyCode, 97, 122)) {
 		// Iterate through screen buffer to find unpopulated space 
-		for (int i = 0; i <= 256; i++) {
+		for (int i = 0; i <= textBufferSize; i++) {
 			// Is empty space
-			if (text[i].isEmptyChar()) {
+			if (Dtext[i].isEmptyChar()) {
 				char letter = static_cast<char>(keyCode); // turn keyCode to char
 				if (capital) {
 					letter -= ' '; // subtract space character from the letter to make it uppercase, ASCII is beautiful
 				}
-				text[i] = loadCharFromChar(&letter); // add letter to the buffer
+				Dtext[i] = loadCharFromChar(&letter); // add letter to the buffer
 				break; // Leave this loop
 			}
 		}

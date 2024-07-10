@@ -11,7 +11,8 @@
 #include "../DRAWING/TextRenderer.h"
 #include "UTF8_Checking.h"
 extern SDL_Window* main_window;
-extern character text[256]; // all the text in the 'document'
+extern character* Dtext; // all the text in the 'document'
+extern int textBufferSize; // the size of the textual screen buffer
 
 string selectedFile;
 bool fileDialogOpen = false;
@@ -154,25 +155,47 @@ bool TextFile::loadFile(string filePath) {
         ASSERT(fileStream != NULL && "SDL couldn't open the file!" && SDL_GetError());
 
         // Delete pre-existing text from the screen text buffer
-        for (int i = 0; i < 256; i++) {
-            text[i].freeCharacter();
+        for (int i = 0; i < textBufferSize; i++) {
+            Dtext[i].freeCharacter();
         }
         Sint64 fileSize = SDL_GetIOSize(fileStream);
 
         cout << "FileLoader: SIZE IS: " << fileSize << " BYTES";
 
-        if (fileSize > 256) {
-            fileSize = 256;
-            cout << " (trimmed to 256 bytes)" << endl;
+        // if the file is too big
+        if (fileSize > MAX_FILESIZE) {
+            fileSize = MAX_FILESIZE;
+            cout << " (trimmed to " << MAX_FILESIZE << " bytes)" << endl;
+        } // if the file's size is not a multiple of the padding number
+        else if (fileSize < FILE_PAD) {
+            fileSize = FILE_PAD;
+            cout << " (padded to " << FILE_PAD << " bytes)" << endl;
+        }
+        else if (fileSize % FILE_PAD != 0) {
+            // add the remainder to make the filesize a multiple of the padding number
+            fileSize += FILE_PAD-(fileSize % FILE_PAD);
+            cout << " (padded to " << fileSize << " bytes)" << endl;
         }
         else {
             cout << endl;
         }
         char currentChar = '\0';
+
+        // resize the buffer only if the new size is different from the old size
+        if (fileSize != textBufferSize) {
+            // delete the old buffer
+            delete[] Dtext;
+            // remake the buffer with the wanted size
+            Dtext = new character[fileSize];
+            textBufferSize = fileSize; // update the size variable
+        }
+
         for (int i = 0; i < fileSize; i++) {
-            
-            SDL_ReadIO(fileStream, &currentChar, sizeof(char));
-            text[i].loadChar(&currentChar);
+            // if we have gone past the end of the file due to padding
+            if (SDL_ReadIO(fileStream, &currentChar, sizeof(char)) == 0)
+                currentChar = '\0';
+
+            Dtext[i].loadChar(&currentChar);
         }
     }
     return success;

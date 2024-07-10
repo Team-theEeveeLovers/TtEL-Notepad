@@ -16,6 +16,9 @@ extern vector2_int textTextureSourceVectors[256];
 extern bool DRAW_DBG;
 #endif
 
+#define MAX_FILESIZE 512
+#define FILE_PAD 16
+
 class character {
 private:
 	// This is a magic number, it uses unused space in memory
