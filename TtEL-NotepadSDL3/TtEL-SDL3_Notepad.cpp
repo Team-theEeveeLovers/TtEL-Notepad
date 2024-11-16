@@ -22,7 +22,9 @@ bool isWindowMinimized = false; // is the window minimized?
 // The font Noto Sans Math
 TTF_Font* NotoMath = NULL;
 
+
 int textBufferSize = 128u; // the size of the textual screen buffer
+
 
 character LOAD[4]; // the LOAD text
 character *Dtext = new character[textBufferSize]; // all the text in the 'document'
@@ -33,8 +35,8 @@ SDL_Texture* textTextures[256];
 vector2_int textTextureSizeVectors[256];
 vector2_int textTextureSourceVectors[256];
 
-SDL_FRect TextBKG = { 15.f, 56.f, 420.f, 560.f };
-float RightTextMargin = 425.f;
+SDL_FRect TextBKG = { 15.f, 56.f, 435.f, 560.f };
+float RightTextMargin = 440.f;
 
 
 TextFile currentFile;
@@ -356,6 +358,7 @@ bool loadAssets() {
 			cout << specChar;
 			//char specCharTable[1] = { specChar };
 			Dtext[i + 29].loadChar(specChar);
+
 		}
 
 		cout << endl << INITALIZING << "Numbers" << endl;
@@ -621,7 +624,7 @@ int main(int argc, char *argv[]) {
 						BorderSize = 10.f * common_scale;
 						// Text Background Scaling
 						TextBKG.x = 15.f * common_scale;
-						TextBKG.w = scr_floatwid - 60.f;
+						TextBKG.w = scr_floatwid - 45.f;
 						RightTextMargin = TextBKG.x + TextBKG.w - 10.f;
 
 						TextBKG.y = 56.f * common_scale;
@@ -737,7 +740,6 @@ int main(int argc, char *argv[]) {
 
 								// log 
 								SDL_Log("Buffer size increased from %d to %d!\n", oldSize, textBufferSize);
-
 								break; // Leave this loop
 							}
 						}
