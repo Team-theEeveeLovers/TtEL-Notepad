@@ -196,6 +196,7 @@ bool TextFile::loadFile(string filePath) {
                 currentChar = '\0';
 
             Dtext[i].loadChar(&currentChar);
+            this_thread::sleep_for(std::chrono::milliseconds(250));
         }
     }
     return success;
