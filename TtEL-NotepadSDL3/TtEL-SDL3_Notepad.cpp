@@ -976,60 +976,6 @@ int main(int argc, char *argv[]) {
 				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x22);
 				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
 				RD::FillFRectFromInputRect(TextBKG);
-				/*for (int i = 0; i <= textBufferSize - 1; i++) {
-					if (Dtext[i].isFilledChar()) {
-
-						if (i == 0) {
-							Dtext[i].x = TextBKG.x + 10.f;
-							Dtext[i].y = TextBKG.y + 14.f;
-						}
-						else {
-							Dtext[i].x = (Dtext[i - 1].x + Dtext[i - 1].w) + 0.3125f;
-							Dtext[i].y = Dtext[i - 1].y;
-							if (Dtext[i].isNewline())
-								Dtext[i].y += lineSpacing + 10.f;
-						}
-
-						
-						if (Dtext[i].x + Dtext[i].w > RightTextMargin) {
-							while (Dtext[i].x + Dtext[i].w > RightTextMargin) {
-								Dtext[i].x = Dtext[i].x - (RightTextMargin - 20.f);
-								Dtext[i].y = Dtext[i].y + lineSpacing;
-							}
-						}
-						if (i > 0) {
-							if (Dtext[i - 1].y < Dtext[i].y) {
-								Dtext[i].x = (TextBKG.x + 10.f);
-							}
-						}
-						// If the text got scrolled above the textbox (with added 20.f because of the empty space)
-						if (Dtext[i].y - Scroll + 20.f < TextBKG.y) {
-							// how far above are we?
-							float above = Dtext[i].y + Scroll;
-							float below = Dtext[i].y - Scroll;
-							// If we are completely above
-							if (Dtext[i].y - Scroll + Dtext[i].h + 20.f < TextBKG.y) {
-								// allan please add code
-							}
-							else {
-								Dtext[i].drawCharacter(vector2_float(0.f, 0.f - Scroll + below), vector4_float(0.f, 0.f-((above/3.5f)), 0.f, 0.f-below + Dtext[i].y), vector2_float(0.f, 0.f - below));
-
-								// keep this for scrolling text from below the textbox
-								// float above = Dtext[i].y - Scroll;
-								// Dtext[i].drawCharacter(vector2_float(0.f, 0.f - Scroll), vector4_float(0.f, 0.f-(above/2.f), 0.f, 0.f-above), vector2_float(0.f, 0.f-above));
-								
-							}
-						}
-						else {
-							Dtext[i].drawCharacter(vector2_float(0.f, 0.f - Scroll));
-						}
-					}
-					else {
-						// If this is the second instance of NULLness
-						if (i > 1 && Dtext[i - 1].isEmptyChar())
-							break; // Break out of the for loop
-					}
-				}*/
 				drawFromTextBuffer(Dtext, textBufferSize, TextBKG, lineSpacing, Scroll, RightTextMargin);
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
 
