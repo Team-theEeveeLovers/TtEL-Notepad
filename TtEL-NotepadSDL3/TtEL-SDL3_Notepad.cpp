@@ -898,7 +898,7 @@ int main(int argc, char *argv[]) {
 				SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE-0x22);
 				SDL_SetRenderScale(main_renderer, 1.f, 1.f);
 				RD::FillFRectFromInputRect(TextBKG);
-				for (int i = 0; i <= textBufferSize-1; i++) {
+				/*for (int i = 0; i <= textBufferSize - 1; i++) {
 					if (Dtext[i].isFilledChar()) {
 
 						if (i == 0) {
@@ -951,7 +951,8 @@ int main(int argc, char *argv[]) {
 						if (i > 1 && Dtext[i - 1].isEmptyChar())
 							break; // Break out of the for loop
 					}
-				}
+				}*/
+				drawFromTextBuffer(Dtext, textBufferSize, TextBKG, lineSpacing, Scroll, RightTextMargin);
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
 
 				if (fileMenuOpen) {
