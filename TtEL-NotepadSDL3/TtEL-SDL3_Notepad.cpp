@@ -1218,7 +1218,7 @@ int main(int argc, char *argv[]) {
 						loadDrawTimer = 0;
 					}
 					else {
-						loadDrawTimer += 3;
+						loadDrawTimer += 6;
 						loadDrawFrame = floorf(loadDrawTimer / 60.f);
 					}
 					char LOADtable[5] = {' ', 'L', 'O', 'A', 'D'};
