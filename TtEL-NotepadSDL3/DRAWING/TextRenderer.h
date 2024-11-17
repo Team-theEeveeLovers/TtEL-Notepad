@@ -225,7 +225,13 @@ void drawFromTextBuffer(character* textBuffer, int textBufferSize, SDL_FRect Tex
 				}
 			}
 			else {
-				textBuffer[i].drawCharacter(vector2_float(0.f, 0.f - Scroll));
+				// check if text is offscreen, if so don't draw it
+				if (textBuffer[i].y - Scroll > scr_floathei) {
+					// don't need to do anything about offscreen text at the current moment
+				}
+				else {
+					textBuffer[i].drawCharacter(vector2_float(0.f, 0.f - Scroll));
+				}
 			}
 		}
 		else {
