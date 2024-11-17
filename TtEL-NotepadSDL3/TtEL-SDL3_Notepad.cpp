@@ -771,10 +771,10 @@ int main(int argc, char *argv[]) {
 					break;
 				case SDL_EVENT_MOUSE_WHEEL:
 					if (NaturalScrolling) {
-						Scroll += 4.f * e.wheel.y;
+						Scroll += 8.f * e.wheel.y;
 					}
 					else {
-						Scroll -= 4.f * e.wheel.y;
+						Scroll -= 8.f * e.wheel.y;
 					}
 					// Keep the scroll value from being negative
 					if (Scroll < 0.f) {
