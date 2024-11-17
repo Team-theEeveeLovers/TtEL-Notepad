@@ -907,6 +907,23 @@ int main(int argc, char *argv[]) {
 							Scroll = 0.f; 
 						}
 						break;
+					case SDLK_PAGEDOWN:
+						Scroll += 80.f;
+						if (Scroll > ScrollUpperBound) {
+							Scroll = ScrollUpperBound;
+						}
+						break;
+					case SDLK_PAGEUP:
+						// Keep the scroll value from being or becoming negative
+						// It is possible for the scroll value to be too high causing float imprecision
+						// Which will make the scroll value not a multiple of 20
+						if (Scroll >= 80.f) {
+							Scroll -= 80.f;
+						}
+						else {
+							Scroll = 0.f;
+						}
+						break;
 					default:
 						handleKey(e.key.keysym.sym, capital);
 						ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
