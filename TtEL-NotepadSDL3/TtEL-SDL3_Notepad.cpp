@@ -661,6 +661,8 @@ int main(int argc, char *argv[]) {
 		bool mouseClicked = false;
 		bool fileMenuOpen = false;
 		float fileMenuY_Offset = 40.f;
+		int loadDrawFrame = 0;
+		int loadDrawTimer = 0;
 		
 		bool fileDialogOpen = false;
 		while (!exiting) {
@@ -1201,6 +1203,7 @@ int main(int argc, char *argv[]) {
 							cout << "No file selected." << endl;
 						}
 						else {
+							fileMenuOpen = false;
 							loadThreadActive = true;
 							loadingThread = thread(loadCurrentFile, currentFilepath);	
 							loadingThread.detach();
@@ -1208,6 +1211,43 @@ int main(int argc, char *argv[]) {
 					}
 				}
 				
+				if (loadThreadActive) {
+					SDL_SetRenderDrawColor(main_renderer, 0x44, 0x66, 0x22, 0x88);
+					RD::FillFRectFromInput(0, 0, scr_floatwid, scr_floathei);
+					if (loadDrawTimer >= 60*4) {
+						loadDrawTimer = 0;
+					}
+					else {
+						loadDrawTimer += 3;
+						loadDrawFrame = floorf(loadDrawTimer / 60.f);
+					}
+					char LOADtable[5] = {' ', 'L', 'O', 'A', 'D'};
+					switch (loadDrawFrame) {
+					case 0:
+						LOADtable[0] = '|';
+						break;
+					case 1:
+						LOADtable[0] = '/';
+						break;
+					case 2:
+						LOADtable[0] = '-';
+						break;
+					case 3:
+						LOADtable[0] = '\\';
+						break;
+					default:
+						LOADtable[0] = '|';
+						break;
+					}
+					for (int i = 0; i < 5; i++) {
+						
+						LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 20.f));
+
+						LOAD[i].drawCharacter();
+						LOAD[i].destroyCharacter();
+					}
+				}
+
 				SDL_RenderPresent(main_renderer);
 			}
 		}
