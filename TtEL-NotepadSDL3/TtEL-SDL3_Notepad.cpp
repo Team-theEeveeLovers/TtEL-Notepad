@@ -29,7 +29,7 @@ int textBufferSize = 128u; // the size of the textual screen buffer
 character LOAD[5]; // the LOAD text
 character *Dtext = new character[textBufferSize]; // all the text in the 'document'
 character FileTab[4]; // the letters for the file menu button
-character FileMenu[12]; // the letters for the options in the file menu
+character FileMenu[16]; // the letters for the options in the file menu
 
 SDL_Texture* textTextures[256];
 vector2_int textTextureSizeVectors[256];
@@ -70,6 +70,9 @@ SDL_Texture* loadTooltipTEX = NULL;
 const char* saveTooltip = "Not implemented yet.";
 SDL_Surface* saveTooltipSRF = NULL; // surface always ready for immediate conversion to texture when tooltip popup appears
 SDL_Texture* saveTooltipTEX = NULL;
+const char* saveAsTooltip = "Not implemented yet.";
+SDL_Surface* saveAsTooltipSRF = NULL; // surface always ready for immediate conversion to texture when tooltip popup appears
+SDL_Texture* saveAsTooltipTEX = NULL;
 const char* exitTooltip = "Close the notepad.";
 SDL_Surface* exitTooltipSRF = NULL; // surface always ready for immediate conversion to texture when tooltip popup appears
 SDL_Texture* exitTooltipTEX = NULL;
@@ -504,19 +507,21 @@ bool loadAssets() {
 		FileTab[3] = loadCharFromChar(&FileTabText[3], vector2_float(68.f, 0.f));
 
 
-		char FileMenuText[12] = 
+		char FileMenuText[16] = 
 		{ 
 			'O','p','e','n', 
 			'S','a','v','e', 
+			'A','s','.','.',
 			'E','x','i','t' 
 		};
-		float filetabOptionTextXPositions[12] = 
+		float filetabOptionTextXPositions[16] = 
 		{ 
 			20.f, 53.f, 78.f, 102.f, 
 			20.f, 42.f, 65.f, 84.f, 
+			20.f, 53.f, 78.f, 102.f,
 			20.f, 44.f, 64.f, 76.f 
 		};
-		for (int i = 0; i < 12; i++) {
+		for (int i = 0; i < 16; i++) {
 			int h = floorf((static_cast<float>(i) / 4.f));
 			FileMenu[i] = loadCharFromChar(&FileMenuText[i], vector2_float(filetabOptionTextXPositions[i], filetabOptionBKGs[h].y-14.f));
 		}
@@ -631,7 +636,15 @@ bool loadAssets() {
 			cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
 			ASSERT("Unable to render text to a surface." && !(saveTooltipSRF == NULL));
 			return false;
-		}		
+		}
+		// We have to make our own little loadTextureFromChar function as it uses main_renderer and popup_window_RENDER doesn't like that
+		saveAsTooltipSRF = TTF_RenderText_Blended(NotoMath, saveAsTooltip, { 0,0,0 });
+		if (saveAsTooltipSRF == NULL)
+		{
+			cout << "Unable to render text to a surface. SDL_ttf Error: " << TTF_GetError() << endl;
+			ASSERT("Unable to render text to a surface." && !(saveAsTooltipSRF == NULL));
+			return false;
+		}
 		// We have to make our own little loadTextureFromChar function as it uses main_renderer and popup_window_RENDER doesn't like that
 		exitTooltipSRF = TTF_RenderText_Blended(NotoMath, exitTooltip, { 0,0,0 });
 		if (exitTooltipSRF == NULL)
@@ -1045,7 +1058,12 @@ int main(int argc, char *argv[]) {
 						if (saveTooltipTEX == NULL) {
 							cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
 							ASSERT(!(saveTooltipTEX == NULL) && "Unable to make a texture from rendered text surface.");
-						}						
+						}		
+						saveAsTooltipTEX = SDL_CreateTextureFromSurface(popup_window_RENDER, saveAsTooltipSRF); // Create a texture from the text surface
+						if (saveAsTooltipTEX == NULL) {
+							cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
+							ASSERT(!(saveAsTooltipTEX == NULL) && "Unable to make a texture from rendered text surface.");
+						}
 						exitTooltipTEX = SDL_CreateTextureFromSurface(popup_window_RENDER, exitTooltipSRF); // Create a texture from the text surface
 						if (exitTooltipTEX == NULL) {
 							cout << "Unable to create a texture from rendered text surface. SDL_error: " << SDL_GetError() << endl;
@@ -1064,8 +1082,12 @@ int main(int argc, char *argv[]) {
 						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[1])) {
 							SDL_FRect DrawRect = { 10.f, 10.f, 280.f, 40.f };
 							SDL_RenderTexture(popup_window_RENDER, saveTooltipTEX, NULL, &DrawRect);
-						}						
+						}	
 						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[2])) {
+							SDL_FRect DrawRect = { 10.f, 10.f, 280.f, 40.f };
+							SDL_RenderTexture(popup_window_RENDER, saveAsTooltipTEX, NULL, &DrawRect);
+						}
+						if (isFMouseInFRectangle(mouseX, mouseY, &filetabOptionBKGs[3])) {
 							SDL_FRect DrawRect = { 20.f, 10.f, 270.f, 40.f };
 							SDL_RenderTexture(popup_window_RENDER, exitTooltipTEX, NULL, &DrawRect);
 						}
@@ -1110,8 +1132,8 @@ int main(int argc, char *argv[]) {
 								filetabOptionBKGs[i].w, 
 								filetabOptionBKGs[i].h
 							);
-							for (int j = 0; j < 3; j++) {
-								int h = j + (i * 3);
+							for (int j = 0; j < 4; j++) {
+								int h = j + (i * 4);
 								FileMenu[h].drawCharacter(vector2_float(0.f, 0.f-fileMenuY_Offset));
 							}
 #ifdef DRAW_DEBUG
@@ -1155,10 +1177,10 @@ int main(int argc, char *argv[]) {
 									case 1:
 										break;
 									case 2:
-										// don't exit if load thread is active because it doesn't like premature termination
-										exiting = !loadThreadActive;
 										break;
 									case 3:
+										// don't exit if load thread is active because it doesn't like premature termination
+										exiting = !loadThreadActive;
 										break;
 									}
 								}
@@ -1173,8 +1195,8 @@ int main(int argc, char *argv[]) {
 								RD::StrokeFRectFromInputRect(filetabOptionBKGs[i]);
 							}
 #endif
-							for (int j = 0; j < 3; j++) {
-								int h = j + (i * 3);
+							for (int j = 0; j < 4; j++) {
+								int h = j + (i * 4);
 								FileMenu[h].drawCharacter();
 							}
 						}
