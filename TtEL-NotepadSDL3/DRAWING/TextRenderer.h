@@ -16,8 +16,8 @@ extern vector2_int textTextureSourceVectors[256];
 extern bool DRAW_DBG;
 #endif
 
-#define MAX_FILESIZE 2048
-#define FILE_PAD 16
+#define MAX_FILESIZE 4096*16 // 64 MB
+#define FILE_PAD 16 // 16 B
 
 class character {
 private:
