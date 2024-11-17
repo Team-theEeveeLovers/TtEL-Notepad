@@ -81,6 +81,7 @@ bool INCREASE_SPACING = false; // increase the spacing between lines
 
 float lineSpacing = 50.f;
 thread loadingThread;
+bool loadThreadActive = false;
 
 void exit(void); // Define exit function so the code can be placed at the bottom of the file (makes sense for code order)
 // and still be callable from the main function.
@@ -92,11 +93,13 @@ constexpr auto INITALIZING = "Initalizing " ;
 bool loadCurrentFile(string FILEpath) {
 	if (!currentFile.loadFile(FILEpath)) {
 		cout << "FAILED TO LOAD FILE AT '" << FILEpath << "'" << endl;
+		loadThreadActive = false;
 		return true;
 	}
 	else {
 		Scroll = 0.0f; // Reset scroll value
 		ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
+		loadThreadActive = false;
 		return false;
 	}
 }
@@ -943,7 +946,7 @@ int main(int argc, char *argv[]) {
 
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
 
-				if (loadingThread.joinable()) {
+				/*if (loadingThread.joinable()) {
 					for (int i = 0; i < 5; i++) {
 						char LOADtable[5] = { ' ', 'L', 'O', 'A', 'D' };
 						LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 20.f));
@@ -953,7 +956,7 @@ int main(int argc, char *argv[]) {
 					}
 					SDL_RenderPresent(main_renderer);
 					loadingThread.join();
-				}
+				}*/
 
 				if (isFMouseInFRectangle(mouseX, mouseY, &fileTabBKG)) {
 					if (FileBKG_R > 0xAC) {
@@ -1139,6 +1142,9 @@ int main(int argc, char *argv[]) {
 										if (currentFile.isFileDialogOpen()) {
 											cout << "Main: FILE DIALOG ALREADY OPEN" << endl;
 										}
+										else if (loadThreadActive) {
+											cout << "Main: LOAD THREAD ALREADY ACTIVE" << endl;
+										}
 										else {
 											cout << "Main: Opening file dialog..." << endl;
 											currentFile.openFileDialog();
@@ -1195,8 +1201,9 @@ int main(int argc, char *argv[]) {
 							cout << "No file selected." << endl;
 						}
 						else {
+							loadThreadActive = true;
 							loadingThread = thread(loadCurrentFile, currentFilepath);	
-							
+							loadingThread.detach();
 						}
 					}
 				}
