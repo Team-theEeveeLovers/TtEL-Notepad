@@ -1155,7 +1155,8 @@ int main(int argc, char *argv[]) {
 									case 1:
 										break;
 									case 2:
-										exiting = true;
+										// don't exit if load thread is active because it doesn't like premature termination
+										exiting = !loadThreadActive;
 										break;
 									case 3:
 										break;
