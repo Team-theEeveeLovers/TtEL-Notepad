@@ -196,6 +196,7 @@ bool TextFile::loadFile(string filePath) {
                 currentChar = '\0';
 
             Dtext[i].loadChar(&currentChar);
+
         }
     }
     return success;

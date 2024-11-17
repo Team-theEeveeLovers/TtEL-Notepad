@@ -80,6 +80,8 @@ bool INCREASE_SPACING = false; // increase the spacing between lines
 #endif
 
 float lineSpacing = 50.f;
+thread loadingThread;
+bool loadThreadActive = false;
 
 void exit(void); // Define exit function so the code can be placed at the bottom of the file (makes sense for code order)
 // and still be callable from the main function.
@@ -88,7 +90,19 @@ bool loadAssets();
 // define "Initalizing" as a char for easier localization
 constexpr auto INITALIZING = "Initalizing " ;
 
-
+bool loadCurrentFile(string FILEpath) {
+	if (!currentFile.loadFile(FILEpath)) {
+		cout << "FAILED TO LOAD FILE AT '" << FILEpath << "'" << endl;
+		loadThreadActive = false;
+		return true;
+	}
+	else {
+		Scroll = 0.0f; // Reset scroll value
+		ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
+		loadThreadActive = false;
+		return false;
+	}
+}
 
 // clears the screen using the default background color 
 int drawClear(void* data) {
@@ -647,6 +661,8 @@ int main(int argc, char *argv[]) {
 		bool mouseClicked = false;
 		bool fileMenuOpen = false;
 		float fileMenuY_Offset = 40.f;
+		int loadDrawFrame = 0;
+		int loadDrawTimer = 0;
 		
 		bool fileDialogOpen = false;
 		while (!exiting) {
@@ -755,10 +771,10 @@ int main(int argc, char *argv[]) {
 					break;
 				case SDL_EVENT_MOUSE_WHEEL:
 					if (NaturalScrolling) {
-						Scroll += 4.f * e.wheel.y;
+						Scroll += 8.f * e.wheel.y;
 					}
 					else {
-						Scroll -= 4.f * e.wheel.y;
+						Scroll -= 8.f * e.wheel.y;
 					}
 					// Keep the scroll value from being negative
 					if (Scroll < 0.f) {
@@ -932,7 +948,17 @@ int main(int argc, char *argv[]) {
 
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
 
+				/*if (loadingThread.joinable()) {
+					for (int i = 0; i < 5; i++) {
+						char LOADtable[5] = { ' ', 'L', 'O', 'A', 'D' };
+						LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 20.f));
 
+						LOAD[i].drawCharacter();
+						LOAD[i].destroyCharacter();
+					}
+					SDL_RenderPresent(main_renderer);
+					loadingThread.join();
+				}*/
 
 				if (isFMouseInFRectangle(mouseX, mouseY, &fileTabBKG)) {
 					if (FileBKG_R > 0xAC) {
@@ -1118,6 +1144,9 @@ int main(int argc, char *argv[]) {
 										if (currentFile.isFileDialogOpen()) {
 											cout << "Main: FILE DIALOG ALREADY OPEN" << endl;
 										}
+										else if (loadThreadActive) {
+											cout << "Main: LOAD THREAD ALREADY ACTIVE" << endl;
+										}
 										else {
 											cout << "Main: Opening file dialog..." << endl;
 											currentFile.openFileDialog();
@@ -1126,7 +1155,8 @@ int main(int argc, char *argv[]) {
 									case 1:
 										break;
 									case 2:
-										exiting = true;
+										// don't exit if load thread is active because it doesn't like premature termination
+										exiting = !loadThreadActive;
 										break;
 									case 3:
 										break;
@@ -1174,17 +1204,51 @@ int main(int argc, char *argv[]) {
 							cout << "No file selected." << endl;
 						}
 						else {
-							if (!currentFile.loadFile(currentFilepath)) {
-								cout << "FAILED TO LOAD FILE AT '" << currentFilepath << "'" << endl;
-							}
-							else {
-								fileMenuOpen = false;
-								Scroll = 0.0f; // Reset scroll value
-								ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
-							}
+							fileMenuOpen = false;
+							loadThreadActive = true;
+							loadingThread = thread(loadCurrentFile, currentFilepath);	
+							loadingThread.detach();
 						}
 					}
 				}
+				
+				if (loadThreadActive) {
+					SDL_SetRenderDrawColor(main_renderer, 0x44, 0x66, 0x22, 0x88);
+					RD::FillFRectFromInput(0, 0, scr_floatwid, scr_floathei);
+					if (loadDrawTimer >= 60*4) {
+						loadDrawTimer = 0;
+					}
+					else {
+						loadDrawTimer += 6;
+						loadDrawFrame = floorf(loadDrawTimer / 60.f);
+					}
+					char LOADtable[5] = {' ', 'L', 'O', 'A', 'D'};
+					switch (loadDrawFrame) {
+					case 0:
+						LOADtable[0] = '|';
+						break;
+					case 1:
+						LOADtable[0] = '/';
+						break;
+					case 2:
+						LOADtable[0] = '-';
+						break;
+					case 3:
+						LOADtable[0] = '\\';
+						break;
+					default:
+						LOADtable[0] = '|';
+						break;
+					}
+					for (int i = 0; i < 5; i++) {
+						
+						LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 40.f));
+
+						LOAD[i].drawCharacter();
+						LOAD[i].destroyCharacter();
+					}
+				}
+
 				SDL_RenderPresent(main_renderer);
 			}
 		}

@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <thread>
 using namespace std;
 #include <SDL.h>
 
