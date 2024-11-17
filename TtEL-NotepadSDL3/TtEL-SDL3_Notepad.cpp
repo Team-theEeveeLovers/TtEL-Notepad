@@ -80,6 +80,7 @@ bool INCREASE_SPACING = false; // increase the spacing between lines
 #endif
 
 float lineSpacing = 50.f;
+thread loadingThread;
 
 void exit(void); // Define exit function so the code can be placed at the bottom of the file (makes sense for code order)
 // and still be callable from the main function.
@@ -942,7 +943,17 @@ int main(int argc, char *argv[]) {
 
 				SDL_SetRenderScale(main_renderer, common_scale, common_scale);
 
+				if (loadingThread.joinable()) {
+					for (int i = 0; i < 5; i++) {
+						char LOADtable[5] = { ' ', 'L', 'O', 'A', 'D' };
+						LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 20.f));
 
+						LOAD[i].drawCharacter();
+						LOAD[i].destroyCharacter();
+					}
+					SDL_RenderPresent(main_renderer);
+					loadingThread.join();
+				}
 
 				if (isFMouseInFRectangle(mouseX, mouseY, &fileTabBKG)) {
 					if (FileBKG_R > 0xAC) {
@@ -1184,11 +1195,12 @@ int main(int argc, char *argv[]) {
 							cout << "No file selected." << endl;
 						}
 						else {
-							thread loadThread(loadCurrentFile, currentFilepath);
-							loadThread.detach();
+							loadingThread = thread(loadCurrentFile, currentFilepath);	
+							
 						}
 					}
 				}
+				
 				SDL_RenderPresent(main_renderer);
 			}
 		}
