@@ -26,7 +26,7 @@ TTF_Font* NotoMath = NULL;
 int textBufferSize = 128u; // the size of the textual screen buffer
 
 
-character LOAD[4]; // the LOAD text
+character LOAD[5]; // the LOAD text
 character *Dtext = new character[textBufferSize]; // all the text in the 'document'
 character FileTab[4]; // the letters for the file menu button
 character FileMenu[12]; // the letters for the options in the file menu
@@ -419,8 +419,8 @@ bool loadAssets() {
 			//char letterTable[1] = { letter };
 			Dtext[i+43].loadChar(letter);
 		}
-		for (int i = 0; i < 4; i++) {
-			char LOADtable[4] = { 'L', 'O', 'A', 'D' };
+		for (int i = 0; i < 5; i++) {
+			char LOADtable[5] = { 'L', 'O', 'A', 'D', '|'};
 			LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 20.f));
 
 			LOAD[i].drawCharacter();
@@ -447,44 +447,47 @@ bool loadAssets() {
 		}
 		cout << endl;
 
-		SDL_SetRenderDrawColor(unsynced_renderer, 0xDB, 0xD7, 0xB6, 0x44);
-		SDL_RenderClear(unsynced_renderer);
+		SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, 0x44);
+		SDL_RenderClear(main_renderer);
 		// loop through rectangles
-		SDL_SetRenderDrawColor(unsynced_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE - 0x44);
+		SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE - 0x44);
 		// we are subtracting the border size here from the screen size in the width value to prevent overdraw from right rect
 		drawingRect = { 0.f, 0.f, scr_floatwid - 10.f, 10.f };
-		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+		SDL_RenderFillRect(main_renderer, &drawingRect);
 		// we are subtracting the border size here from the screen size in the height value to prevent overdraw from bottom rect
 		drawingRect = { 0.f, 0.f, 10.f, scr_floathei - 10.f };
-		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+		SDL_RenderFillRect(main_renderer, &drawingRect);
 
-		SDL_SetRenderDrawColor(unsynced_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE - 0x44);
+		SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE - 0x44);
 
 		drawingRect = { scr_floatwid - 10.f, 0.f, 10.f, scr_floathei }; // Right Rect
-		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+		SDL_RenderFillRect(main_renderer, &drawingRect);
 		drawingRect = { 0.f, scr_floathei - 10.f, scr_floatwid, 10.f }; // Bottom Rect
-		SDL_RenderFillRect(unsynced_renderer, &drawingRect);
+		SDL_RenderFillRect(main_renderer, &drawingRect);
 
-		SDL_SetRenderDrawColor(unsynced_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
+		SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
 
-		SDL_RenderFillRect(unsynced_renderer, &fileTabBKG);
+		SDL_RenderFillRect(main_renderer, &fileTabBKG);
+
+		for (int i = 0; i < 5; i++) {
+			char LOADtable[5] = { 'L', 'O', 'A', 'D', '/' };
+			LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 20.f));
+
+			LOAD[i].drawCharacter();
+		}
 
 
-		SDL_RenderPresent(unsynced_renderer);
+		SDL_RenderPresent(main_renderer);
 
 		char FileTabText[4] = { 'F', 'i', 'l', 'e' };
 
 		FileTab[0] = loadCharFromChar(&FileTabText[0], vector2_float(20.f, 0.f));
-		LOAD[0].destroyCharacter();
 
 		FileTab[1] = loadCharFromChar(&FileTabText[1], vector2_float(44.f, 0.f));
-		LOAD[1].destroyCharacter();
 
 		FileTab[2] = loadCharFromChar(&FileTabText[2], vector2_float(55.f, 0.f));
-		LOAD[2].destroyCharacter();
 
 		FileTab[3] = loadCharFromChar(&FileTabText[3], vector2_float(68.f, 0.f));
-		LOAD[3].destroyCharacter();
 
 
 		char FileMenuText[12] = 
@@ -503,6 +506,42 @@ bool loadAssets() {
 			int h = floorf((static_cast<float>(i) / 4.f));
 			FileMenu[i] = loadCharFromChar(&FileMenuText[i], vector2_float(filetabOptionTextXPositions[i], filetabOptionBKGs[h].y-14.f));
 		}
+
+		SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, 0x44);
+		SDL_RenderClear(main_renderer);
+		// loop through rectangles
+		SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE - 0x44);
+		// we are subtracting the border size here from the screen size in the width value to prevent overdraw from right rect
+		drawingRect = { 0.f, 0.f, scr_floatwid - 10.f, 10.f };
+		SDL_RenderFillRect(main_renderer, &drawingRect);
+		// we are subtracting the border size here from the screen size in the height value to prevent overdraw from bottom rect
+		drawingRect = { 0.f, 0.f, 10.f, scr_floathei - 10.f };
+		SDL_RenderFillRect(main_renderer, &drawingRect);
+
+		SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE - 0x44);
+
+		drawingRect = { scr_floatwid - 10.f, 0.f, 10.f, scr_floathei }; // Right Rect
+		SDL_RenderFillRect(main_renderer, &drawingRect);
+		drawingRect = { 0.f, scr_floathei - 10.f, scr_floatwid, 10.f }; // Bottom Rect
+		SDL_RenderFillRect(main_renderer, &drawingRect);
+
+		SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
+
+		SDL_RenderFillRect(main_renderer, &fileTabBKG);
+
+		for (int i = 0; i < 4; i++) {
+			FileTab[i].drawCharacter();
+		}
+
+		for (int i = 0; i < 5; i++) {
+			char LOADtable[5] = { 'L', 'O', 'A', 'D', '-' };
+			LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 20.f));
+
+			LOAD[i].drawCharacter();
+		}
+
+
+		SDL_RenderPresent(main_renderer);
 
 		arrowCur = IMG_Load("assets/cur/arrow.cur");
 		if (arrowCur == NULL) {
@@ -524,6 +563,45 @@ bool loadAssets() {
 				SDL_DestroySurface(ibeamCur);
 			}
 		}
+
+
+		SDL_SetRenderDrawColor(main_renderer, 0xDB, 0xD7, 0xB6, 0x44);
+		SDL_RenderClear(main_renderer);
+		// loop through rectangles
+		SDL_SetRenderDrawColor(main_renderer, 0xD6, 0xDC, 0xDE, SDL_ALPHA_OPAQUE - 0x44);
+		// we are subtracting the border size here from the screen size in the width value to prevent overdraw from right rect
+		drawingRect = { 0.f, 0.f, scr_floatwid - 10.f, 10.f };
+		SDL_RenderFillRect(main_renderer, &drawingRect);
+		// we are subtracting the border size here from the screen size in the height value to prevent overdraw from bottom rect
+		drawingRect = { 0.f, 0.f, 10.f, scr_floathei - 10.f };
+		SDL_RenderFillRect(main_renderer, &drawingRect);
+
+		SDL_SetRenderDrawColor(main_renderer, 0xAD, 0xAF, 0xA4, SDL_ALPHA_OPAQUE - 0x44);
+
+		drawingRect = { scr_floatwid - 10.f, 0.f, 10.f, scr_floathei }; // Right Rect
+		SDL_RenderFillRect(main_renderer, &drawingRect);
+		drawingRect = { 0.f, scr_floathei - 10.f, scr_floatwid, 10.f }; // Bottom Rect
+		SDL_RenderFillRect(main_renderer, &drawingRect);
+
+		SDL_SetRenderDrawColor(main_renderer, FileBKG_R, FileBKG_G, FileBKG_B, SDL_ALPHA_OPAQUE - 0x44);
+
+		SDL_RenderFillRect(main_renderer, &fileTabBKG);
+
+		for (int i = 0; i < 4; i++) {
+			FileTab[i].drawCharacter();
+		}
+
+		for (int i = 0; i < 5; i++) {
+			char LOADtable[5] = { 'L', 'O', 'A', 'D', '\\' };
+			LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 20.f));
+
+			LOAD[i].drawCharacter();
+			LOAD[i].destroyCharacter();
+		}
+
+
+		SDL_RenderPresent(main_renderer);
+
 		// We have to make our own little loadTextureFromChar function as it uses main_renderer and popup_window_RENDER doesn't like that
 		loadTooltipSRF = TTF_RenderText_Blended(NotoMath, loadTooltip, { 0,0,0 });
 		if (loadTooltipSRF == NULL)
