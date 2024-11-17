@@ -177,4 +177,67 @@ void character::loadChar(char chrctr[1]) {
 	w = textTextureSizeVectors[tableIDX].x;
 	h = textTextureSizeVectors[tableIDX].y;
 };
+
+
+void drawFromTextBuffer(character* textBuffer, int textBufferSize, SDL_FRect TextBackground, float lineSpacing, float Scroll, float RightTextMargin) {
+	for (int i = 0; i <= textBufferSize - 1; i++) {
+		if (textBuffer[i].isFilledChar()) {
+
+			if (i == 0) {
+				textBuffer[i].x = TextBackground.x + 10.f;
+				textBuffer[i].y = TextBackground.y + 14.f;
+			}
+			else {
+				textBuffer[i].x = (textBuffer[i - 1].x + textBuffer[i - 1].w) + 0.3125f;
+				textBuffer[i].y = textBuffer[i - 1].y;
+				if (textBuffer[i].isNewline())
+					textBuffer[i].y += lineSpacing + 10.f;
+			}
+
+
+			if (textBuffer[i].x + textBuffer[i].w > RightTextMargin) {
+				while (textBuffer[i].x + textBuffer[i].w > RightTextMargin) {
+					textBuffer[i].x = textBuffer[i].x - (RightTextMargin - 20.f);
+					textBuffer[i].y = textBuffer[i].y + lineSpacing;
+				}
+			}
+			if (i > 0) {
+				if (textBuffer[i - 1].y < textBuffer[i].y) {
+					textBuffer[i].x = (TextBackground.x + 10.f);
+				}
+			}
+			// If the text got scrolled above the textbox (with added 20.f because of the empty space)
+			if (textBuffer[i].y - Scroll + 20.f < TextBackground.y) {
+				// how far above are we?
+				float above = textBuffer[i].y + Scroll;
+				float below = textBuffer[i].y - Scroll;
+				// If we are completely above
+				if (textBuffer[i].y - Scroll + textBuffer[i].h + 20.f < TextBackground.y) {
+					// allan please add code
+				}
+				else {
+					textBuffer[i].drawCharacter(vector2_float(0.f, 0.f - Scroll + below), vector4_float(0.f, 0.f - ((above / 3.5f)), 0.f, 0.f - below + textBuffer[i].y), vector2_float(0.f, 0.f - below));
+
+					// keep this for scrolling text from below the textbox
+					// float above = textBuffer[i].y - Scroll;
+					// textBuffer[i].drawCharacter(vector2_float(0.f, 0.f - Scroll), vector4_float(0.f, 0.f-(above/2.f), 0.f, 0.f-above), vector2_float(0.f, 0.f-above));
+
+				}
+			}
+			else {
+				textBuffer[i].drawCharacter(vector2_float(0.f, 0.f - Scroll));
+			}
+		}
+		else {
+			// If this is the second instance of NULLness
+			if (i > 1 && textBuffer[i - 1].isEmptyChar())
+				break; // Break out of the for loop
+		}
+	}
+}
+
+
+
+
+
 #endif
