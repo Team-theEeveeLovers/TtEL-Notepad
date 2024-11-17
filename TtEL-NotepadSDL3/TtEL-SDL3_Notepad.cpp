@@ -88,7 +88,17 @@ bool loadAssets();
 // define "Initalizing" as a char for easier localization
 constexpr auto INITALIZING = "Initalizing " ;
 
-
+bool loadCurrentFile(string FILEpath) {
+	if (!currentFile.loadFile(FILEpath)) {
+		cout << "FAILED TO LOAD FILE AT '" << FILEpath << "'" << endl;
+		return true;
+	}
+	else {
+		Scroll = 0.0f; // Reset scroll value
+		ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
+		return false;
+	}
+}
 
 // clears the screen using the default background color 
 int drawClear(void* data) {
@@ -1174,14 +1184,8 @@ int main(int argc, char *argv[]) {
 							cout << "No file selected." << endl;
 						}
 						else {
-							if (!currentFile.loadFile(currentFilepath)) {
-								cout << "FAILED TO LOAD FILE AT '" << currentFilepath << "'" << endl;
-							}
-							else {
-								fileMenuOpen = false;
-								Scroll = 0.0f; // Reset scroll value
-								ScrollUpperBound = static_cast<float>(textBufferSize) * 8.f;
-							}
+							thread loadThread(loadCurrentFile, currentFilepath);
+							loadThread.detach();
 						}
 					}
 				}
