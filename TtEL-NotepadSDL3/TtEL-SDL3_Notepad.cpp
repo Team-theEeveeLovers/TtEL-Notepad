@@ -1241,7 +1241,7 @@ int main(int argc, char *argv[]) {
 					}
 					for (int i = 0; i < 5; i++) {
 						
-						LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 20.f));
+						LOAD[i] = loadCharFromChar(&LOADtable[i], vector2_float(25.f * static_cast<float>(i), 40.f));
 
 						LOAD[i].drawCharacter();
 						LOAD[i].destroyCharacter();
